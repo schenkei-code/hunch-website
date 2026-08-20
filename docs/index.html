@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Loslegen — Hunch Doku</title>
+<meta name="description" content="Hunch-Dokumentation: Loslegen">
+<link rel="icon" type="image/png" href="../favicon.png">
+<link rel="stylesheet" href="docs.css">
+</head>
+<body>
+<nav id="nav">
+  <div class="container nav-inner">
+    <a class="logo" href="../"><img src="../owl.png" alt="">hunch</a>
+    <div class="nav-links">
+      <a href="../#wie">Wie es funktioniert</a>
+      <a href="index.html" class="current">Doku</a>
+    </div>
+    <a class="nav-cta" href="mailto:schenkei@hunchagent.io">Early Access</a>
+  </div>
+</nav>
+<div class="container layout">
+  <aside class="side"><div class="side-label">Dokumentation</div><nav class="side-nav"><a href="index.html" class="active">Loslegen</a><a href="architektur.html">Architektur</a><a href="werkzeuge.html">Werkzeuge</a><a href="gedaechtnis.html">Gedächtnis</a><a href="konfiguration.html">Konfiguration</a><a href="api.html">HTTP-API</a></nav></aside>
+  <main class="doc">
+    <span class="engraved">Dokumentation</span>
+    <h1>Loslegen</h1>
+    
+<p class="lead">Hunch ist eine persönliche Agent-Runtime für PC, Mac und VPS. Drei Befehle, dann läuft sie.</p>
+
+<h2>Installation</h2>
+<pre><code>pipx install .          # oder: pip install .
+
+hunch init              # Ordner anlegen, zeigen was fehlt
+hunch check             # Antworten die Modelle? Was liegt hier?
+hunch run               # läuft, auf 127.0.0.1:8000</code></pre>
+<p><code>hunch check</code> endet mit Exit-Code 1, wenn etwas nicht antwortet — taugt also für ein Startskript oder eine Überwachung, ohne dass jemand die Ausgabe liest.</p>
+
+<h2>Auf dem Server (systemd)</h2>
+<pre><code>sudo cp deploy/hunch.service /etc/systemd/system/
+sudo systemctl enable --now hunch
+journalctl -u hunch -f</code></pre>
+<p>Die Unit läuft als eigener Nutzer und bindet auf <code>0.0.0.0</code> — deshalb braucht sie ein <code>HUNCH_AUTH_TOKEN</code> in <code>~/.hunch/env</code>, sonst startet sie nicht. Schlüssel gehören in diese Datei (0600), nicht in die Unit: die steht im Klartext in <code>/etc/systemd</code> und wandert in jedes Backup.</p>
+
+<h2>Ohne gemieteten Server</h2>
+<p>Ein Rechner, der ohnehin läuft, reicht — und das Telefon erreicht ihn von unterwegs über ein privates Netz zwischen den eigenen Geräten (Tailscale, WireGuard). Kein Port im Router, keine feste Adresse, alles verschlüsselt.</p>
+<p>Dabei <strong>an die Adresse aus diesem Netz binden, nicht an <code>0.0.0.0</code></strong>:</p>
+<pre><code>HUNCH_HOST=100.101.102.103 HUNCH_AUTH_TOKEN=… hunch run</code></pre>
+<p>Der Unterschied ist nicht kosmetisch. <code>0.0.0.0</code> heißt: auch das Gäste-WLAN, auch ein Router, der irgendwann einen Port weiterleitet. Die Tailscale-Adresse heißt: nur die eigenen Geräte.</p>
+
+<h2>Windows</h2>
+<pre><code>.\deploy\hunch-windows.ps1              # einrichten, startet bei der Anmeldung
+.\deploy\hunch-windows.ps1 -Starten     # sofort loslegen
+.\deploy\hunch-windows.ps1 -Zeigen      # Zustand ansehen</code></pre>
+<p>Ohne Administratorrechte, unter deinem Konto — eine Runtime unter SYSTEM hätte keinen Zugriff auf deine Dateien. Die geplante Aufgabe liest <code>~/.hunch/env</code> ein und läuft bei einem Absturz bis zu dreimal wieder an.</p>
+
+<h2>HTTPS — und warum das iPhone sonst nicht mitspielt</h2>
+<p>Wer die Runtime über Tailscale erreichen will, braucht ein Zertifikat. Nicht aus Prinzip, sondern weil iOS sonst gar nicht erst anfragt: App Transport Security erlaubt Klartext-HTTP nur ins wirklich lokale Netz — <code>192.168.*</code>, <code>10.*</code>, <code>*.local</code>. Eine Tailscale-Adresse liegt in <code>100.64.0.0/10</code> und zählt dort nicht dazu.</p>
+<pre><code>tailscale cert --cert-file ~/.hunch/tls/hunch.crt \
+               --key-file  ~/.hunch/tls/hunch.key \
+               dein-rechner.tailXXXX.ts.net</code></pre>
+<p>Dann die beiden Pfade in <code>HUNCH_TLS_CERT</code> und <code>HUNCH_TLS_KEY</code>, und in der App den <strong>Namen</strong> eintragen, nicht die IP — ein Zertifikat gilt für einen Namen. Auf einem VPS hinter einem Reverse-Proxy bleiben beide Variablen leer: dort macht der Proxy das TLS.</p>
+
+<h2>Direkt am Gedächtnis, ohne Server</h2>
+<pre><code>hunch remember "Steuerunterlagen bis Ende März einreichen"
+hunch search Steuer
+hunch tasks</code></pre>
+<p>Das ist dasselbe Gedächtnis, das die App und Claude Code sehen — kein Export, kein Abgleich.</p>
+
+    <footer class="doc-foot">© 2026 Hunch — <a href="../">hunchagent.io</a></footer>
+  </main>
+</div>
+<script>
+const nav = document.getElementById('nav');
+addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 8), {passive: true});
+</script>
+</body>
+</html>

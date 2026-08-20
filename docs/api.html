@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HTTP-API — Hunch Doku</title>
+<meta name="description" content="Hunch-Dokumentation: HTTP-API">
+<link rel="icon" type="image/png" href="../favicon.png">
+<link rel="stylesheet" href="docs.css">
+</head>
+<body>
+<nav id="nav">
+  <div class="container nav-inner">
+    <a class="logo" href="../"><img src="../owl.png" alt="">hunch</a>
+    <div class="nav-links">
+      <a href="../#wie">Wie es funktioniert</a>
+      <a href="index.html" class="current">Doku</a>
+    </div>
+    <a class="nav-cta" href="mailto:schenkei@hunchagent.io">Early Access</a>
+  </div>
+</nav>
+<div class="container layout">
+  <aside class="side"><div class="side-label">Dokumentation</div><nav class="side-nav"><a href="index.html">Loslegen</a><a href="architektur.html">Architektur</a><a href="werkzeuge.html">Werkzeuge</a><a href="gedaechtnis.html">Gedächtnis</a><a href="konfiguration.html">Konfiguration</a><a href="api.html" class="active">HTTP-API</a></nav></aside>
+  <main class="doc">
+    <span class="engraved">Dokumentation</span>
+    <h1>HTTP-API</h1>
+    
+<p class="lead">Die Runtime spricht HTTP und WebSocket auf <code>127.0.0.1:8000</code> (konfigurierbar). Alles hinter dem Auth-Token, sobald sie nicht auf localhost lauscht.</p>
+
+<h2>Endpunkte</h2>
+<table>
+<tr><th>Weg</th><th>Wofür</th></tr>
+<tr><td><code>POST /events</code></td><td>Ereignis melden</td></tr>
+<tr><td><code>GET /nudges?since=</code></td><td>Impulse abholen</td></tr>
+<tr><td><code>GET /approvals</code> · <code>POST /approvals/{id}</code></td><td>Freigaben sehen und beantworten</td></tr>
+<tr><td><code>POST /brain/sync</code></td><td>Gedächtnis abgleichen, beide Richtungen</td></tr>
+<tr><td><code>GET /brain/search?q=</code></td><td>Im Gedächtnis suchen</td></tr>
+<tr><td><code>GET /tools</code> · <code>GET /audit</code> · <code>GET /status</code></td><td>Nachsehen, was da ist und was war</td></tr>
+<tr><td><code>GET /providers</code> · <code>GET /runtimes</code></td><td>Welche Modelle und welche Agenten hier gehen</td></tr>
+<tr><td><code>GET /v1/channels</code></td><td>Was diese Runtime mitliest, im Klartext</td></tr>
+<tr><td><code>GET /v1/wallet</code> · <code>POST /v1/wallet-pass</code></td><td>Ob eine Wallet-Karte geht, und sie bauen</td></tr>
+<tr><td><code>WS /ws</code></td><td>Ereignisse rein, Impulse raus — ohne Abfragen</td></tr>
+</table>
+
+<h2>Ein Ereignis von Hand</h2>
+<pre><code>curl -X POST localhost:8000/events \
+  -H 'Content-Type: application/json' \
+  -d '{"source":"cli","kind":"user_message","payload":{"text":"was steht an?"}}'
+
+curl localhost:8000/nudges</code></pre>
+
+<h2>Status und Provider</h2>
+<p><code>GET /providers</code> liefert die Anbieter-Liste, <code>GET /status</code> sagt, ob beide Rollen tatsächlich antworten — Schlüssel dabei immer nur als Ja/Nein.</p>
+
+<h2>Testen</h2>
+<pre><code>python -m tests.test_e2e           # Observer, Executive, Guardrails
+python -m tests.test_http          # echter uvicorn, echte Requests
+python -m tests.test_providers     # jeder Anbieter gegen einen Spiegel-Server
+python -m tests.test_harness       # echte Kindprozesse, Zeitgrenze, Umgebung
+python -m tests.test_brain_shared  # Abgleich unter Last, MCP über stdio
+python -m tests.test_channels      # Telegram gegen einen falschen Bot-Server
+python -m tests.test_ssrf          # interne Adressen, Umleitung für Umleitung
+python -m tests.test_companion     # die Runtime aus der Sicht der iOS-App
+python -m tests.test_wallet        # vCard, Faltung, Pass-Paket, echte Signatur
+python -m tests.test_mcp_client    # fremder MCP-Server als echter Kindprozess</code></pre>
+<p>Alle zehn laufen ohne API-Schlüssel und ohne Netz.</p>
+
+    <footer class="doc-foot">© 2026 Hunch — <a href="../">hunchagent.io</a></footer>
+  </main>
+</div>
+<script>
+const nav = document.getElementById('nav');
+addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 8), {passive: true});
+</script>
+</body>
+</html>
