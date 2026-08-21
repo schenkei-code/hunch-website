@@ -272,6 +272,41 @@ footer{border-top:1px solid var(--security-line);padding:2.2rem 0 calc(2.2rem + 
 .foot a{color:var(--gold-text)}
 .microprint{margin-top:1.4rem;overflow:hidden;white-space:nowrap;font:600 .5rem/1 var(--mono);letter-spacing:.22em;text-transform:uppercase;color:rgba(174,134,46,.55);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
 
+/* figuren — Kapitel-Skulpturen, freigestellt, auf Papier */
+.head-row{display:grid;grid-template-columns:minmax(0,1fr) clamp(9rem,24vw,17rem);gap:clamp(1.2rem,4vw,3rem);align-items:center}
+.fig{margin:0;position:relative;display:flex;flex-direction:column;align-items:center;gap:.6rem}
+.fig img{width:100%;height:auto;filter:drop-shadow(0 1.2rem 1.8rem rgba(60,40,5,.28)) drop-shadow(0 2px 3px rgba(0,0,0,.12))}
+.fig figcaption{font:600 .56rem/1.4 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--security-gold);text-align:center;padding-top:.5rem;border-top:1px solid var(--security-line);width:100%}
+/* authority gate — Freigabe-Karte (Komponente aus der Brand Bible, specimen) */
+.gate-card{position:relative;max-width:30rem;justify-self:end;width:100%;background:var(--paper-pearl);border:1px solid rgba(174,134,46,.45);border-radius:var(--r-card);padding:1.2rem 1.3rem 1rem;box-shadow:var(--document-shadow);overflow:hidden}
+.gate-card::before{content:"";position:absolute;inset:0;background-image:var(--guilloche-paper);opacity:.45;pointer-events:none;mask-image:linear-gradient(180deg,#000,transparent 55%);-webkit-mask-image:linear-gradient(180deg,#000,transparent 55%)}
+.gate-card > *{position:relative}
+.gate-top{display:flex;justify-content:space-between;align-items:center;gap:.8rem;margin-bottom:.8rem}
+.gate-risk{font:700 .58rem/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--warn);border:1px solid currentColor;border-radius:4px;padding:.35em .55em}
+.gate-risk::before{content:"▲ "}
+.gate-serial{font:600 .56rem/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--stone-500)}
+.gate-card h3{font-size:1.05rem;font-weight:700;letter-spacing:-.01em;line-height:1.3}
+.gate-card p{margin-top:.4rem;font-size:.86rem;color:var(--dim)}
+.gate-facts{margin:1rem 0 0;display:grid;grid-template-columns:repeat(2,1fr);gap:.55rem .9rem;padding-top:.9rem;border-top:1px solid var(--security-line)}
+.gate-facts div:first-child{grid-column:1 / -1}
+.gate-facts dt{font:650 .54rem/1.2 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--stone-500)}
+.gate-facts dd{margin:.15rem 0 0;font:600 .82rem/1.2 var(--mono);color:var(--ink)}
+.gate-actions{margin-top:1rem;display:grid;grid-template-columns:1fr 1fr;gap:.6rem}
+.gate-btn{display:flex;align-items:center;justify-content:center;min-height:42px;border-radius:999px;font-size:.88rem;font-weight:600;border:1px solid var(--ink-1000);color:var(--ink-1000)}
+.gate-btn.primary{border-color:var(--gold-500);background:linear-gradient(180deg,var(--gold-300),var(--gold-400) 55%,var(--gold-500));color:var(--ink-1000);box-shadow:inset 0 1px 0 rgba(255,255,255,.5)}
+.gate-foot{margin-top:.9rem;padding-top:.6rem;border-top:1px solid var(--security-line-soft);font:600 .52rem/1.4 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--stone-500)}
+/* stempel — status-register */
+.stamp{justify-self:center;width:9.5rem;height:9.5rem;border-radius:50%;display:grid;place-content:center;text-align:center;gap:.2rem;transform:rotate(-8deg);
+  border:2px solid var(--security-gold);outline:1px solid var(--security-gold);outline-offset:-7px;color:var(--gold-700);background:rgba(255,255,255,.35)}
+.stamp span{font:650 .52rem/1.3 var(--mono);letter-spacing:.16em;text-transform:uppercase}
+.stamp b{font:800 1.1rem/1 var(--display);letter-spacing:-.02em;text-transform:lowercase}
+@media(max-width:900px){
+  .head-row{grid-template-columns:1fr}
+  .fig{max-width:12rem;margin:0 auto}
+  .gate-card{justify-self:stretch;max-width:none}
+  .stamp{margin:0 auto}
+}
+
 @media(max-width:1500px){ .nav-serial{display:none} }
 @media(max-width:900px){
   .hero-grid{grid-template-columns:1fr}
@@ -320,7 +355,6 @@ footer{border-top:1px solid var(--security-line);padding:2.2rem 0 calc(2.2rem + 
       <a href="#apps">Apps</a>
       <a href="#status">Status</a>
       <a href="docs/index.html">Doku</a>
-      <a href="brand/">Brand</a>
     </div>
     <span class="nav-serial">intentional agent · owner bound · 2026</span>
     <a class="nav-cta" href="mailto:schenkei@hunchagent.io?subject=Hunch%20Early%20Access">Early Access</a>
@@ -331,7 +365,7 @@ footer{border-top:1px solid var(--security-line);padding:2.2rem 0 calc(2.2rem + 
 <header class="hero" id="top">
   <div class="wrap">
     <div class="hero-grid">
-      <span class="hero-serial">hunch / brand system 2026.03 / hunchagent.io</span>
+      <span class="hero-serial">hunch / intentional agent / hunchagent.io</span>
       <div>
         <h1><span class="wordmark">hunch</span><span class="eyebrow">intentional agent</span></h1>
         <div class="three" aria-label="kennt dich. erkennt den moment. handelt in deinem auftrag.">
@@ -370,12 +404,15 @@ footer{border-top:1px solid var(--security-line);padding:2.2rem 0 calc(2.2rem + 
 <!-- HUNCH MOMENT -->
 <section id="moment" data-serial="01 / der moment · scope: hunchagent.io · status signiert">
   <div class="wrap">
-    <div class="head">
+    <div class="head-row">
+<div class="head">
       <span class="eyebrow reveal" data-no="01">Der Hunch-Moment</span>
       <h2 class="reveal">Ein echtes Signal wird zu einer sinnvollen Handlung — innerhalb deiner Regeln.</h2>
       <p class="lead reveal">Das ist keine Gedankenlesen-Magie. Hunch gewinnt seinen Vorsprung aus
       realen Signalen, gelernten Zusammenhängen und dem langfristigen Verständnis für dich. Ein Beispiel:
       eine neue Datei taucht auf, die zu einer Entscheidung von vor drei Wochen gehört.</p>
+    </div>
+    <figure class="fig reveal" aria-hidden="true"><img src="figures/fig-moment.png" width="900" height="900" alt="" loading="lazy"><figcaption>sonnenuhr · der richtige moment</figcaption></figure>
     </div>
     <div class="flow reveal">
       <ol>
@@ -434,7 +471,8 @@ footer{border-top:1px solid var(--security-line);padding:2.2rem 0 calc(2.2rem + 
 <!-- PERSONAL MODEL & ANTICIPATION -->
 <section id="modell" data-serial="03 / persönliches modell · scope: hunchagent.io · status signiert">
   <div class="wrap">
-    <div class="head">
+    <div class="head-row">
+<div class="head">
       <span class="eyebrow reveal" data-no="03">Persönliches Modell &amp; Antizipation</span>
       <h2 class="reveal">Wodurch Hunch vorausschauend wird.</h2>
       <p class="lead reveal">Das persönliche Modell verbindet nur aktivierte, kontrollierbare Quellen —
@@ -442,6 +480,8 @@ footer{border-top:1px solid var(--security-line);padding:2.2rem 0 calc(2.2rem + 
       Themen, Arbeitsrhythmen, verwendete Apps, Dateien und Projekte, wiederkehrende Abläufe, offene
       Schleifen und die Resultate früherer Handlungen. „Hunch liest alles" ist ausdrücklich falsch —
       Browser-, Clipboard-, Datei-, App- und Screen-Kontext sind optionale, lokal kontrollierbare Sensoren.</p>
+    </div>
+    <figure class="fig reveal" aria-hidden="true"><img src="figures/fig-modell.png" width="900" height="900" alt="" loading="lazy"><figcaption>springer · der nächste zug</figcaption></figure>
     </div>
     <div class="grid g4">
       <div class="card reveal"><h3>Routine <span class="tag heute">Heute</span></h3><p>Was passiert zu dieser Tageszeit normalerweise? Ein Stundenprofil deiner Themen.</p></div>
@@ -460,12 +500,15 @@ footer{border-top:1px solid var(--security-line);padding:2.2rem 0 calc(2.2rem + 
 <!-- BRAIN -->
 <section id="brain" class="sheet" data-serial="04 / brain & vorhaben · scope: hunchagent.io · status signiert">
   <div class="wrap">
-    <div class="head">
+    <div class="head-row">
+<div class="head">
       <span class="eyebrow reveal" data-no="04">Brain, Vorhaben &amp; offene Schleifen</span>
       <h2 class="reveal">Ein lebendes persönliches Gedächtnis — kein leeres Dashboard.</h2>
       <p class="lead reveal">Brain hält Erinnerungen, Gespräche, Aufgaben, Ziele, Arbeitspräferenzen,
       relevante Personen und Themen, Momentum, offene Schleifen, Zusammenhänge sowie Ergebnisse und
       Fehlschläge. Es liegt standardmäßig lokal auf deinem Gerät.</p>
+    </div>
+    <figure class="fig reveal" aria-hidden="true"><img src="figures/fig-brain.png" width="900" height="900" alt="" loading="lazy"><figcaption>gedächtnis · lebendes register</figcaption></figure>
     </div>
     <div class="rule reveal">
       <b>Aufgabe ≠ Vorhaben.</b> Eine Aufgabe ist ein einzelner Schritt. Ein Vorhaben ist etwas, das du
@@ -479,9 +522,12 @@ footer{border-top:1px solid var(--security-line);padding:2.2rem 0 calc(2.2rem + 
 <!-- SELF IMPROVEMENT -->
 <section id="lernen" data-serial="05 / selbstverbesserung · scope: hunchagent.io · status signiert">
   <div class="wrap">
-    <div class="head">
+    <div class="head-row">
+<div class="head">
       <span class="eyebrow reveal" data-no="05">Hunch wird mit dir besser — kontrolliert</span>
       <h2 class="reveal">Selbstverbesserung ist kein vages „die KI wird immer schlauer".</h2>
+    </div>
+    <figure class="fig reveal" aria-hidden="true"><img src="figures/fig-lernen.png" width="900" height="900" alt="" loading="lazy"><figcaption>wendeltreppe · besser, nicht nur mehr</figcaption></figure>
     </div>
     <div class="grid g3">
       <div class="card reveal"><h3>Sein Verständnis von dir <span class="tag heute">Heute</span></h3>
@@ -508,13 +554,16 @@ footer{border-top:1px solid var(--security-line);padding:2.2rem 0 calc(2.2rem + 
 <!-- WORKSTYLE & MEMORY SCOPES -->
 <section id="arbeitsweise" class="sheet" data-serial="06 / arbeitsweise & memory · scope: hunchagent.io · status signiert">
   <div class="wrap">
-    <div class="head">
+    <div class="head-row">
+<div class="head">
       <span class="eyebrow reveal" data-no="06">Persönliche Arbeitsweise &amp; Memory</span>
       <h2 class="reveal">Hunch lernt nicht nur, wer du bist — sondern wie es mit dir arbeiten soll.</h2>
       <p class="lead reveal">Es erinnert sich nicht nur an Fakten, sondern an die gewünschte Art der
       Zusammenarbeit: ob du kurze oder ausführliche Antworten willst, ob Hunch direkt ausführen oder
       zuerst erklären soll, wann Rückfragen sinnvoll sind, welche Entscheidungen Hunch selbst treffen
       darf und welche Handlungen nie automatisch passieren dürfen.</p>
+    </div>
+    <figure class="fig reveal" aria-hidden="true"><img src="figures/fig-scopes.png" width="900" height="900" alt="" loading="lazy"><figcaption>drei ringe · global, projekt, faden</figcaption></figure>
     </div>
     <div class="scopes">
       <div class="scope reveal"><h3>Globale Ebene <span class="tag heute">Heute</span></h3>
@@ -546,11 +595,14 @@ footer{border-top:1px solid var(--security-line);padding:2.2rem 0 calc(2.2rem + 
 <!-- OBSERVER / EXECUTIVE -->
 <section id="observer" data-serial="07 / observer & executive · scope: hunchagent.io · status signiert">
   <div class="wrap">
-    <div class="head">
+    <div class="head-row">
+<div class="head">
       <span class="eyebrow reveal" data-no="07">Observer &amp; Executive</span>
       <h2 class="reveal">Einer beobachtet still. Eine handelt — nur innerhalb deiner Regeln.</h2>
       <p class="lead reveal">Hunch denkt nicht ständig laut. Ein stiller Observer erkennt, was relevant
       werden könnte. Erst dann übernimmt der Executive.</p>
+    </div>
+    <figure class="fig reveal" aria-hidden="true"><img src="figures/fig-observer.png" width="900" height="900" alt="" loading="lazy"><figcaption>auge und hand · beobachten, handeln</figcaption></figure>
     </div>
     <div class="duo">
       <div class="card reveal">
@@ -574,12 +626,15 @@ footer{border-top:1px solid var(--security-line);padding:2.2rem 0 calc(2.2rem + 
 <!-- GLOBAL SESSION -->
 <section id="session" class="sheet" data-serial="08 / globale session · scope: hunchagent.io · status signiert">
   <div class="wrap">
-    <div class="head">
+    <div class="head-row">
+<div class="head">
       <span class="eyebrow reveal" data-no="08">Eine globale Session</span>
       <h2 class="reveal">Ein Hunch, eine Beziehung — überall.</h2>
       <p class="lead reveal">Du wechselst die Oberfläche, nicht das Gegenüber. Hunch behält Ziele,
       Entscheidungen, Arbeitsweise und relevante Zusammenhänge im Blick — egal, welches Modell oder Gerät
       gerade verwendet wird. Wechsel von iPhone zu Computer, Terminal oder Telegram ohne mentalen Neustart.</p>
+    </div>
+    <figure class="fig reveal" aria-hidden="true"><img src="figures/fig-session.png" width="900" height="900" alt="" loading="lazy"><figcaption>möbius · eine fortlaufende beziehung</figcaption></figure>
     </div>
     <div class="rule reveal">
       Gemeinsame Identität und gemeinsames Gedächtnis sind vorhanden; App, Runtime und MCP können bereits
@@ -594,13 +649,16 @@ footer{border-top:1px solid var(--security-line);padding:2.2rem 0 calc(2.2rem + 
 <!-- FÄDEN -->
 <section id="faeden" data-serial="09 / fäden · scope: hunchagent.io · status signiert">
   <div class="wrap">
-    <div class="head">
+    <div class="head-row">
+<div class="head">
       <span class="eyebrow reveal" data-no="09">Fäden</span>
       <h2 class="reveal">Du denkst weiter, Hunch arbeitet weiter.</h2>
       <p class="lead reveal">Fäden sind parallele, persistente Arbeitsstränge innerhalb deiner Beziehung
       zu Hunch. Während ein längerer Auftrag läuft, bleibt das Hauptgespräch sofort frei — ein gewöhnlicher
       Assistent würde den Dialog blockieren. Jeder Faden hat ein klares Ziel, eigenen Kontext, eigene
       Tool-Runden, Freigaben und ein Ergebnis, das zum ursprünglichen Kanal zurückkehrt.</p>
+    </div>
+    <figure class="fig reveal" aria-hidden="true"><img src="figures/fig-faeden.png" width="900" height="900" alt="" loading="lazy"><figcaption>drei fäden · ein zopf</figcaption></figure>
     </div>
     <div class="grid g3">
       <div class="card reveal"><h3><span class="tag heute" style="background:rgba(30,122,60,.12)">Läuft</span></h3><p>Der Faden arbeitet an seinem Auftrag, zeigt Fortschritt und Laufzeit.</p></div>
@@ -616,11 +674,27 @@ footer{border-top:1px solid var(--security-line);padding:2.2rem 0 calc(2.2rem + 
 <!-- AUTHORITY GATE -->
 <section id="autoritaet" class="sheet" data-serial="10 / authority gate · scope: hunchagent.io · status signiert">
   <div class="wrap">
-    <div class="head">
+    <div class="head-row">
+<div class="head">
       <span class="eyebrow reveal" data-no="10">Authority Gate</span>
       <h2 class="reveal">Hunch darf Absichten erkennen. Autorität erfindet es nicht.</h2>
       <p class="lead reveal">Das Authority Gate ist kein einzelner magischer Schalter, sondern das sichtbare
       Zusammenspiel mehrerer Schutzebenen. Vorausschauend, aber niemals eigenmächtig.</p>
+    </div>
+    <div class="gate-card reveal" role="img" aria-label="Authority Gate — Beispiel einer Freigabe-Karte mit anonymisierten Daten">
+      <div class="gate-top"><span class="gate-risk">erhöhtes risiko</span><span class="gate-serial">authority gate · 04</span></div>
+      <h3>Hunch möchte die Buchung verbindlich absenden.</h3>
+      <p>Diese Aktion erzeugt externe Kosten und kann nicht automatisch rückgängig gemacht werden.</p>
+      <dl class="gate-facts">
+        <div><dt>owner credential</dt><dd>HID · 6699</dd></div>
+        <div><dt>scope</dt><dd>Faden „Berlin“</dd></div>
+        <div><dt>anbieter</dt><dd>ÖBB</dd></div>
+        <div><dt>betrag</dt><dd>€ 49,90</dd></div>
+        <div><dt>protokoll</dt><dd>aktiv</dd></div>
+      </dl>
+      <div class="gate-actions"><span class="gate-btn">ablehnen</span><span class="gate-btn primary">freigeben</span></div>
+      <div class="gate-foot">specimen · anonymisierte daten · receipt folgt nach entscheidung</div>
+    </div>
     </div>
     <div class="grid g4">
       <div class="card reveal"><h3>Identität <span class="tag heute">Heute</span></h3><p>Das Besitzergerät erzeugt einen privaten Schlüssel in der Secure Enclave — biometrisch geschützt, nicht exportierbar, nicht im Backup. Aus dem Public-Key entsteht deine HID.</p></div>
@@ -645,11 +719,14 @@ footer{border-top:1px solid var(--security-line);padding:2.2rem 0 calc(2.2rem + 
 <!-- MODELS / SKILLS / CAPABILITY LAYER -->
 <section id="modelle" data-serial="11 / modelle & skills · scope: hunchagent.io · status signiert">
   <div class="wrap">
-    <div class="head">
+    <div class="head-row">
+<div class="head">
       <span class="eyebrow reveal" data-no="11">Modelle, Skills, MCPs &amp; Harnesses</span>
       <h2 class="reveal">Das Modell ist austauschbar. Hunch bleibt.</h2>
       <p class="lead reveal">Bring your model, keep your hunch. Hunchs Identität, Gedächtnis, Authority,
       Arbeitspräferenzen und Skills sind nicht an einen Modellprovider gebunden — drei unabhängige Ebenen.</p>
+    </div>
+    <figure class="fig reveal" aria-hidden="true"><img src="figures/fig-modelle.png" width="900" height="900" alt="" loading="lazy"><figcaption>die eule bleibt · das modul wechselt</figcaption></figure>
     </div>
     <div class="grid g3">
       <div class="card reveal"><h3>1 · Hunch <span class="tag heute">Heute</span></h3><p>Identität, Brain, Vorhaben, Arbeitsweise und Authority. Der bleibende Kern.</p></div>
@@ -726,9 +803,12 @@ footer{border-top:1px solid var(--security-line);padding:2.2rem 0 calc(2.2rem + 
 <!-- LOCAL FIRST / PRIVACY -->
 <section id="privat" data-serial="13 / local-first & kontrolle · scope: hunchagent.io · status signiert">
   <div class="wrap">
-    <div class="head">
+    <div class="head-row">
+<div class="head">
       <span class="eyebrow reveal" data-no="13">Local-first &amp; Kontrolle</span>
       <h2 class="reveal">Nicht nur „Privacy first" als Slogan — so funktioniert die Kontrolle.</h2>
+    </div>
+    <figure class="fig reveal" aria-hidden="true"><img src="figures/fig-privat.png" width="900" height="900" alt="" loading="lazy"><figcaption>owner bound · lokal verschlossen</figcaption></figure>
     </div>
     <div class="grid g3">
       <div class="card reveal"><h3>Lokal &amp; deine Hardware</h3><p>Persönliches Gedächtnis liegt standardmäßig lokal. Die Runtime läuft auf deiner eigenen Hardware.</p></div>
@@ -744,10 +824,13 @@ footer{border-top:1px solid var(--security-line);padding:2.2rem 0 calc(2.2rem + 
 <!-- STATUS MATRIX -->
 <section id="status" class="sheet" data-serial="14 / product truth · scope: hunchagent.io · status signiert">
   <div class="wrap">
-    <div class="head center">
+    <div class="head-row">
+<div class="head center">
       <span class="eyebrow reveal" data-no="14">Ehrlicher Status</span>
       <h2 class="reveal">Was heute läuft, was experimentell ist, was kommt.</h2>
       <p class="lead reveal">Die Vision bleibt stark — aber nichts hier ist als ausgeliefert dargestellt, was es nicht ist.</p>
+    </div>
+    <div class="stamp reveal" aria-hidden="true"><span>product truth</span><b>signiert</b><span>2026 · specimen</span></div>
     </div>
     <div class="matrix">
       <div class="col reveal"><h3><span class="tag heute">Heute</span></h3><ul>
@@ -798,7 +881,7 @@ footer{border-top:1px solid var(--security-line);padding:2.2rem 0 calc(2.2rem + 
 <footer>
   <div class="wrap foot">
     <a class="logo" href="#top"><img src="owl-mark.png" alt="">hunch</a>
-    <div>© 2026 Hunch — hunchagent.io · <a href="docs/index.html">Dokumentation</a> · <a href="brand/">Brand System</a></div>
+    <div>© 2026 Hunch — hunchagent.io · <a href="docs/index.html">Dokumentation</a></div>
   </div>
   <div class="wrap microprint" aria-hidden="true">hunch · intentional agent · owner bound · authority controlled · kennt dich · erkennt den moment · handelt in deinem auftrag · hunch · intentional agent · owner bound · authority controlled · kennt dich · erkennt den moment · handelt in deinem auftrag · hunch · intentional agent · owner bound · authority controlled</div>
 </footer>
