@@ -59,14 +59,13 @@ code,.mono{font-family:var(--mono)}
 
 /* Serien-/Scope-Schrift: Mono kennzeichnet Herkunft, Scope, Zustand — nie Primärtext */
 .eyebrow{display:inline-flex;align-items:center;gap:.6rem;font:650 .68rem/1 var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--security-gold)}
-.eyebrow::before{content:attr(data-no);display:inline-grid;place-items:center;min-width:1.9em;height:1.9em;padding:0 .35em;border:1px solid var(--security-gold);color:var(--security-gold);font-weight:700;letter-spacing:.05em}
+.eyebrow::before{content:attr(data-no) " /";color:var(--security-gold);font-weight:700;letter-spacing:.12em}
 .eyebrow:not([data-no])::before{display:none}
 .gold{color:var(--gold-600)}
 
-/* status — signiert, nicht nur gefärbt: Wort + Zeichen, Hairline */
-.tag{display:inline-flex;align-items:center;gap:.5em;font:650 .6rem/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;
-  padding:.38em .65em .32em;border:1px solid currentColor;border-radius:4px;white-space:nowrap;vertical-align:middle;background:rgba(255,255,255,.55)}
-.tag::before{content:"";width:.4rem;height:.4rem;border-radius:50%;background:currentColor;flex:0 0 auto}
+/* status — signiert, nicht gekastelt: kleines Mono-Wort mit Punkt, keine Box */
+.tag{display:inline-flex;align-items:center;gap:.45em;font:650 .6rem/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;white-space:nowrap;vertical-align:middle;opacity:.9}
+.tag::before{content:"";width:.38rem;height:.38rem;border-radius:50%;background:currentColor;flex:0 0 auto}
 .tag.heute{color:var(--ok)}
 .tag.exp{color:var(--warn)}
 .tag.next{color:var(--stone-600)}
@@ -185,7 +184,7 @@ h2{font-size:clamp(1.7rem,4.2vw,2.55rem);font-weight:800;line-height:1.1;margin-
 .vs .col{border-radius:var(--r-card);padding:1.6rem 1.5rem;border:1px solid var(--security-line);position:relative;overflow:hidden}
 .vs .ordinary{background:rgba(255,255,255,.45)}
 .vs .hunch{background:var(--paper-pearl);border-color:rgba(174,134,46,.45);box-shadow:var(--document-shadow)}
-.vs .hunch::after{content:"owner bound";position:absolute;right:1.2rem;top:1.2rem;font:700 .56rem/1 var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--security-gold);border:1px solid var(--security-gold);padding:.35em .55em;border-radius:4px}
+.vs .hunch::after{content:"owner bound";position:absolute;right:1.2rem;top:1.2rem;font:700 .56rem/1 var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--security-gold)}
 .vs .col h3{font-size:1.05rem;font-weight:700;margin-bottom:1rem}
 .vs ul{list-style:none;display:grid;gap:.6rem}
 .vs li{display:grid;grid-template-columns:1.2rem 1fr;gap:.6rem;font-size:.92rem;color:var(--ink-2);line-height:1.45}
@@ -234,7 +233,8 @@ h2{font-size:clamp(1.7rem,4.2vw,2.55rem);font-weight:800;line-height:1.1;margin-
 .shot .cap span{display:block;font-size:.86rem;color:var(--dim);margin-top:.15rem}
 .shot .phone{width:100%;--pw:100%}
 .shot.concept .screen{border:1px dashed rgba(174,134,46,.5)}
-.concept-badge{font:700 .58rem/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--gold-700);border:1px solid var(--security-gold);border-radius:4px;padding:.3em .5em;margin-left:.4rem}
+.concept-badge{font:700 .58rem/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--gold-700);margin-left:.5rem}
+.concept-badge::before{content:"◌ "}
 
 /* island live activity strip */
 .island{display:flex;gap:1rem;flex-wrap:wrap;margin-top:2.4rem}
@@ -287,7 +287,7 @@ footer{border-top:1px solid var(--security-line);padding:2.2rem 0 calc(2.2rem + 
 .gate-card::before{content:"";position:absolute;inset:0;background-image:var(--guilloche-paper);opacity:.45;pointer-events:none;mask-image:linear-gradient(180deg,#000,transparent 55%);-webkit-mask-image:linear-gradient(180deg,#000,transparent 55%)}
 .gate-card > *{position:relative}
 .gate-top{display:flex;justify-content:space-between;align-items:center;gap:.8rem;margin-bottom:.8rem}
-.gate-risk{font:700 .58rem/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--warn);border:1px solid currentColor;border-radius:4px;padding:.35em .55em}
+.gate-risk{font:700 .58rem/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--warn)}
 .gate-risk::before{content:"▲ "}
 .gate-serial{font:600 .56rem/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--stone-500)}
 .gate-card h3{font-size:1.05rem;font-weight:700;letter-spacing:-.01em;line-height:1.3}
