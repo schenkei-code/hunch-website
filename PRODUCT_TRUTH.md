@@ -131,6 +131,10 @@ Keine erfundenen Endpoints auf der Website oder in der Doku.
 
 ---
 
+### Relay (1.6) — NICHT GEPLANT (Entscheidung Dominik 2026-08-21: kein Hosting)
+Kein gehosteter Relay-Dienst. Erreichbarkeit von unterwegs = Tailscale-Adresse + TLS + Token
+(siehe Loslegen). Auf der Website nicht als „Als Nächstes" führen.
+
 ## App / iOS — verifiziert (branch feat/english-localization)
 
 ### Hub — HEUTE
