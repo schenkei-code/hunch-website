@@ -11,6 +11,7 @@
 <meta property="og:url" content="https://hunchagent.io">
 <meta property="og:image" content="https://hunchagent.io/owl-bronze.png">
 <meta name="theme-color" content="#0d0d0b">
+<script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js" integrity="sha384-Ftcjj/GNLxPvzNDftO/oryXB9aGxsGZY9JGqsXG0uUKgQDl9RfDgsx9NJ/4IVNPe" crossorigin="anonymous"></script>
 <link rel="icon" type="image/png" href="favicon.png">
 <link rel="apple-touch-icon" href="owl-mark.png">
 <style>
@@ -145,6 +146,8 @@ h2{font-size:clamp(1.7rem,4.2vw,2.55rem);font-weight:800;line-height:1.1;margin-
 .owl-rosette{position:absolute;inset:0;width:100%;height:100%;color:var(--gold-300);opacity:.16;pointer-events:none}
 .owl-stage::after{content:"";position:absolute;left:4%;right:4%;top:56%;height:1px;
   background:linear-gradient(90deg,transparent,rgba(231,207,130,.5) 30%,rgba(231,207,130,.95) 50%,rgba(231,207,130,.5) 70%,transparent);pointer-events:none;z-index:3}
+.owl-3d{position:relative;z-index:2;width:100%;height:100%;--poster-color:transparent;background:transparent}
+.owl-3d::part(default-progress-bar){display:none}
 .owl-hero{position:relative;z-index:2;height:100%;width:auto;max-width:100%;object-fit:contain;
   filter:drop-shadow(0 1.6rem 2.6rem rgba(0,0,0,.6));transform:rotateX(var(--tilt-x,0deg)) rotateY(var(--tilt-y,0deg));transition:transform var(--t-shift) var(--ease);will-change:transform}
 
@@ -276,6 +279,8 @@ footer{border-top:1px solid var(--security-line);padding:2.2rem 0 calc(2.2rem + 
 .head-row{display:grid;grid-template-columns:minmax(0,1fr) clamp(9rem,24vw,17rem);gap:clamp(1.2rem,4vw,3rem);align-items:center}
 .fig{margin:0;position:relative;display:flex;flex-direction:column;align-items:center;gap:.6rem}
 .fig img{width:100%;height:auto;filter:drop-shadow(0 1.2rem 1.8rem rgba(60,40,5,.28)) drop-shadow(0 2px 3px rgba(0,0,0,.12))}
+.fig-3d{width:100%;aspect-ratio:1;--poster-color:transparent;background:transparent;filter:drop-shadow(0 1.2rem 1.8rem rgba(60,40,5,.22))}
+.fig-3d::part(default-progress-bar){display:none}
 .fig figcaption{font:600 .56rem/1.4 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--security-gold);text-align:center;padding-top:.5rem;border-top:1px solid var(--security-line);width:100%}
 /* authority gate — Freigabe-Karte (Komponente aus der Brand Bible, specimen) */
 .gate-card{position:relative;max-width:30rem;justify-self:end;width:100%;background:var(--paper-pearl);border:1px solid rgba(174,134,46,.45);border-radius:var(--r-card);padding:1.2rem 1.3rem 1rem;box-shadow:var(--document-shadow);overflow:hidden}
@@ -395,7 +400,13 @@ footer{border-top:1px solid var(--security-line);padding:2.2rem 0 calc(2.2rem + 
             <circle r="262" stroke-dasharray="2 5"/><circle r="120" stroke-dasharray="1 4"/>
           </g>
         </svg>
-        <img class="owl-hero" id="owlhero" src="owl-bronze-cut.png" width="1400" height="2087" alt="Die Hunch-Eule — skulpturale Bronze, Kampagnenmotiv" fetchpriority="high">
+        <model-viewer class="owl-3d" id="owl3d" src="owl-bronze.glb" alt="Die Hunch-Eule — skulpturale Bronze, drehbar"
+          reveal="auto" loading="eager" poster="owl-bronze-cut.png"
+          auto-rotate auto-rotate-delay="1200" rotation-per-second="8deg"
+          camera-controls disable-zoom disable-pan interaction-prompt="none" touch-action="pan-y"
+          camera-orbit="0deg 85deg 105%" min-camera-orbit="auto 70deg auto" max-camera-orbit="auto 100deg auto"
+          exposure="1.05" shadow-intensity="0" environment-image="neutral"></model-viewer>
+        <img class="owl-hero" id="owlhero" src="owl-bronze-cut.png" width="1400" height="2087" alt="Die Hunch-Eule — skulpturale Bronze" style="display:none">
       </div>
     </div>
   </div>
@@ -412,7 +423,7 @@ footer{border-top:1px solid var(--security-line);padding:2.2rem 0 calc(2.2rem + 
       realen Signalen, gelernten Zusammenhängen und dem langfristigen Verständnis für dich. Ein Beispiel:
       eine neue Datei taucht auf, die zu einer Entscheidung von vor drei Wochen gehört.</p>
     </div>
-    <figure class="fig reveal" aria-hidden="true"><img src="figures/fig-moment.png" width="900" height="900" alt="" loading="lazy"><figcaption>sonnenuhr · der richtige moment</figcaption></figure>
+    <figure class="fig reveal" aria-hidden="true"><model-viewer class="fig-3d" src="figures/fig-moment.glb" poster="figures/fig-moment.png" alt="" reveal="auto" loading="lazy" auto-rotate auto-rotate-delay="800" rotation-per-second="9deg" camera-controls disable-zoom disable-pan interaction-prompt="none" touch-action="pan-y" camera-orbit="-20deg 82deg 105%" min-camera-orbit="auto 65deg auto" max-camera-orbit="auto 100deg auto" exposure="1" shadow-intensity="0" environment-image="neutral"></model-viewer><img class="fig-png" src="figures/fig-moment.png" width="900" height="900" alt="" loading="lazy" style="display:none"><figcaption>sonnenuhr · der richtige moment</figcaption></figure>
     </div>
     <div class="flow reveal">
       <ol>
@@ -481,7 +492,7 @@ footer{border-top:1px solid var(--security-line);padding:2.2rem 0 calc(2.2rem + 
       Schleifen und die Resultate früherer Handlungen. „Hunch liest alles" ist ausdrücklich falsch —
       Browser-, Clipboard-, Datei-, App- und Screen-Kontext sind optionale, lokal kontrollierbare Sensoren.</p>
     </div>
-    <figure class="fig reveal" aria-hidden="true"><img src="figures/fig-modell.png" width="900" height="900" alt="" loading="lazy"><figcaption>springer · der nächste zug</figcaption></figure>
+    <figure class="fig reveal" aria-hidden="true"><model-viewer class="fig-3d" src="figures/fig-modell.glb" poster="figures/fig-modell.png" alt="" reveal="auto" loading="lazy" auto-rotate auto-rotate-delay="800" rotation-per-second="9deg" camera-controls disable-zoom disable-pan interaction-prompt="none" touch-action="pan-y" camera-orbit="-20deg 82deg 105%" min-camera-orbit="auto 65deg auto" max-camera-orbit="auto 100deg auto" exposure="1" shadow-intensity="0" environment-image="neutral"></model-viewer><img class="fig-png" src="figures/fig-modell.png" width="900" height="900" alt="" loading="lazy" style="display:none"><figcaption>springer · der nächste zug</figcaption></figure>
     </div>
     <div class="grid g4">
       <div class="card reveal"><h3>Routine <span class="tag heute">Heute</span></h3><p>Was passiert zu dieser Tageszeit normalerweise? Ein Stundenprofil deiner Themen.</p></div>
@@ -508,7 +519,7 @@ footer{border-top:1px solid var(--security-line);padding:2.2rem 0 calc(2.2rem + 
       relevante Personen und Themen, Momentum, offene Schleifen, Zusammenhänge sowie Ergebnisse und
       Fehlschläge. Es liegt standardmäßig lokal auf deinem Gerät.</p>
     </div>
-    <figure class="fig reveal" aria-hidden="true"><img src="figures/fig-brain.png" width="900" height="900" alt="" loading="lazy"><figcaption>gedächtnis · lebendes register</figcaption></figure>
+    <figure class="fig reveal" aria-hidden="true"><model-viewer class="fig-3d" src="figures/fig-brain.glb" poster="figures/fig-brain.png" alt="" reveal="auto" loading="lazy" auto-rotate auto-rotate-delay="800" rotation-per-second="9deg" camera-controls disable-zoom disable-pan interaction-prompt="none" touch-action="pan-y" camera-orbit="-20deg 82deg 105%" min-camera-orbit="auto 65deg auto" max-camera-orbit="auto 100deg auto" exposure="1" shadow-intensity="0" environment-image="neutral"></model-viewer><img class="fig-png" src="figures/fig-brain.png" width="900" height="900" alt="" loading="lazy" style="display:none"><figcaption>gedächtnis · lebendes register</figcaption></figure>
     </div>
     <div class="rule reveal">
       <b>Aufgabe ≠ Vorhaben.</b> Eine Aufgabe ist ein einzelner Schritt. Ein Vorhaben ist etwas, das du
@@ -527,7 +538,7 @@ footer{border-top:1px solid var(--security-line);padding:2.2rem 0 calc(2.2rem + 
       <span class="eyebrow reveal" data-no="05">Hunch wird mit dir besser — kontrolliert</span>
       <h2 class="reveal">Selbstverbesserung ist kein vages „die KI wird immer schlauer".</h2>
     </div>
-    <figure class="fig reveal" aria-hidden="true"><img src="figures/fig-lernen.png" width="900" height="900" alt="" loading="lazy"><figcaption>wendeltreppe · besser, nicht nur mehr</figcaption></figure>
+    <figure class="fig reveal" aria-hidden="true"><model-viewer class="fig-3d" src="figures/fig-lernen.glb" poster="figures/fig-lernen.png" alt="" reveal="auto" loading="lazy" auto-rotate auto-rotate-delay="800" rotation-per-second="9deg" camera-controls disable-zoom disable-pan interaction-prompt="none" touch-action="pan-y" camera-orbit="-20deg 82deg 105%" min-camera-orbit="auto 65deg auto" max-camera-orbit="auto 100deg auto" exposure="1" shadow-intensity="0" environment-image="neutral"></model-viewer><img class="fig-png" src="figures/fig-lernen.png" width="900" height="900" alt="" loading="lazy" style="display:none"><figcaption>wendeltreppe · besser, nicht nur mehr</figcaption></figure>
     </div>
     <div class="grid g3">
       <div class="card reveal"><h3>Sein Verständnis von dir <span class="tag heute">Heute</span></h3>
@@ -563,7 +574,7 @@ footer{border-top:1px solid var(--security-line);padding:2.2rem 0 calc(2.2rem + 
       zuerst erklären soll, wann Rückfragen sinnvoll sind, welche Entscheidungen Hunch selbst treffen
       darf und welche Handlungen nie automatisch passieren dürfen.</p>
     </div>
-    <figure class="fig reveal" aria-hidden="true"><img src="figures/fig-scopes.png" width="900" height="900" alt="" loading="lazy"><figcaption>drei ringe · global, projekt, faden</figcaption></figure>
+    <figure class="fig reveal" aria-hidden="true"><model-viewer class="fig-3d" src="figures/fig-scopes.glb" poster="figures/fig-scopes.png" alt="" reveal="auto" loading="lazy" auto-rotate auto-rotate-delay="800" rotation-per-second="9deg" camera-controls disable-zoom disable-pan interaction-prompt="none" touch-action="pan-y" camera-orbit="-20deg 82deg 105%" min-camera-orbit="auto 65deg auto" max-camera-orbit="auto 100deg auto" exposure="1" shadow-intensity="0" environment-image="neutral"></model-viewer><img class="fig-png" src="figures/fig-scopes.png" width="900" height="900" alt="" loading="lazy" style="display:none"><figcaption>drei ringe · global, projekt, faden</figcaption></figure>
     </div>
     <div class="scopes">
       <div class="scope reveal"><h3>Globale Ebene <span class="tag heute">Heute</span></h3>
@@ -602,7 +613,7 @@ footer{border-top:1px solid var(--security-line);padding:2.2rem 0 calc(2.2rem + 
       <p class="lead reveal">Hunch denkt nicht ständig laut. Ein stiller Observer erkennt, was relevant
       werden könnte. Erst dann übernimmt der Executive.</p>
     </div>
-    <figure class="fig reveal" aria-hidden="true"><img src="figures/fig-observer.png" width="900" height="900" alt="" loading="lazy"><figcaption>auge und hand · beobachten, handeln</figcaption></figure>
+    <figure class="fig reveal" aria-hidden="true"><model-viewer class="fig-3d" src="figures/fig-observer.glb" poster="figures/fig-observer.png" alt="" reveal="auto" loading="lazy" auto-rotate auto-rotate-delay="800" rotation-per-second="9deg" camera-controls disable-zoom disable-pan interaction-prompt="none" touch-action="pan-y" camera-orbit="-20deg 82deg 105%" min-camera-orbit="auto 65deg auto" max-camera-orbit="auto 100deg auto" exposure="1" shadow-intensity="0" environment-image="neutral"></model-viewer><img class="fig-png" src="figures/fig-observer.png" width="900" height="900" alt="" loading="lazy" style="display:none"><figcaption>auge und hand · beobachten, handeln</figcaption></figure>
     </div>
     <div class="duo">
       <div class="card reveal">
@@ -634,7 +645,7 @@ footer{border-top:1px solid var(--security-line);padding:2.2rem 0 calc(2.2rem + 
       Entscheidungen, Arbeitsweise und relevante Zusammenhänge im Blick — egal, welches Modell oder Gerät
       gerade verwendet wird. Wechsel von iPhone zu Computer, Terminal oder Telegram ohne mentalen Neustart.</p>
     </div>
-    <figure class="fig reveal" aria-hidden="true"><img src="figures/fig-session.png" width="900" height="900" alt="" loading="lazy"><figcaption>möbius · eine fortlaufende beziehung</figcaption></figure>
+    <figure class="fig reveal" aria-hidden="true"><model-viewer class="fig-3d" src="figures/fig-session.glb" poster="figures/fig-session.png" alt="" reveal="auto" loading="lazy" auto-rotate auto-rotate-delay="800" rotation-per-second="9deg" camera-controls disable-zoom disable-pan interaction-prompt="none" touch-action="pan-y" camera-orbit="-20deg 82deg 105%" min-camera-orbit="auto 65deg auto" max-camera-orbit="auto 100deg auto" exposure="1" shadow-intensity="0" environment-image="neutral"></model-viewer><img class="fig-png" src="figures/fig-session.png" width="900" height="900" alt="" loading="lazy" style="display:none"><figcaption>möbius · eine fortlaufende beziehung</figcaption></figure>
     </div>
     <div class="rule reveal">
       Gemeinsame Identität und gemeinsames Gedächtnis sind vorhanden; App, Runtime und MCP können bereits
@@ -658,7 +669,7 @@ footer{border-top:1px solid var(--security-line);padding:2.2rem 0 calc(2.2rem + 
       Assistent würde den Dialog blockieren. Jeder Faden hat ein klares Ziel, eigenen Kontext, eigene
       Tool-Runden, Freigaben und ein Ergebnis, das zum ursprünglichen Kanal zurückkehrt.</p>
     </div>
-    <figure class="fig reveal" aria-hidden="true"><img src="figures/fig-faeden.png" width="900" height="900" alt="" loading="lazy"><figcaption>drei fäden · ein zopf</figcaption></figure>
+    <figure class="fig reveal" aria-hidden="true"><model-viewer class="fig-3d" src="figures/fig-faeden.glb" poster="figures/fig-faeden.png" alt="" reveal="auto" loading="lazy" auto-rotate auto-rotate-delay="800" rotation-per-second="9deg" camera-controls disable-zoom disable-pan interaction-prompt="none" touch-action="pan-y" camera-orbit="-20deg 82deg 105%" min-camera-orbit="auto 65deg auto" max-camera-orbit="auto 100deg auto" exposure="1" shadow-intensity="0" environment-image="neutral"></model-viewer><img class="fig-png" src="figures/fig-faeden.png" width="900" height="900" alt="" loading="lazy" style="display:none"><figcaption>drei fäden · ein zopf</figcaption></figure>
     </div>
     <div class="grid g3">
       <div class="card reveal"><h3><span class="tag heute" style="background:rgba(30,122,60,.12)">Läuft</span></h3><p>Der Faden arbeitet an seinem Auftrag, zeigt Fortschritt und Laufzeit.</p></div>
@@ -726,7 +737,7 @@ footer{border-top:1px solid var(--security-line);padding:2.2rem 0 calc(2.2rem + 
       <p class="lead reveal">Bring your model, keep your hunch. Hunchs Identität, Gedächtnis, Authority,
       Arbeitspräferenzen und Skills sind nicht an einen Modellprovider gebunden — drei unabhängige Ebenen.</p>
     </div>
-    <figure class="fig reveal" aria-hidden="true"><img src="figures/fig-modelle.png" width="900" height="900" alt="" loading="lazy"><figcaption>die eule bleibt · das modul wechselt</figcaption></figure>
+    <figure class="fig reveal" aria-hidden="true"><model-viewer class="fig-3d" src="figures/fig-modelle.glb" poster="figures/fig-modelle.png" alt="" reveal="auto" loading="lazy" auto-rotate auto-rotate-delay="800" rotation-per-second="9deg" camera-controls disable-zoom disable-pan interaction-prompt="none" touch-action="pan-y" camera-orbit="-20deg 82deg 105%" min-camera-orbit="auto 65deg auto" max-camera-orbit="auto 100deg auto" exposure="1" shadow-intensity="0" environment-image="neutral"></model-viewer><img class="fig-png" src="figures/fig-modelle.png" width="900" height="900" alt="" loading="lazy" style="display:none"><figcaption>die eule bleibt · das modul wechselt</figcaption></figure>
     </div>
     <div class="grid g3">
       <div class="card reveal"><h3>1 · Hunch <span class="tag heute">Heute</span></h3><p>Identität, Brain, Vorhaben, Arbeitsweise und Authority. Der bleibende Kern.</p></div>
@@ -808,7 +819,7 @@ footer{border-top:1px solid var(--security-line);padding:2.2rem 0 calc(2.2rem + 
       <span class="eyebrow reveal" data-no="13">Local-first &amp; Kontrolle</span>
       <h2 class="reveal">Nicht nur „Privacy first" als Slogan — so funktioniert die Kontrolle.</h2>
     </div>
-    <figure class="fig reveal" aria-hidden="true"><img src="figures/fig-privat.png" width="900" height="900" alt="" loading="lazy"><figcaption>owner bound · lokal verschlossen</figcaption></figure>
+    <figure class="fig reveal" aria-hidden="true"><model-viewer class="fig-3d" src="figures/fig-privat.glb" poster="figures/fig-privat.png" alt="" reveal="auto" loading="lazy" auto-rotate auto-rotate-delay="800" rotation-per-second="9deg" camera-controls disable-zoom disable-pan interaction-prompt="none" touch-action="pan-y" camera-orbit="-20deg 82deg 105%" min-camera-orbit="auto 65deg auto" max-camera-orbit="auto 100deg auto" exposure="1" shadow-intensity="0" environment-image="neutral"></model-viewer><img class="fig-png" src="figures/fig-privat.png" width="900" height="900" alt="" loading="lazy" style="display:none"><figcaption>owner bound · lokal verschlossen</figcaption></figure>
     </div>
     <div class="grid g3">
       <div class="card reveal"><h3>Lokal &amp; deine Hardware</h3><p>Persönliches Gedächtnis liegt standardmäßig lokal. Die Runtime läuft auf deiner eigenen Hardware.</p></div>
@@ -887,15 +898,18 @@ footer{border-top:1px solid var(--security-line);padding:2.2rem 0 calc(2.2rem + 
 </footer>
 
 <script>
-  // Eule: maximal 7° Tilt, Licht folgt dem Zeiger — Reduced Motion blendet statt zu kippen.
+  // 3D-Modelle: drehbar, ruhig. Reduced Motion oder Ladefehler → statisches Render.
   (function(){
-    var stage=document.getElementById('owlstage'), owl=document.getElementById('owlhero');
-    if(!stage||!owl||matchMedia('(prefers-reduced-motion: reduce)').matches||!matchMedia('(hover:hover)').matches) return;
-    stage.addEventListener('pointermove',function(e){
-      var r=stage.getBoundingClientRect(), x=(e.clientX-r.left)/r.width-.5, y=(e.clientY-r.top)/r.height-.5;
-      owl.style.setProperty('--tilt-y',(x*14).toFixed(2)+'deg'); owl.style.setProperty('--tilt-x',(-y*10).toFixed(2)+'deg');
-    });
-    stage.addEventListener('pointerleave',function(){ owl.style.setProperty('--tilt-y','0deg'); owl.style.setProperty('--tilt-x','0deg'); });
+    var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+    function pair(mv, img){
+      if(!mv||!img) return;
+      function fallback(){ mv.style.display='none'; img.style.display=''; }
+      if(reduce){ fallback(); return; }
+      mv.addEventListener('error', fallback);
+      setTimeout(function(){ if(!mv.modelIsVisible && !mv.loaded) fallback(); }, 12000);
+    }
+    pair(document.getElementById('owl3d'), document.getElementById('owlhero'));
+    document.querySelectorAll('.fig').forEach(function(f){ pair(f.querySelector('model-viewer'), f.querySelector('.fig-png')); });
   })();
 
   // sticky nav shadow
