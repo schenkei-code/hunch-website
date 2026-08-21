@@ -10,30 +10,35 @@
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://hunchagent.io">
 <meta property="og:image" content="https://hunchagent.io/owl.png">
+<meta name="theme-color" content="#0d0d0b">
 <link rel="icon" type="image/png" href="favicon.png">
 <link rel="apple-touch-icon" href="owl.png">
 <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js" integrity="sha384-Ftcjj/GNLxPvzNDftO/oryXB9aGxsGZY9JGqsXG0uUKgQDl9RfDgsx9NJ/4IVNPe" crossorigin="anonymous"></script>
 <style>
 :root{
-  --bg:#F6F5F2;
-  --bg-2:#FBFAF7;
+  /* Brand System 2026.03 — ink. ivory. signal gold. */
+  --ink-1000:#0d0d0b; --ink-900:#171713; --ink-800:#25241f; --ink-700:#39372f;
+  --ivory-50:#fffefa; --ivory-100:#f7f4eb; --ivory-200:#eee9dc; --ivory-300:#ddd5c2;
+  --stone-500:#716b5e; --stone-600:#5e584d;
+  --gold-300:#e7cf82; --gold-400:#d5ad4d; --gold-500:#bd8d24; --gold-600:#8a6412; --gold-700:#624508;
+  --bg:var(--ivory-100);
+  --bg-2:var(--ivory-50);
   --card:#FFFFFF;
-  --ink:#1D1D1F;
-  --ink-2:#3A3A3C;
-  --dim:#6E6E73;
-  --line:#E9E5DA;
-  --gold-100:#F0DA9A;
-  --gold-400:#E6C877;
-  --gold-500:#D2A84C;
-  --gold-600:#BE8C2E;
-  --gold-text:#886B1E;
-  --gold-text-deep:#74551B;
-  --btn-ink:#4A3410;
-  --ok:#1E7A3C;
-  --warn:#8A5A00;
-  --plan:#6E6E73;
-  --shadow-s:0 1px 2px rgba(29,29,31,.05), 0 8px 22px rgba(110,84,36,.06);
-  --shadow-m:0 1px 2px rgba(29,29,31,.06), 0 16px 40px rgba(110,84,36,.10);
+  --ink:var(--ink-1000);
+  --ink-2:var(--ink-700);
+  --dim:var(--stone-600);
+  --line:var(--ivory-300);
+  --gold-100:var(--gold-300);
+  --gold-text:var(--gold-600);
+  --gold-text-deep:var(--gold-700);
+  --btn-ink:var(--ink-1000);
+  --ok:#2e6b47;
+  --warn:#9a5d08;
+  --plan:var(--stone-600);
+  --shadow-s:0 1px 1.5px rgba(0,0,0,.08),0 5px 12px rgba(0,0,0,.06);
+  --shadow-m:0 1px 1.5px rgba(0,0,0,.08),0 5px 12px rgba(0,0,0,.06),0 18px 32px rgba(0,0,0,.055);
+  --t-micro:140ms; --t-shift:220ms; --t-reveal:420ms; --ease:cubic-bezier(.2,.8,.2,1);
+  --mono:"SFMono-Regular",ui-monospace,"Cascadia Mono","Roboto Mono",monospace;
   --maxw:1080px;
 }
 *{margin:0;padding:0;box-sizing:border-box}
@@ -68,24 +73,28 @@ h1,h2,h3{font-family:-apple-system,BlinkMacSystemFont,system-ui,"SF Pro Display"
 .tag.vision{color:var(--plan);background:rgba(110,110,115,.12)}
 
 /* nav */
-nav{position:fixed;top:0;left:0;right:0;z-index:60;background:rgba(246,245,242,.72);
+nav{position:fixed;top:0;left:0;right:0;z-index:60;background:rgba(247,244,235,.78);
   backdrop-filter:blur(20px) saturate(180%);-webkit-backdrop-filter:blur(20px) saturate(180%);
-  transition:box-shadow .3s ease;padding-top:env(safe-area-inset-top)}
+  transition:box-shadow var(--t-shift) var(--ease),background var(--t-shift) var(--ease);padding-top:env(safe-area-inset-top)}
 nav.scrolled{box-shadow:0 1px 0 rgba(255,255,255,.5) inset,0 8px 24px rgba(29,29,31,.06)}
 .nav-in{display:flex;align-items:center;justify-content:space-between;height:3.75rem}
+nav.over-ink{background:rgba(13,13,11,.62);color:var(--ivory-100)}
+nav.over-ink .nav-links{color:var(--ivory-300)}
+nav.over-ink .nav-links a:hover{color:var(--ivory-50)}
+nav.over-ink.scrolled{box-shadow:0 1px 0 rgba(255,255,255,.06) inset,0 8px 24px rgba(0,0,0,.35)}
 .logo{display:flex;align-items:center;gap:.55rem;font-weight:700;font-size:1.05rem}
 .logo img{width:1.7rem;height:1.7rem}
 .nav-links{display:flex;gap:1.5rem;font-size:.85rem;color:var(--dim)}
-.nav-links a{transition:color .15s}
+.nav-links a{transition:color var(--t-micro) var(--ease)}
 .nav-links a:hover{color:var(--ink)}
 .nav-cta{font-size:.8rem;font-weight:600;padding:.45rem 1rem;border-radius:999px;
   background:linear-gradient(180deg,var(--gold-100),var(--gold-500) 55%,var(--gold-600));color:var(--btn-ink);
-  box-shadow:inset 0 1px 0 rgba(255,255,255,.5),0 1px 3px rgba(110,84,36,.25);transition:transform .1s}
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.5),0 1px 3px rgba(110,84,36,.25);transition:transform var(--t-micro) var(--ease)}
 .nav-cta:active{transform:scale(.97)}
 
 /* buttons */
 .btn{display:inline-flex;align-items:center;gap:.5rem;font-size:.95rem;font-weight:600;
-  padding:.85rem 1.5rem;border-radius:999px;min-height:44px;transition:transform .1s,box-shadow .25s}
+  padding:.85rem 1.5rem;border-radius:999px;min-height:44px;transition:transform var(--t-micro) var(--ease),box-shadow var(--t-shift) var(--ease)}
 .btn-primary{background:linear-gradient(180deg,var(--gold-100),var(--gold-500) 55%,var(--gold-600));color:var(--btn-ink);
   box-shadow:inset 0 1px 0 rgba(255,255,255,.55),0 2px 6px rgba(110,84,36,.28),0 10px 28px rgba(190,140,46,.20)}
 .btn-primary:hover{transform:translateY(-1px)}
@@ -103,32 +112,45 @@ h2{font-size:clamp(1.7rem,4.2vw,2.5rem);font-weight:800;line-height:1.12}
 .head.center .lead{margin-left:auto;margin-right:auto}
 .eyebrow+h2{margin-top:.7rem}
 
-.reveal{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease}
+.reveal{opacity:0;transform:translateY(16px);transition:opacity var(--t-reveal) var(--ease),transform var(--t-reveal) var(--ease)}
 .reveal.in{opacity:1;transform:none}
 
-/* hero */
-.hero{padding-top:clamp(6.5rem,14vw,9rem);padding-bottom:clamp(2rem,6vw,4rem);position:relative;overflow:hidden}
+/* hero — sovereign credential: ink, ivory, signal gold */
+.hero{padding-top:clamp(6.5rem,14vw,9rem);padding-bottom:clamp(2.5rem,6vw,4.5rem);position:relative;overflow:hidden;
+  background:var(--ink-1000);color:var(--ivory-100)}
 .hero::before{content:"";position:absolute;inset:0;pointer-events:none;background:
-  radial-gradient(ellipse 55rem 40rem at 78% 12%,rgba(230,200,119,.20),transparent 60%),
-  radial-gradient(ellipse 40rem 30rem at 4% 100%,rgba(190,140,46,.06),transparent 60%)}
+  radial-gradient(ellipse 48rem 34rem at 82% 40%,rgba(213,173,77,.14),transparent 62%),
+  radial-gradient(ellipse 40rem 26rem at 0% 100%,rgba(213,173,77,.05),transparent 60%)}
+.hero::after{content:"";position:absolute;left:0;right:0;top:0;height:1px;background:linear-gradient(90deg,transparent,rgba(231,207,130,.35),transparent);pointer-events:none}
 .hero-grid{display:grid;grid-template-columns:1.08fr .92fr;gap:2.5rem;align-items:center;position:relative}
-.hero h1{font-size:clamp(2.3rem,6vw,4rem);font-weight:800;line-height:1.05;max-width:14ch}
-.hero .lead{margin-top:1.4rem;font-size:clamp(1.05rem,2.6vw,1.2rem);max-width:34rem}
-.hero .three{margin-top:1.6rem;display:flex;flex-wrap:wrap;gap:.5rem}
-.hero .three span{font-size:.85rem;font-weight:600;color:var(--gold-text);background:var(--card);
-  border:1px solid var(--line);border-radius:999px;padding:.4rem .9rem;box-shadow:var(--shadow-s)}
+.hero .eyebrow{background:none;color:var(--gold-400);text-shadow:none;font-weight:600;letter-spacing:.02em;text-transform:none;font-size:clamp(1rem,2.2vw,1.25rem);
+  padding-top:.9rem;border-top:1px solid var(--gold-500);display:inline-block;min-width:3.5rem}
+.hero .wordmark{font-size:clamp(4.6rem,15vw,11rem);font-weight:800;line-height:.9;letter-spacing:-.05em;color:var(--ivory-100);
+  display:block;margin:0 0 1.4rem -.04em;text-transform:lowercase}
+.hero .three{margin-top:1.2rem;display:flex;flex-direction:column;gap:.1rem}
+.hero .three span{font-size:clamp(1.2rem,2.8vw,1.7rem);font-weight:500;color:var(--ivory-100);line-height:1.3;letter-spacing:-.01em;
+  background:none;border:0;border-radius:0;padding:0;box-shadow:none}
+.hero .lead{margin-top:1.6rem;font-size:clamp(1rem,2.2vw,1.1rem);max-width:34rem;color:var(--ivory-300)}
 .hero-actions{margin-top:2rem;display:flex;gap:.8rem;flex-wrap:wrap;align-items:center}
+.hero .btn-quiet{color:var(--gold-300)}
+.hero .btn-primary{background:linear-gradient(180deg,var(--gold-300),var(--gold-400) 55%,var(--gold-500));color:var(--ink-1000);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.45),0 1px 3px rgba(0,0,0,.5)}
+.hero-meta{margin-top:2.6rem;display:flex;gap:0;flex-wrap:wrap;font-family:var(--mono);font-size:.66rem;letter-spacing:.08em;text-transform:uppercase;color:var(--stone-500)}
+.hero-meta div{padding:.1rem 1.2rem .1rem 0;margin-right:1.2rem;border-right:1px solid rgba(247,244,235,.14);display:flex;flex-direction:column;gap:.25rem}
+.hero-meta div:last-child{border-right:0}
+.hero-meta b{color:var(--ivory-200);font-weight:500}
 .manifest{margin-top:1.5rem;font-size:.9rem;color:var(--dim)}
 .manifest b{color:var(--gold-text);font-weight:600;font-style:italic}
+.hero .manifest{color:var(--stone-500)}.hero .manifest b{color:var(--gold-300)}
 
 /* owl guide */
 .owl-stage{position:relative;height:clamp(20rem,42vw,32rem);display:flex;align-items:center;justify-content:center}
-.owl-stage::before{content:"";position:absolute;width:70%;height:70%;border-radius:50%;
-  background:radial-gradient(circle,rgba(230,200,119,.32),transparent 68%);filter:blur(6px)}
-.owl-stage::after{content:"";position:absolute;bottom:9%;width:44%;height:1.3rem;border-radius:50%;
-  background:radial-gradient(ellipse,rgba(110,84,36,.20),transparent 70%)}
+.owl-stage::before{content:"";position:absolute;width:72%;height:72%;border-radius:50%;
+  background:radial-gradient(circle,rgba(213,173,77,.22),transparent 66%);filter:blur(10px)}
+.owl-stage::after{content:"";position:absolute;left:6%;right:6%;top:58%;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(231,207,130,.55) 30%,rgba(231,207,130,.9) 50%,rgba(231,207,130,.55) 70%,transparent);pointer-events:none}
 model-viewer{width:100%;height:100%;--poster-color:transparent;z-index:2}
-.owl-fallback{width:64%;max-width:22rem;z-index:2;filter:drop-shadow(0 1.4rem 2.4rem rgba(110,84,36,.22))}
+.owl-fallback{width:72%;max-width:24rem;z-index:2;filter:drop-shadow(0 1.4rem 2.4rem rgba(0,0,0,.5))}
 
 /* cards */
 .card{background:var(--card);border:1px solid var(--line);border-radius:1.2rem;padding:1.6rem 1.5rem;box-shadow:var(--shadow-s)}
@@ -256,6 +278,8 @@ footer{border-top:1px solid var(--line);padding:2.4rem 0 calc(2.4rem + env(safe-
   .screens{grid-template-columns:1fr 1fr}
 }
 @media(max-width:620px){
+  .hero .wordmark{font-size:clamp(4.2rem,24vw,6rem)}
+  .hero-meta div{border-right:0;margin-right:0;padding-right:0;flex:1 1 100%;flex-direction:row;gap:.6rem}
   .g2,.g3,.g4,.vs,.duo,.matrix,.screens{grid-template-columns:1fr}
   .stage{flex-direction:column;gap:2rem}
   .stage .side{display:none}
@@ -271,6 +295,7 @@ footer{border-top:1px solid var(--line);padding:2.4rem 0 calc(2.4rem + env(safe-
 }
 @media (prefers-reduced-transparency: reduce){
   nav{background:var(--bg);backdrop-filter:none;-webkit-backdrop-filter:none}
+  nav.over-ink{background:var(--ink-1000)}
 }
 </style>
 </head>
@@ -278,7 +303,7 @@ footer{border-top:1px solid var(--line);padding:2.4rem 0 calc(2.4rem + env(safe-
 
 <nav id="nav">
   <div class="wrap nav-in">
-    <a class="logo" href="#top"><img src="owl.png" alt="Hunch">hunch</a>
+    <a class="logo" href="#top"><img src="owl-3d.png" alt="Hunch">hunch</a>
     <div class="nav-links">
       <a href="#moment">Der Moment</a>
       <a href="#modell">Persönliches Modell</a>
@@ -288,6 +313,7 @@ footer{border-top:1px solid var(--line);padding:2.4rem 0 calc(2.4rem + env(safe-
       <a href="#apps">Apps</a>
       <a href="#status">Status</a>
       <a href="docs/index.html">Doku</a>
+      <a href="brand/">Brand</a>
     </div>
     <a class="nav-cta" href="mailto:schenkei@hunchagent.io?subject=Hunch%20Early%20Access">Early Access</a>
   </div>
@@ -298,32 +324,32 @@ footer{border-top:1px solid var(--line);padding:2.4rem 0 calc(2.4rem + env(safe-
   <div class="wrap">
     <div class="hero-grid">
       <div>
-        <span class="eyebrow">Hunch — dein intentionaler persönlicher Agent</span>
-        <h1>Der Agent, der versteht, <span class="gold">wie dein Denken weitergeht.</span></h1>
-        <p class="lead">Hunch baut aus deinen Erinnerungen, Vorhaben, Entscheidungen, Gewohnheiten,
-        Arbeitspräferenzen und deinem aktuellen Kontext ein persönliches Modell. Es erkennt, wann
-        etwas relevant wird, bereitet den nächsten Schritt vor und handelt nur innerhalb der Grenzen,
-        die du festlegst.</p>
-        <div class="three">
-          <span>Es kennt dich</span>
-          <span>Es versteht den Moment</span>
-          <span>Es handelt in deinem Auftrag</span>
+        <h1><span class="wordmark">hunch</span><span class="eyebrow">intentional agent</span></h1>
+        <div class="three" aria-label="kennt dich. erkennt den moment. handelt in deinem auftrag.">
+          <span>es kennt dich.</span>
+          <span>es versteht den moment.</span>
+          <span>es handelt in deinem auftrag.</span>
         </div>
+        <p class="lead">Der Agent, der versteht, wie dein Denken weitergeht. Hunch baut aus deinen
+        Erinnerungen, Vorhaben, Entscheidungen und deinem aktuellen Kontext ein persönliches Modell,
+        erkennt den nächsten sinnvollen Schritt — und handelt nur innerhalb der Grenzen, die du festlegst.</p>
         <div class="hero-actions">
           <a class="btn btn-primary" href="mailto:schenkei@hunchagent.io?subject=Hunch%20Early%20Access">Early Access anfragen</a>
           <a class="btn btn-quiet" href="#moment">Wie das aussieht ↓</a>
         </div>
-        <p class="manifest"><b>Agents that act on purpose, not on prompt.</b><br>
-        Der Agent wartet nicht nur auf Befehle — er erkennt aus echten Signalen, gelernten
-        Zusammenhängen und dem Verständnis für dich den nächsten sinnvollen Schritt.</p>
+        <div class="hero-meta">
+          <div><span>category</span><b>intentional agent</b></div>
+          <div><span>principle</span><b>quiet authority</b></div>
+          <div><span>lineage</span><b>owner credential</b></div>
+        </div>
       </div>
       <div class="owl-stage">
         <model-viewer id="owl3d" src="owl.glb" alt="Die Hunch-Eule als 3D-Modell"
           reveal="auto" loading="eager"
           auto-rotate auto-rotate-delay="0" rotation-per-second="12deg"
           camera-controls disable-zoom disable-pan interaction-prompt="none"
-          camera-orbit="0deg 82deg 105%" exposure="1.25" shadow-intensity="0.6" shadow-softness="0.9"></model-viewer>
-        <img class="owl-fallback" id="owlpng" src="owl.png" alt="Die Hunch-Eule" style="display:none">
+          camera-orbit="0deg 82deg 105%" exposure="1.15" shadow-intensity="0" shadow-softness="0.9"></model-viewer>
+        <img class="owl-fallback" id="owlpng" src="owl-3d.png" alt="Die Hunch-Eule" style="display:none">
       </div>
     </div>
   </div>
@@ -757,8 +783,8 @@ footer{border-top:1px solid var(--line);padding:2.4rem 0 calc(2.4rem + env(safe-
 
 <footer>
   <div class="wrap foot">
-    <a class="logo" href="#top"><img src="owl.png" alt="">hunch</a>
-    <div>© 2026 Hunch — hunchagent.io · <a href="docs/index.html">Dokumentation</a></div>
+    <a class="logo" href="#top"><img src="owl-3d.png" alt="">hunch</a>
+    <div>© 2026 Hunch — hunchagent.io · <a href="docs/index.html">Dokumentation</a> · <a href="brand/">Brand System</a></div>
   </div>
 </footer>
 
@@ -779,6 +805,11 @@ footer{border-top:1px solid var(--line);padding:2.4rem 0 calc(2.4rem + env(safe-
   // sticky nav shadow
   var nav = document.getElementById('nav');
   addEventListener('scroll', function(){ nav.classList.toggle('scrolled', scrollY>8); }, {passive:true});
+  var hero=document.getElementById('top');
+  if(hero&&'IntersectionObserver' in window){
+    new IntersectionObserver(function(es){ nav.classList.toggle('over-ink', es[0].isIntersecting); },
+      {rootMargin:'-60px 0px 0px 0px',threshold:0}).observe(hero);
+  } else { nav.classList.add('over-ink'); }
 
   // reveal on scroll
   var io = new IntersectionObserver(function(es){
