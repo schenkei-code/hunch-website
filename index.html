@@ -9,180 +9,185 @@
 <meta property="og:description" content="Es kennt dich. Es versteht den Moment. Es handelt in deinem Auftrag — innerhalb deiner Grenzen.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://hunchagent.io">
-<meta property="og:image" content="https://hunchagent.io/owl.png">
+<meta property="og:image" content="https://hunchagent.io/owl-bronze.png">
 <meta name="theme-color" content="#0d0d0b">
 <link rel="icon" type="image/png" href="favicon.png">
-<link rel="apple-touch-icon" href="owl.png">
-<script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js" integrity="sha384-Ftcjj/GNLxPvzNDftO/oryXB9aGxsGZY9JGqsXG0uUKgQDl9RfDgsx9NJ/4IVNPe" crossorigin="anonymous"></script>
+<link rel="apple-touch-icon" href="owl-mark.png">
 <style>
 :root{
-  /* Brand System 2026.03 — ink. ivory. signal gold. */
+  /* Brand System 2026.03 — security-document credential system. ink / ivory / signal gold */
   --ink-1000:#0d0d0b; --ink-900:#171713; --ink-800:#25241f; --ink-700:#39372f;
   --ivory-50:#fffefa; --ivory-100:#f7f4eb; --ivory-200:#eee9dc; --ivory-300:#ddd5c2;
   --stone-500:#716b5e; --stone-600:#5e584d;
   --gold-300:#e7cf82; --gold-400:#d5ad4d; --gold-500:#bd8d24; --gold-600:#8a6412; --gold-700:#624508;
-  --bg:var(--ivory-100);
-  --bg-2:var(--ivory-50);
-  --card:#FFFFFF;
-  --ink:var(--ink-1000);
-  --ink-2:var(--ink-700);
-  --dim:var(--stone-600);
-  --line:var(--ivory-300);
-  --gold-100:var(--gold-300);
-  --gold-text:var(--gold-600);
-  --gold-text-deep:var(--gold-700);
-  --btn-ink:var(--ink-1000);
-  --ok:#2e6b47;
-  --warn:#9a5d08;
-  --plan:var(--stone-600);
-  --shadow-s:0 1px 1.5px rgba(0,0,0,.08),0 5px 12px rgba(0,0,0,.06);
-  --shadow-m:0 1px 1.5px rgba(0,0,0,.08),0 5px 12px rgba(0,0,0,.06),0 18px 32px rgba(0,0,0,.055);
+  --security-gold:#ae862e;
+  --security-line:rgba(174,134,46,.16);
+  --security-line-soft:rgba(174,134,46,.075);
+  --security-line-dark:rgba(231,207,130,.11);
+  --paper-pearl:linear-gradient(118deg,#fcfcfe 0%,#f1f2f5 42%,#f6f2ea 72%,#fbf7ef 100%);
+  --foil:linear-gradient(115deg,#d6a83f,#f2dc98,#b9dbe8,#efc4d4,#bce1d1,#c8932f);
+  --document-shadow:0 1px 1.5px rgba(0,0,0,.08),0 5px 12px rgba(0,0,0,.06),0 18px 32px rgba(0,0,0,.055);
+  --bg:var(--ivory-100); --bg-2:var(--ivory-50); --card:#FFFFFF;
+  --ink:var(--ink-1000); --ink-2:var(--ink-700); --dim:var(--stone-600); --line:var(--security-line);
+  --gold-100:var(--gold-300); --gold-text:var(--gold-600); --gold-text-deep:var(--gold-700); --btn-ink:var(--ink-1000);
+  --ok:#2e6b47; --warn:#9a5d08; --plan:var(--stone-600);
+  --shadow-s:0 1px 1.5px rgba(0,0,0,.07),0 5px 12px rgba(0,0,0,.05);
+  --shadow-m:var(--document-shadow);
   --t-micro:140ms; --t-shift:220ms; --t-reveal:420ms; --ease:cubic-bezier(.2,.8,.2,1);
+  --display:-apple-system,BlinkMacSystemFont,"SF Pro Display","Helvetica Neue",Arial,sans-serif;
+  --text:-apple-system,BlinkMacSystemFont,"SF Pro Text","Helvetica Neue",Arial,sans-serif;
   --mono:"SFMono-Regular",ui-monospace,"Cascadia Mono","Roboto Mono",monospace;
-  --maxw:1080px;
+  --r-card:18px; --r-doc:28px; --r-field:12px;
+  --maxw:1120px;
+  /* guilloché: gekreuzte Wellenfamilien, statisch, ≤14 % Gold, nie hinter Primärtext */
+  --guilloche-paper:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='54' viewBox='0 0 160 54'><g fill='none' stroke='%23ae862e' stroke-opacity='.16'><path d='M-20 27C20-2 60-2 100 27s80 29 120 0' stroke-width='.8'/><path d='M-20 34C20 5 60 5 100 34s80 29 120 0' stroke-width='.55'/><path d='M-20 20C20 49 60 49 100 20s80-29 120 0' stroke-width='.55'/></g></svg>");
+  --guilloche-ink:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='54' viewBox='0 0 160 54'><g fill='none' stroke='%23e7cf82' stroke-opacity='.13'><path d='M-20 27C20-2 60-2 100 27s80 29 120 0' stroke-width='.8'/><path d='M-20 34C20 5 60 5 100 34s80 29 120 0' stroke-width='.55'/><path d='M-20 20C20 49 60 49 100 20s80-29 120 0' stroke-width='.55'/></g></svg>");
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth;scroll-padding-top:5rem}
-body{
-  background:var(--bg);color:var(--ink);
-  font:400 100%/1.6 -apple-system,BlinkMacSystemFont,system-ui,"SF Pro Text",Segoe UI,sans-serif;
-  -webkit-font-smoothing:antialiased;overflow-x:hidden;font-optical-sizing:auto;
-}
+body{background:var(--bg);color:var(--ink);font:400 100%/1.6 var(--text);-webkit-font-smoothing:antialiased;overflow-x:hidden;font-optical-sizing:auto;
+  /* Sicherheitspapier: Perlmutt-Grund + feines Wellenfeld */
+  background-image:var(--guilloche-paper),linear-gradient(180deg,var(--ivory-100),var(--ivory-50) 50%,var(--ivory-100));
+  background-attachment:fixed,fixed}
 a{color:inherit;text-decoration:none}
 img,video{max-width:100%;display:block}
 .wrap{max-width:var(--maxw);margin:0 auto;padding:0 clamp(1rem,4vw,1.5rem)}
-::selection{background:var(--gold-400);color:var(--btn-ink)}
-h1,h2,h3{font-family:-apple-system,BlinkMacSystemFont,system-ui,"SF Pro Display",sans-serif;letter-spacing:-.02em}
+::selection{background:var(--gold-300);color:var(--ink-1000)}
+h1,h2,h3{font-family:var(--display);letter-spacing:-.02em}
+code,.mono{font-family:var(--mono)}
 
-.eyebrow{
-  display:inline-block;font-size:.72rem;font-weight:700;letter-spacing:.13em;text-transform:uppercase;
-  background:linear-gradient(180deg,var(--gold-text),var(--gold-text-deep));
-  -webkit-background-clip:text;background-clip:text;color:transparent;
-  text-shadow:0 .6px 0 rgba(255,255,255,.5);
-}
-.gold{background:linear-gradient(115deg,var(--gold-600),var(--gold-500) 50%,var(--gold-text));
-  -webkit-background-clip:text;background-clip:text;color:transparent}
+/* Serien-/Scope-Schrift: Mono kennzeichnet Herkunft, Scope, Zustand — nie Primärtext */
+.eyebrow{display:inline-flex;align-items:center;gap:.6rem;font:650 .68rem/1 var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--security-gold)}
+.eyebrow::before{content:attr(data-no);display:inline-grid;place-items:center;min-width:1.9em;height:1.9em;padding:0 .35em;border:1px solid var(--security-gold);color:var(--security-gold);font-weight:700;letter-spacing:.05em}
+.eyebrow:not([data-no])::before{display:none}
+.gold{color:var(--gold-600)}
 
-/* status chips */
-.tag{display:inline-flex;align-items:center;gap:.35em;font-size:.66rem;font-weight:700;letter-spacing:.06em;
-  text-transform:uppercase;padding:.2em .6em;border-radius:999px;white-space:nowrap;vertical-align:middle}
+/* status — signiert, nicht nur gefärbt: Wort + Zeichen */
+.tag{display:inline-flex;align-items:center;gap:.45em;font:700 .62rem/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;
+  padding:.34em .6em .3em;border:1px solid currentColor;border-radius:4px;white-space:nowrap;vertical-align:middle;background:rgba(255,255,255,.55)}
 .tag::before{content:"";width:.45em;height:.45em;border-radius:50%;background:currentColor}
-.tag.heute{color:var(--ok);background:rgba(30,122,60,.10)}
-.tag.exp{color:var(--warn);background:rgba(138,90,0,.12)}
-.tag.next{color:#3B5BA5;background:rgba(59,91,165,.10)}
-.tag.vision{color:var(--plan);background:rgba(110,110,115,.12)}
+.tag.heute{color:var(--ok)}
+.tag.exp{color:var(--warn)}
+.tag.next{color:var(--stone-600)}
+.tag.vision{color:var(--gold-600)}
+.tag.heute::after{content:"heute"}.tag.exp::after{content:"exp."}.tag.next::after{content:"nächstes"}.tag.vision::after{content:"vision"}
+.tag.heute,.tag.exp,.tag.next,.tag.vision{font-size:0}
+.tag.heute::after,.tag.exp::after,.tag.next::after,.tag.vision::after{font-size:.62rem}
+.tag.heute::before,.tag.exp::before,.tag.next::before,.tag.vision::before{width:.45rem;height:.45rem}
 
-/* nav */
-nav{position:fixed;top:0;left:0;right:0;z-index:60;background:rgba(247,244,235,.78);
-  backdrop-filter:blur(20px) saturate(180%);-webkit-backdrop-filter:blur(20px) saturate(180%);
-  transition:box-shadow var(--t-shift) var(--ease),background var(--t-shift) var(--ease);padding-top:env(safe-area-inset-top)}
-nav.scrolled{box-shadow:0 1px 0 rgba(255,255,255,.5) inset,0 8px 24px rgba(29,29,31,.06)}
-.nav-in{display:flex;align-items:center;justify-content:space-between;height:3.75rem}
-nav.over-ink{background:rgba(13,13,11,.62);color:var(--ivory-100)}
+/* nav — Papierleiste mit Hairline + Serienfeld */
+nav{position:fixed;top:0;left:0;right:0;z-index:60;background:rgba(247,244,235,.82);
+  backdrop-filter:blur(20px) saturate(160%);-webkit-backdrop-filter:blur(20px) saturate(160%);
+  border-bottom:1px solid var(--security-line);transition:box-shadow var(--t-shift) var(--ease),background var(--t-shift) var(--ease);padding-top:env(safe-area-inset-top)}
+nav.scrolled{box-shadow:0 8px 24px rgba(0,0,0,.05)}
+.nav-in{display:flex;align-items:center;justify-content:space-between;height:3.75rem;gap:1rem}
+nav.over-ink{background:rgba(13,13,11,.7);color:var(--ivory-100);border-bottom-color:var(--security-line-dark)}
 nav.over-ink .nav-links{color:var(--ivory-300)}
 nav.over-ink .nav-links a:hover{color:var(--ivory-50)}
-nav.over-ink.scrolled{box-shadow:0 1px 0 rgba(255,255,255,.06) inset,0 8px 24px rgba(0,0,0,.35)}
-.logo{display:flex;align-items:center;gap:.55rem;font-weight:700;font-size:1.05rem}
-.logo img{width:1.7rem;height:1.7rem}
-.nav-links{display:flex;gap:1.5rem;font-size:.85rem;color:var(--dim)}
+nav.over-ink .nav-serial{color:var(--gold-300);border-color:var(--security-line-dark)}
+nav.over-ink.scrolled{box-shadow:0 8px 24px rgba(0,0,0,.35)}
+.logo{display:flex;align-items:center;gap:.55rem;font-weight:700;font-size:1.05rem;letter-spacing:-.02em;text-transform:lowercase;flex:0 0 auto;margin-right:.6rem}
+.logo img{width:1.5rem;height:auto;max-height:1.9rem;object-fit:contain}
+.nav-links{display:flex;gap:1rem;font:500 .76rem/1 var(--text);color:var(--dim);white-space:nowrap;flex:0 1 auto;min-width:0}
 .nav-links a{transition:color var(--t-micro) var(--ease)}
 .nav-links a:hover{color:var(--ink)}
+.nav-serial{font:600 .58rem/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--security-gold);border-left:1px solid var(--security-line);padding-left:1rem;white-space:nowrap}
 .nav-cta{font-size:.8rem;font-weight:600;padding:.45rem 1rem;border-radius:999px;
-  background:linear-gradient(180deg,var(--gold-100),var(--gold-500) 55%,var(--gold-600));color:var(--btn-ink);
-  box-shadow:inset 0 1px 0 rgba(255,255,255,.5),0 1px 3px rgba(110,84,36,.25);transition:transform var(--t-micro) var(--ease)}
+  background:linear-gradient(180deg,var(--gold-300),var(--gold-400) 55%,var(--gold-500));color:var(--ink-1000);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.5),0 1px 3px rgba(110,84,36,.25);transition:transform var(--t-micro) var(--ease);white-space:nowrap}
 .nav-cta:active{transform:scale(.97)}
 
-/* buttons */
+/* buttons — Folie heißt Autorität: Gold nur auf der Handlung */
 .btn{display:inline-flex;align-items:center;gap:.5rem;font-size:.95rem;font-weight:600;
   padding:.85rem 1.5rem;border-radius:999px;min-height:44px;transition:transform var(--t-micro) var(--ease),box-shadow var(--t-shift) var(--ease)}
-.btn-primary{background:linear-gradient(180deg,var(--gold-100),var(--gold-500) 55%,var(--gold-600));color:var(--btn-ink);
-  box-shadow:inset 0 1px 0 rgba(255,255,255,.55),0 2px 6px rgba(110,84,36,.28),0 10px 28px rgba(190,140,46,.20)}
+.btn-primary{background:linear-gradient(180deg,var(--gold-300),var(--gold-400) 55%,var(--gold-500));color:var(--ink-1000);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.5),0 1px 2px rgba(0,0,0,.18),0 8px 18px rgba(138,100,18,.18)}
 .btn-primary:hover{transform:translateY(-1px)}
 .btn-primary:active{transform:scale(.98)}
-.btn-quiet{color:var(--gold-text);font-weight:600;padding:.85rem .6rem;min-height:44px}
-.btn-quiet:focus-visible,.btn-primary:focus-visible,a:focus-visible,button:focus-visible{
-  outline:2px solid var(--gold-500);outline-offset:3px;border-radius:6px}
+.btn-quiet{color:var(--ink-1000);font-weight:600;padding:.8rem 1.2rem;min-height:44px;border:1px solid var(--ink-1000);border-radius:999px}
+.btn-quiet:focus-visible,.btn-primary:focus-visible,a:focus-visible,button:focus-visible{outline:2px solid var(--gold-500);outline-offset:3px;border-radius:6px}
 
-/* section rhythm */
-section{padding:clamp(3.5rem,8vw,6rem) 0;position:relative}
+/* sections — jede Fläche trägt Herkunft: Serienzeile oben (Nummer · Titel · Scope) */
+section{padding:clamp(3.6rem,8vw,6.2rem) 0;position:relative}
+section[data-serial]{border-top:1px solid var(--security-line)}
+section[data-serial] > .wrap::before{content:attr(data-serial);display:block;margin-bottom:clamp(1.6rem,3vw,2.4rem);padding-bottom:.7rem;border-bottom:1px solid var(--security-line-soft);
+  font:600 .6rem/1 var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--stone-500)}
+section.sheet{background:rgba(255,255,255,.42)}
 .head{max-width:42rem}
 .head.center{margin:0 auto;text-align:center}
-h2{font-size:clamp(1.7rem,4.2vw,2.5rem);font-weight:800;line-height:1.12}
+h2{font-size:clamp(1.7rem,4.2vw,2.55rem);font-weight:800;line-height:1.1;margin-top:.9rem;letter-spacing:-.025em}
 .lead{margin-top:1rem;color:var(--dim);font-size:clamp(1.02rem,2.4vw,1.15rem);line-height:1.55;max-width:38rem}
-.head.center .lead{margin-left:auto;margin-right:auto}
-.eyebrow+h2{margin-top:.7rem}
-
-.reveal{opacity:0;transform:translateY(16px);transition:opacity var(--t-reveal) var(--ease),transform var(--t-reveal) var(--ease)}
+.reveal{opacity:0;transform:translateY(14px);transition:opacity var(--t-reveal) var(--ease),transform var(--t-reveal) var(--ease)}
 .reveal.in{opacity:1;transform:none}
 
-/* hero — sovereign credential: ink, ivory, signal gold */
-.hero{padding-top:clamp(6.5rem,14vw,9rem);padding-bottom:clamp(2.5rem,6vw,4.5rem);position:relative;overflow:hidden;
-  background:var(--ink-1000);color:var(--ivory-100)}
-.hero::before{content:"";position:absolute;inset:0;pointer-events:none;background:
-  radial-gradient(ellipse 48rem 34rem at 82% 40%,rgba(213,173,77,.14),transparent 62%),
-  radial-gradient(ellipse 40rem 26rem at 0% 100%,rgba(213,173,77,.05),transparent 60%)}
-.hero::after{content:"";position:absolute;left:0;right:0;top:0;height:1px;background:linear-gradient(90deg,transparent,rgba(231,207,130,.35),transparent);pointer-events:none}
+/* hero — sovereign credential: ink, wortmarke, signal gold ≤10 % */
+.hero{padding-top:clamp(6.5rem,13vw,9rem);padding-bottom:clamp(2.5rem,6vw,4.5rem);position:relative;overflow:hidden;
+  background:var(--ink-1000);color:var(--ivory-100);
+  background-image:var(--guilloche-ink),radial-gradient(ellipse 52rem 36rem at 80% 45%,rgba(213,173,77,.12),transparent 62%),linear-gradient(135deg,#0d0d0b 0%,#191812 56%,#0d0d0b 100%)}
+.hero::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold-400),transparent);opacity:.75;pointer-events:none}
 .hero-grid{display:grid;grid-template-columns:1.08fr .92fr;gap:2.5rem;align-items:center;position:relative}
-.hero .eyebrow{background:none;color:var(--gold-400);text-shadow:none;font-weight:600;letter-spacing:.02em;text-transform:none;font-size:clamp(1rem,2.2vw,1.25rem);
+.hero-serial{position:absolute;right:0;top:-3.2rem;font:600 .58rem/1 var(--mono);letter-spacing:.16em;text-transform:uppercase;color:rgba(247,244,235,.45)}
+.hero .eyebrow{color:var(--gold-400);font:600 clamp(1rem,2.2vw,1.25rem)/1 var(--text);letter-spacing:.02em;text-transform:none;
   padding-top:.9rem;border-top:1px solid var(--gold-500);display:inline-block;min-width:3.5rem}
-.hero .wordmark{font-size:clamp(4.6rem,15vw,11rem);font-weight:800;line-height:.9;letter-spacing:-.05em;color:var(--ivory-100);
-  display:block;margin:0 0 1.4rem -.04em;text-transform:lowercase}
+.hero .eyebrow::before{display:none}
+.hero .wordmark{font-size:clamp(4.6rem,15vw,11rem);font-weight:800;line-height:.9;letter-spacing:-.05em;color:var(--ivory-100);display:block;margin:0 0 1.4rem -.04em;text-transform:lowercase}
 .hero .three{margin-top:1.2rem;display:flex;flex-direction:column;gap:.1rem}
-.hero .three span{font-size:clamp(1.2rem,2.8vw,1.7rem);font-weight:500;color:var(--ivory-100);line-height:1.3;letter-spacing:-.01em;
-  background:none;border:0;border-radius:0;padding:0;box-shadow:none}
+.hero .three span{font-size:clamp(1.2rem,2.8vw,1.7rem);font-weight:500;color:var(--ivory-100);line-height:1.3;letter-spacing:-.01em}
 .hero .lead{margin-top:1.6rem;font-size:clamp(1rem,2.2vw,1.1rem);max-width:34rem;color:var(--ivory-300)}
 .hero-actions{margin-top:2rem;display:flex;gap:.8rem;flex-wrap:wrap;align-items:center}
-.hero .btn-quiet{color:var(--gold-300)}
-.hero .btn-primary{background:linear-gradient(180deg,var(--gold-300),var(--gold-400) 55%,var(--gold-500));color:var(--ink-1000);
-  box-shadow:inset 0 1px 0 rgba(255,255,255,.45),0 1px 3px rgba(0,0,0,.5)}
-.hero-meta{margin-top:2.6rem;display:flex;gap:0;flex-wrap:wrap;font-family:var(--mono);font-size:.66rem;letter-spacing:.08em;text-transform:uppercase;color:var(--stone-500)}
-.hero-meta div{padding:.1rem 1.2rem .1rem 0;margin-right:1.2rem;border-right:1px solid rgba(247,244,235,.14);display:flex;flex-direction:column;gap:.25rem}
+.hero .btn-quiet{color:var(--ivory-100);border-color:rgba(247,244,235,.38)}
+.hero .btn-quiet:hover{border-color:var(--gold-300);color:var(--gold-300)}
+.hero-meta{margin-top:2.6rem;display:flex;flex-wrap:wrap;font-family:var(--mono);font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--stone-500)}
+.hero-meta div{padding:.1rem 1.2rem .1rem 0;margin-right:1.2rem;border-right:1px solid rgba(247,244,235,.14);display:flex;flex-direction:column;gap:.3rem}
 .hero-meta div:last-child{border-right:0}
 .hero-meta b{color:var(--ivory-200);font-weight:500}
 .manifest{margin-top:1.5rem;font-size:.9rem;color:var(--dim)}
 .manifest b{color:var(--gold-text);font-weight:600;font-style:italic}
-.hero .manifest{color:var(--stone-500)}.hero .manifest b{color:var(--gold-300)}
 
-/* owl guide */
-.owl-stage{position:relative;height:clamp(20rem,42vw,32rem);display:flex;align-items:center;justify-content:center}
-.owl-stage::before{content:"";position:absolute;width:72%;height:72%;border-radius:50%;
-  background:radial-gradient(circle,rgba(213,173,77,.22),transparent 66%);filter:blur(10px)}
-.owl-stage::after{content:"";position:absolute;left:6%;right:6%;top:58%;height:1px;
-  background:linear-gradient(90deg,transparent,rgba(231,207,130,.55) 30%,rgba(231,207,130,.9) 50%,rgba(231,207,130,.55) 70%,transparent);pointer-events:none}
-model-viewer{width:100%;height:100%;--poster-color:transparent;z-index:2}
-.owl-fallback{width:72%;max-width:24rem;z-index:2;filter:drop-shadow(0 1.4rem 2.4rem rgba(0,0,0,.5))}
+/* owl — Kampagnenmotiv vor Guilloché-Rosette, max 7° Tilt */
+.owl-stage{position:relative;height:clamp(22rem,46vw,36rem);display:flex;align-items:center;justify-content:center;perspective:1400px}
+.owl-rosette{position:absolute;inset:0;width:100%;height:100%;color:var(--gold-300);opacity:.16;pointer-events:none}
+.owl-stage::after{content:"";position:absolute;left:4%;right:4%;top:56%;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(231,207,130,.5) 30%,rgba(231,207,130,.95) 50%,rgba(231,207,130,.5) 70%,transparent);pointer-events:none;z-index:3}
+.owl-hero{position:relative;z-index:2;height:100%;width:auto;max-width:100%;object-fit:contain;
+  filter:drop-shadow(0 1.6rem 2.6rem rgba(0,0,0,.6));transform:rotateX(var(--tilt-x,0deg)) rotateY(var(--tilt-y,0deg));transition:transform var(--t-shift) var(--ease);will-change:transform}
+.owl-caption{position:absolute;right:0;bottom:-.2rem;z-index:3;font:600 .56rem/1.5 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:rgba(247,244,235,.45);text-align:right}
 
-/* cards */
-.card{background:var(--card);border:1px solid var(--line);border-radius:1.2rem;padding:1.6rem 1.5rem;box-shadow:var(--shadow-s)}
+/* cards — Perlmuttpapier, Hairline, drei leise physische Schatten */
+.card{position:relative;background:var(--paper-pearl);border:1px solid var(--security-line);border-radius:var(--r-card);padding:1.6rem 1.5rem;box-shadow:var(--document-shadow);overflow:hidden}
+.card::before{content:"";position:absolute;inset:0;pointer-events:none;border-radius:inherit;
+  background:linear-gradient(180deg,rgba(255,255,255,.85),transparent 22%)}
+.card::after{content:"";position:absolute;left:1.1rem;right:1.1rem;top:0;height:1px;background:linear-gradient(90deg,transparent,rgba(174,134,46,.45),transparent);pointer-events:none}
+.card > *{position:relative}
 .grid{display:grid;gap:1.1rem;margin-top:2.6rem}
 .g2{grid-template-columns:1fr 1fr}
 .g3{grid-template-columns:repeat(3,1fr)}
 .g4{grid-template-columns:repeat(4,1fr)}
-.card h3{font-size:1.08rem;font-weight:700;margin-bottom:.5rem;display:flex;align-items:center;gap:.5rem;flex-wrap:wrap}
+.card h3{font-size:1.05rem;font-weight:700;margin-bottom:.5rem;display:flex;align-items:center;gap:.5rem;flex-wrap:wrap;letter-spacing:-.01em}
 .card p{color:var(--dim);font-size:.92rem;line-height:1.55}
-.card .k{font-family:ui-monospace,"SF Mono",Menlo,monospace;font-size:.78rem;color:var(--gold-text-deep);
-  background:rgba(210,168,76,.12);padding:.1em .4em;border-radius:.35em}
+.card .k{font-family:var(--mono);font-size:.76rem;color:var(--gold-700);background:rgba(174,134,46,.1);border:1px solid var(--security-line);padding:.1em .4em;border-radius:4px}
 
-/* hunch-moment flow */
-.flow{margin-top:2.6rem;background:linear-gradient(180deg,var(--bg-2),var(--card));border:1px solid var(--line);
-  border-radius:1.4rem;padding:clamp(1.4rem,4vw,2.4rem);box-shadow:var(--shadow-m)}
-.flow ol{list-style:none;counter-reset:step;display:grid;gap:.75rem}
+/* hunch-moment — Ablauf als Dokument mit Serienfeldern */
+.flow{margin-top:2.6rem;background:var(--paper-pearl);border:1px solid var(--security-line);border-radius:var(--r-doc);padding:clamp(1.4rem,4vw,2.4rem);box-shadow:var(--document-shadow);position:relative;overflow:hidden}
+.flow::before{content:"";position:absolute;inset:0;pointer-events:none;background-image:var(--guilloche-paper);opacity:.5;mask-image:linear-gradient(180deg,transparent,#000 30%,#000 70%,transparent);-webkit-mask-image:linear-gradient(180deg,transparent,#000 30%,#000 70%,transparent)}
+.flow ol{position:relative;list-style:none;counter-reset:step;display:grid;gap:.7rem}
 .flow li{counter-increment:step;display:grid;grid-template-columns:2.2rem minmax(0,1fr);column-gap:1rem;align-items:start;
-  padding:.85rem 1rem;background:var(--bg-2);border:1px solid var(--line);border-radius:.9rem}
-.flow li::before{content:counter(step);grid-column:1;grid-row:1 / span 2;display:flex;align-items:center;justify-content:center;
-  width:2.2rem;height:2.2rem;border-radius:50%;font-weight:700;font-size:.95rem;color:var(--btn-ink);
-  background:linear-gradient(180deg,var(--gold-100),var(--gold-500))}
-.flow li.hot{border-color:rgba(210,168,76,.5);background:linear-gradient(180deg,rgba(240,218,154,.18),var(--bg-2))}
+  padding:.85rem 1rem;background:rgba(255,255,255,.7);border:1px solid var(--security-line);border-radius:var(--r-field)}
+.flow li::before{content:counter(step,decimal-leading-zero);grid-column:1;grid-row:1 / span 2;display:flex;align-items:center;justify-content:center;
+  width:2.2rem;height:2.2rem;border-radius:50%;font:700 .72rem var(--mono);color:var(--gold-700);border:1px solid var(--security-gold);
+  background:repeating-radial-gradient(circle,rgba(178,140,51,.35) 0 1px,transparent 1px 4px)}
+.flow li.hot{border-color:rgba(174,134,46,.55);background:linear-gradient(180deg,rgba(231,207,130,.22),rgba(255,255,255,.75))}
+.flow li.hot::before{background:linear-gradient(180deg,var(--gold-300),var(--gold-400));color:var(--ink-1000);border-color:var(--gold-500)}
 .flow li b{grid-column:2;grid-row:1;font-size:.98rem;color:var(--ink);margin-bottom:.15rem}
 .flow li span{grid-column:2;grid-row:2;color:var(--dim);font-size:.9rem}
-.flow .seq{margin-top:1.4rem;font-family:ui-monospace,"SF Mono",Menlo,monospace;font-size:.78rem;color:var(--gold-text-deep);
-  text-align:center;line-height:1.9;overflow-x:auto;white-space:nowrap;padding-bottom:.3rem}
+.flow .seq{position:relative;margin-top:1.4rem;font:600 .7rem/1.9 var(--mono);letter-spacing:.06em;color:var(--gold-700);text-align:center;overflow-x:auto;white-space:nowrap;padding-bottom:.3rem}
 
 /* comparison */
 .vs{display:grid;grid-template-columns:1fr 1fr;gap:1.1rem;margin-top:2.6rem}
-.vs .col{border-radius:1.2rem;padding:1.6rem 1.5rem;border:1px solid var(--line)}
-.vs .ordinary{background:var(--bg-2)}
-.vs .hunch{background:linear-gradient(180deg,#FFFDF7,#FFF9EC);border-color:rgba(210,168,76,.4);box-shadow:var(--shadow-m)}
+.vs .col{border-radius:var(--r-card);padding:1.6rem 1.5rem;border:1px solid var(--security-line);position:relative;overflow:hidden}
+.vs .ordinary{background:rgba(255,255,255,.45)}
+.vs .hunch{background:var(--paper-pearl);border-color:rgba(174,134,46,.45);box-shadow:var(--document-shadow)}
+.vs .hunch::after{content:"owner bound";position:absolute;right:1.2rem;top:1.2rem;font:700 .56rem/1 var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--security-gold);border:1px solid var(--security-gold);padding:.35em .55em;border-radius:4px}
 .vs .col h3{font-size:1.05rem;font-weight:700;margin-bottom:1rem}
 .vs ul{list-style:none;display:grid;gap:.6rem}
 .vs li{display:grid;grid-template-columns:1.2rem 1fr;gap:.6rem;font-size:.92rem;color:var(--ink-2);line-height:1.45}
@@ -191,30 +196,26 @@ model-viewer{width:100%;height:100%;--poster-color:transparent;z-index:2}
 
 /* memory architecture */
 .scopes{display:grid;gap:.9rem;margin-top:2.4rem}
-.scope{border:1px solid var(--line);border-radius:1rem;padding:1.2rem 1.3rem;background:var(--card);box-shadow:var(--shadow-s)}
+.scope{border:1px solid var(--security-line);border-radius:var(--r-card);padding:1.2rem 1.3rem;background:var(--paper-pearl);box-shadow:var(--shadow-s)}
 .scope h3{font-size:1rem;display:flex;gap:.5rem;align-items:center;flex-wrap:wrap}
 .scope p{color:var(--dim);font-size:.9rem;margin-top:.35rem}
 .scope .items{margin-top:.6rem;display:flex;flex-wrap:wrap;gap:.4rem}
-.scope .items span{font-size:.78rem;color:var(--ink-2);background:var(--bg-2);border:1px solid var(--line);border-radius:999px;padding:.2rem .6rem}
-.rule{margin-top:2rem;background:linear-gradient(180deg,#FFFDF7,#FFF9EC);border:1px solid rgba(210,168,76,.4);
-  border-radius:1.1rem;padding:1.3rem 1.4rem}
-.rule b{color:var(--gold-text-deep)}
+.scope .items span{font:500 .74rem/1 var(--mono);color:var(--ink-2);background:rgba(255,255,255,.7);border:1px solid var(--security-line);border-radius:4px;padding:.35rem .55rem}
+.rule{margin-top:2rem;background:var(--paper-pearl);border:1px solid rgba(174,134,46,.45);border-radius:var(--r-card);padding:1.3rem 1.4rem;box-shadow:var(--shadow-s)}
+.rule b{color:var(--gold-700)}
 .rule .note{margin-top:.6rem;font-size:.85rem;color:var(--dim)}
 
 /* two-model */
 .duo{display:grid;grid-template-columns:1fr 1fr;gap:1.1rem;margin-top:2.6rem}
-.duo .card::after{content:"";position:absolute}
-.duo .card{position:relative;overflow:hidden}
-.duo .card .role{font-family:ui-monospace,Menlo,monospace;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--dim);margin-bottom:.5rem}
+.duo .card .role{font:650 .66rem/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--dim);margin-bottom:.6rem}
 .duo .exec .role{color:var(--gold-text)}
 
-/* phones */
+/* phones — Produktframe: vollständige Bildfläche, kein Crop, keine künstliche Island */
 .stage{display:flex;align-items:center;justify-content:center;gap:1.5rem;margin-top:3rem;flex-wrap:nowrap}
 .phone{position:relative;width:var(--pw,15rem);flex:0 0 auto;border-radius:2.7rem;padding:.5rem;
   background:linear-gradient(155deg,#eae5d7,#d0c8b3 42%,#b7ac90);
   box-shadow:0 2px 4px rgba(29,29,31,.08),0 26px 56px rgba(110,84,36,.18),inset 0 1px 2px rgba(255,255,255,.6)}
 .phone .screen{width:100%;border-radius:2.25rem;overflow:hidden;background:#F6F5F2;box-shadow:inset 0 0 0 1px rgba(0,0,0,.05)}
-/* full native screenshots already include the status bar + island: NO second island, contain, top-anchored */
 .phone .screen img,.phone .screen video{width:100%;height:auto;object-fit:contain;object-position:center top}
 .stage .side{--pw:12rem;opacity:.92}
 .stage .side.left{transform:rotate(-5deg) translateY(.8rem)}
@@ -227,53 +228,61 @@ model-viewer{width:100%;height:100%;--poster-color:transparent;z-index:2}
 @keyframes fltL{0%,100%{transform:rotate(-5deg) translateY(.8rem)}50%{transform:rotate(-5deg) translateY(.1rem)}}
 @keyframes fltR{0%,100%{transform:rotate(5deg) translateY(.8rem)}50%{transform:rotate(5deg) translateY(.1rem)}}
 
-/* screen figures (copy before image, per spec) */
+/* screen figures */
 .screens{display:grid;grid-template-columns:repeat(3,1fr);gap:1.6rem 1.4rem;margin-top:2.8rem;align-items:start}
 .shot{display:flex;flex-direction:column}
 .shot .cap{margin-bottom:.9rem}
 .shot .cap b{display:block;font-size:1rem;font-weight:700}
 .shot .cap span{display:block;font-size:.86rem;color:var(--dim);margin-top:.15rem}
 .shot .phone{width:100%;--pw:100%}
-.shot.concept .screen{border:1px dashed rgba(210,168,76,.5)}
-.concept-badge{font-size:.66rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--gold-text);
-  background:rgba(210,168,76,.14);border-radius:999px;padding:.15em .55em;margin-left:.4rem}
+.shot.concept .screen{border:1px dashed rgba(174,134,46,.5)}
+.concept-badge{font:700 .58rem/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--gold-700);border:1px solid var(--security-gold);border-radius:4px;padding:.3em .5em;margin-left:.4rem}
 
 /* island live activity strip */
 .island{display:flex;gap:1rem;flex-wrap:wrap;margin-top:2.4rem}
-.island .pill{flex:1 1 15rem;background:#0c0c0e;color:#fff;border-radius:1.4rem;padding:1.1rem 1.3rem;
-  display:flex;align-items:center;gap:.9rem;box-shadow:var(--shadow-m)}
-.island .dot{width:2.4rem;height:2.4rem;border-radius:50%;flex:0 0 auto;display:flex;align-items:center;justify-content:center;font-size:1.1rem;color:var(--gold-300)}
-.island .work{background:rgba(210,168,76,.2)}
-.island .wait{background:rgba(255,159,0,.22)}
+.island .pill{flex:1 1 15rem;background:#0c0c0e;color:#fff;border-radius:1.4rem;padding:1.1rem 1.3rem;border:1px solid var(--security-line-dark);
+  display:flex;align-items:center;gap:.9rem;box-shadow:var(--document-shadow);background-image:var(--guilloche-ink)}
+.island .dot{width:2.4rem;height:2.4rem;border-radius:50%;flex:0 0 auto;display:flex;align-items:center;justify-content:center;color:var(--gold-300);border:1px solid rgba(231,207,130,.35)}
+.island .work{background:rgba(213,173,77,.16)}
+.island .wait{background:rgba(213,173,77,.28)}
 .island .txt b{display:block;font-size:.95rem}
 .island .txt span{font-size:.8rem;color:#b8b3a6}
 
-/* status matrix */
+/* status matrix — Register */
 .matrix{margin-top:2.6rem;display:grid;gap:1.1rem;grid-template-columns:repeat(4,1fr)}
-.matrix .col{background:var(--card);border:1px solid var(--line);border-radius:1.1rem;padding:1.2rem;box-shadow:var(--shadow-s)}
-.matrix .col h3{font-size:.82rem;text-transform:uppercase;letter-spacing:.06em;margin-bottom:.9rem;display:flex;align-items:center;gap:.4rem}
+.matrix .col{background:var(--paper-pearl);border:1px solid var(--security-line);border-radius:var(--r-card);padding:1.2rem;box-shadow:var(--shadow-s)}
+.matrix .col h3{font:700 .7rem/1 var(--mono);text-transform:uppercase;letter-spacing:.12em;margin-bottom:.9rem;display:flex;align-items:center;gap:.4rem;padding-bottom:.7rem;border-bottom:1px solid var(--security-line-soft)}
 .matrix ul{list-style:none;display:grid;gap:.5rem}
 .matrix li{font-size:.86rem;color:var(--ink-2);line-height:1.4;padding-left:.9rem;position:relative}
 .matrix li::before{content:"";position:absolute;left:0;top:.55em;width:.35rem;height:.35rem;border-radius:50%;background:var(--gold-500)}
 
-/* cta */
-.cta{text-align:center;position:relative;overflow:hidden}
-.cta::before{content:"";position:absolute;inset:0;pointer-events:none;
-  background:radial-gradient(ellipse 44rem 24rem at 50% 118%,rgba(230,200,119,.22),transparent 62%)}
-.cta img{width:5rem;height:5rem;margin-bottom:1.4rem;filter:drop-shadow(0 .8rem 1.6rem rgba(110,84,36,.25))}
+/* cta — Siegel + Receipt */
+.cta{text-align:center;position:relative;overflow:hidden;border-top:1px solid var(--security-line)}
+.cta::before{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 44rem 24rem at 50% 118%,rgba(213,173,77,.16),transparent 62%)}
+.cta .seal{width:5.6rem;height:5.6rem;margin:0 auto 1.4rem;border-radius:50%;display:grid;place-items:center;position:relative;
+  color:var(--gold-700);font:800 .95rem/1 var(--display);letter-spacing:-.02em;text-transform:lowercase;border:1px solid var(--security-gold);
+  background:repeating-radial-gradient(circle,rgba(178,140,51,.5) 0 1px,transparent 1px 4px),var(--paper-pearl);box-shadow:var(--shadow-s)}
+.cta .seal::before{content:"";position:absolute;inset:8%;border:1px solid rgba(174,134,46,.45);border-radius:50%}
+.cta .seal::after{content:"owner bound · 2026";position:absolute;bottom:-1.4rem;left:50%;transform:translateX(-50%);font:600 .52rem/1 var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--security-gold);white-space:nowrap}
 .cta .btn{margin-top:1.8rem}
 .cta .fine{margin-top:1rem;font-size:.8rem;color:var(--dim)}
+.receipt{margin:2.4rem auto 0;max-width:30rem;text-align:left;background:var(--paper-pearl);border:1px solid var(--security-line);border-radius:var(--r-field);padding:1rem 1.2rem;box-shadow:var(--shadow-s);
+  font:500 .7rem/1.7 var(--mono);letter-spacing:.04em;color:var(--stone-600);display:grid;grid-template-columns:auto 1fr;column-gap:1.2rem}
+.receipt span{color:var(--security-gold);text-transform:uppercase;letter-spacing:.12em;font-size:.58rem;align-self:center}
+.receipt b{font-weight:600;color:var(--ink-2)}
 
-footer{border-top:1px solid var(--line);padding:2.4rem 0 calc(2.4rem + env(safe-area-inset-bottom));color:var(--dim);font-size:.85rem}
+footer{border-top:1px solid var(--security-line);padding:2.2rem 0 calc(2.2rem + env(safe-area-inset-bottom));color:var(--dim);font-size:.85rem;background:rgba(255,255,255,.35)}
 .foot{display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap}
-.foot .logo{font-size:.9rem}.foot .logo img{width:1.25rem;height:1.25rem}
+.foot .logo{font-size:.9rem}.foot .logo img{width:1.1rem}
 .foot a{color:var(--gold-text)}
+.microprint{margin-top:1.4rem;overflow:hidden;white-space:nowrap;font:600 .5rem/1 var(--mono);letter-spacing:.22em;text-transform:uppercase;color:rgba(174,134,46,.55);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
 
-/* responsive */
+@media(max-width:1360px){ .nav-serial{display:none} }
 @media(max-width:900px){
   .hero-grid{grid-template-columns:1fr}
-  .owl-stage{order:-1;height:clamp(15rem,52vw,20rem)}
-  .nav-links{display:none}
+  .owl-stage{order:-1;height:clamp(16rem,56vw,22rem)}
+  .hero-serial{display:none}
+  .nav-links,.nav-serial{display:none}
   .g3,.g4,.matrix{grid-template-columns:1fr 1fr}
   .screens{grid-template-columns:1fr 1fr}
 }
@@ -286,12 +295,14 @@ footer{border-top:1px solid var(--line);padding:2.4rem 0 calc(2.4rem + env(safe-
   .stage .heroP{--pw:min(86vw,20rem)}
   .shot .phone{--pw:min(86vw,22rem);margin:0 auto}
   .flow li{grid-template-columns:1.8rem minmax(0,1fr);column-gap:.7rem}
+  .vs .hunch::after{position:static;display:inline-block;margin-bottom:.8rem}
 }
 @media (prefers-reduced-motion: reduce){
   html{scroll-behavior:auto}
   .reveal{opacity:1;transform:none;transition:none}
   .float,.stage .side.left.float,.stage .side.right.float{animation:none}
-  .btn,.nav-cta{transition:none}
+  .btn,.nav-cta,.owl-hero{transition:none}
+  .owl-hero{transform:none!important}
 }
 @media (prefers-reduced-transparency: reduce){
   nav{background:var(--bg);backdrop-filter:none;-webkit-backdrop-filter:none}
@@ -303,7 +314,7 @@ footer{border-top:1px solid var(--line);padding:2.4rem 0 calc(2.4rem + env(safe-
 
 <nav id="nav">
   <div class="wrap nav-in">
-    <a class="logo" href="#top"><img src="owl-3d.png" alt="Hunch">hunch</a>
+    <a class="logo" href="#top"><img src="owl-mark.png" alt="Hunch">hunch</a>
     <div class="nav-links">
       <a href="#moment">Der Moment</a>
       <a href="#modell">Persönliches Modell</a>
@@ -315,6 +326,7 @@ footer{border-top:1px solid var(--line);padding:2.4rem 0 calc(2.4rem + env(safe-
       <a href="docs/index.html">Doku</a>
       <a href="brand/">Brand</a>
     </div>
+    <span class="nav-serial">intentional agent · owner bound · 2026</span>
     <a class="nav-cta" href="mailto:schenkei@hunchagent.io?subject=Hunch%20Early%20Access">Early Access</a>
   </div>
 </nav>
@@ -323,6 +335,7 @@ footer{border-top:1px solid var(--line);padding:2.4rem 0 calc(2.4rem + env(safe-
 <header class="hero" id="top">
   <div class="wrap">
     <div class="hero-grid">
+      <span class="hero-serial">hunch / brand system 2026.03 / hunchagent.io</span>
       <div>
         <h1><span class="wordmark">hunch</span><span class="eyebrow">intentional agent</span></h1>
         <div class="three" aria-label="kennt dich. erkennt den moment. handelt in deinem auftrag.">
@@ -343,23 +356,27 @@ footer{border-top:1px solid var(--line);padding:2.4rem 0 calc(2.4rem + env(safe-
           <div><span>lineage</span><b>owner credential</b></div>
         </div>
       </div>
-      <div class="owl-stage">
-        <model-viewer id="owl3d" src="owl.glb" alt="Die Hunch-Eule als 3D-Modell"
-          reveal="auto" loading="eager"
-          auto-rotate auto-rotate-delay="0" rotation-per-second="12deg"
-          camera-controls disable-zoom disable-pan interaction-prompt="none"
-          camera-orbit="0deg 82deg 105%" exposure="1.15" shadow-intensity="0" shadow-softness="0.9"></model-viewer>
-        <img class="owl-fallback" id="owlpng" src="owl-3d.png" alt="Die Hunch-Eule" style="display:none">
+      <div class="owl-stage" id="owlstage">
+        <svg class="owl-rosette" viewBox="0 0 600 600" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+          <g fill="none" stroke="currentColor" stroke-width=".7" transform="translate(300 300)">
+            <ellipse rx="250" ry="110"/><ellipse rx="230" ry="150" transform="rotate(30)"/><ellipse rx="230" ry="150" transform="rotate(60)"/>
+            <ellipse rx="230" ry="150" transform="rotate(90)"/><ellipse rx="230" ry="150" transform="rotate(120)"/><ellipse rx="230" ry="150" transform="rotate(150)"/>
+            <ellipse rx="180" ry="86" transform="rotate(15)"/><ellipse rx="180" ry="86" transform="rotate(75)"/><ellipse rx="180" ry="86" transform="rotate(135)"/>
+            <circle r="262" stroke-dasharray="2 5"/><circle r="120" stroke-dasharray="1 4"/>
+          </g>
+        </svg>
+        <img class="owl-hero" id="owlhero" src="owl-bronze-cut.png" width="1400" height="2087" alt="Die Hunch-Eule — skulpturale Bronze, Kampagnenmotiv" fetchpriority="high">
+        <div class="owl-caption">campaign mark<br>bronze · facettiert</div>
       </div>
     </div>
   </div>
 </header>
 
 <!-- HUNCH MOMENT -->
-<section id="moment">
+<section id="moment" data-serial="01 / der moment · scope: hunchagent.io · status signiert">
   <div class="wrap">
     <div class="head">
-      <span class="eyebrow reveal">Der Hunch-Moment</span>
+      <span class="eyebrow reveal" data-no="01">Der Hunch-Moment</span>
       <h2 class="reveal">Ein echtes Signal wird zu einer sinnvollen Handlung — innerhalb deiner Regeln.</h2>
       <p class="lead reveal">Das ist keine Gedankenlesen-Magie. Hunch gewinnt seinen Vorsprung aus
       realen Signalen, gelernten Zusammenhängen und dem langfristigen Verständnis für dich. Ein Beispiel:
@@ -382,10 +399,10 @@ footer{border-top:1px solid var(--line);padding:2.4rem 0 calc(2.4rem + env(safe-
 </section>
 
 <!-- VS ORDINARY -->
-<section id="unterschied" style="background:var(--bg-2)">
+<section id="unterschied" class="sheet" data-serial="02 / unterschied · scope: hunchagent.io · status signiert">
   <div class="wrap">
     <div class="head">
-      <span class="eyebrow reveal">Nicht noch ein KI-Agent</span>
+      <span class="eyebrow reveal" data-no="02">Nicht noch ein KI-Agent</span>
       <h2 class="reveal">Der Unterschied zu gewöhnlichen Prompt-Agenten.</h2>
     </div>
     <div class="vs reveal">
@@ -420,10 +437,10 @@ footer{border-top:1px solid var(--line);padding:2.4rem 0 calc(2.4rem + env(safe-
 </section>
 
 <!-- PERSONAL MODEL & ANTICIPATION -->
-<section id="modell">
+<section id="modell" data-serial="03 / persönliches modell · scope: hunchagent.io · status signiert">
   <div class="wrap">
     <div class="head">
-      <span class="eyebrow reveal">Persönliches Modell &amp; Antizipation</span>
+      <span class="eyebrow reveal" data-no="03">Persönliches Modell &amp; Antizipation</span>
       <h2 class="reveal">Wodurch Hunch vorausschauend wird.</h2>
       <p class="lead reveal">Das persönliche Modell verbindet nur aktivierte, kontrollierbare Quellen —
       unter anderem Erinnerungen, Gespräche, Aufgaben, Ziele und Vorhaben, Entscheidungen, Personen und
@@ -446,10 +463,10 @@ footer{border-top:1px solid var(--line);padding:2.4rem 0 calc(2.4rem + env(safe-
 </section>
 
 <!-- BRAIN -->
-<section id="brain" style="background:var(--bg-2)">
+<section id="brain" class="sheet" data-serial="04 / brain & vorhaben · scope: hunchagent.io · status signiert">
   <div class="wrap">
     <div class="head">
-      <span class="eyebrow reveal">Brain, Vorhaben &amp; offene Schleifen</span>
+      <span class="eyebrow reveal" data-no="04">Brain, Vorhaben &amp; offene Schleifen</span>
       <h2 class="reveal">Ein lebendes persönliches Gedächtnis — kein leeres Dashboard.</h2>
       <p class="lead reveal">Brain hält Erinnerungen, Gespräche, Aufgaben, Ziele, Arbeitspräferenzen,
       relevante Personen und Themen, Momentum, offene Schleifen, Zusammenhänge sowie Ergebnisse und
@@ -465,10 +482,10 @@ footer{border-top:1px solid var(--line);padding:2.4rem 0 calc(2.4rem + env(safe-
 </section>
 
 <!-- SELF IMPROVEMENT -->
-<section id="lernen">
+<section id="lernen" data-serial="05 / selbstverbesserung · scope: hunchagent.io · status signiert">
   <div class="wrap">
     <div class="head">
-      <span class="eyebrow reveal">Hunch wird mit dir besser — kontrolliert</span>
+      <span class="eyebrow reveal" data-no="05">Hunch wird mit dir besser — kontrolliert</span>
       <h2 class="reveal">Selbstverbesserung ist kein vages „die KI wird immer schlauer".</h2>
     </div>
     <div class="grid g3">
@@ -494,10 +511,10 @@ footer{border-top:1px solid var(--line);padding:2.4rem 0 calc(2.4rem + env(safe-
 </section>
 
 <!-- WORKSTYLE & MEMORY SCOPES -->
-<section id="arbeitsweise" style="background:var(--bg-2)">
+<section id="arbeitsweise" class="sheet" data-serial="06 / arbeitsweise & memory · scope: hunchagent.io · status signiert">
   <div class="wrap">
     <div class="head">
-      <span class="eyebrow reveal">Persönliche Arbeitsweise &amp; Memory</span>
+      <span class="eyebrow reveal" data-no="06">Persönliche Arbeitsweise &amp; Memory</span>
       <h2 class="reveal">Hunch lernt nicht nur, wer du bist — sondern wie es mit dir arbeiten soll.</h2>
       <p class="lead reveal">Es erinnert sich nicht nur an Fakten, sondern an die gewünschte Art der
       Zusammenarbeit: ob du kurze oder ausführliche Antworten willst, ob Hunch direkt ausführen oder
@@ -532,10 +549,10 @@ footer{border-top:1px solid var(--line);padding:2.4rem 0 calc(2.4rem + env(safe-
 </section>
 
 <!-- OBSERVER / EXECUTIVE -->
-<section id="observer">
+<section id="observer" data-serial="07 / observer & executive · scope: hunchagent.io · status signiert">
   <div class="wrap">
     <div class="head">
-      <span class="eyebrow reveal">Observer &amp; Executive</span>
+      <span class="eyebrow reveal" data-no="07">Observer &amp; Executive</span>
       <h2 class="reveal">Einer beobachtet still. Eine handelt — nur innerhalb deiner Regeln.</h2>
       <p class="lead reveal">Hunch denkt nicht ständig laut. Ein stiller Observer erkennt, was relevant
       werden könnte. Erst dann übernimmt der Executive.</p>
@@ -560,10 +577,10 @@ footer{border-top:1px solid var(--line);padding:2.4rem 0 calc(2.4rem + env(safe-
 </section>
 
 <!-- GLOBAL SESSION -->
-<section id="session" style="background:var(--bg-2)">
+<section id="session" class="sheet" data-serial="08 / globale session · scope: hunchagent.io · status signiert">
   <div class="wrap">
     <div class="head">
-      <span class="eyebrow reveal">Eine globale Session</span>
+      <span class="eyebrow reveal" data-no="08">Eine globale Session</span>
       <h2 class="reveal">Ein Hunch, eine Beziehung — überall.</h2>
       <p class="lead reveal">Du wechselst die Oberfläche, nicht das Gegenüber. Hunch behält Ziele,
       Entscheidungen, Arbeitsweise und relevante Zusammenhänge im Blick — egal, welches Modell oder Gerät
@@ -580,10 +597,10 @@ footer{border-top:1px solid var(--line);padding:2.4rem 0 calc(2.4rem + env(safe-
 </section>
 
 <!-- FÄDEN -->
-<section id="faeden">
+<section id="faeden" data-serial="09 / fäden · scope: hunchagent.io · status signiert">
   <div class="wrap">
     <div class="head">
-      <span class="eyebrow reveal">Fäden</span>
+      <span class="eyebrow reveal" data-no="09">Fäden</span>
       <h2 class="reveal">Du denkst weiter, Hunch arbeitet weiter.</h2>
       <p class="lead reveal">Fäden sind parallele, persistente Arbeitsstränge innerhalb deiner Beziehung
       zu Hunch. Während ein längerer Auftrag läuft, bleibt das Hauptgespräch sofort frei — ein gewöhnlicher
@@ -602,10 +619,10 @@ footer{border-top:1px solid var(--line);padding:2.4rem 0 calc(2.4rem + env(safe-
 </section>
 
 <!-- AUTHORITY GATE -->
-<section id="autoritaet" style="background:var(--bg-2)">
+<section id="autoritaet" class="sheet" data-serial="10 / authority gate · scope: hunchagent.io · status signiert">
   <div class="wrap">
     <div class="head">
-      <span class="eyebrow reveal">Authority Gate</span>
+      <span class="eyebrow reveal" data-no="10">Authority Gate</span>
       <h2 class="reveal">Hunch darf Absichten erkennen. Autorität erfindet es nicht.</h2>
       <p class="lead reveal">Das Authority Gate ist kein einzelner magischer Schalter, sondern das sichtbare
       Zusammenspiel mehrerer Schutzebenen. Vorausschauend, aber niemals eigenmächtig.</p>
@@ -631,10 +648,10 @@ footer{border-top:1px solid var(--line);padding:2.4rem 0 calc(2.4rem + env(safe-
 </section>
 
 <!-- MODELS / SKILLS / CAPABILITY LAYER -->
-<section id="modelle">
+<section id="modelle" data-serial="11 / modelle & skills · scope: hunchagent.io · status signiert">
   <div class="wrap">
     <div class="head">
-      <span class="eyebrow reveal">Modelle, Skills, MCPs &amp; Harnesses</span>
+      <span class="eyebrow reveal" data-no="11">Modelle, Skills, MCPs &amp; Harnesses</span>
       <h2 class="reveal">Das Modell ist austauschbar. Hunch bleibt.</h2>
       <p class="lead reveal">Bring your model, keep your hunch. Hunchs Identität, Gedächtnis, Authority,
       Arbeitspräferenzen und Skills sind nicht an einen Modellprovider gebunden — drei unabhängige Ebenen.</p>
@@ -656,10 +673,10 @@ footer{border-top:1px solid var(--line);padding:2.4rem 0 calc(2.4rem + env(safe-
 </section>
 
 <!-- APPS / SURFACES / SCREENSHOTS -->
-<section id="apps" style="background:var(--bg-2)">
+<section id="apps" class="sheet" data-serial="12 / surfaces · scope: hunchagent.io · status signiert">
   <div class="wrap">
     <div class="head center">
-      <span class="eyebrow reveal">Ein Hunch, mehrere Zugänge</span>
+      <span class="eyebrow reveal" data-no="12">Ein Hunch, mehrere Zugänge</span>
       <h2 class="reveal">Nicht nur eine iPhone-App.</h2>
       <p class="lead reveal">Die Runtime auf Mac, PC, Linux oder VPS beobachtet, erinnert und führt aus.
       Die iPhone-App ist dein Begleiter für Brain, Fäden, Maschinen, Nodes, Kanäle, Skills und Freigaben.
@@ -712,10 +729,10 @@ footer{border-top:1px solid var(--line);padding:2.4rem 0 calc(2.4rem + env(safe-
 </section>
 
 <!-- LOCAL FIRST / PRIVACY -->
-<section id="privat">
+<section id="privat" data-serial="13 / local-first & kontrolle · scope: hunchagent.io · status signiert">
   <div class="wrap">
     <div class="head">
-      <span class="eyebrow reveal">Local-first &amp; Kontrolle</span>
+      <span class="eyebrow reveal" data-no="13">Local-first &amp; Kontrolle</span>
       <h2 class="reveal">Nicht nur „Privacy first" als Slogan — so funktioniert die Kontrolle.</h2>
     </div>
     <div class="grid g3">
@@ -730,10 +747,10 @@ footer{border-top:1px solid var(--line);padding:2.4rem 0 calc(2.4rem + env(safe-
 </section>
 
 <!-- STATUS MATRIX -->
-<section id="status" style="background:var(--bg-2)">
+<section id="status" class="sheet" data-serial="14 / product truth · scope: hunchagent.io · status signiert">
   <div class="wrap">
     <div class="head center">
-      <span class="eyebrow reveal">Ehrlicher Status</span>
+      <span class="eyebrow reveal" data-no="14">Ehrlicher Status</span>
       <h2 class="reveal">Was heute läuft, was experimentell ist, was kommt.</h2>
       <p class="lead reveal">Die Vision bleibt stark — aber nichts hier ist als ausgeliefert dargestellt, was es nicht ist.</p>
     </div>
@@ -772,35 +789,35 @@ footer{border-top:1px solid var(--line);padding:2.4rem 0 calc(2.4rem + env(safe-
 <!-- CTA -->
 <section class="cta">
   <div class="wrap">
-    <img src="owl-3d.png" alt="" class="reveal">
+    <div class="seal reveal" aria-hidden="true">hunch</div>
     <h2 class="reveal">Hunch ist nicht das Modell, mit dem du heute sprichst.</h2>
     <p class="lead reveal" style="margin:1rem auto 0">Es ist der Agent, der dich über Jahre kennenlernt,
     versteht, wohin du gerade gehst, weiß, wie du mit ihm arbeiten willst — und im richtigen Moment
     innerhalb deiner Regeln handelt.</p>
     <a class="btn btn-primary reveal" href="mailto:schenkei@hunchagent.io?subject=Hunch%20Early%20Access">Early Access anfragen</a>
+    <div class="receipt reveal"><span>credential</span><b>owner bound · secure enclave</b><span>scope</span><b>global · projekt · faden</b><span>authority</span><b>freigabe vor wirkung · undo · audit</b><span>status</span><b>heute / experimentell / vision — signiert</b></div>
     <p class="fine">schenkei@hunchagent.io · kein Newsletter, keine Tracker auf dieser Seite.</p>
   </div>
 </section>
 
 <footer>
   <div class="wrap foot">
-    <a class="logo" href="#top"><img src="owl-3d.png" alt="">hunch</a>
+    <a class="logo" href="#top"><img src="owl-mark.png" alt="">hunch</a>
     <div>© 2026 Hunch — hunchagent.io · <a href="docs/index.html">Dokumentation</a> · <a href="brand/">Brand System</a></div>
   </div>
+  <div class="wrap microprint" aria-hidden="true">hunch · intentional agent · owner bound · authority controlled · kennt dich · erkennt den moment · handelt in deinem auftrag · hunch · intentional agent · owner bound · authority controlled · kennt dich · erkennt den moment · handelt in deinem auftrag · hunch · intentional agent · owner bound · authority controlled</div>
 </footer>
 
 <script>
-  // Eule direkt als 3D-Modell (kein Bild davor). Das statische PNG erscheint nur,
-  // wenn reduzierte Bewegung gewünscht ist oder das Modell nicht lädt.
+  // Eule: maximal 7° Tilt, Licht folgt dem Zeiger — Reduced Motion blendet statt zu kippen.
   (function(){
-    var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
-    var mv = document.getElementById('owl3d'), png = document.getElementById('owlpng');
-    if (!mv) return;
-    function fallback(){ mv.style.display='none'; png.style.display=''; }
-    if (reduce){ fallback(); return; }
-    mv.addEventListener('error', fallback);
-    // Sicherheitsnetz: rendert das Modell nach 8s nicht, statisches Bild zeigen.
-    setTimeout(function(){ if(!mv.modelIsVisible) fallback(); }, 8000);
+    var stage=document.getElementById('owlstage'), owl=document.getElementById('owlhero');
+    if(!stage||!owl||matchMedia('(prefers-reduced-motion: reduce)').matches||!matchMedia('(hover:hover)').matches) return;
+    stage.addEventListener('pointermove',function(e){
+      var r=stage.getBoundingClientRect(), x=(e.clientX-r.left)/r.width-.5, y=(e.clientY-r.top)/r.height-.5;
+      owl.style.setProperty('--tilt-y',(x*14).toFixed(2)+'deg'); owl.style.setProperty('--tilt-x',(-y*10).toFixed(2)+'deg');
+    });
+    stage.addEventListener('pointerleave',function(){ owl.style.setProperty('--tilt-y','0deg'); owl.style.setProperty('--tilt-x','0deg'); });
   })();
 
   // sticky nav shadow
