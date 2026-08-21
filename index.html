@@ -261,7 +261,7 @@ footer{border-top:1px solid var(--line);padding:2.4rem 0 calc(2.4rem + env(safe-
   .stage .side{display:none}
   .stage .heroP{--pw:min(86vw,20rem)}
   .shot .phone{--pw:min(86vw,22rem);margin:0 auto}
-  .flow li{grid-template-columns:1.8rem 1fr;gap:.7rem}
+  .flow li{grid-template-columns:1.8rem minmax(0,1fr);column-gap:.7rem}
 }
 @media (prefers-reduced-motion: reduce){
   html{scroll-behavior:auto}
