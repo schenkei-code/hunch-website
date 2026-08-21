@@ -95,19 +95,20 @@ nav.over-ink.scrolled{box-shadow:0 8px 24px rgba(0,0,0,.35)}
 nav.over-ink .lang{color:var(--ivory-300)}
 nav.over-ink .lang:hover{color:var(--ivory-50)}
 .nav-serial{font:600 .58rem/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--security-gold);border-left:1px solid var(--security-line);padding-left:1rem;white-space:nowrap}
-.nav-cta{font-size:.8rem;font-weight:600;padding:.45rem 1rem;border-radius:999px;
-  background:linear-gradient(180deg,var(--gold-300),var(--gold-400) 55%,var(--gold-500));color:var(--ink-1000);
-  box-shadow:inset 0 1px 0 rgba(255,255,255,.5),0 1px 3px rgba(110,84,36,.25);transition:transform var(--t-micro) var(--ease);white-space:nowrap}
+.nav-cta{font-size:.8rem;font-weight:700;padding:.5rem 1rem;border-radius:8px;border:1px solid var(--gold-400);
+  background:linear-gradient(135deg,#efcf6f,#c79a3a);color:#4a3410;
+  box-shadow:inset 0 1px rgba(255,255,255,.55),0 4px 12px rgba(190,140,46,.2);transition:transform var(--t-micro) var(--ease);white-space:nowrap}
 .nav-cta:active{transform:scale(.97)}
 
 /* buttons — Folie heißt Autorität: Gold nur auf der Handlung */
-.btn{display:inline-flex;align-items:center;gap:.5rem;font-size:.95rem;font-weight:600;
-  padding:.85rem 1.5rem;border-radius:999px;min-height:44px;transition:transform var(--t-micro) var(--ease),box-shadow var(--t-shift) var(--ease)}
-.btn-primary{background:linear-gradient(180deg,var(--gold-300),var(--gold-400) 55%,var(--gold-500));color:var(--ink-1000);
-  box-shadow:inset 0 1px 0 rgba(255,255,255,.5),0 1px 2px rgba(0,0,0,.18),0 8px 18px rgba(138,100,18,.18)}
-.btn-primary:hover{transform:translateY(-1px)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;font-size:.95rem;font-weight:700;
+  padding:.8rem 1.4rem;border-radius:8px;min-height:48px;border:1px solid transparent;transition:transform var(--t-micro) var(--ease),box-shadow var(--t-shift) var(--ease)}
+.btn-primary{background:linear-gradient(135deg,#efcf6f,#c79a3a);color:#4a3410;border-color:var(--gold-400);
+  box-shadow:inset 0 1px rgba(255,255,255,.55),0 6px 16px rgba(190,140,46,.2)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:inset 0 1px rgba(255,255,255,.6),0 10px 22px rgba(190,140,46,.26)}
 .btn-primary:active{transform:scale(.98)}
-.btn-quiet{color:var(--ink-1000);font-weight:600;padding:.8rem 1.2rem;min-height:44px;border:1px solid var(--ink-1000);border-radius:999px}
+.btn-quiet{color:var(--ink-1000);padding:.8rem 1.2rem;min-height:48px;border:1px solid rgba(13,13,11,.4);border-radius:8px;background:transparent}
+.btn-quiet:hover{border-color:var(--ink-1000)}
 .btn-quiet:focus-visible,.btn-primary:focus-visible,a:focus-visible,button:focus-visible{outline:2px solid var(--gold-500);outline-offset:3px;border-radius:6px}
 
 /* sections — jede Fläche trägt Herkunft: Serienzeile oben (Nummer · Titel · Scope) */
@@ -138,7 +139,7 @@ h2{font-size:clamp(2rem,4.8vw,3.5rem);font-weight:800;line-height:1.02;margin-to
 .hero .three span{font-size:clamp(1.2rem,2.8vw,1.7rem);font-weight:500;color:var(--ivory-100);line-height:1.3;letter-spacing:-.01em}
 .hero .lead{margin-top:1.6rem;font-size:clamp(1rem,2.2vw,1.1rem);max-width:34rem;color:var(--ivory-300)}
 .hero-actions{margin-top:2rem;display:flex;gap:.8rem;flex-wrap:wrap;align-items:center}
-.hero .btn-quiet{color:var(--ivory-100);border-color:rgba(247,244,235,.38)}
+.hero .btn-quiet{color:var(--ivory-50);border-color:rgba(255,254,250,.4)}
 .hero .btn-quiet:hover{border-color:var(--gold-300);color:var(--gold-300)}
 .hero-meta{margin-top:2.6rem;display:flex;flex-wrap:wrap;font-family:var(--mono);font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--stone-500)}
 .hero-meta div{padding:.1rem 1.2rem .1rem 0;margin-right:1.2rem;border-right:1px solid rgba(247,244,235,.14);display:flex;flex-direction:column;gap:.3rem}
@@ -289,23 +290,30 @@ footer{border-top:1px solid var(--security-line);padding:2.2rem 0 calc(2.2rem + 
 .fig-3d{width:100%;aspect-ratio:1;--poster-color:transparent;background:transparent;filter:drop-shadow(0 1.2rem 1.8rem rgba(60,40,5,.22))}
 .fig-3d::part(default-progress-bar){display:none}
 .fig figcaption{font:600 .56rem/1.4 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--security-gold);text-align:center;padding-top:.5rem;border-top:1px solid var(--security-line);width:100%}
-/* authority gate — Freigabe-Karte (Komponente aus der Brand Bible, specimen) */
-.gate-card{position:relative;max-width:30rem;justify-self:end;width:100%;background:var(--paper-pearl);border:1px solid rgba(174,134,46,.45);border-radius:var(--r-card);padding:1.2rem 1.3rem 1rem;box-shadow:var(--document-shadow);overflow:hidden}
-.gate-card > *{position:relative}
-.gate-top{display:flex;justify-content:space-between;align-items:center;gap:.8rem;margin-bottom:.8rem}
-.gate-risk{font:700 .58rem/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--warn)}
-.gate-risk::before{content:"▲ "}
-.gate-serial{font:600 .56rem/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--stone-500)}
-.gate-card h3{font-size:1.05rem;font-weight:700;letter-spacing:-.01em;line-height:1.3}
-.gate-card p{margin-top:.4rem;font-size:.86rem;color:var(--dim)}
-.gate-facts{margin:1rem 0 0;display:grid;grid-template-columns:repeat(2,1fr);gap:.55rem .9rem;padding-top:.9rem;border-top:1px solid var(--security-line)}
-.gate-facts div:first-child{grid-column:1 / -1}
-.gate-facts dt{font:650 .54rem/1.2 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--stone-500)}
-.gate-facts dd{margin:.15rem 0 0;font:600 .82rem/1.2 var(--mono);color:var(--ink)}
-.gate-actions{margin-top:1rem;display:grid;grid-template-columns:1fr 1fr;gap:.6rem}
-.gate-btn{display:flex;align-items:center;justify-content:center;min-height:42px;border-radius:999px;font-size:.88rem;font-weight:600;border:1px solid var(--ink-1000);color:var(--ink-1000)}
-.gate-btn.primary{border-color:var(--gold-500);background:linear-gradient(180deg,var(--gold-300),var(--gold-400) 55%,var(--gold-500));color:var(--ink-1000);box-shadow:inset 0 1px 0 rgba(255,255,255,.5)}
-.gate-foot{margin-top:.9rem;padding-top:.6rem;border-top:1px solid var(--security-line-soft);font:600 .52rem/1.4 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--stone-500)}
+/* authority gate — Komponente aus der Brand Bible (Kap. 08): ink, foil rail, signature required */
+.gate-card{position:relative;max-width:30rem;justify-self:end;width:100%;border-radius:18px;overflow:hidden;color:var(--ivory-50);
+  background:repeating-radial-gradient(ellipse at 112% 50%,transparent 0 18px,rgba(231,207,130,.075) 18.5px 19.2px,transparent 19.7px 38px),linear-gradient(135deg,#0d0d0b 0%,#191812 56%,#0d0d0b 100%);
+  border:1px solid rgba(231,207,130,.28);box-shadow:inset 0 1px rgba(255,255,255,.035),0 18px 48px rgba(0,0,0,.22)}
+.gate-card::before{content:"";display:block;height:6px;background:var(--foil)}
+.gate-top{display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:1.4rem 1.5rem 2.4rem;border-bottom:1px solid rgba(255,254,250,.17);position:relative}
+.gate-top::after{content:"HID-AUTH / SIGNATURE REQUIRED";position:absolute;left:1.5rem;bottom:.8rem;color:rgba(231,207,130,.62);font:650 7px/1 var(--mono);letter-spacing:.1em}
+.gate-serial{order:-1;font:700 1.05rem/1 var(--display);letter-spacing:-.01em;text-transform:lowercase;color:var(--ivory-50)}
+.gate-risk{padding:7px 10px;border:1px solid var(--gold-300);color:var(--gold-300);font:650 10px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;white-space:nowrap}
+.gate-risk::before{content:""}
+.gate-body{padding:1.5rem}
+.gate-card h3{font-size:1.2rem;font-weight:700;letter-spacing:-.015em;line-height:1.3;color:var(--ivory-50);padding:1.5rem 1.5rem 0}
+.gate-card p{margin:.45rem 1.5rem 0;font-size:.92rem;line-height:1.5;color:rgba(255,254,250,.7)}
+.gate-facts{margin:1.6rem 1.5rem 0;padding:0;border-top:1px solid rgba(255,254,250,.17);display:block}
+.gate-facts div{display:flex;justify-content:space-between;gap:1.2rem;padding:.8rem 0 .8rem .9rem;border-bottom:1px solid rgba(255,254,250,.17);position:relative;
+  background:linear-gradient(90deg,var(--gold-300) 0 2px,transparent 2px) left center / 2px 34% no-repeat}
+.gate-facts dt{font:500 .86rem/1.3 var(--text);color:rgba(255,254,250,.58);text-transform:none;letter-spacing:0}
+.gate-facts dd{margin:0;font:600 .86rem/1.3 var(--mono);color:var(--ivory-50);text-align:right}
+.gate-actions{margin:1.6rem 1.5rem 0;display:grid;grid-template-columns:1fr 1fr;gap:.75rem}
+.gate-btn{display:flex;align-items:center;justify-content:center;min-height:48px;padding:12px 16px;border:1px solid rgba(255,254,250,.4);border-radius:8px;color:var(--ivory-50);font-weight:700;font-size:.95rem}
+.gate-btn.primary{background:linear-gradient(135deg,#efcf6f,#c79a3a);color:#4a3410;border-color:var(--gold-400);box-shadow:inset 0 1px rgba(255,255,255,.55),0 6px 16px rgba(190,140,46,.2)}
+.gate-foot{margin:1.2rem 1.5rem 1.4rem;padding-top:.8rem;border-top:1px solid rgba(255,254,250,.12);font:600 .55rem/1.5 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:rgba(255,254,250,.45)}
+#autoritaet .head-row{grid-template-columns:minmax(0,1fr) minmax(20rem,30rem);align-items:start}
+#autoritaet .head-row .head{padding-top:1rem}
 /* stempel — status-register */
 .stamp{justify-self:center;width:9.5rem;height:9.5rem;border-radius:50%;display:grid;place-content:center;text-align:center;gap:.2rem;transform:rotate(-8deg);
   border:2px solid var(--security-gold);outline:1px solid var(--security-gold);outline-offset:-7px;color:var(--gold-700);background:rgba(255,255,255,.35)}
@@ -644,7 +652,7 @@ footer{border-top:1px solid var(--security-line);padding:2.2rem 0 calc(2.2rem + 
       <p class="lead reveal">The Authority Gate is not a single magic switch but the visible interplay of several layers of protection. Anticipating, but never acting on its own authority.</p>
     </div>
     <div class="gate-card reveal" role="img" aria-label="Authority Gate — example of an approval card with anonymised data">
-      <div class="gate-top"><span class="gate-risk">elevated risk</span><span class="gate-serial">authority gate · 04</span></div>
+      <div class="gate-top"><span class="gate-risk">elevated risk</span><span class="gate-serial">authority gate</span></div>
       <h3>Hunch wants to submit the booking for real.</h3>
       <p>This action creates external costs and cannot be undone automatically.</p>
       <dl class="gate-facts">
