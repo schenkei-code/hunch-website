@@ -42,12 +42,13 @@ journalctl -u hunch -f</code></pre>
 <p>Die Unit bindet auf <code>0.0.0.0</code> und braucht deshalb ein <code>HUNCH_AUTH_TOKEN</code>
 in <code>~/.hunch/env</code> (0600). Ohne Token auf öffentlicher Adresse startet die Runtime nicht.</p>
 
-<h2>Von unterwegs erreichen (Tailscale + TLS)</h2>
-<p>iOS verlangt HTTPS. Über Tailscale ein echtes Zertifikat ausstellen, an die Tailscale-Adresse
-binden, Token setzen:</p>
-<pre><code>tailscale cert --cert-file ~/.hunch/tls/hunch.crt \
-               --key-file  ~/.hunch/tls/hunch.key  dein-rechner.tailXXXX.ts.net
-HUNCH_HOST=&lt;tailscale-ip&gt; HUNCH_AUTH_TOKEN=… \
+<h2>Von unterwegs erreichen (privates Netz + TLS)</h2>
+<p>Hunch braucht keinen Dienst in der Mitte: Runtime und Telefon treffen sich in einem privaten
+Netz deiner Wahl (VPN oder Mesh-Netz zwischen deinen Geräten). iOS verlangt dabei HTTPS — also ein
+Zertifikat für den Hostnamen der Runtime im privaten Netz ausstellen (viele Mesh-VPNs bringen dafür
+ein eigenes Werkzeug mit), an die Adresse aus diesem Netz binden, Token setzen:</p>
+<pre><code># Zertifikat für den privaten Hostnamen → ~/.hunch/tls/hunch.crt + hunch.key
+HUNCH_HOST=&lt;adresse-im-privaten-netz&gt; HUNCH_AUTH_TOKEN=… \
 HUNCH_TLS_CERT=~/.hunch/tls/hunch.crt HUNCH_TLS_KEY=~/.hunch/tls/hunch.key hunch run</code></pre>
 <p>In der App den <strong>Namen</strong> eintragen, nicht die IP — das Zertifikat gilt für den Namen.</p>
 
