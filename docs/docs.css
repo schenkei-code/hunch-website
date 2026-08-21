@@ -13,7 +13,7 @@
   --display:-apple-system,BlinkMacSystemFont,"SF Pro Display","Helvetica Neue",Arial,sans-serif;
   --text:-apple-system,BlinkMacSystemFont,"SF Pro Text","Helvetica Neue",Arial,sans-serif;
   --mono:"SFMono-Regular",ui-monospace,"Cascadia Mono","Roboto Mono",monospace;
-  --guilloche-paper:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='54' viewBox='0 0 160 54'><g fill='none' stroke='%23ae862e' stroke-opacity='.16'><path d='M-20 27C20-2 60-2 100 27s80 29 120 0' stroke-width='.8'/><path d='M-20 34C20 5 60 5 100 34s80 29 120 0' stroke-width='.55'/><path d='M-20 20C20 49 60 49 100 20s80-29 120 0' stroke-width='.55'/></g></svg>");
+  --guilloche-paper:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='54' viewBox='0 0 160 54'><g fill='none' stroke='%23ae862e' stroke-opacity='.16'><path d='M0 27C26.7 9 53.3 9 80 27S133.3 45 160 27' stroke-width='.8'/><path d='M0 27C26.7 45 53.3 45 80 27S133.3 9 160 27' stroke-width='.8'/><path d='M0 14C26.7 5 53.3 5 80 14S133.3 23 160 14' stroke-width='.5'/><path d='M0 40C26.7 49 53.3 49 80 40S133.3 31 160 40' stroke-width='.5'/></g></svg>");
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}

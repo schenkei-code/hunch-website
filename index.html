@@ -40,8 +40,8 @@
   --r-card:18px; --r-doc:28px; --r-field:12px;
   --maxw:1120px;
   /* guilloché: gekreuzte Wellenfamilien, statisch, ≤14 % Gold, nie hinter Primärtext */
-  --guilloche-paper:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='54' viewBox='0 0 160 54'><g fill='none' stroke='%23ae862e' stroke-opacity='.16'><path d='M-20 27C20-2 60-2 100 27s80 29 120 0' stroke-width='.8'/><path d='M-20 34C20 5 60 5 100 34s80 29 120 0' stroke-width='.55'/><path d='M-20 20C20 49 60 49 100 20s80-29 120 0' stroke-width='.55'/></g></svg>");
-  --guilloche-ink:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='54' viewBox='0 0 160 54'><g fill='none' stroke='%23e7cf82' stroke-opacity='.13'><path d='M-20 27C20-2 60-2 100 27s80 29 120 0' stroke-width='.8'/><path d='M-20 34C20 5 60 5 100 34s80 29 120 0' stroke-width='.55'/><path d='M-20 20C20 49 60 49 100 20s80-29 120 0' stroke-width='.55'/></g></svg>");
+  --guilloche-paper:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='54' viewBox='0 0 160 54'><g fill='none' stroke='%23ae862e' stroke-opacity='.16'><path d='M0 27C26.7 9 53.3 9 80 27S133.3 45 160 27' stroke-width='.8'/><path d='M0 27C26.7 45 53.3 45 80 27S133.3 9 160 27' stroke-width='.8'/><path d='M0 14C26.7 5 53.3 5 80 14S133.3 23 160 14' stroke-width='.5'/><path d='M0 40C26.7 49 53.3 49 80 40S133.3 31 160 40' stroke-width='.5'/></g></svg>");
+  --guilloche-ink:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='54' viewBox='0 0 160 54'><g fill='none' stroke='%23e7cf82' stroke-opacity='.13'><path d='M0 27C26.7 9 53.3 9 80 27S133.3 45 160 27' stroke-width='.8'/><path d='M0 27C26.7 45 53.3 45 80 27S133.3 9 160 27' stroke-width='.8'/><path d='M0 14C26.7 5 53.3 5 80 14S133.3 23 160 14' stroke-width='.5'/><path d='M0 40C26.7 49 53.3 49 80 40S133.3 31 160 40' stroke-width='.5'/></g></svg>");
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth;scroll-padding-top:5rem}
@@ -62,18 +62,14 @@ code,.mono{font-family:var(--mono)}
 .eyebrow:not([data-no])::before{display:none}
 .gold{color:var(--gold-600)}
 
-/* status — signiert, nicht nur gefärbt: Wort + Zeichen */
-.tag{display:inline-flex;align-items:center;gap:.45em;font:700 .62rem/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;
-  padding:.34em .6em .3em;border:1px solid currentColor;border-radius:4px;white-space:nowrap;vertical-align:middle;background:rgba(255,255,255,.55)}
-.tag::before{content:"";width:.45em;height:.45em;border-radius:50%;background:currentColor}
+/* status — signiert, nicht nur gefärbt: Wort + Zeichen, Hairline */
+.tag{display:inline-flex;align-items:center;gap:.5em;font:650 .6rem/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;
+  padding:.38em .65em .32em;border:1px solid currentColor;border-radius:4px;white-space:nowrap;vertical-align:middle;background:rgba(255,255,255,.55)}
+.tag::before{content:"";width:.4rem;height:.4rem;border-radius:50%;background:currentColor;flex:0 0 auto}
 .tag.heute{color:var(--ok)}
 .tag.exp{color:var(--warn)}
 .tag.next{color:var(--stone-600)}
 .tag.vision{color:var(--gold-600)}
-.tag.heute::after{content:"heute"}.tag.exp::after{content:"exp."}.tag.next::after{content:"nächstes"}.tag.vision::after{content:"vision"}
-.tag.heute,.tag.exp,.tag.next,.tag.vision{font-size:0}
-.tag.heute::after,.tag.exp::after,.tag.next::after,.tag.vision::after{font-size:.62rem}
-.tag.heute::before,.tag.exp::before,.tag.next::before,.tag.vision::before{width:.45rem;height:.45rem}
 
 /* nav — Papierleiste mit Hairline + Serienfeld */
 nav{position:fixed;top:0;left:0;right:0;z-index:60;background:rgba(247,244,235,.82);
@@ -151,7 +147,6 @@ h2{font-size:clamp(1.7rem,4.2vw,2.55rem);font-weight:800;line-height:1.1;margin-
   background:linear-gradient(90deg,transparent,rgba(231,207,130,.5) 30%,rgba(231,207,130,.95) 50%,rgba(231,207,130,.5) 70%,transparent);pointer-events:none;z-index:3}
 .owl-hero{position:relative;z-index:2;height:100%;width:auto;max-width:100%;object-fit:contain;
   filter:drop-shadow(0 1.6rem 2.6rem rgba(0,0,0,.6));transform:rotateX(var(--tilt-x,0deg)) rotateY(var(--tilt-y,0deg));transition:transform var(--t-shift) var(--ease);will-change:transform}
-.owl-caption{position:absolute;right:0;bottom:-.2rem;z-index:3;font:600 .56rem/1.5 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:rgba(247,244,235,.45);text-align:right}
 
 /* cards — Perlmuttpapier, Hairline, drei leise physische Schatten */
 .card{position:relative;background:var(--paper-pearl);border:1px solid var(--security-line);border-radius:var(--r-card);padding:1.6rem 1.5rem;box-shadow:var(--document-shadow);overflow:hidden}
@@ -167,20 +162,20 @@ h2{font-size:clamp(1.7rem,4.2vw,2.55rem);font-weight:800;line-height:1.1;margin-
 .card p{color:var(--dim);font-size:.92rem;line-height:1.55}
 .card .k{font-family:var(--mono);font-size:.76rem;color:var(--gold-700);background:rgba(174,134,46,.1);border:1px solid var(--security-line);padding:.1em .4em;border-radius:4px}
 
-/* hunch-moment — Ablauf als Dokument mit Serienfeldern */
-.flow{margin-top:2.6rem;background:var(--paper-pearl);border:1px solid var(--security-line);border-radius:var(--r-doc);padding:clamp(1.4rem,4vw,2.4rem);box-shadow:var(--document-shadow);position:relative;overflow:hidden}
-.flow::before{content:"";position:absolute;inset:0;pointer-events:none;background-image:var(--guilloche-paper);opacity:.5;mask-image:linear-gradient(180deg,transparent,#000 30%,#000 70%,transparent);-webkit-mask-image:linear-gradient(180deg,transparent,#000 30%,#000 70%,transparent)}
-.flow ol{position:relative;list-style:none;counter-reset:step;display:grid;gap:.7rem}
-.flow li{counter-increment:step;display:grid;grid-template-columns:2.2rem minmax(0,1fr);column-gap:1rem;align-items:start;
-  padding:.85rem 1rem;background:rgba(255,255,255,.7);border:1px solid var(--security-line);border-radius:var(--r-field)}
+/* hunch-moment — Ablauf als ruhiges Dokument: Hairlines statt Kästen, Serien-Nummern */
+.flow{margin-top:2.6rem;background:var(--paper-pearl);border:1px solid var(--security-line);border-radius:var(--r-doc);padding:clamp(1.2rem,4vw,2.4rem) clamp(1.2rem,4vw,2.6rem);box-shadow:var(--document-shadow);position:relative;overflow:hidden}
+.flow::after{content:"";position:absolute;left:1.6rem;right:1.6rem;top:0;height:1px;background:linear-gradient(90deg,transparent,rgba(174,134,46,.5),transparent);pointer-events:none}
+.flow ol{list-style:none;counter-reset:step;display:grid}
+.flow li{counter-increment:step;display:grid;grid-template-columns:2rem minmax(0,1fr);column-gap:.9rem;align-items:start;padding:.95rem 0;border-bottom:1px solid var(--security-line-soft)}
+.flow li:last-child{border-bottom:0}
 .flow li::before{content:counter(step,decimal-leading-zero);grid-column:1;grid-row:1 / span 2;display:flex;align-items:center;justify-content:center;
-  width:2.2rem;height:2.2rem;border-radius:50%;font:700 .72rem var(--mono);color:var(--gold-700);border:1px solid var(--security-gold);
-  background:repeating-radial-gradient(circle,rgba(178,140,51,.35) 0 1px,transparent 1px 4px)}
-.flow li.hot{border-color:rgba(174,134,46,.55);background:linear-gradient(180deg,rgba(231,207,130,.22),rgba(255,255,255,.75))}
+  width:2rem;height:2rem;border-radius:50%;font:600 .68rem var(--mono);color:var(--gold-700);border:1px solid var(--security-gold);background:rgba(255,255,255,.6)}
+.flow li.hot{position:relative}
+.flow li.hot::after{content:"";position:absolute;left:-1.2rem;top:.9rem;bottom:.9rem;width:2px;background:var(--gold-400);border-radius:2px}
 .flow li.hot::before{background:linear-gradient(180deg,var(--gold-300),var(--gold-400));color:var(--ink-1000);border-color:var(--gold-500)}
 .flow li b{grid-column:2;grid-row:1;font-size:.98rem;color:var(--ink);margin-bottom:.15rem}
 .flow li span{grid-column:2;grid-row:2;color:var(--dim);font-size:.9rem}
-.flow .seq{position:relative;margin-top:1.4rem;font:600 .7rem/1.9 var(--mono);letter-spacing:.06em;color:var(--gold-700);text-align:center;overflow-x:auto;white-space:nowrap;padding-bottom:.3rem}
+.flow .seq{margin-top:1.2rem;padding-top:1rem;border-top:1px solid var(--security-line);font:600 .66rem/1.9 var(--mono);letter-spacing:.06em;color:var(--gold-700);text-align:center;overflow-x:auto;white-space:nowrap;padding-bottom:.2rem}
 
 /* comparison */
 .vs{display:grid;grid-template-columns:1fr 1fr;gap:1.1rem;margin-top:2.6rem}
@@ -295,6 +290,7 @@ footer{border-top:1px solid var(--security-line);padding:2.2rem 0 calc(2.2rem + 
   .stage .heroP{--pw:min(86vw,20rem)}
   .shot .phone{--pw:min(86vw,22rem);margin:0 auto}
   .flow li{grid-template-columns:1.8rem minmax(0,1fr);column-gap:.7rem}
+  .flow li.hot::after{left:-.9rem}
   .vs .hunch::after{position:static;display:inline-block;margin-bottom:.8rem}
 }
 @media (prefers-reduced-motion: reduce){
@@ -366,7 +362,6 @@ footer{border-top:1px solid var(--security-line);padding:2.2rem 0 calc(2.2rem + 
           </g>
         </svg>
         <img class="owl-hero" id="owlhero" src="owl-bronze-cut.png" width="1400" height="2087" alt="Die Hunch-Eule — skulpturale Bronze, Kampagnenmotiv" fetchpriority="high">
-        <div class="owl-caption">campaign mark<br>bronze · facettiert</div>
       </div>
     </div>
   </div>
