@@ -2,7 +2,7 @@
 <html lang="de">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>HTTP-API — Hunch Doku</title>
 <meta name="description" content="Hunch-Dokumentation: HTTP-API">
 <link rel="icon" type="image/png" href="../favicon.png">
@@ -12,65 +12,66 @@
 <nav id="nav">
   <div class="container nav-inner">
     <a class="logo" href="../"><img src="../owl.png" alt="">hunch</a>
-    <div class="nav-links">
-      <a href="../#wie">Wie es funktioniert</a>
-      <a href="index.html" class="current">Doku</a>
-    </div>
+    <div class="nav-links"><a href="../#apps">Apps</a><a href="index.html" class="current">Doku</a></div>
     <a class="nav-cta" href="mailto:schenkei@hunchagent.io">Early Access</a>
   </div>
 </nav>
 <div class="container layout">
-  <aside class="side"><div class="side-label">Dokumentation</div><nav class="side-nav"><a href="index.html">Loslegen</a><a href="architektur.html">Architektur</a><a href="werkzeuge.html">Werkzeuge</a><a href="gedaechtnis.html">Gedächtnis</a><a href="konfiguration.html">Konfiguration</a><a href="api.html" class="active">HTTP-API</a></nav></aside>
+  <aside class="side"><div class="side-label">Dokumentation</div><nav class="side-nav"><a href="index.html">Loslegen</a><a href="architektur.html">Architektur</a><a href="werkzeuge.html">Werkzeuge &amp; Skills</a><a href="gedaechtnis.html">Gedächtnis &amp; Brain</a><a href="arbeitsweise.html">Arbeitsweise &amp; Memory-Scopes</a><a href="faeden.html">Fäden</a><a href="selbstverbesserung.html">Selbstverbesserung</a><a href="session.html">Globale Session</a><a href="sicherheit.html">Sicherheit &amp; Authority</a><a href="konfiguration.html">Konfiguration &amp; Provider</a><a href="api.html" class="active">HTTP-API</a><a href="status.html">Status, Sensoren &amp; Datenschutz</a></nav></aside>
   <main class="doc">
     <span class="engraved">Dokumentation</span>
     <h1>HTTP-API</h1>
     
-<p class="lead">Die Runtime spricht HTTP und WebSocket auf <code>127.0.0.1:8000</code> (konfigurierbar). Alles hinter dem Auth-Token, sobald sie nicht auf localhost lauscht.</p>
+<p class="lead">HTTP und WebSocket auf <code>127.0.0.1:8000</code>. Alles hinter dem Token, sobald nicht
+auf localhost. Dokumentiert sind nur real existierende Routes.</p>
 
-<h2>Endpunkte</h2>
-<table>
-<tr><th>Weg</th><th>Wofür</th></tr>
-<tr><td><code>POST /events</code></td><td>Ereignis melden</td></tr>
-<tr><td><code>GET /nudges?since=</code></td><td>Impulse abholen</td></tr>
-<tr><td><code>GET /approvals</code> · <code>POST /approvals/{id}</code></td><td>Freigaben sehen und beantworten</td></tr>
-<tr><td><code>POST /brain/sync</code></td><td>Gedächtnis abgleichen, beide Richtungen</td></tr>
-<tr><td><code>GET /brain/search?q=</code></td><td>Im Gedächtnis suchen</td></tr>
-<tr><td><code>GET /tools</code> · <code>GET /audit</code> · <code>GET /status</code></td><td>Nachsehen, was da ist und was war</td></tr>
-<tr><td><code>GET /providers</code> · <code>GET /runtimes</code></td><td>Welche Modelle und welche Agenten hier gehen</td></tr>
-<tr><td><code>GET /v1/channels</code></td><td>Was diese Runtime mitliest, im Klartext</td></tr>
-<tr><td><code>GET /v1/wallet</code> · <code>POST /v1/wallet-pass</code></td><td>Ob eine Wallet-Karte geht, und sie bauen</td></tr>
-<tr><td><code>WS /ws</code></td><td>Ereignisse rein, Impulse raus — ohne Abfragen</td></tr>
-</table>
+<h2>Identität &amp; Einlass</h2>
+<pre><code>GET  /v1/identity                 POST /v1/identity/enroll
+POST /v1/identity/challenge       POST /v1/identity/verify
+POST /v1/identity/grant           DELETE /v1/identity/grant/{scope}
+POST /v1/einlass/erzeugen         POST /v1/einlass</code></pre>
 
-<h2>Ein Ereignis von Hand</h2>
-<pre><code>curl -X POST localhost:8000/events \
-  -H 'Content-Type: application/json' \
+<h2>Fäden &amp; Approvals</h2>
+<pre><code>GET /faeden      GET /faeden/{id}      POST /faeden      DELETE /faeden/{id}
+GET /approvals   POST /approvals/{id}   GET /proposals    POST /approve  POST /deny</code></pre>
+
+<h2>Konsole &amp; Ausführung</h2>
+<pre><code>POST /v1/konsole   POST /v1/konsole/freigabe   GET /v1/konsole/{id}   POST /v1/exec</code></pre>
+
+<h2>Kanäle</h2>
+<pre><code>GET /v1/channels                 POST /v1/channels/telegram
+POST /v1/channels/whatsapp       GET  /v1/channels/whatsapp/qr
+POST /v1/channels/{id}/test      DELETE /v1/channels/{id}</code></pre>
+
+<h2>Gedächtnis, Aufgaben, Vorhersage</h2>
+<pre><code>POST /brain/sync   GET /brain/search?q=   GET /v1/intents
+POST /sitzung      GET /vorhersage</code></pre>
+
+<h2>Werkzeuge, Audit, Status</h2>
+<pre><code>GET /tools   GET /audit   GET /status
+GET /providers   GET /runtimes   GET /v1/machine</code></pre>
+
+<h2>Vault, Wallet</h2>
+<pre><code>GET /v1/vault   POST /v1/vault/setup   GET /v1/vault/envelope
+POST /v1/vault/unlock   POST /v1/vault/unlock-code   POST /v1/vault/lock
+GET /v1/wallet   POST /v1/wallet-pass</code></pre>
+
+<h2>Ereignisse, Push, Stream</h2>
+<pre><code>POST /events   POST /v1/events   GET /nudges?since=
+POST /v1/push-token   GET /v1/push
+WS /ws   WS /v1/ws   GET /v1/stream   (SSE-Fallback)</code></pre>
+<p>MCP hat keinen HTTP-Endpoint — der Server läuft über stdio
+(<code>python -m hunch_runtime.mcp_server</code>). Ein Ereignis von Hand:</p>
+<pre><code>curl -X POST localhost:8000/events -H 'Content-Type: application/json' \
   -d '{"source":"cli","kind":"user_message","payload":{"text":"was steht an?"}}'
-
 curl localhost:8000/nudges</code></pre>
 
-<h2>Status und Provider</h2>
-<p><code>GET /providers</code> liefert die Anbieter-Liste, <code>GET /status</code> sagt, ob beide Rollen tatsächlich antworten — Schlüssel dabei immer nur als Ja/Nein.</p>
-
-<h2>Testen</h2>
-<pre><code>python -m tests.test_e2e           # Observer, Executive, Guardrails
-python -m tests.test_http          # echter uvicorn, echte Requests
-python -m tests.test_providers     # jeder Anbieter gegen einen Spiegel-Server
-python -m tests.test_harness       # echte Kindprozesse, Zeitgrenze, Umgebung
-python -m tests.test_brain_shared  # Abgleich unter Last, MCP über stdio
-python -m tests.test_channels      # Telegram gegen einen falschen Bot-Server
-python -m tests.test_ssrf          # interne Adressen, Umleitung für Umleitung
-python -m tests.test_companion     # die Runtime aus der Sicht der iOS-App
-python -m tests.test_wallet        # vCard, Faltung, Pass-Paket, echte Signatur
-python -m tests.test_mcp_client    # fremder MCP-Server als echter Kindprozess</code></pre>
-<p>Alle zehn laufen ohne API-Schlüssel und ohne Netz.</p>
-
-    <footer class="doc-foot">© 2026 Hunch — <a href="../">hunchagent.io</a></footer>
+    <footer class="doc-foot">© 2026 Hunch — <a href="../">hunchagent.io</a> · Stand 2026-08-21, gegen aktuellen Code geprüft.</footer>
   </main>
 </div>
 <script>
-const nav = document.getElementById('nav');
-addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 8), {passive: true});
+const nav=document.getElementById('nav');
+addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>8),{passive:true});
 </script>
 </body>
 </html>

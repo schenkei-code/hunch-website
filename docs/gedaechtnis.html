@@ -2,9 +2,9 @@
 <html lang="de">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Gedächtnis — Hunch Doku</title>
-<meta name="description" content="Hunch-Dokumentation: Gedächtnis">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Gedächtnis &amp; Brain — Hunch Doku</title>
+<meta name="description" content="Hunch-Dokumentation: Gedächtnis &amp; Brain">
 <link rel="icon" type="image/png" href="../favicon.png">
 <link rel="stylesheet" href="docs.css">
 </head>
@@ -12,45 +12,46 @@
 <nav id="nav">
   <div class="container nav-inner">
     <a class="logo" href="../"><img src="../owl.png" alt="">hunch</a>
-    <div class="nav-links">
-      <a href="../#wie">Wie es funktioniert</a>
-      <a href="index.html" class="current">Doku</a>
-    </div>
+    <div class="nav-links"><a href="../#apps">Apps</a><a href="index.html" class="current">Doku</a></div>
     <a class="nav-cta" href="mailto:schenkei@hunchagent.io">Early Access</a>
   </div>
 </nav>
 <div class="container layout">
-  <aside class="side"><div class="side-label">Dokumentation</div><nav class="side-nav"><a href="index.html">Loslegen</a><a href="architektur.html">Architektur</a><a href="werkzeuge.html">Werkzeuge</a><a href="gedaechtnis.html" class="active">Gedächtnis</a><a href="konfiguration.html">Konfiguration</a><a href="api.html">HTTP-API</a></nav></aside>
+  <aside class="side"><div class="side-label">Dokumentation</div><nav class="side-nav"><a href="index.html">Loslegen</a><a href="architektur.html">Architektur</a><a href="werkzeuge.html">Werkzeuge &amp; Skills</a><a href="gedaechtnis.html" class="active">Gedächtnis &amp; Brain</a><a href="arbeitsweise.html">Arbeitsweise &amp; Memory-Scopes</a><a href="faeden.html">Fäden</a><a href="selbstverbesserung.html">Selbstverbesserung</a><a href="session.html">Globale Session</a><a href="sicherheit.html">Sicherheit &amp; Authority</a><a href="konfiguration.html">Konfiguration &amp; Provider</a><a href="api.html">HTTP-API</a><a href="status.html">Status, Sensoren &amp; Datenschutz</a></nav></aside>
   <main class="doc">
     <span class="engraved">Dokumentation</span>
-    <h1>Gedächtnis</h1>
+    <h1>Gedächtnis &amp; Brain</h1>
     
-<p class="lead">Ein Gedächtnis, überall: dieselbe Datenbank für Runtime, iOS-App und jeden MCP-fähigen Agenten auf der Maschine.</p>
+<p class="lead">Ein lebendes persönliches Gedächtnis — dieselbe Datenbank für Runtime, iOS-App und
+jeden MCP-fähigen Agenten. Es liegt standardmäßig lokal.</p>
 
-<h2>Abgleich mit der App</h2>
-<p>Das Schema ist dasselbe wie im Brain der App (<code>memories</code>, <code>action_items</code>). <code>POST /brain/sync</code> gleicht in beiden Richtungen in einem Aufruf ab: die App schickt ihre Änderungen und sagt, was sie zuletzt gesehen hat, zurück kommt alles Übrige.</p>
-<p>Erinnerungen wachsen nur — gleiche ID oder gleicher Inhalt heißt Dublette und wird verworfen, ein doppelter Abgleich richtet also keinen Schaden an. Bei Aufgaben kann sich der Zustand ändern; da gewinnt der jüngere Stand.</p>
-<p>Die Antwort enthält einen <code>cursor</code> — den beim nächsten Mal unverändert zurückschicken. Er führt Zeitstempel <em>und</em> ID, weil beim Einarbeiten eines fremden Standes Dutzende Einträge in derselben Millisekunde entstehen; ein reiner Zeitstempel überspringt dann alles, was denselben trägt wie der letzte verarbeitete Eintrag.</p>
+<h2>Abgleich mit der App <span class="tag heute">Heute</span></h2>
+<p>Schema identisch zum Brain der App (<code>memories</code>, <code>action_items</code>).
+<code>POST /brain/sync</code> gleicht beidseitig in einem Aufruf ab; Erinnerungen wachsen nur
+(Dublette per ID oder Inhalt verworfen), bei Aufgaben gewinnt der jüngere Stand. Der <code>cursor</code>
+führt Zeitstempel <em>und</em> ID.</p>
 
-<h2>Für andere Agenten (MCP-Server)</h2>
-<p>Claude Code, Cursor und jeder andere MCP-fähige Agent auf derselben Maschine können dasselbe Gedächtnis lesen und ergänzen — nicht eine Kopie, dieselbe Datenbank:</p>
+<h2>Suche <span class="tag heute">Heute</span></h2>
+<p>FTS5 (<code>unicode61</code>, Diakritika entfernt), mit LIKE-Fallback. Verschlüsselte Erinnerungen
+sind nicht im Suchindex. <code>GET /brain/search?q=</code>.</p>
+
+<h2>Für andere Agenten (MCP-Server) <span class="tag heute">Heute</span></h2>
 <pre><code>claude mcp add hunch -- python -m hunch_runtime.mcp_server</code></pre>
-<p>Angeboten werden <code>search_memory</code>, <code>remember</code>, <code>list_tasks</code>, <code>add_task</code> und <code>recent_context</code>. Bewusst kein <code>run_command</code> und kein <code>run_agent</code>: ein fremder Agent hängt nicht am Governor dieser Runtime, also bekommt er hier nur das Gedächtnis und zwei eng gefasste Schreibwege.</p>
+<p>Angeboten: <code>search_memory</code>, <code>remember</code>, <code>list_tasks</code>,
+<code>add_task</code>, <code>recent_context</code> — bewusst kein <code>run_command</code>/<code>run_agent</code>.
+Der MCP-Server läuft über stdio, nicht als HTTP-Endpoint.</p>
 
-<h2>Von der Kommandozeile</h2>
-<pre><code>hunch remember "Steuerunterlagen bis Ende März einreichen"
-hunch search Steuer
-hunch tasks</code></pre>
+<h2>Aufgabe ≠ Vorhaben</h2>
+<p>Eine Aufgabe ist ein einzelner Schritt, ein Vorhaben etwas, das du erreichen möchtest. Der Mensch
+bestimmt Zweck und Ziel — Hunch entscheidet den Weg innerhalb seiner Authority. Mehrtägige autonome
+Vorhaben sind Teil der 2.0-Vision. <span class="tag vision">Vision</span></p>
 
-<h2>Suche über HTTP</h2>
-<pre><code>GET /brain/search?q=Steuer</code></pre>
-
-    <footer class="doc-foot">© 2026 Hunch — <a href="../">hunchagent.io</a></footer>
+    <footer class="doc-foot">© 2026 Hunch — <a href="../">hunchagent.io</a> · Stand 2026-08-21, gegen aktuellen Code geprüft.</footer>
   </main>
 </div>
 <script>
-const nav = document.getElementById('nav');
-addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 8), {passive: true});
+const nav=document.getElementById('nav');
+addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>8),{passive:true});
 </script>
 </body>
 </html>

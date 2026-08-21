@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Fäden — Hunch Doku</title>
+<meta name="description" content="Hunch-Dokumentation: Fäden">
+<link rel="icon" type="image/png" href="../favicon.png">
+<link rel="stylesheet" href="docs.css">
+</head>
+<body>
+<nav id="nav">
+  <div class="container nav-inner">
+    <a class="logo" href="../"><img src="../owl.png" alt="">hunch</a>
+    <div class="nav-links"><a href="../#apps">Apps</a><a href="index.html" class="current">Doku</a></div>
+    <a class="nav-cta" href="mailto:schenkei@hunchagent.io">Early Access</a>
+  </div>
+</nav>
+<div class="container layout">
+  <aside class="side"><div class="side-label">Dokumentation</div><nav class="side-nav"><a href="index.html">Loslegen</a><a href="architektur.html">Architektur</a><a href="werkzeuge.html">Werkzeuge &amp; Skills</a><a href="gedaechtnis.html">Gedächtnis &amp; Brain</a><a href="arbeitsweise.html">Arbeitsweise &amp; Memory-Scopes</a><a href="faeden.html" class="active">Fäden</a><a href="selbstverbesserung.html">Selbstverbesserung</a><a href="session.html">Globale Session</a><a href="sicherheit.html">Sicherheit &amp; Authority</a><a href="konfiguration.html">Konfiguration &amp; Provider</a><a href="api.html">HTTP-API</a><a href="status.html">Status, Sensoren &amp; Datenschutz</a></nav></aside>
+  <main class="doc">
+    <span class="engraved">Dokumentation</span>
+    <h1>Fäden</h1>
+    
+<p class="lead">Fäden sind parallele, persistente Arbeitsstränge. Während ein längerer Auftrag läuft,
+bleibt dein Hauptgespräch sofort frei. Du denkst weiter, Hunch arbeitet weiter.</p>
+
+<h2>Was ein Faden hat <span class="tag heute">Heute</span></h2>
+<p>Eigener Auftrag/Ziel, eigener Arbeitskontext, eigene Agenten- und Tool-Runden, Status und
+Fortschritt, Freigaben, ein Ergebnis, Persistenz über Runtime-Neustarts und Rückkehr des Ergebnisses
+zum ursprünglichen Kanal.</p>
+
+<h2>Zustände</h2>
+<table>
+<tr><th>Zustand</th><th>Bedeutung</th></tr>
+<tr><td><code>offen</code></td><td>eingereiht, wartet auf einen Slot</td></tr>
+<tr><td><code>läuft</code></td><td>arbeitet am Auftrag</td></tr>
+<tr><td><code>wartet</code></td><td>auf eine Freigabe geparkt — danach fortgesetzt oder anderer Weg</td></tr>
+<tr><td><code>fertig</code></td><td>Ergebnis liegt vor</td></tr>
+<tr><td><code>gescheitert</code></td><td>fehlgeschlagen</td></tr>
+<tr><td><code>abgebrochen</code></td><td>von dir gestoppt</td></tr>
+</table>
+<p>Höchstens drei Fäden laufen parallel. Fäden sind hinter dem Ausweis — Gäste bekommen eine
+Antwort, nie einen Agenten. Endpunkte: <code>GET/POST/DELETE /faeden</code>, <code>GET /faeden/{id}</code>.</p>
+
+    <footer class="doc-foot">© 2026 Hunch — <a href="../">hunchagent.io</a> · Stand 2026-08-21, gegen aktuellen Code geprüft.</footer>
+  </main>
+</div>
+<script>
+const nav=document.getElementById('nav');
+addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>8),{passive:true});
+</script>
+</body>
+</html>

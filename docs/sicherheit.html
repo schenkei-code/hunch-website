@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Sicherheit &amp; Authority — Hunch Doku</title>
+<meta name="description" content="Hunch-Dokumentation: Sicherheit &amp; Authority">
+<link rel="icon" type="image/png" href="../favicon.png">
+<link rel="stylesheet" href="docs.css">
+</head>
+<body>
+<nav id="nav">
+  <div class="container nav-inner">
+    <a class="logo" href="../"><img src="../owl.png" alt="">hunch</a>
+    <div class="nav-links"><a href="../#apps">Apps</a><a href="index.html" class="current">Doku</a></div>
+    <a class="nav-cta" href="mailto:schenkei@hunchagent.io">Early Access</a>
+  </div>
+</nav>
+<div class="container layout">
+  <aside class="side"><div class="side-label">Dokumentation</div><nav class="side-nav"><a href="index.html">Loslegen</a><a href="architektur.html">Architektur</a><a href="werkzeuge.html">Werkzeuge &amp; Skills</a><a href="gedaechtnis.html">Gedächtnis &amp; Brain</a><a href="arbeitsweise.html">Arbeitsweise &amp; Memory-Scopes</a><a href="faeden.html">Fäden</a><a href="selbstverbesserung.html">Selbstverbesserung</a><a href="session.html">Globale Session</a><a href="sicherheit.html" class="active">Sicherheit &amp; Authority</a><a href="konfiguration.html">Konfiguration &amp; Provider</a><a href="api.html">HTTP-API</a><a href="status.html">Status, Sensoren &amp; Datenschutz</a></nav></aside>
+  <main class="doc">
+    <span class="engraved">Dokumentation</span>
+    <h1>Sicherheit &amp; Authority</h1>
+    
+<p class="lead">Hunch darf Absichten erkennen. Autorität erfindet es nicht. Das Authority Gate ist kein
+einzelner Schalter, sondern das Zusammenspiel mehrerer Schutzebenen.</p>
+
+<h2>Die Kette <span class="tag heute">Heute</span></h2>
+<ol>
+<li><strong>Identität</strong> — das Besitzergerät erzeugt einen P-256-Schlüssel in der Secure Enclave,
+biometrisch geschützt, nicht exportierbar, nicht im Backup. Die Runtime hält nur den Public-Key; daraus
+entsteht die HID. Challenge/Verify per ECDSA-Signatur.</li>
+<li><strong>Befugnis &amp; Risiko</strong> — der Governor unterscheidet Risikoklassen, Budgets, Limits,
+Always-Ask-Regeln und Circuit-Breaker.</li>
+<li><strong>Zweitprüfung</strong> — ein getrenntes Prüfmodell darf nur konkrete, nicht kritische
+Schritte als unbedenklich bewerten. Kritische Aktionen werden nie automatisch freigegeben.</li>
+<li><strong>Vorschau &amp; Zustimmung</strong> — vor geschützten Aktionen siehst du Werkzeug,
+Argumente, Ziel, Risiko und Begründung. Du genehmigst oder lehnst ab; ein wartender Faden wird danach
+fortgesetzt oder sucht einen anderen Weg.</li>
+<li><strong>Ausführung &amp; Audit</strong> — Aktion, Entscheidung, Ergebnis und Kosten bleiben im
+append-only-Protokoll nachvollziehbar.</li>
+<li><strong>Isolation</strong> — Gäste erhalten einen getrennten Kontext, sehen weder dein Gedächtnis
+noch deine Werkzeuge.</li>
+</ol>
+
+<h2>Was besonders geschützt ist</h2>
+<p>Löschen, Kaufen, externes Senden und Veröffentlichen. Hunch darf wahrnehmen, eine Absicht
+formulieren und vorschlagen — aber nur mit entsprechender Autorität handeln.</p>
+
+<h2>Gerätevertrauen / Einlass <span class="tag heute">Heute</span></h2>
+<p>Eigene Geräte kommen ohne Passwort rein, fremde einmalig mit Code: der Besitzer erzeugt einen
+Einmal-Code (15 min gültig, als Hash gespeichert), das fremde Gerät löst ihn ein und wird zu einer
+stehenden Freigabe.</p>
+
+<div class="rule"><b>Ehrlich:</b> Vor der Einrichtung einer Besitzeridentität existiert aus
+Kompatibilitätsgründen ein weniger strenger Modus — die kryptografische Sperre ist nicht automatisch
+aktiv, bevor die Einrichtung abgeschlossen ist. Noch im Ausbau: fein abgestuftes Vertrauen pro
+Gerät/Aktion, vollständiges Undo, geräteübergreifende Authority-Oberfläche. <span class="tag next">Als Nächstes</span></div>
+
+    <footer class="doc-foot">© 2026 Hunch — <a href="../">hunchagent.io</a> · Stand 2026-08-21, gegen aktuellen Code geprüft.</footer>
+  </main>
+</div>
+<script>
+const nav=document.getElementById('nav');
+addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>8),{passive:true});
+</script>
+</body>
+</html>

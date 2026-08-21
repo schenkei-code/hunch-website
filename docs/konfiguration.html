@@ -2,9 +2,9 @@
 <html lang="de">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Konfiguration — Hunch Doku</title>
-<meta name="description" content="Hunch-Dokumentation: Konfiguration">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Konfiguration &amp; Provider — Hunch Doku</title>
+<meta name="description" content="Hunch-Dokumentation: Konfiguration &amp; Provider">
 <link rel="icon" type="image/png" href="../favicon.png">
 <link rel="stylesheet" href="docs.css">
 </head>
@@ -12,64 +12,52 @@
 <nav id="nav">
   <div class="container nav-inner">
     <a class="logo" href="../"><img src="../owl.png" alt="">hunch</a>
-    <div class="nav-links">
-      <a href="../#wie">Wie es funktioniert</a>
-      <a href="index.html" class="current">Doku</a>
-    </div>
+    <div class="nav-links"><a href="../#apps">Apps</a><a href="index.html" class="current">Doku</a></div>
     <a class="nav-cta" href="mailto:schenkei@hunchagent.io">Early Access</a>
   </div>
 </nav>
 <div class="container layout">
-  <aside class="side"><div class="side-label">Dokumentation</div><nav class="side-nav"><a href="index.html">Loslegen</a><a href="architektur.html">Architektur</a><a href="werkzeuge.html">Werkzeuge</a><a href="gedaechtnis.html">Gedächtnis</a><a href="konfiguration.html" class="active">Konfiguration</a><a href="api.html">HTTP-API</a></nav></aside>
+  <aside class="side"><div class="side-label">Dokumentation</div><nav class="side-nav"><a href="index.html">Loslegen</a><a href="architektur.html">Architektur</a><a href="werkzeuge.html">Werkzeuge &amp; Skills</a><a href="gedaechtnis.html">Gedächtnis &amp; Brain</a><a href="arbeitsweise.html">Arbeitsweise &amp; Memory-Scopes</a><a href="faeden.html">Fäden</a><a href="selbstverbesserung.html">Selbstverbesserung</a><a href="session.html">Globale Session</a><a href="sicherheit.html">Sicherheit &amp; Authority</a><a href="konfiguration.html" class="active">Konfiguration &amp; Provider</a><a href="api.html">HTTP-API</a><a href="status.html">Status, Sensoren &amp; Datenschutz</a></nav></aside>
   <main class="doc">
     <span class="engraved">Dokumentation</span>
-    <h1>Konfiguration</h1>
+    <h1>Konfiguration &amp; Provider</h1>
     
-<p class="lead">Alles über Umgebungsvariablen, damit ein VPS-Deployment ohne Datei-Editieren auskommt.</p>
+<p class="lead">Alles über Umgebungsvariablen — ein VPS-Deployment kommt ohne Datei-Editieren aus.
+Observer und Executive sind unabhängig wählbar.</p>
 
-<h2>Die Variablen</h2>
+<h2>Die wichtigsten Variablen</h2>
 <table>
 <tr><th>Variable</th><th>Vorgabe</th><th>Wofür</th></tr>
 <tr><td><code>HUNCH_OBSERVER_PROVIDER</code></td><td><code>auto</code></td><td>Wer dauernd mitliest</td></tr>
-<tr><td><code>HUNCH_OBSERVER_MODEL</code></td><td>aus der Tabelle</td><td>Welches Modell dort</td></tr>
 <tr><td><code>HUNCH_EXECUTIVE_PROVIDER</code></td><td><code>auto</code></td><td>Wer handelt</td></tr>
-<tr><td><code>HUNCH_EXECUTIVE_MODEL</code></td><td>aus der Tabelle</td><td>Welches Modell dort</td></tr>
 <tr><td><code>HUNCH_OBSERVER_CONFIDENCE_THRESHOLD</code></td><td><code>0.85</code></td><td>Ab wann gehandelt wird</td></tr>
 <tr><td><code>HUNCH_MAX_DAILY_TOKEN_BUDGET</code></td><td><code>500000</code></td><td>Tagesdeckel</td></tr>
 <tr><td><code>HUNCH_SANDBOX_MODE</code></td><td><code>true</code></td><td>Schreibendes fragt nach</td></tr>
-<tr><td><code>HUNCH_NUDGE_COOLDOWN_SECONDS</code></td><td><code>900</code></td><td>Abstand zwischen Impulsen</td></tr>
-<tr><td><code>HUNCH_SKILLS_DIR</code></td><td><code>./skills</code></td><td>Wo die Fähigkeiten liegen</td></tr>
-<tr><td><code>HUNCH_MCP_CONFIG</code></td><td><code>./mcp_config.json</code></td><td>Fremde MCP-Server</td></tr>
-<tr><td><code>HUNCH_HOST</code> / <code>HUNCH_PORT</code></td><td><code>127.0.0.1</code> / <code>8000</code></td><td></td></tr>
-<tr><td><code>HUNCH_AUTH_TOKEN</code></td><td>—</td><td>Pflicht, sobald nicht auf localhost gelauscht wird</td></tr>
+<tr><td><code>HUNCH_AUTH_TOKEN</code></td><td>—</td><td>Pflicht, sobald nicht auf localhost</td></tr>
 <tr><td><code>HUNCH_TLS_CERT</code> / <code>HUNCH_TLS_KEY</code></td><td>—</td><td>HTTPS; fürs iPhone praktisch Pflicht</td></tr>
+<tr><td><code>HUNCH_SKILLS_DIR</code> / <code>HUNCH_MCP_CONFIG</code></td><td><code>./skills</code> / <code>./mcp_config.json</code></td><td>Fähigkeiten</td></tr>
 </table>
-<p>Ohne Token auf einer öffentlichen Adresse startet die Runtime nicht. Das ist kein Komfortverlust, sondern der Unterschied zwischen deinem Agenten und dem Agenten von irgendwem.</p>
 
-<h2>Welches Modell (auto)</h2>
-<p>Die Vorgabe ist <code>auto</code>, und die Runtime entscheidet selbst. <code>hunch init</code> sagt, wie sie entschieden hat und warum.</p>
-<p>Für die <strong>Executive</strong> zählt zuerst ein Schlüssel, der ohnehin in der Umgebung steht, dann ein Kommandozeilenwerkzeug, das hier liegt, dann ein laufender lokaler Server.</p>
-<p>Der <strong>Observer</strong> läuft dauernd und wird deshalb anders gewählt: zuerst ein lokaler Server — wobei wirklich am Port nachgefragt wird —, dann ein Anbieter, für den ein kleines Modell hinterlegt ist. Eine CLI wird nie automatisch zum Observer. Bleibt nichts übrig, läuft die Runtime <strong>ohne Observer</strong>: sie bemerkt dann nichts von selbst, antwortet aber auf direkte Ansprache.</p>
+<h2>Provider <span class="tag heute">Heute</span></h2>
+<p>Cloud: <code>claude, openai, gemini, kimi, deepseek, qwen, mistral, grok, groq</code>. Gerät:
+<code>appleLocal</code> (nur On-Device). Lokal: <code>ollama, lmstudio, llamacpp</code>. CLI:
+<code>claude-cli, codex-cli, gemini-cli</code>. Fallbacks: <code>cli:&lt;cmd&gt;</code> und
+<code>custom:&lt;name&gt;</code> + <code>HUNCH_*_BASE_URL</code> für jeden OpenAI-kompatiblen Endpoint.</p>
+<p>Ohne Schlüssel: die CLI-Provider nutzen die Kommandozeilenwerkzeuge, die schon angemeldet auf dem
+Rechner liegen — kein zweites Bezahlen desselben Abos. Als Observer sind sie zu langsam; dafür ein
+kleines Modell über HTTP.</p>
 
-<h2>Anbieter</h2>
-<p>Beide Rollen nehmen jeden Anbieter — dieselbe Liste wie das Hauptmodell in der App: <code>claude</code>, <code>openai</code>, <code>gemini</code>, <code>kimi</code>, <code>deepseek</code>, <code>qwen</code>, <code>mistral</code>, <code>grok</code>, <code>groq</code>, dazu die lokalen <code>ollama</code>, <code>lmstudio</code>, <code>llamacpp</code>. Ein eigener Endpunkt geht auch: beliebige ID plus <code>HUNCH_*_BASE_URL</code>.</p>
+<h2>Modellwahl (auto)</h2>
+<p>Executive: erst ein Schlüssel in der Umgebung, dann eine CLI, dann ein lokaler Server. Observer:
+erst ein wirklich am Port erreichbarer lokaler Server, dann ein Anbieter mit kleinem Modell — sonst
+läuft die Runtime ohne Observer (Regelmodus). <code>hunch init</code> erklärt die Entscheidung.</p>
 
-<h2>Ohne Schlüssel: die CLI-Provider</h2>
-<p><code>claude-cli</code>, <code>codex-cli</code> und <code>gemini-cli</code> benutzen die Kommandozeilenwerkzeuge, die schon auf dem Rechner liegen. Wer dort angemeldet ist, zahlt bereits ein Abo — einen API-Schlüssel zusätzlich zu verlangen hieße, dasselbe Modell zweimal zu bezahlen.</p>
-<pre><code>HUNCH_EXECUTIVE_PROVIDER=claude-cli hunch run
-HUNCH_EXECUTIVE_PROVIDER=cli:antigravity hunch run
-HUNCH_EXECUTIVE_PROVIDER="cli:meintool --headless" hunch run</code></pre>
-<p>Ein Aufruf startet ein Programm und dauert einige Sekunden. Als Executive richtig — sie läuft selten. Als Observer zu langsam; dafür lieber ein kleines Modell über HTTP.</p>
-
-<h2>Schlüssel</h2>
-<p>Die Runtime sucht selbst: erst <code>HUNCH_OBSERVER_API_KEY</code> bzw. <code>HUNCH_EXECUTIVE_API_KEY</code>, dann <code>HUNCH_KEY_&lt;ANBIETER&gt;</code>, dann was der Anbieter üblicherweise setzt (<code>ANTHROPIC_API_KEY</code>, <code>OPENAI_API_KEY</code>, …).</p>
-
-    <footer class="doc-foot">© 2026 Hunch — <a href="../">hunchagent.io</a></footer>
+    <footer class="doc-foot">© 2026 Hunch — <a href="../">hunchagent.io</a> · Stand 2026-08-21, gegen aktuellen Code geprüft.</footer>
   </main>
 </div>
 <script>
-const nav = document.getElementById('nav');
-addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 8), {passive: true});
+const nav=document.getElementById('nav');
+addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>8),{passive:true});
 </script>
 </body>
 </html>

@@ -124,3 +124,17 @@ nav#nav.scrolled{box-shadow:0 1px 0 rgba(255,255,255,.5) inset, 0 8px 24px rgba(
 @media (prefers-reduced-transparency: reduce){
   nav#nav{background:#F5F5F7;backdrop-filter:none;-webkit-backdrop-filter:none}
 }
+
+/* status chips + rule callouts (Doku) */
+.tag{display:inline-flex;align-items:center;gap:.35em;font-size:.62rem;font-weight:700;letter-spacing:.06em;
+  text-transform:uppercase;padding:.15em .55em;border-radius:999px;white-space:nowrap;vertical-align:middle}
+.tag::before{content:"";width:.4em;height:.4em;border-radius:50%;background:currentColor}
+.tag.heute{color:#1E7A3C;background:rgba(30,122,60,.10)}
+.tag.exp{color:#8A5A00;background:rgba(138,90,0,.12)}
+.tag.next{color:#3B5BA5;background:rgba(59,91,165,.10)}
+.tag.vision{color:#6E6E73;background:rgba(110,110,115,.12)}
+.doc .rule{margin:1.4rem 0;background:linear-gradient(180deg,#FFFDF7,#FFF9EC);
+  border:1px solid rgba(210,168,76,.4);border-radius:1rem;padding:1.1rem 1.2rem;font-size:.92rem;color:#3a3a3c;max-width:44rem}
+.doc .rule b{color:#74551B}
+.doc ol{margin:.8rem 0 .8rem 1.2rem;max-width:44rem;color:#3a3a3c}
+.doc ol li{margin:.4rem 0}

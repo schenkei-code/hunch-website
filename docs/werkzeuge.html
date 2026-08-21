@@ -2,9 +2,9 @@
 <html lang="de">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Werkzeuge — Hunch Doku</title>
-<meta name="description" content="Hunch-Dokumentation: Werkzeuge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Werkzeuge &amp; Skills — Hunch Doku</title>
+<meta name="description" content="Hunch-Dokumentation: Werkzeuge &amp; Skills">
 <link rel="icon" type="image/png" href="../favicon.png">
 <link rel="stylesheet" href="docs.css">
 </head>
@@ -12,50 +12,59 @@
 <nav id="nav">
   <div class="container nav-inner">
     <a class="logo" href="../"><img src="../owl.png" alt="">hunch</a>
-    <div class="nav-links">
-      <a href="../#wie">Wie es funktioniert</a>
-      <a href="index.html" class="current">Doku</a>
-    </div>
+    <div class="nav-links"><a href="../#apps">Apps</a><a href="index.html" class="current">Doku</a></div>
     <a class="nav-cta" href="mailto:schenkei@hunchagent.io">Early Access</a>
   </div>
 </nav>
 <div class="container layout">
-  <aside class="side"><div class="side-label">Dokumentation</div><nav class="side-nav"><a href="index.html">Loslegen</a><a href="architektur.html">Architektur</a><a href="werkzeuge.html" class="active">Werkzeuge</a><a href="gedaechtnis.html">Gedächtnis</a><a href="konfiguration.html">Konfiguration</a><a href="api.html">HTTP-API</a></nav></aside>
+  <aside class="side"><div class="side-label">Dokumentation</div><nav class="side-nav"><a href="index.html">Loslegen</a><a href="architektur.html">Architektur</a><a href="werkzeuge.html" class="active">Werkzeuge &amp; Skills</a><a href="gedaechtnis.html">Gedächtnis &amp; Brain</a><a href="arbeitsweise.html">Arbeitsweise &amp; Memory-Scopes</a><a href="faeden.html">Fäden</a><a href="selbstverbesserung.html">Selbstverbesserung</a><a href="session.html">Globale Session</a><a href="sicherheit.html">Sicherheit &amp; Authority</a><a href="konfiguration.html">Konfiguration &amp; Provider</a><a href="api.html">HTTP-API</a><a href="status.html">Status, Sensoren &amp; Datenschutz</a></nav></aside>
   <main class="doc">
     <span class="engraved">Dokumentation</span>
-    <h1>Werkzeuge</h1>
+    <h1>Werkzeuge &amp; Skills</h1>
     
-<p class="lead">Vier Herkünfte, ein Verzeichnis — die Executive sieht keinen Unterschied, woher ein Werkzeug kommt.</p>
+<p class="lead">Vier Herkünfte, ein Verzeichnis — die Executive sieht keinen Unterschied, woher ein
+Werkzeug kommt. Skills und Werkzeuge sind nicht an den Modellprovider gebunden.</p>
 
-<h2>Eingebaut</h2>
-<p><code>search_memory</code>, <code>remember</code>, <code>list_tasks</code>, <code>add_task</code>, <code>run_command</code>, <code>http_get</code> — ab Werk dabei.</p>
+<h2>Eingebaut <span class="tag heute">Heute</span></h2>
+<p><code>search_memory</code>, <code>remember</code>, <code>list_tasks</code>, <code>add_task</code>,
+<code>run_command</code> (kritisch), <code>http_get</code>. Dazu bedingte Bündel: Chat-Tools (wenn ein
+Kanal verbunden ist), Reach-Tools (<code>youtube_lesen</code>, <code>github_lesen</code>,
+<code>reddit_lesen</code>, <code>rss_lesen</code>, <code>netz_suchen</code>) und der Browser
+(<code>web_ansehen</code>).</p>
 
-<h2>Skills</h2>
-<p>Zwei Arten, beide im Skills-Ordner (<code>HUNCH_SKILLS_DIR</code>, Vorgabe <code>./skills</code>):</p>
+<h2>Skills <span class="tag heute">Heute</span></h2>
 <ul>
-<li><strong>SKILL.md</strong> — eine Anleitung für das Modell (OpenClaw-Art)</li>
-<li><strong>Python-Dateien</strong> mit <code>run(arguments)</code> — werden ausgeführt (Hermes-Art)</li>
+<li><strong>SKILL.md</strong> — eine Anleitung für das Modell (Prosa)</li>
+<li><strong>Python-Dateien</strong> mit <code>run(arguments)</code> — werden ausgeführt</li>
 </ul>
+<p>Ort: <code>HUNCH_SKILLS_DIR</code> (Vorgabe <code>./skills</code>).</p>
 
-<h2>MCP</h2>
-<p>Werkzeuge fremder Server aus <code>mcp_config.json</code>, dynamisch geladen. Eine Config-Zeile genügt.</p>
+<h2>MCP <span class="tag heute">Heute</span></h2>
+<p>Werkzeuge fremder Server aus <code>mcp_config.json</code>, dynamisch geladen. Umgekehrt bietet
+Hunch selbst einen MCP-Server (stdio) an — siehe <a href="gedaechtnis.html">Gedächtnis</a>.</p>
 
-<h2>REST</h2>
+<h2>REST-Connectoren <span class="tag heute">Heute</span></h2>
 <p>Schnittstellen aus <code>connectors.json</code> — ohne eine Zeile Code.</p>
 
-<h2>Externe Agenten (Harnesses)</h2>
-<p>Codex, Claude Code, Gemini CLI, Aider — die Runtime kann sie starten und ihr Ergebnis zurückgeben. Eingebaut sind vier; <code>GET /runtimes</code> sagt, welche davon auf dieser Maschine tatsächlich liegen. Ein eigener kommt als Konfiguration dazu, <code>~/.hunch/harnesses.json</code>:</p>
-<pre><code>{"harnesses": {"meiner": {"command": ["mein-agent", "--headless"],
-                          "name": "Mein Agent", "timeout": 600}}}</code></pre>
-<p>Für das Modell ist das ein einziges Werkzeug, <code>run_agent</code>, mit dem Agenten als Argument — die Wahl „welcher" soll die Werkzeugliste nicht aufblähen.</p>
-<p><code>run_agent</code> ist immer kritisch eingestuft, unabhängig vom Auftrag. Ein fremder Agent bringt seine eigene Loop mit: er liest, ruft Werkzeuge auf, schreibt — und nichts davon geht durch den Governor oder ins Protokoll dieser Runtime. Die Freigabe vor dem Start ist die einzige Kontrolle, die dann noch greift. Dazu Zeitgrenze, gekappte Ausgabe und eine Positivliste für Umgebungsvariablen, damit der Kindprozess nicht sämtliche Schlüssel erbt.</p>
+<h2>Externe Agent-Harnesses <span class="tag heute">Heute</span></h2>
+<p>Eingebaut: <strong>Codex, Claude Code, Gemini CLI, Aider</strong>. Eigene über
+<code>~/.hunch/harnesses.json</code>. Für das Modell ist das ein Werkzeug <code>run_agent</code>,
+immer als kritisch eingestuft — ein fremder Agent bringt seine eigene Loop mit und hängt nicht am
+Governor dieser Runtime; die Freigabe vor dem Start ist die Kontrolle. Positivliste für
+Umgebungsvariablen, Zeitgrenze und gekappte Ausgabe schützen zusätzlich.</p>
 
-    <footer class="doc-foot">© 2026 Hunch — <a href="../">hunchagent.io</a></footer>
+<h2>Kompatibilität — ehrlich <span class="tag next">Als Nächstes</span></h2>
+<p>Jeder Anbieter kann angebunden werden, wenn Modell oder Werkzeug über einen unterstützten
+Standard oder Adapter erreichbar ist (MCP, Function-Schemas, Markdown/Python-Skills, REST,
+Harnesses). Ein proprietäres Plugin-Paket kann einen Adapter benötigen. Nicht jedes Plugin jedes
+Anbieters funktioniert automatisch.</p>
+
+    <footer class="doc-foot">© 2026 Hunch — <a href="../">hunchagent.io</a> · Stand 2026-08-21, gegen aktuellen Code geprüft.</footer>
   </main>
 </div>
 <script>
-const nav = document.getElementById('nav');
-addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 8), {passive: true});
+const nav=document.getElementById('nav');
+addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>8),{passive:true});
 </script>
 </body>
 </html>
