@@ -51,8 +51,8 @@
 html{scroll-behavior:smooth;scroll-padding-top:5rem}
 body{background:var(--bg);color:var(--ink);font:400 100%/1.6 var(--text);-webkit-font-smoothing:antialiased;overflow-x:hidden;font-optical-sizing:auto;
   /* Sicherheitspapier: Perlmutt-Grund + feines Wellenfeld */
-  background-image:var(--guilloche-paper),linear-gradient(180deg,var(--ivory-100),var(--ivory-50) 50%,var(--ivory-100));
-  background-attachment:fixed,fixed}
+  background-image:linear-gradient(180deg,var(--ivory-100),var(--ivory-50) 50%,var(--ivory-100));
+  background-attachment:fixed}
 a{color:inherit;text-decoration:none}
 img,video{max-width:100%;display:block}
 .wrap{max-width:var(--maxw);margin:0 auto;padding:0 clamp(1rem,4vw,1.5rem)}
@@ -90,9 +90,9 @@ nav.over-ink.scrolled{box-shadow:0 8px 24px rgba(0,0,0,.35)}
 .nav-links{display:flex;gap:1rem;font:500 .76rem/1 var(--text);color:var(--dim);white-space:nowrap;flex:0 1 auto;min-width:0}
 .nav-links a{transition:color var(--t-micro) var(--ease)}
 .nav-links a:hover{color:var(--ink)}
-.lang{font:700 .62rem/1 var(--mono);letter-spacing:.14em;color:var(--dim);border:1px solid var(--security-line);border-radius:4px;padding:.4em .55em;margin-left:.2rem}
-.lang:hover{color:var(--ink);border-color:var(--ink)}
-nav.over-ink .lang{color:var(--ivory-300);border-color:rgba(247,244,235,.3)}
+.lang{font:700 .62rem/1 var(--mono);letter-spacing:.14em;color:var(--dim);padding:.4em .2em;margin-left:.2rem}
+.lang:hover{color:var(--ink)}
+nav.over-ink .lang{color:var(--ivory-300)}
 nav.over-ink .lang:hover{color:var(--ivory-50)}
 .nav-serial{font:600 .58rem/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--security-gold);border-left:1px solid var(--security-line);padding-left:1rem;white-space:nowrap}
 .nav-cta{font-size:.8rem;font-weight:600;padding:.45rem 1rem;border-radius:999px;
@@ -118,15 +118,15 @@ section[data-serial] > .wrap::before{content:attr(data-serial);display:block;mar
 section.sheet{background:rgba(255,255,255,.42)}
 .head{max-width:42rem}
 .head.center{margin:0 auto;text-align:center}
-h2{font-size:clamp(1.7rem,4.2vw,2.55rem);font-weight:800;line-height:1.1;margin-top:.9rem;letter-spacing:-.025em}
-.lead{margin-top:1rem;color:var(--dim);font-size:clamp(1.02rem,2.4vw,1.15rem);line-height:1.55;max-width:38rem}
+h2{font-size:clamp(2rem,4.8vw,3.5rem);font-weight:800;line-height:1.02;margin-top:.9rem;letter-spacing:-.03em}
+.lead{margin-top:1.1rem;color:var(--dim);font-size:clamp(1.05rem,2.4vw,1.19rem);line-height:1.5;max-width:38rem}
 .reveal{opacity:0;transform:translateY(14px);transition:opacity var(--t-reveal) var(--ease),transform var(--t-reveal) var(--ease)}
 .reveal.in{opacity:1;transform:none}
 
 /* hero — sovereign credential: ink, wortmarke, signal gold ≤10 % */
 .hero{padding-top:clamp(6.5rem,13vw,9rem);padding-bottom:clamp(2.5rem,6vw,4.5rem);position:relative;overflow:hidden;
   background:var(--ink-1000);color:var(--ivory-100);
-  background-image:var(--guilloche-ink),radial-gradient(ellipse 52rem 36rem at 80% 45%,rgba(213,173,77,.12),transparent 62%),linear-gradient(135deg,#0d0d0b 0%,#191812 56%,#0d0d0b 100%)}
+  background-image:radial-gradient(ellipse 52rem 36rem at 80% 45%,rgba(213,173,77,.12),transparent 62%),linear-gradient(135deg,#0d0d0b 0%,#191812 56%,#0d0d0b 100%)}
 .hero::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold-400),transparent);opacity:.75;pointer-events:none}
 .hero-grid{display:grid;grid-template-columns:1.08fr .92fr;gap:2.5rem;align-items:center;position:relative}
 .hero-serial{position:absolute;right:0;top:-3.2rem;font:600 .58rem/1 var(--mono);letter-spacing:.16em;text-transform:uppercase;color:rgba(247,244,235,.45)}
@@ -148,7 +148,7 @@ h2{font-size:clamp(1.7rem,4.2vw,2.55rem);font-weight:800;line-height:1.1;margin-
 .manifest b{color:var(--gold-text);font-weight:600;font-style:italic}
 
 /* owl — Kampagnenmotiv vor Guilloché-Rosette, max 7° Tilt */
-.owl-stage{position:relative;height:clamp(22rem,46vw,36rem);display:flex;align-items:center;justify-content:center;perspective:1400px}
+.owl-stage{position:relative;height:clamp(22rem,46vw,36rem);display:flex;align-items:center;justify-content:center;perspective:1400px;background-image:var(--guilloche-ink);mask-image:radial-gradient(ellipse 60% 60% at 50% 50%,#000 40%,transparent 75%);-webkit-mask-image:radial-gradient(ellipse 60% 60% at 50% 50%,#000 40%,transparent 75%)}
 .owl-rosette{position:absolute;inset:0;width:100%;height:100%;color:var(--gold-300);opacity:.16;pointer-events:none}
 .owl-stage::after{content:"";position:absolute;left:4%;right:4%;top:56%;height:1px;
   background:linear-gradient(90deg,transparent,rgba(231,207,130,.5) 30%,rgba(231,207,130,.95) 50%,rgba(231,207,130,.5) 70%,transparent);pointer-events:none;z-index:3}
@@ -246,7 +246,7 @@ h2{font-size:clamp(1.7rem,4.2vw,2.55rem);font-weight:800;line-height:1.1;margin-
 /* island live activity strip */
 .island{display:flex;gap:1rem;flex-wrap:wrap;margin-top:2.4rem}
 .island .pill{flex:1 1 15rem;background:#0c0c0e;color:#fff;border-radius:1.4rem;padding:1.1rem 1.3rem;border:1px solid var(--security-line-dark);
-  display:flex;align-items:center;gap:.9rem;box-shadow:var(--document-shadow);background-image:var(--guilloche-ink)}
+  display:flex;align-items:center;gap:.9rem;box-shadow:var(--document-shadow)}
 .island .dot{width:2.4rem;height:2.4rem;border-radius:50%;flex:0 0 auto;display:flex;align-items:center;justify-content:center;color:var(--gold-300);border:1px solid rgba(231,207,130,.35)}
 .island .work{background:rgba(213,173,77,.16)}
 .island .wait{background:rgba(213,173,77,.28)}
@@ -291,7 +291,6 @@ footer{border-top:1px solid var(--security-line);padding:2.2rem 0 calc(2.2rem + 
 .fig figcaption{font:600 .56rem/1.4 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--security-gold);text-align:center;padding-top:.5rem;border-top:1px solid var(--security-line);width:100%}
 /* authority gate — Freigabe-Karte (Komponente aus der Brand Bible, specimen) */
 .gate-card{position:relative;max-width:30rem;justify-self:end;width:100%;background:var(--paper-pearl);border:1px solid rgba(174,134,46,.45);border-radius:var(--r-card);padding:1.2rem 1.3rem 1rem;box-shadow:var(--document-shadow);overflow:hidden}
-.gate-card::before{content:"";position:absolute;inset:0;background-image:var(--guilloche-paper);opacity:.45;pointer-events:none;mask-image:linear-gradient(180deg,#000,transparent 55%);-webkit-mask-image:linear-gradient(180deg,#000,transparent 55%)}
 .gate-card > *{position:relative}
 .gate-top{display:flex;justify-content:space-between;align-items:center;gap:.8rem;margin-bottom:.8rem}
 .gate-risk{font:700 .58rem/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--warn)}
@@ -343,7 +342,6 @@ footer{border-top:1px solid var(--security-line);padding:2.2rem 0 calc(2.2rem + 
 @media (prefers-reduced-motion: reduce){
   html{scroll-behavior:auto}
   .reveal{opacity:1;transform:none;transition:none}
-  .float,.stage .side.left.float,.stage .side.right.float{animation:none}
   .btn,.nav-cta,.owl-hero{transition:none}
   .owl-hero{transform:none!important}
 }
@@ -410,7 +408,7 @@ footer{border-top:1px solid var(--security-line);padding:2.2rem 0 calc(2.2rem + 
         </svg>
         <model-viewer class="owl-3d" id="owl3d" src="owl-bronze.glb" alt="Die Hunch-Eule — skulpturale Bronze, drehbar"
           reveal="auto" loading="eager" poster="owl-bronze-cut.png"
-          auto-rotate auto-rotate-delay="1200" rotation-per-second="8deg"
+         
           camera-controls disable-zoom disable-pan interaction-prompt="none" touch-action="pan-y"
           camera-orbit="0deg 85deg 105%" min-camera-orbit="auto 70deg auto" max-camera-orbit="auto 100deg auto"
           exposure="1.05" shadow-intensity="0" environment-image="neutral"></model-viewer>
@@ -421,7 +419,7 @@ footer{border-top:1px solid var(--security-line);padding:2.2rem 0 calc(2.2rem + 
 </header>
 
 <!-- HUNCH MOMENT -->
-<section id="moment" data-serial="01 / der moment · scope: hunchagent.io · status signiert">
+<section id="moment" data-serial="01 / der moment · scope: hunchagent.io · product truth">
   <div class="wrap">
     <div class="head-row">
 <div class="head">
@@ -431,7 +429,7 @@ footer{border-top:1px solid var(--security-line);padding:2.2rem 0 calc(2.2rem + 
       realen Signalen, gelernten Zusammenhängen und dem langfristigen Verständnis für dich. Ein Beispiel:
       eine neue Datei taucht auf, die zu einer Entscheidung von vor drei Wochen gehört.</p>
     </div>
-    <figure class="fig reveal" aria-hidden="true"><model-viewer class="fig-3d" src="figures/fig-moment.glb" poster="figures/fig-moment.png" alt="" reveal="auto" loading="lazy" auto-rotate auto-rotate-delay="800" rotation-per-second="9deg" camera-controls disable-zoom disable-pan interaction-prompt="none" touch-action="pan-y" camera-orbit="-20deg 82deg 105%" min-camera-orbit="auto 65deg auto" max-camera-orbit="auto 100deg auto" exposure="1" shadow-intensity="0" environment-image="neutral"></model-viewer><img class="fig-png" src="figures/fig-moment.png" width="900" height="900" alt="" loading="lazy" style="display:none"><figcaption>sonnenuhr · der richtige moment</figcaption></figure>
+    <figure class="fig reveal" aria-hidden="true"><model-viewer class="fig-3d" src="figures/fig-moment.glb" poster="figures/fig-moment.png" alt="" reveal="auto" loading="lazy" camera-controls disable-zoom disable-pan interaction-prompt="none" touch-action="pan-y" camera-orbit="-20deg 82deg 105%" min-camera-orbit="auto 65deg auto" max-camera-orbit="auto 100deg auto" exposure="1" shadow-intensity="0" environment-image="neutral"></model-viewer><img class="fig-png" src="figures/fig-moment.png" width="900" height="900" alt="" loading="lazy" style="display:none"><figcaption>sonnenuhr · der richtige moment</figcaption></figure>
     </div>
     <div class="flow reveal">
       <ol>
@@ -450,7 +448,7 @@ footer{border-top:1px solid var(--security-line);padding:2.2rem 0 calc(2.2rem + 
 </section>
 
 <!-- VS ORDINARY -->
-<section id="unterschied" class="sheet" data-serial="02 / unterschied · scope: hunchagent.io · status signiert">
+<section id="unterschied" class="sheet" data-serial="02 / unterschied · scope: hunchagent.io · product truth">
   <div class="wrap">
     <div class="head">
       <span class="eyebrow reveal" data-no="02">Nicht noch ein KI-Agent</span>
@@ -488,7 +486,7 @@ footer{border-top:1px solid var(--security-line);padding:2.2rem 0 calc(2.2rem + 
 </section>
 
 <!-- PERSONAL MODEL & ANTICIPATION -->
-<section id="modell" data-serial="03 / persönliches modell · scope: hunchagent.io · status signiert">
+<section id="modell" data-serial="03 / persönliches modell · scope: hunchagent.io · product truth">
   <div class="wrap">
     <div class="head-row">
 <div class="head">
@@ -500,7 +498,7 @@ footer{border-top:1px solid var(--security-line);padding:2.2rem 0 calc(2.2rem + 
       Schleifen und die Resultate früherer Handlungen. „Hunch liest alles" ist ausdrücklich falsch —
       Browser-, Clipboard-, Datei-, App- und Screen-Kontext sind optionale, lokal kontrollierbare Sensoren.</p>
     </div>
-    <figure class="fig reveal" aria-hidden="true"><model-viewer class="fig-3d" src="figures/fig-modell.glb" poster="figures/fig-modell.png" alt="" reveal="auto" loading="lazy" auto-rotate auto-rotate-delay="800" rotation-per-second="9deg" camera-controls disable-zoom disable-pan interaction-prompt="none" touch-action="pan-y" camera-orbit="-20deg 82deg 105%" min-camera-orbit="auto 65deg auto" max-camera-orbit="auto 100deg auto" exposure="1" shadow-intensity="0" environment-image="neutral"></model-viewer><img class="fig-png" src="figures/fig-modell.png" width="900" height="900" alt="" loading="lazy" style="display:none"><figcaption>springer · der nächste zug</figcaption></figure>
+    <figure class="fig reveal" aria-hidden="true"><model-viewer class="fig-3d" src="figures/fig-modell.glb" poster="figures/fig-modell.png" alt="" reveal="auto" loading="lazy" camera-controls disable-zoom disable-pan interaction-prompt="none" touch-action="pan-y" camera-orbit="-20deg 82deg 105%" min-camera-orbit="auto 65deg auto" max-camera-orbit="auto 100deg auto" exposure="1" shadow-intensity="0" environment-image="neutral"></model-viewer><img class="fig-png" src="figures/fig-modell.png" width="900" height="900" alt="" loading="lazy" style="display:none"><figcaption>springer · der nächste zug</figcaption></figure>
     </div>
     <div class="grid g4">
       <div class="card reveal"><h3>Routine <span class="tag heute">Heute</span></h3><p>Was passiert zu dieser Tageszeit normalerweise? Ein Stundenprofil deiner Themen.</p></div>
@@ -517,7 +515,7 @@ footer{border-top:1px solid var(--security-line);padding:2.2rem 0 calc(2.2rem + 
 </section>
 
 <!-- BRAIN -->
-<section id="brain" class="sheet" data-serial="04 / brain & vorhaben · scope: hunchagent.io · status signiert">
+<section id="brain" class="sheet" data-serial="04 / brain & vorhaben · scope: hunchagent.io · product truth">
   <div class="wrap">
     <div class="head-row">
 <div class="head">
@@ -527,7 +525,7 @@ footer{border-top:1px solid var(--security-line);padding:2.2rem 0 calc(2.2rem + 
       relevante Personen und Themen, Momentum, offene Schleifen, Zusammenhänge sowie Ergebnisse und
       Fehlschläge. Es liegt standardmäßig lokal auf deinem Gerät.</p>
     </div>
-    <figure class="fig reveal" aria-hidden="true"><model-viewer class="fig-3d" src="figures/fig-brain.glb" poster="figures/fig-brain.png" alt="" reveal="auto" loading="lazy" auto-rotate auto-rotate-delay="800" rotation-per-second="9deg" camera-controls disable-zoom disable-pan interaction-prompt="none" touch-action="pan-y" camera-orbit="-20deg 82deg 105%" min-camera-orbit="auto 65deg auto" max-camera-orbit="auto 100deg auto" exposure="1" shadow-intensity="0" environment-image="neutral"></model-viewer><img class="fig-png" src="figures/fig-brain.png" width="900" height="900" alt="" loading="lazy" style="display:none"><figcaption>gedächtnis · lebendes register</figcaption></figure>
+    <figure class="fig reveal" aria-hidden="true"><model-viewer class="fig-3d" src="figures/fig-brain.glb" poster="figures/fig-brain.png" alt="" reveal="auto" loading="lazy" camera-controls disable-zoom disable-pan interaction-prompt="none" touch-action="pan-y" camera-orbit="-20deg 82deg 105%" min-camera-orbit="auto 65deg auto" max-camera-orbit="auto 100deg auto" exposure="1" shadow-intensity="0" environment-image="neutral"></model-viewer><img class="fig-png" src="figures/fig-brain.png" width="900" height="900" alt="" loading="lazy" style="display:none"><figcaption>gedächtnis · lebendes register</figcaption></figure>
     </div>
     <div class="rule reveal">
       <b>Aufgabe ≠ Vorhaben.</b> Eine Aufgabe ist ein einzelner Schritt. Ein Vorhaben ist etwas, das du
@@ -539,14 +537,14 @@ footer{border-top:1px solid var(--security-line);padding:2.2rem 0 calc(2.2rem + 
 </section>
 
 <!-- SELF IMPROVEMENT -->
-<section id="lernen" data-serial="05 / selbstverbesserung · scope: hunchagent.io · status signiert">
+<section id="lernen" data-serial="05 / selbstverbesserung · scope: hunchagent.io · product truth">
   <div class="wrap">
     <div class="head-row">
 <div class="head">
       <span class="eyebrow reveal" data-no="05">Hunch wird mit dir besser — kontrolliert</span>
       <h2 class="reveal">Selbstverbesserung ist kein vages „die KI wird immer schlauer".</h2>
     </div>
-    <figure class="fig reveal" aria-hidden="true"><model-viewer class="fig-3d" src="figures/fig-lernen.glb" poster="figures/fig-lernen.png" alt="" reveal="auto" loading="lazy" auto-rotate auto-rotate-delay="800" rotation-per-second="9deg" camera-controls disable-zoom disable-pan interaction-prompt="none" touch-action="pan-y" camera-orbit="-20deg 82deg 105%" min-camera-orbit="auto 65deg auto" max-camera-orbit="auto 100deg auto" exposure="1" shadow-intensity="0" environment-image="neutral"></model-viewer><img class="fig-png" src="figures/fig-lernen.png" width="900" height="900" alt="" loading="lazy" style="display:none"><figcaption>wendeltreppe · besser, nicht nur mehr</figcaption></figure>
+    <figure class="fig reveal" aria-hidden="true"><model-viewer class="fig-3d" src="figures/fig-lernen.glb" poster="figures/fig-lernen.png" alt="" reveal="auto" loading="lazy" camera-controls disable-zoom disable-pan interaction-prompt="none" touch-action="pan-y" camera-orbit="-20deg 82deg 105%" min-camera-orbit="auto 65deg auto" max-camera-orbit="auto 100deg auto" exposure="1" shadow-intensity="0" environment-image="neutral"></model-viewer><img class="fig-png" src="figures/fig-lernen.png" width="900" height="900" alt="" loading="lazy" style="display:none"><figcaption>wendeltreppe · besser, nicht nur mehr</figcaption></figure>
     </div>
     <div class="grid g3">
       <div class="card reveal"><h3>Sein Verständnis von dir <span class="tag heute">Heute</span></h3>
@@ -571,7 +569,7 @@ footer{border-top:1px solid var(--security-line);padding:2.2rem 0 calc(2.2rem + 
 </section>
 
 <!-- WORKSTYLE & MEMORY SCOPES -->
-<section id="arbeitsweise" class="sheet" data-serial="06 / arbeitsweise & memory · scope: hunchagent.io · status signiert">
+<section id="arbeitsweise" class="sheet" data-serial="06 / arbeitsweise & memory · scope: hunchagent.io · product truth">
   <div class="wrap">
     <div class="head-row">
 <div class="head">
@@ -582,7 +580,7 @@ footer{border-top:1px solid var(--security-line);padding:2.2rem 0 calc(2.2rem + 
       zuerst erklären soll, wann Rückfragen sinnvoll sind, welche Entscheidungen Hunch selbst treffen
       darf und welche Handlungen nie automatisch passieren dürfen.</p>
     </div>
-    <figure class="fig reveal" aria-hidden="true"><model-viewer class="fig-3d" src="figures/fig-scopes.glb" poster="figures/fig-scopes.png" alt="" reveal="auto" loading="lazy" auto-rotate auto-rotate-delay="800" rotation-per-second="9deg" camera-controls disable-zoom disable-pan interaction-prompt="none" touch-action="pan-y" camera-orbit="-20deg 82deg 105%" min-camera-orbit="auto 65deg auto" max-camera-orbit="auto 100deg auto" exposure="1" shadow-intensity="0" environment-image="neutral"></model-viewer><img class="fig-png" src="figures/fig-scopes.png" width="900" height="900" alt="" loading="lazy" style="display:none"><figcaption>drei ringe · global, projekt, faden</figcaption></figure>
+    <figure class="fig reveal" aria-hidden="true"><model-viewer class="fig-3d" src="figures/fig-scopes.glb" poster="figures/fig-scopes.png" alt="" reveal="auto" loading="lazy" camera-controls disable-zoom disable-pan interaction-prompt="none" touch-action="pan-y" camera-orbit="-20deg 82deg 105%" min-camera-orbit="auto 65deg auto" max-camera-orbit="auto 100deg auto" exposure="1" shadow-intensity="0" environment-image="neutral"></model-viewer><img class="fig-png" src="figures/fig-scopes.png" width="900" height="900" alt="" loading="lazy" style="display:none"><figcaption>drei ringe · global, projekt, faden</figcaption></figure>
     </div>
     <div class="scopes">
       <div class="scope reveal"><h3>Globale Ebene <span class="tag heute">Heute</span></h3>
@@ -612,7 +610,7 @@ footer{border-top:1px solid var(--security-line);padding:2.2rem 0 calc(2.2rem + 
 </section>
 
 <!-- OBSERVER / EXECUTIVE -->
-<section id="observer" data-serial="07 / observer & executive · scope: hunchagent.io · status signiert">
+<section id="observer" data-serial="07 / observer & executive · scope: hunchagent.io · product truth">
   <div class="wrap">
     <div class="head-row">
 <div class="head">
@@ -621,7 +619,7 @@ footer{border-top:1px solid var(--security-line);padding:2.2rem 0 calc(2.2rem + 
       <p class="lead reveal">Hunch denkt nicht ständig laut. Ein stiller Observer erkennt, was relevant
       werden könnte. Erst dann übernimmt der Executive.</p>
     </div>
-    <figure class="fig reveal" aria-hidden="true"><model-viewer class="fig-3d" src="figures/fig-observer.glb" poster="figures/fig-observer.png" alt="" reveal="auto" loading="lazy" auto-rotate auto-rotate-delay="800" rotation-per-second="9deg" camera-controls disable-zoom disable-pan interaction-prompt="none" touch-action="pan-y" camera-orbit="-20deg 82deg 105%" min-camera-orbit="auto 65deg auto" max-camera-orbit="auto 100deg auto" exposure="1" shadow-intensity="0" environment-image="neutral"></model-viewer><img class="fig-png" src="figures/fig-observer.png" width="900" height="900" alt="" loading="lazy" style="display:none"><figcaption>auge und hand · beobachten, handeln</figcaption></figure>
+    <figure class="fig reveal" aria-hidden="true"><model-viewer class="fig-3d" src="figures/fig-observer.glb" poster="figures/fig-observer.png" alt="" reveal="auto" loading="lazy" camera-controls disable-zoom disable-pan interaction-prompt="none" touch-action="pan-y" camera-orbit="-20deg 82deg 105%" min-camera-orbit="auto 65deg auto" max-camera-orbit="auto 100deg auto" exposure="1" shadow-intensity="0" environment-image="neutral"></model-viewer><img class="fig-png" src="figures/fig-observer.png" width="900" height="900" alt="" loading="lazy" style="display:none"><figcaption>auge und hand · beobachten, handeln</figcaption></figure>
     </div>
     <div class="duo">
       <div class="card reveal">
@@ -643,7 +641,7 @@ footer{border-top:1px solid var(--security-line);padding:2.2rem 0 calc(2.2rem + 
 </section>
 
 <!-- GLOBAL SESSION -->
-<section id="session" class="sheet" data-serial="08 / globale session · scope: hunchagent.io · status signiert">
+<section id="session" class="sheet" data-serial="08 / globale session · scope: hunchagent.io · product truth">
   <div class="wrap">
     <div class="head-row">
 <div class="head">
@@ -653,7 +651,7 @@ footer{border-top:1px solid var(--security-line);padding:2.2rem 0 calc(2.2rem + 
       Entscheidungen, Arbeitsweise und relevante Zusammenhänge im Blick — egal, welches Modell oder Gerät
       gerade verwendet wird. Wechsel von iPhone zu Computer, Terminal oder Telegram ohne mentalen Neustart.</p>
     </div>
-    <figure class="fig reveal" aria-hidden="true"><model-viewer class="fig-3d" src="figures/fig-session.glb" poster="figures/fig-session.png" alt="" reveal="auto" loading="lazy" auto-rotate auto-rotate-delay="800" rotation-per-second="9deg" camera-controls disable-zoom disable-pan interaction-prompt="none" touch-action="pan-y" camera-orbit="-20deg 82deg 105%" min-camera-orbit="auto 65deg auto" max-camera-orbit="auto 100deg auto" exposure="1" shadow-intensity="0" environment-image="neutral"></model-viewer><img class="fig-png" src="figures/fig-session.png" width="900" height="900" alt="" loading="lazy" style="display:none"><figcaption>möbius · eine fortlaufende beziehung</figcaption></figure>
+    <figure class="fig reveal" aria-hidden="true"><model-viewer class="fig-3d" src="figures/fig-session.glb" poster="figures/fig-session.png" alt="" reveal="auto" loading="lazy" camera-controls disable-zoom disable-pan interaction-prompt="none" touch-action="pan-y" camera-orbit="-20deg 82deg 105%" min-camera-orbit="auto 65deg auto" max-camera-orbit="auto 100deg auto" exposure="1" shadow-intensity="0" environment-image="neutral"></model-viewer><img class="fig-png" src="figures/fig-session.png" width="900" height="900" alt="" loading="lazy" style="display:none"><figcaption>möbius · eine fortlaufende beziehung</figcaption></figure>
     </div>
     <div class="rule reveal">
       Gemeinsame Identität und gemeinsames Gedächtnis sind vorhanden; App, Runtime und MCP können bereits
@@ -666,7 +664,7 @@ footer{border-top:1px solid var(--security-line);padding:2.2rem 0 calc(2.2rem + 
 </section>
 
 <!-- FÄDEN -->
-<section id="faeden" data-serial="09 / fäden · scope: hunchagent.io · status signiert">
+<section id="faeden" data-serial="09 / fäden · scope: hunchagent.io · product truth">
   <div class="wrap">
     <div class="head-row">
 <div class="head">
@@ -677,7 +675,7 @@ footer{border-top:1px solid var(--security-line);padding:2.2rem 0 calc(2.2rem + 
       Assistent würde den Dialog blockieren. Jeder Faden hat ein klares Ziel, eigenen Kontext, eigene
       Tool-Runden, Freigaben und ein Ergebnis, das zum ursprünglichen Kanal zurückkehrt.</p>
     </div>
-    <figure class="fig reveal" aria-hidden="true"><model-viewer class="fig-3d" src="figures/fig-faeden.glb" poster="figures/fig-faeden.png" alt="" reveal="auto" loading="lazy" auto-rotate auto-rotate-delay="800" rotation-per-second="9deg" camera-controls disable-zoom disable-pan interaction-prompt="none" touch-action="pan-y" camera-orbit="-20deg 82deg 105%" min-camera-orbit="auto 65deg auto" max-camera-orbit="auto 100deg auto" exposure="1" shadow-intensity="0" environment-image="neutral"></model-viewer><img class="fig-png" src="figures/fig-faeden.png" width="900" height="900" alt="" loading="lazy" style="display:none"><figcaption>drei fäden · ein zopf</figcaption></figure>
+    <figure class="fig reveal" aria-hidden="true"><model-viewer class="fig-3d" src="figures/fig-faeden.glb" poster="figures/fig-faeden.png" alt="" reveal="auto" loading="lazy" camera-controls disable-zoom disable-pan interaction-prompt="none" touch-action="pan-y" camera-orbit="-20deg 82deg 105%" min-camera-orbit="auto 65deg auto" max-camera-orbit="auto 100deg auto" exposure="1" shadow-intensity="0" environment-image="neutral"></model-viewer><img class="fig-png" src="figures/fig-faeden.png" width="900" height="900" alt="" loading="lazy" style="display:none"><figcaption>drei fäden · ein zopf</figcaption></figure>
     </div>
     <div class="grid g3">
       <div class="card reveal"><h3><span class="tag heute" style="background:rgba(30,122,60,.12)">Läuft</span></h3><p>Der Faden arbeitet an seinem Auftrag, zeigt Fortschritt und Laufzeit.</p></div>
@@ -691,7 +689,7 @@ footer{border-top:1px solid var(--security-line);padding:2.2rem 0 calc(2.2rem + 
 </section>
 
 <!-- AUTHORITY GATE -->
-<section id="autoritaet" class="sheet" data-serial="10 / authority gate · scope: hunchagent.io · status signiert">
+<section id="autoritaet" class="sheet" data-serial="10 / authority gate · scope: hunchagent.io · product truth">
   <div class="wrap">
     <div class="head-row">
 <div class="head">
@@ -736,7 +734,7 @@ footer{border-top:1px solid var(--security-line);padding:2.2rem 0 calc(2.2rem + 
 </section>
 
 <!-- MODELS / SKILLS / CAPABILITY LAYER -->
-<section id="modelle" data-serial="11 / modelle & skills · scope: hunchagent.io · status signiert">
+<section id="modelle" data-serial="11 / modelle & skills · scope: hunchagent.io · product truth">
   <div class="wrap">
     <div class="head-row">
 <div class="head">
@@ -745,7 +743,7 @@ footer{border-top:1px solid var(--security-line);padding:2.2rem 0 calc(2.2rem + 
       <p class="lead reveal">Bring your model, keep your hunch. Hunchs Identität, Gedächtnis, Authority,
       Arbeitspräferenzen und Skills sind nicht an einen Modellprovider gebunden — drei unabhängige Ebenen.</p>
     </div>
-    <figure class="fig reveal" aria-hidden="true"><model-viewer class="fig-3d" src="figures/fig-modelle.glb" poster="figures/fig-modelle.png" alt="" reveal="auto" loading="lazy" auto-rotate auto-rotate-delay="800" rotation-per-second="9deg" camera-controls disable-zoom disable-pan interaction-prompt="none" touch-action="pan-y" camera-orbit="-20deg 82deg 105%" min-camera-orbit="auto 65deg auto" max-camera-orbit="auto 100deg auto" exposure="1" shadow-intensity="0" environment-image="neutral"></model-viewer><img class="fig-png" src="figures/fig-modelle.png" width="900" height="900" alt="" loading="lazy" style="display:none"><figcaption>die eule bleibt · das modul wechselt</figcaption></figure>
+    <figure class="fig reveal" aria-hidden="true"><model-viewer class="fig-3d" src="figures/fig-modelle.glb" poster="figures/fig-modelle.png" alt="" reveal="auto" loading="lazy" camera-controls disable-zoom disable-pan interaction-prompt="none" touch-action="pan-y" camera-orbit="-20deg 82deg 105%" min-camera-orbit="auto 65deg auto" max-camera-orbit="auto 100deg auto" exposure="1" shadow-intensity="0" environment-image="neutral"></model-viewer><img class="fig-png" src="figures/fig-modelle.png" width="900" height="900" alt="" loading="lazy" style="display:none"><figcaption>die eule bleibt · das modul wechselt</figcaption></figure>
     </div>
     <div class="grid g3">
       <div class="card reveal"><h3>1 · Hunch <span class="tag heute">Heute</span></h3><p>Identität, Brain, Vorhaben, Arbeitsweise und Authority. Der bleibende Kern.</p></div>
@@ -764,7 +762,7 @@ footer{border-top:1px solid var(--security-line);padding:2.2rem 0 calc(2.2rem + 
 </section>
 
 <!-- APPS / SURFACES / SCREENSHOTS -->
-<section id="apps" class="sheet" data-serial="12 / surfaces · scope: hunchagent.io · status signiert">
+<section id="apps" class="sheet" data-serial="12 / surfaces · scope: hunchagent.io · product truth">
   <div class="wrap">
     <div class="head center">
       <span class="eyebrow reveal" data-no="12">Ein Hunch, mehrere Zugänge</span>
@@ -776,9 +774,9 @@ footer{border-top:1px solid var(--security-line);padding:2.2rem 0 calc(2.2rem + 
     </div>
 
     <div class="stage reveal">
-      <div class="phone side left float"><div class="screen"><img src="app-shots/fx-03-ausweis.png" alt="Hunch-Ausweis-Karte mit HID" loading="lazy" width="1206" height="2622"></div></div>
-      <div class="phone heroP float"><div class="screen"><video src="app-shots/demo-web.mp4" poster="app-shots/fx-01-hub.png" autoplay muted loop playsinline width="1206" height="2622"></video></div></div>
-      <div class="phone side right float"><div class="screen"><img src="app-shots/fx-02-brain.png" alt="Brain — persönliches Gedächtnis" loading="lazy" width="1206" height="2622"></div></div>
+      <div class="phone side left"><div class="screen"><img src="app-shots/fx-03-ausweis.png" alt="Hunch-Ausweis-Karte mit HID" loading="lazy" width="1206" height="2622"></div></div>
+      <div class="phone heroP"><div class="screen"><video src="app-shots/demo-web.mp4" poster="app-shots/fx-01-hub.png" autoplay muted loop playsinline width="1206" height="2622"></video></div></div>
+      <div class="phone side right"><div class="screen"><img src="app-shots/fx-02-brain.png" alt="Brain — persönliches Gedächtnis" loading="lazy" width="1206" height="2622"></div></div>
     </div>
 
     <div class="screens">
@@ -820,14 +818,14 @@ footer{border-top:1px solid var(--security-line);padding:2.2rem 0 calc(2.2rem + 
 </section>
 
 <!-- LOCAL FIRST / PRIVACY -->
-<section id="privat" data-serial="13 / local-first & kontrolle · scope: hunchagent.io · status signiert">
+<section id="privat" data-serial="13 / local-first & kontrolle · scope: hunchagent.io · product truth">
   <div class="wrap">
     <div class="head-row">
 <div class="head">
       <span class="eyebrow reveal" data-no="13">Local-first &amp; Kontrolle</span>
       <h2 class="reveal">Nicht nur „Privacy first" als Slogan — so funktioniert die Kontrolle.</h2>
     </div>
-    <figure class="fig reveal" aria-hidden="true"><model-viewer class="fig-3d" src="figures/fig-privat.glb" poster="figures/fig-privat.png" alt="" reveal="auto" loading="lazy" auto-rotate auto-rotate-delay="800" rotation-per-second="9deg" camera-controls disable-zoom disable-pan interaction-prompt="none" touch-action="pan-y" camera-orbit="-20deg 82deg 105%" min-camera-orbit="auto 65deg auto" max-camera-orbit="auto 100deg auto" exposure="1" shadow-intensity="0" environment-image="neutral"></model-viewer><img class="fig-png" src="figures/fig-privat.png" width="900" height="900" alt="" loading="lazy" style="display:none"><figcaption>owner bound · lokal verschlossen</figcaption></figure>
+    <figure class="fig reveal" aria-hidden="true"><model-viewer class="fig-3d" src="figures/fig-privat.glb" poster="figures/fig-privat.png" alt="" reveal="auto" loading="lazy" camera-controls disable-zoom disable-pan interaction-prompt="none" touch-action="pan-y" camera-orbit="-20deg 82deg 105%" min-camera-orbit="auto 65deg auto" max-camera-orbit="auto 100deg auto" exposure="1" shadow-intensity="0" environment-image="neutral"></model-viewer><img class="fig-png" src="figures/fig-privat.png" width="900" height="900" alt="" loading="lazy" style="display:none"><figcaption>owner bound · lokal verschlossen</figcaption></figure>
     </div>
     <div class="grid g3">
       <div class="card reveal"><h3>Lokal &amp; deine Hardware</h3><p>Persönliches Gedächtnis liegt standardmäßig lokal. Die Runtime läuft auf deiner eigenen Hardware.</p></div>
@@ -841,7 +839,7 @@ footer{border-top:1px solid var(--security-line);padding:2.2rem 0 calc(2.2rem + 
 </section>
 
 <!-- STATUS MATRIX -->
-<section id="status" class="sheet" data-serial="14 / product truth · scope: hunchagent.io · status signiert">
+<section id="status" class="sheet" data-serial="14 / product truth · scope: hunchagent.io · product truth">
   <div class="wrap">
     <div class="head-row">
 <div class="head center">
@@ -849,7 +847,7 @@ footer{border-top:1px solid var(--security-line);padding:2.2rem 0 calc(2.2rem + 
       <h2 class="reveal">Was heute läuft, was experimentell ist, was kommt.</h2>
       <p class="lead reveal">Die Vision bleibt stark — aber nichts hier ist als ausgeliefert dargestellt, was es nicht ist.</p>
     </div>
-    <div class="stamp reveal" aria-hidden="true"><span>product truth</span><b>signiert</b><span>2026 · specimen</span></div>
+    <div class="stamp reveal" aria-hidden="true"><span>product truth</span><b>geprüft</b><span>2026 · specimen</span></div>
     </div>
     <div class="matrix">
       <div class="col reveal"><h3><span class="tag heute">Heute</span></h3><ul>
@@ -892,7 +890,7 @@ footer{border-top:1px solid var(--security-line);padding:2.2rem 0 calc(2.2rem + 
     versteht, wohin du gerade gehst, weiß, wie du mit ihm arbeiten willst — und im richtigen Moment
     innerhalb deiner Regeln handelt.</p>
     <a class="btn btn-primary reveal" href="mailto:schenkei@hunchagent.io?subject=Hunch%20Early%20Access">Early Access anfragen</a>
-    <div class="receipt reveal"><span>credential</span><b>owner bound · secure enclave</b><span>scope</span><b>global · projekt · faden</b><span>authority</span><b>freigabe vor wirkung · undo · audit</b><span>status</span><b>heute / experimentell / vision — signiert</b></div>
+    <div class="receipt reveal"><span>credential</span><b>owner bound · secure enclave</b><span>scope</span><b>global · projekt · faden</b><span>authority</span><b>freigabe vor wirkung · undo · audit</b><span>status</span><b>heute / experimentell / vision — nach product truth</b></div>
     <p class="fine">schenkei@hunchagent.io · kein Newsletter, keine Tracker auf dieser Seite.</p>
   </div>
 </section>
