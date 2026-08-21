@@ -768,19 +768,24 @@ footer{border-top:1px solid var(--line);padding:2.4rem 0 calc(2.4rem + env(safe-
     var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
     var mv = document.getElementById('owl3d'), png = document.getElementById('owlpng');
     if (reduce || !mv) return;
+    function fallback(){ mv.style.display='none'; png.style.display=''; }
+    // Wenn das Modell nicht lädt: Poster behalten, nie eine leere Bühne.
+    mv.addEventListener('error', fallback);
     fetch('owl.glb', {method:'HEAD'}).then(function(r){
-      if(!r.ok) return;
+      if(!r.ok){ fallback(); return; }
       var io = new IntersectionObserver(function(es){
         es.forEach(function(e){
           if(e.isIntersecting){
             mv.style.display='block'; png.style.display='none';
             if(mv.dismissPoster) mv.dismissPoster();
             io.disconnect();
+            // Sicherheitsnetz: rendert das Modell nach 6s nicht, Poster zurück.
+            setTimeout(function(){ if(!mv.modelIsVisible) fallback(); }, 6000);
           }
         });
       },{rootMargin:'200px'});
       io.observe(mv.parentElement);
-    }).catch(function(){});
+    }).catch(fallback);
   })();
 
   // sticky nav shadow
