@@ -3,15 +3,18 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>Hunch — dein intentionaler persönlicher Agent</title>
+<title>Hunch — dein persönlicher intentional agent</title>
 <meta name="description" content="Hunch ist kein weiteres Chat-Interface. Es baut ein fortlaufendes persönliches Modell auf, erkennt den nächsten sinnvollen Schritt und handelt nur innerhalb deiner Regeln. Bring your model, keep your hunch.">
-<meta property="og:title" content="Hunch — dein intentionaler persönlicher Agent">
+<meta property="og:title" content="Hunch — dein persönlicher intentional agent">
 <meta property="og:description" content="Es kennt dich. Es versteht den Moment. Es handelt in deinem Auftrag — innerhalb deiner Grenzen.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://hunchagent.io">
 <meta property="og:image" content="https://hunchagent.io/owl-bronze.png">
 <meta name="theme-color" content="#0d0d0b">
 <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js" integrity="sha384-Ftcjj/GNLxPvzNDftO/oryXB9aGxsGZY9JGqsXG0uUKgQDl9RfDgsx9NJ/4IVNPe" crossorigin="anonymous"></script>
+<link rel="alternate" hreflang="de" href="https://hunchagent.io/">
+<link rel="alternate" hreflang="en" href="https://hunchagent.io/en/">
+<link rel="alternate" hreflang="x-default" href="https://hunchagent.io/">
 <link rel="icon" type="image/png" href="favicon.png">
 <link rel="apple-touch-icon" href="owl-mark.png">
 <style>
@@ -87,6 +90,10 @@ nav.over-ink.scrolled{box-shadow:0 8px 24px rgba(0,0,0,.35)}
 .nav-links{display:flex;gap:1rem;font:500 .76rem/1 var(--text);color:var(--dim);white-space:nowrap;flex:0 1 auto;min-width:0}
 .nav-links a{transition:color var(--t-micro) var(--ease)}
 .nav-links a:hover{color:var(--ink)}
+.lang{font:700 .62rem/1 var(--mono);letter-spacing:.14em;color:var(--dim);border:1px solid var(--security-line);border-radius:4px;padding:.4em .55em;margin-left:.2rem}
+.lang:hover{color:var(--ink);border-color:var(--ink)}
+nav.over-ink .lang{color:var(--ivory-300);border-color:rgba(247,244,235,.3)}
+nav.over-ink .lang:hover{color:var(--ivory-50)}
 .nav-serial{font:600 .58rem/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--security-gold);border-left:1px solid var(--security-line);padding-left:1rem;white-space:nowrap}
 .nav-cta{font-size:.8rem;font-weight:600;padding:.45rem 1rem;border-radius:999px;
   background:linear-gradient(180deg,var(--gold-300),var(--gold-400) 55%,var(--gold-500));color:var(--ink-1000);
@@ -361,6 +368,7 @@ footer{border-top:1px solid var(--security-line);padding:2.2rem 0 calc(2.2rem + 
       <a href="#status">Status</a>
       <a href="docs/index.html">Doku</a>
     </div>
+    <a class="lang" href="en/" hreflang="en" lang="en">EN</a>
     <span class="nav-serial">intentional agent · owner bound · 2026</span>
     <a class="nav-cta" href="mailto:schenkei@hunchagent.io?subject=Hunch%20Early%20Access">Early Access</a>
   </div>
@@ -474,7 +482,7 @@ footer{border-top:1px solid var(--security-line);padding:2.2rem 0 calc(2.2rem + 
         </ul>
       </div>
     </div>
-    <p class="lead reveal" style="margin-top:1.6rem">Ein guter intentionaler Agent ist nicht möglichst aktiv.
+    <p class="lead reveal" style="margin-top:1.6rem">Ein guter intentional agent ist nicht möglichst aktiv.
     Er erkennt auch, wann kein Eingriff sinnvoll ist.</p>
   </div>
 </section>

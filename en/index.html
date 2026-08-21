@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Hunch — your personal intentional agent</title>
+<meta name="description" content="Hunch is not another chat interface. It builds a continuous personal model, recognises the next meaningful step and acts only within your rules. Bring your model, keep your hunch.">
+<meta property="og:title" content="Hunch — your personal intentional agent">
+<meta property="og:description" content="It knows you. It understands the moment. It acts on your behalf — within your boundaries.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://hunchagent.io/en/">
+<meta property="og:image" content="https://hunchagent.io/owl-bronze.png">
+<meta name="theme-color" content="#0d0d0b">
+<script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js" integrity="sha384-Ftcjj/GNLxPvzNDftO/oryXB9aGxsGZY9JGqsXG0uUKgQDl9RfDgsx9NJ/4IVNPe" crossorigin="anonymous"></script>
+<link rel="alternate" hreflang="de" href="https://hunchagent.io/">
+<link rel="alternate" hreflang="en" href="https://hunchagent.io/en/">
+<link rel="alternate" hreflang="x-default" href="https://hunchagent.io/">
+<link rel="icon" type="image/png" href="../favicon.png">
+<link rel="apple-touch-icon" href="../owl-mark.png">
+<style>
+:root{
+  /* Brand System 2026.03 — security-document credential system. ink / ivory / signal gold */
+  --ink-1000:#0d0d0b; --ink-900:#171713; --ink-800:#25241f; --ink-700:#39372f;
+  --ivory-50:#fffefa; --ivory-100:#f7f4eb; --ivory-200:#eee9dc; --ivory-300:#ddd5c2;
+  --stone-500:#716b5e; --stone-600:#5e584d;
+  --gold-300:#e7cf82; --gold-400:#d5ad4d; --gold-500:#bd8d24; --gold-600:#8a6412; --gold-700:#624508;
+  --security-gold:#ae862e;
+  --security-line:rgba(174,134,46,.16);
+  --security-line-soft:rgba(174,134,46,.075);
+  --security-line-dark:rgba(231,207,130,.11);
+  --paper-pearl:linear-gradient(118deg,#fcfcfe 0%,#f1f2f5 42%,#f6f2ea 72%,#fbf7ef 100%);
+  --foil:linear-gradient(115deg,#d6a83f,#f2dc98,#b9dbe8,#efc4d4,#bce1d1,#c8932f);
+  --document-shadow:0 1px 1.5px rgba(0,0,0,.08),0 5px 12px rgba(0,0,0,.06),0 18px 32px rgba(0,0,0,.055);
+  --bg:var(--ivory-100); --bg-2:var(--ivory-50); --card:#FFFFFF;
+  --ink:var(--ink-1000); --ink-2:var(--ink-700); --dim:var(--stone-600); --line:var(--security-line);
+  --gold-100:var(--gold-300); --gold-text:var(--gold-600); --gold-text-deep:var(--gold-700); --btn-ink:var(--ink-1000);
+  --ok:#2e6b47; --warn:#9a5d08; --plan:var(--stone-600);
+  --shadow-s:0 1px 1.5px rgba(0,0,0,.07),0 5px 12px rgba(0,0,0,.05);
+  --shadow-m:var(--document-shadow);
+  --t-micro:140ms; --t-shift:220ms; --t-reveal:420ms; --ease:cubic-bezier(.2,.8,.2,1);
+  --display:-apple-system,BlinkMacSystemFont,"SF Pro Display","Helvetica Neue",Arial,sans-serif;
+  --text:-apple-system,BlinkMacSystemFont,"SF Pro Text","Helvetica Neue",Arial,sans-serif;
+  --mono:"SFMono-Regular",ui-monospace,"Cascadia Mono","Roboto Mono",monospace;
+  --r-card:18px; --r-doc:28px; --r-field:12px;
+  --maxw:1120px;
+  /* guilloché: gekreuzte Wellenfamilien, statisch, ≤14 % Gold, nie hinter Primärtext */
+  --guilloche-paper:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='54' viewBox='0 0 160 54'><g fill='none' stroke='%23ae862e' stroke-opacity='.16'><path d='M0 27C26.7 9 53.3 9 80 27S133.3 45 160 27' stroke-width='.8'/><path d='M0 27C26.7 45 53.3 45 80 27S133.3 9 160 27' stroke-width='.8'/><path d='M0 14C26.7 5 53.3 5 80 14S133.3 23 160 14' stroke-width='.5'/><path d='M0 40C26.7 49 53.3 49 80 40S133.3 31 160 40' stroke-width='.5'/></g></svg>");
+  --guilloche-ink:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='54' viewBox='0 0 160 54'><g fill='none' stroke='%23e7cf82' stroke-opacity='.13'><path d='M0 27C26.7 9 53.3 9 80 27S133.3 45 160 27' stroke-width='.8'/><path d='M0 27C26.7 45 53.3 45 80 27S133.3 9 160 27' stroke-width='.8'/><path d='M0 14C26.7 5 53.3 5 80 14S133.3 23 160 14' stroke-width='.5'/><path d='M0 40C26.7 49 53.3 49 80 40S133.3 31 160 40' stroke-width='.5'/></g></svg>");
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:5rem}
+body{background:var(--bg);color:var(--ink);font:400 100%/1.6 var(--text);-webkit-font-smoothing:antialiased;overflow-x:hidden;font-optical-sizing:auto;
+  /* Sicherheitspapier: Perlmutt-Grund + feines Wellenfeld */
+  background-image:var(--guilloche-paper),linear-gradient(180deg,var(--ivory-100),var(--ivory-50) 50%,var(--ivory-100));
+  background-attachment:fixed,fixed}
+a{color:inherit;text-decoration:none}
+img,video{max-width:100%;display:block}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 clamp(1rem,4vw,1.5rem)}
+::selection{background:var(--gold-300);color:var(--ink-1000)}
+h1,h2,h3{font-family:var(--display);letter-spacing:-.02em}
+code,.mono{font-family:var(--mono)}
+
+/* Serien-/Scope-Schrift: Mono kennzeichnet Herkunft, Scope, Zustand — nie Primärtext */
+.eyebrow{display:inline-flex;align-items:center;gap:.6rem;font:650 .68rem/1 var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--security-gold)}
+.eyebrow::before{content:attr(data-no) " /";color:var(--security-gold);font-weight:700;letter-spacing:.12em}
+.eyebrow:not([data-no])::before{display:none}
+.gold{color:var(--gold-600)}
+
+/* status — signiert, nicht gekastelt: kleines Mono-Wort mit Punkt, keine Box */
+.tag{display:inline-flex;align-items:center;gap:.45em;font:650 .6rem/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;white-space:nowrap;vertical-align:middle;opacity:.9}
+.tag::before{content:"";width:.38rem;height:.38rem;border-radius:50%;background:currentColor;flex:0 0 auto}
+.tag.heute{color:var(--ok)}
+.tag.exp{color:var(--warn)}
+.tag.next{color:var(--stone-600)}
+.tag.vision{color:var(--gold-600)}
+
+/* nav — Papierleiste mit Hairline + Serienfeld */
+nav{position:fixed;top:0;left:0;right:0;z-index:60;background:rgba(247,244,235,.82);
+  backdrop-filter:blur(20px) saturate(160%);-webkit-backdrop-filter:blur(20px) saturate(160%);
+  border-bottom:1px solid var(--security-line);transition:box-shadow var(--t-shift) var(--ease),background var(--t-shift) var(--ease);padding-top:env(safe-area-inset-top)}
+nav.scrolled{box-shadow:0 8px 24px rgba(0,0,0,.05)}
+.nav-in{display:flex;align-items:center;justify-content:space-between;height:3.75rem;gap:1rem}
+nav.over-ink{background:rgba(13,13,11,.7);color:var(--ivory-100);border-bottom-color:var(--security-line-dark)}
+nav.over-ink .nav-links{color:var(--ivory-300)}
+nav.over-ink .nav-links a:hover{color:var(--ivory-50)}
+nav.over-ink .nav-serial{color:var(--gold-300);border-color:var(--security-line-dark)}
+nav.over-ink.scrolled{box-shadow:0 8px 24px rgba(0,0,0,.35)}
+.logo{display:flex;align-items:center;gap:.55rem;font-weight:700;font-size:1.05rem;letter-spacing:-.02em;text-transform:lowercase;flex:0 0 auto;margin-right:.6rem}
+.logo img{width:1.5rem;height:auto;max-height:1.9rem;object-fit:contain}
+.nav-links{display:flex;gap:1rem;font:500 .76rem/1 var(--text);color:var(--dim);white-space:nowrap;flex:0 1 auto;min-width:0}
+.nav-links a{transition:color var(--t-micro) var(--ease)}
+.nav-links a:hover{color:var(--ink)}
+.lang{font:700 .62rem/1 var(--mono);letter-spacing:.14em;color:var(--dim);border:1px solid var(--security-line);border-radius:4px;padding:.4em .55em;margin-left:.2rem}
+.lang:hover{color:var(--ink);border-color:var(--ink)}
+nav.over-ink .lang{color:var(--ivory-300);border-color:rgba(247,244,235,.3)}
+nav.over-ink .lang:hover{color:var(--ivory-50)}
+.nav-serial{font:600 .58rem/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--security-gold);border-left:1px solid var(--security-line);padding-left:1rem;white-space:nowrap}
+.nav-cta{font-size:.8rem;font-weight:600;padding:.45rem 1rem;border-radius:999px;
+  background:linear-gradient(180deg,var(--gold-300),var(--gold-400) 55%,var(--gold-500));color:var(--ink-1000);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.5),0 1px 3px rgba(110,84,36,.25);transition:transform var(--t-micro) var(--ease);white-space:nowrap}
+.nav-cta:active{transform:scale(.97)}
+
+/* buttons — Folie heißt Autorität: Gold nur auf der Handlung */
+.btn{display:inline-flex;align-items:center;gap:.5rem;font-size:.95rem;font-weight:600;
+  padding:.85rem 1.5rem;border-radius:999px;min-height:44px;transition:transform var(--t-micro) var(--ease),box-shadow var(--t-shift) var(--ease)}
+.btn-primary{background:linear-gradient(180deg,var(--gold-300),var(--gold-400) 55%,var(--gold-500));color:var(--ink-1000);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.5),0 1px 2px rgba(0,0,0,.18),0 8px 18px rgba(138,100,18,.18)}
+.btn-primary:hover{transform:translateY(-1px)}
+.btn-primary:active{transform:scale(.98)}
+.btn-quiet{color:var(--ink-1000);font-weight:600;padding:.8rem 1.2rem;min-height:44px;border:1px solid var(--ink-1000);border-radius:999px}
+.btn-quiet:focus-visible,.btn-primary:focus-visible,a:focus-visible,button:focus-visible{outline:2px solid var(--gold-500);outline-offset:3px;border-radius:6px}
+
+/* sections — jede Fläche trägt Herkunft: Serienzeile oben (Nummer · Titel · Scope) */
+section{padding:clamp(3.6rem,8vw,6.2rem) 0;position:relative}
+section[data-serial]{border-top:1px solid var(--security-line)}
+section[data-serial] > .wrap::before{content:attr(data-serial);display:block;margin-bottom:clamp(1.6rem,3vw,2.4rem);padding-bottom:.7rem;border-bottom:1px solid var(--security-line-soft);
+  font:600 .6rem/1 var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--stone-500)}
+section.sheet{background:rgba(255,255,255,.42)}
+.head{max-width:42rem}
+.head.center{margin:0 auto;text-align:center}
+h2{font-size:clamp(1.7rem,4.2vw,2.55rem);font-weight:800;line-height:1.1;margin-top:.9rem;letter-spacing:-.025em}
+.lead{margin-top:1rem;color:var(--dim);font-size:clamp(1.02rem,2.4vw,1.15rem);line-height:1.55;max-width:38rem}
+.reveal{opacity:0;transform:translateY(14px);transition:opacity var(--t-reveal) var(--ease),transform var(--t-reveal) var(--ease)}
+.reveal.in{opacity:1;transform:none}
+
+/* hero — sovereign credential: ink, wortmarke, signal gold ≤10 % */
+.hero{padding-top:clamp(6.5rem,13vw,9rem);padding-bottom:clamp(2.5rem,6vw,4.5rem);position:relative;overflow:hidden;
+  background:var(--ink-1000);color:var(--ivory-100);
+  background-image:var(--guilloche-ink),radial-gradient(ellipse 52rem 36rem at 80% 45%,rgba(213,173,77,.12),transparent 62%),linear-gradient(135deg,#0d0d0b 0%,#191812 56%,#0d0d0b 100%)}
+.hero::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold-400),transparent);opacity:.75;pointer-events:none}
+.hero-grid{display:grid;grid-template-columns:1.08fr .92fr;gap:2.5rem;align-items:center;position:relative}
+.hero-serial{position:absolute;right:0;top:-3.2rem;font:600 .58rem/1 var(--mono);letter-spacing:.16em;text-transform:uppercase;color:rgba(247,244,235,.45)}
+.hero .eyebrow{color:var(--gold-400);font:600 clamp(1rem,2.2vw,1.25rem)/1 var(--text);letter-spacing:.02em;text-transform:none;
+  padding-top:.9rem;border-top:1px solid var(--gold-500);display:inline-block;min-width:3.5rem}
+.hero .eyebrow::before{display:none}
+.hero .wordmark{font-size:clamp(4.6rem,15vw,11rem);font-weight:800;line-height:.9;letter-spacing:-.05em;color:var(--ivory-100);display:block;margin:0 0 1.4rem -.04em;text-transform:lowercase}
+.hero .three{margin-top:1.2rem;display:flex;flex-direction:column;gap:.1rem}
+.hero .three span{font-size:clamp(1.2rem,2.8vw,1.7rem);font-weight:500;color:var(--ivory-100);line-height:1.3;letter-spacing:-.01em}
+.hero .lead{margin-top:1.6rem;font-size:clamp(1rem,2.2vw,1.1rem);max-width:34rem;color:var(--ivory-300)}
+.hero-actions{margin-top:2rem;display:flex;gap:.8rem;flex-wrap:wrap;align-items:center}
+.hero .btn-quiet{color:var(--ivory-100);border-color:rgba(247,244,235,.38)}
+.hero .btn-quiet:hover{border-color:var(--gold-300);color:var(--gold-300)}
+.hero-meta{margin-top:2.6rem;display:flex;flex-wrap:wrap;font-family:var(--mono);font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--stone-500)}
+.hero-meta div{padding:.1rem 1.2rem .1rem 0;margin-right:1.2rem;border-right:1px solid rgba(247,244,235,.14);display:flex;flex-direction:column;gap:.3rem}
+.hero-meta div:last-child{border-right:0}
+.hero-meta b{color:var(--ivory-200);font-weight:500}
+.manifest{margin-top:1.5rem;font-size:.9rem;color:var(--dim)}
+.manifest b{color:var(--gold-text);font-weight:600;font-style:italic}
+
+/* owl — Kampagnenmotiv vor Guilloché-Rosette, max 7° Tilt */
+.owl-stage{position:relative;height:clamp(22rem,46vw,36rem);display:flex;align-items:center;justify-content:center;perspective:1400px}
+.owl-rosette{position:absolute;inset:0;width:100%;height:100%;color:var(--gold-300);opacity:.16;pointer-events:none}
+.owl-stage::after{content:"";position:absolute;left:4%;right:4%;top:56%;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(231,207,130,.5) 30%,rgba(231,207,130,.95) 50%,rgba(231,207,130,.5) 70%,transparent);pointer-events:none;z-index:3}
+.owl-3d{position:relative;z-index:2;width:100%;height:100%;--poster-color:transparent;background:transparent}
+.owl-3d::part(default-progress-bar){display:none}
+.owl-hero{position:relative;z-index:2;height:100%;width:auto;max-width:100%;object-fit:contain;
+  filter:drop-shadow(0 1.6rem 2.6rem rgba(0,0,0,.6));transform:rotateX(var(--tilt-x,0deg)) rotateY(var(--tilt-y,0deg));transition:transform var(--t-shift) var(--ease);will-change:transform}
+
+/* cards — Perlmuttpapier, Hairline, drei leise physische Schatten */
+.card{position:relative;background:var(--paper-pearl);border:1px solid var(--security-line);border-radius:var(--r-card);padding:1.6rem 1.5rem;box-shadow:var(--document-shadow);overflow:hidden}
+.card::before{content:"";position:absolute;inset:0;pointer-events:none;border-radius:inherit;
+  background:linear-gradient(180deg,rgba(255,255,255,.85),transparent 22%)}
+.card::after{content:"";position:absolute;left:1.1rem;right:1.1rem;top:0;height:1px;background:linear-gradient(90deg,transparent,rgba(174,134,46,.45),transparent);pointer-events:none}
+.card > *{position:relative}
+.grid{display:grid;gap:1.1rem;margin-top:2.6rem}
+.g2{grid-template-columns:1fr 1fr}
+.g3{grid-template-columns:repeat(3,1fr)}
+.g4{grid-template-columns:repeat(4,1fr)}
+.card h3{font-size:1.05rem;font-weight:700;margin-bottom:.5rem;display:flex;align-items:center;gap:.5rem;flex-wrap:wrap;letter-spacing:-.01em}
+.card p{color:var(--dim);font-size:.92rem;line-height:1.55}
+.card .k{font-family:var(--mono);font-size:.76rem;color:var(--gold-700);background:rgba(174,134,46,.1);border:1px solid var(--security-line);padding:.1em .4em;border-radius:4px}
+
+/* hunch-moment — Ablauf als ruhiges Dokument: Hairlines statt Kästen, Serien-Nummern */
+.flow{margin-top:2.6rem;background:var(--paper-pearl);border:1px solid var(--security-line);border-radius:var(--r-doc);padding:clamp(1.2rem,4vw,2.4rem) clamp(1.2rem,4vw,2.6rem);box-shadow:var(--document-shadow);position:relative;overflow:hidden}
+.flow::after{content:"";position:absolute;left:1.6rem;right:1.6rem;top:0;height:1px;background:linear-gradient(90deg,transparent,rgba(174,134,46,.5),transparent);pointer-events:none}
+.flow ol{list-style:none;counter-reset:step;display:grid}
+.flow li{counter-increment:step;display:grid;grid-template-columns:2rem minmax(0,1fr);column-gap:.9rem;align-items:start;padding:.95rem 0;border-bottom:1px solid var(--security-line-soft)}
+.flow li:last-child{border-bottom:0}
+.flow li::before{content:counter(step,decimal-leading-zero);grid-column:1;grid-row:1 / span 2;display:flex;align-items:center;justify-content:center;
+  width:2rem;height:2rem;border-radius:50%;font:600 .68rem var(--mono);color:var(--gold-700);border:1px solid var(--security-gold);background:rgba(255,255,255,.6)}
+.flow li.hot{position:relative}
+.flow li.hot::after{content:"";position:absolute;left:-1.2rem;top:.9rem;bottom:.9rem;width:2px;background:var(--gold-400);border-radius:2px}
+.flow li.hot::before{background:linear-gradient(180deg,var(--gold-300),var(--gold-400));color:var(--ink-1000);border-color:var(--gold-500)}
+.flow li b{grid-column:2;grid-row:1;font-size:.98rem;color:var(--ink);margin-bottom:.15rem}
+.flow li span{grid-column:2;grid-row:2;color:var(--dim);font-size:.9rem}
+.flow .seq{margin-top:1.2rem;padding-top:1rem;border-top:1px solid var(--security-line);font:600 .66rem/1.9 var(--mono);letter-spacing:.06em;color:var(--gold-700);text-align:center;overflow-x:auto;white-space:nowrap;padding-bottom:.2rem}
+
+/* comparison */
+.vs{display:grid;grid-template-columns:1fr 1fr;gap:1.1rem;margin-top:2.6rem}
+.vs .col{border-radius:var(--r-card);padding:1.6rem 1.5rem;border:1px solid var(--security-line);position:relative;overflow:hidden}
+.vs .ordinary{background:rgba(255,255,255,.45)}
+.vs .hunch{background:var(--paper-pearl);border-color:rgba(174,134,46,.45);box-shadow:var(--document-shadow)}
+.vs .hunch::after{content:"owner bound";position:absolute;right:1.2rem;top:1.2rem;font:700 .56rem/1 var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--security-gold)}
+.vs .col h3{font-size:1.05rem;font-weight:700;margin-bottom:1rem}
+.vs ul{list-style:none;display:grid;gap:.6rem}
+.vs li{display:grid;grid-template-columns:1.2rem 1fr;gap:.6rem;font-size:.92rem;color:var(--ink-2);line-height:1.45}
+.vs .ordinary li::before{content:"–";color:var(--dim);font-weight:700}
+.vs .hunch li::before{content:"✓";color:var(--gold-600);font-weight:700}
+
+/* memory architecture */
+.scopes{display:grid;gap:.9rem;margin-top:2.4rem}
+.scope{border:1px solid var(--security-line);border-radius:var(--r-card);padding:1.2rem 1.3rem;background:var(--paper-pearl);box-shadow:var(--shadow-s)}
+.scope h3{font-size:1rem;display:flex;gap:.5rem;align-items:center;flex-wrap:wrap}
+.scope p{color:var(--dim);font-size:.9rem;margin-top:.35rem}
+.scope .items{margin-top:.6rem;display:flex;flex-wrap:wrap;gap:.4rem}
+.scope .items span{font:500 .74rem/1 var(--mono);color:var(--ink-2);background:rgba(255,255,255,.7);border:1px solid var(--security-line);border-radius:4px;padding:.35rem .55rem}
+.rule{margin-top:2rem;background:var(--paper-pearl);border:1px solid rgba(174,134,46,.45);border-radius:var(--r-card);padding:1.3rem 1.4rem;box-shadow:var(--shadow-s)}
+.rule b{color:var(--gold-700)}
+.rule .note{margin-top:.6rem;font-size:.85rem;color:var(--dim)}
+
+/* two-model */
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:1.1rem;margin-top:2.6rem}
+.duo .card .role{font:650 .66rem/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--dim);margin-bottom:.6rem}
+.duo .exec .role{color:var(--gold-text)}
+
+/* phones — Produktframe: vollständige Bildfläche, kein Crop, keine künstliche Island */
+.stage{display:flex;align-items:center;justify-content:center;gap:1.5rem;margin-top:3rem;flex-wrap:nowrap}
+.phone{position:relative;width:var(--pw,15rem);flex:0 0 auto;border-radius:2.7rem;padding:.5rem;
+  background:linear-gradient(155deg,#eae5d7,#d0c8b3 42%,#b7ac90);
+  box-shadow:0 2px 4px rgba(29,29,31,.08),0 26px 56px rgba(110,84,36,.18),inset 0 1px 2px rgba(255,255,255,.6)}
+.phone .screen{width:100%;border-radius:2.25rem;overflow:hidden;background:#F6F5F2;box-shadow:inset 0 0 0 1px rgba(0,0,0,.05)}
+.phone .screen img,.phone .screen video{width:100%;height:auto;object-fit:contain;object-position:center top}
+.stage .side{--pw:12rem;opacity:.92}
+.stage .side.left{transform:rotate(-5deg) translateY(.8rem)}
+.stage .side.right{transform:rotate(5deg) translateY(.8rem)}
+.stage .heroP{--pw:16rem;z-index:2}
+.float{animation:flt 7s ease-in-out infinite}
+@keyframes flt{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+.stage .side.left.float{animation-name:fltL}
+.stage .side.right.float{animation-name:fltR}
+@keyframes fltL{0%,100%{transform:rotate(-5deg) translateY(.8rem)}50%{transform:rotate(-5deg) translateY(.1rem)}}
+@keyframes fltR{0%,100%{transform:rotate(5deg) translateY(.8rem)}50%{transform:rotate(5deg) translateY(.1rem)}}
+
+/* screen figures */
+.screens{display:grid;grid-template-columns:repeat(3,1fr);gap:1.6rem 1.4rem;margin-top:2.8rem;align-items:start}
+.shot{display:flex;flex-direction:column}
+.shot .cap{margin-bottom:.9rem}
+.shot .cap b{display:block;font-size:1rem;font-weight:700}
+.shot .cap span{display:block;font-size:.86rem;color:var(--dim);margin-top:.15rem}
+.shot .phone{width:100%;--pw:100%}
+.shot.concept .screen{border:1px dashed rgba(174,134,46,.5)}
+.concept-badge{font:700 .58rem/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--gold-700);margin-left:.5rem}
+.concept-badge::before{content:"◌ "}
+
+/* island live activity strip */
+.island{display:flex;gap:1rem;flex-wrap:wrap;margin-top:2.4rem}
+.island .pill{flex:1 1 15rem;background:#0c0c0e;color:#fff;border-radius:1.4rem;padding:1.1rem 1.3rem;border:1px solid var(--security-line-dark);
+  display:flex;align-items:center;gap:.9rem;box-shadow:var(--document-shadow);background-image:var(--guilloche-ink)}
+.island .dot{width:2.4rem;height:2.4rem;border-radius:50%;flex:0 0 auto;display:flex;align-items:center;justify-content:center;color:var(--gold-300);border:1px solid rgba(231,207,130,.35)}
+.island .work{background:rgba(213,173,77,.16)}
+.island .wait{background:rgba(213,173,77,.28)}
+.island .txt b{display:block;font-size:.95rem}
+.island .txt span{font-size:.8rem;color:#b8b3a6}
+
+/* status matrix — Register */
+.matrix{margin-top:2.6rem;display:grid;gap:1.1rem;grid-template-columns:repeat(4,1fr)}
+.matrix .col{background:var(--paper-pearl);border:1px solid var(--security-line);border-radius:var(--r-card);padding:1.2rem;box-shadow:var(--shadow-s)}
+.matrix .col h3{font:700 .7rem/1 var(--mono);text-transform:uppercase;letter-spacing:.12em;margin-bottom:.9rem;display:flex;align-items:center;gap:.4rem;padding-bottom:.7rem;border-bottom:1px solid var(--security-line-soft)}
+.matrix ul{list-style:none;display:grid;gap:.5rem}
+.matrix li{font-size:.86rem;color:var(--ink-2);line-height:1.4;padding-left:.9rem;position:relative}
+.matrix li::before{content:"";position:absolute;left:0;top:.55em;width:.35rem;height:.35rem;border-radius:50%;background:var(--gold-500)}
+
+/* cta — Siegel + Receipt */
+.cta{text-align:center;position:relative;overflow:hidden;border-top:1px solid var(--security-line)}
+.cta::before{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 44rem 24rem at 50% 118%,rgba(213,173,77,.16),transparent 62%)}
+.cta .seal{width:5.6rem;height:5.6rem;margin:0 auto 1.4rem;border-radius:50%;display:grid;place-items:center;position:relative;
+  color:var(--gold-700);font:800 .95rem/1 var(--display);letter-spacing:-.02em;text-transform:lowercase;border:1px solid var(--security-gold);
+  background:repeating-radial-gradient(circle,rgba(178,140,51,.5) 0 1px,transparent 1px 4px),var(--paper-pearl);box-shadow:var(--shadow-s)}
+.cta .seal::before{content:"";position:absolute;inset:8%;border:1px solid rgba(174,134,46,.45);border-radius:50%}
+.cta .seal::after{content:"owner bound · 2026";position:absolute;bottom:-1.4rem;left:50%;transform:translateX(-50%);font:600 .52rem/1 var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--security-gold);white-space:nowrap}
+.cta .btn{margin-top:1.8rem}
+.cta .fine{margin-top:1rem;font-size:.8rem;color:var(--dim)}
+.receipt{margin:2.4rem auto 0;max-width:30rem;text-align:left;background:var(--paper-pearl);border:1px solid var(--security-line);border-radius:var(--r-field);padding:1rem 1.2rem;box-shadow:var(--shadow-s);
+  font:500 .7rem/1.7 var(--mono);letter-spacing:.04em;color:var(--stone-600);display:grid;grid-template-columns:auto 1fr;column-gap:1.2rem}
+.receipt span{color:var(--security-gold);text-transform:uppercase;letter-spacing:.12em;font-size:.58rem;align-self:center}
+.receipt b{font-weight:600;color:var(--ink-2)}
+
+footer{border-top:1px solid var(--security-line);padding:2.2rem 0 calc(2.2rem + env(safe-area-inset-bottom));color:var(--dim);font-size:.85rem;background:rgba(255,255,255,.35)}
+.foot{display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap}
+.foot .logo{font-size:.9rem}.foot .logo img{width:1.1rem}
+.foot a{color:var(--gold-text)}
+.microprint{margin-top:1.4rem;overflow:hidden;white-space:nowrap;font:600 .5rem/1 var(--mono);letter-spacing:.22em;text-transform:uppercase;color:rgba(174,134,46,.55);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+
+/* figuren — Kapitel-Skulpturen, freigestellt, auf Papier */
+.head-row{display:grid;grid-template-columns:minmax(0,1fr) clamp(9rem,24vw,17rem);gap:clamp(1.2rem,4vw,3rem);align-items:center}
+.fig{margin:0;position:relative;display:flex;flex-direction:column;align-items:center;gap:.6rem}
+.fig img{width:100%;height:auto;filter:drop-shadow(0 1.2rem 1.8rem rgba(60,40,5,.28)) drop-shadow(0 2px 3px rgba(0,0,0,.12))}
+.fig-3d{width:100%;aspect-ratio:1;--poster-color:transparent;background:transparent;filter:drop-shadow(0 1.2rem 1.8rem rgba(60,40,5,.22))}
+.fig-3d::part(default-progress-bar){display:none}
+.fig figcaption{font:600 .56rem/1.4 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--security-gold);text-align:center;padding-top:.5rem;border-top:1px solid var(--security-line);width:100%}
+/* authority gate — Freigabe-Karte (Komponente aus der Brand Bible, specimen) */
+.gate-card{position:relative;max-width:30rem;justify-self:end;width:100%;background:var(--paper-pearl);border:1px solid rgba(174,134,46,.45);border-radius:var(--r-card);padding:1.2rem 1.3rem 1rem;box-shadow:var(--document-shadow);overflow:hidden}
+.gate-card::before{content:"";position:absolute;inset:0;background-image:var(--guilloche-paper);opacity:.45;pointer-events:none;mask-image:linear-gradient(180deg,#000,transparent 55%);-webkit-mask-image:linear-gradient(180deg,#000,transparent 55%)}
+.gate-card > *{position:relative}
+.gate-top{display:flex;justify-content:space-between;align-items:center;gap:.8rem;margin-bottom:.8rem}
+.gate-risk{font:700 .58rem/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--warn)}
+.gate-risk::before{content:"▲ "}
+.gate-serial{font:600 .56rem/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--stone-500)}
+.gate-card h3{font-size:1.05rem;font-weight:700;letter-spacing:-.01em;line-height:1.3}
+.gate-card p{margin-top:.4rem;font-size:.86rem;color:var(--dim)}
+.gate-facts{margin:1rem 0 0;display:grid;grid-template-columns:repeat(2,1fr);gap:.55rem .9rem;padding-top:.9rem;border-top:1px solid var(--security-line)}
+.gate-facts div:first-child{grid-column:1 / -1}
+.gate-facts dt{font:650 .54rem/1.2 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--stone-500)}
+.gate-facts dd{margin:.15rem 0 0;font:600 .82rem/1.2 var(--mono);color:var(--ink)}
+.gate-actions{margin-top:1rem;display:grid;grid-template-columns:1fr 1fr;gap:.6rem}
+.gate-btn{display:flex;align-items:center;justify-content:center;min-height:42px;border-radius:999px;font-size:.88rem;font-weight:600;border:1px solid var(--ink-1000);color:var(--ink-1000)}
+.gate-btn.primary{border-color:var(--gold-500);background:linear-gradient(180deg,var(--gold-300),var(--gold-400) 55%,var(--gold-500));color:var(--ink-1000);box-shadow:inset 0 1px 0 rgba(255,255,255,.5)}
+.gate-foot{margin-top:.9rem;padding-top:.6rem;border-top:1px solid var(--security-line-soft);font:600 .52rem/1.4 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--stone-500)}
+/* stempel — status-register */
+.stamp{justify-self:center;width:9.5rem;height:9.5rem;border-radius:50%;display:grid;place-content:center;text-align:center;gap:.2rem;transform:rotate(-8deg);
+  border:2px solid var(--security-gold);outline:1px solid var(--security-gold);outline-offset:-7px;color:var(--gold-700);background:rgba(255,255,255,.35)}
+.stamp span{font:650 .52rem/1.3 var(--mono);letter-spacing:.16em;text-transform:uppercase}
+.stamp b{font:800 1.1rem/1 var(--display);letter-spacing:-.02em;text-transform:lowercase}
+@media(max-width:900px){
+  .head-row{grid-template-columns:1fr}
+  .fig{max-width:12rem;margin:0 auto}
+  .gate-card{justify-self:stretch;max-width:none}
+  .stamp{margin:0 auto}
+}
+
+@media(max-width:1500px){ .nav-serial{display:none} }
+@media(max-width:900px){
+  .hero-grid{grid-template-columns:1fr}
+  .owl-stage{order:-1;height:clamp(16rem,56vw,22rem)}
+  .hero-serial{display:none}
+  .nav-links,.nav-serial{display:none}
+  .g3,.g4,.matrix{grid-template-columns:1fr 1fr}
+  .screens{grid-template-columns:1fr 1fr}
+}
+@media(max-width:620px){
+  .hero .wordmark{font-size:clamp(4.2rem,24vw,6rem)}
+  .hero-meta div{border-right:0;margin-right:0;padding-right:0;flex:1 1 100%;flex-direction:row;gap:.6rem}
+  .g2,.g3,.g4,.vs,.duo,.matrix,.screens{grid-template-columns:1fr}
+  .stage{flex-direction:column;gap:2rem}
+  .stage .side{display:none}
+  .stage .heroP{--pw:min(86vw,20rem)}
+  .shot .phone{--pw:min(86vw,22rem);margin:0 auto}
+  .flow li{grid-template-columns:1.8rem minmax(0,1fr);column-gap:.7rem}
+  .flow li.hot::after{left:-.9rem}
+  .vs .hunch::after{position:static;display:inline-block;margin-bottom:.8rem}
+}
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto}
+  .reveal{opacity:1;transform:none;transition:none}
+  .float,.stage .side.left.float,.stage .side.right.float{animation:none}
+  .btn,.nav-cta,.owl-hero{transition:none}
+  .owl-hero{transform:none!important}
+}
+@media (prefers-reduced-transparency: reduce){
+  nav{background:var(--bg);backdrop-filter:none;-webkit-backdrop-filter:none}
+  nav.over-ink{background:var(--ink-1000)}
+}
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <div class="wrap nav-in">
+    <a class="logo" href="#top"><img src="../owl-mark.png" alt="Hunch">hunch</a>
+    <div class="nav-links">
+      <a href="#moment">The moment</a>
+      <a href="#modell">Personal model</a>
+      <a href="#lernen">Self-improvement</a>
+      <a href="#faeden">Threads</a>
+      <a href="#autoritaet">Authority</a>
+      <a href="#apps">Apps</a>
+      <a href="#status">Status</a>
+      <a href="../docs/index.html">Docs</a>
+    </div>
+    <a class="lang" href="../" hreflang="de" lang="de">DE</a>
+    <span class="nav-serial">intentional agent · owner bound · 2026</span>
+    <a class="nav-cta" href="mailto:schenkei@hunchagent.io?subject=Hunch%20Early%20Access">Early Access</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero" id="top">
+  <div class="wrap">
+    <div class="hero-grid">
+      <span class="hero-serial">hunch / intentional agent / hunchagent.io</span>
+      <div>
+        <h1><span class="wordmark">hunch</span><span class="eyebrow">intentional agent</span></h1>
+        <div class="three" aria-label="knows you. understands the moment. acts on your behalf.">
+          <span>it knows you.</span>
+          <span>it understands the moment.</span>
+          <span>it acts on your behalf.</span>
+        </div>
+        <p class="lead">The agent that understands where your thinking goes next. Hunch builds a personal model from your memories, intentions, decisions and current context, recognises the next meaningful step — and acts only within the boundaries you set.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="mailto:schenkei@hunchagent.io?subject=Hunch%20Early%20Access">Request early access</a>
+          <a class="btn btn-quiet" href="#moment">See how it looks ↓</a>
+        </div>
+        <div class="hero-meta">
+          <div><span>category</span><b>intentional agent</b></div>
+          <div><span>principle</span><b>quiet authority</b></div>
+          <div><span>lineage</span><b>owner credential</b></div>
+        </div>
+      </div>
+      <div class="owl-stage" id="owlstage">
+        <svg class="owl-rosette" viewBox="0 0 600 600" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+          <g fill="none" stroke="currentColor" stroke-width=".7" transform="translate(300 300)">
+            <ellipse rx="250" ry="110"/><ellipse rx="230" ry="150" transform="rotate(30)"/><ellipse rx="230" ry="150" transform="rotate(60)"/>
+            <ellipse rx="230" ry="150" transform="rotate(90)"/><ellipse rx="230" ry="150" transform="rotate(120)"/><ellipse rx="230" ry="150" transform="rotate(150)"/>
+            <ellipse rx="180" ry="86" transform="rotate(15)"/><ellipse rx="180" ry="86" transform="rotate(75)"/><ellipse rx="180" ry="86" transform="rotate(135)"/>
+            <circle r="262" stroke-dasharray="2 5"/><circle r="120" stroke-dasharray="1 4"/>
+          </g>
+        </svg>
+        <model-viewer class="owl-3d" id="owl3d" src="../owl-bronze.glb" alt="The Hunch owl — sculptural bronze, rotatable"
+          reveal="auto" loading="eager" poster="../owl-bronze-cut.png"
+          auto-rotate auto-rotate-delay="1200" rotation-per-second="8deg"
+          camera-controls disable-zoom disable-pan interaction-prompt="none" touch-action="pan-y"
+          camera-orbit="0deg 85deg 105%" min-camera-orbit="auto 70deg auto" max-camera-orbit="auto 100deg auto"
+          exposure="1.05" shadow-intensity="0" environment-image="neutral"></model-viewer>
+        <img class="owl-hero" id="owlhero" src="../owl-bronze-cut.png" width="1400" height="2087" alt="The Hunch owl — sculptural bronze" style="display:none">
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- HUNCH MOMENT -->
+<section id="moment" data-serial="01 / the moment · scope: hunchagent.io · status signed">
+  <div class="wrap">
+    <div class="head-row">
+<div class="head">
+      <span class="eyebrow reveal" data-no="01">The Hunch moment</span>
+      <h2 class="reveal">A real signal becomes a meaningful action — within your rules.</h2>
+      <p class="lead reveal">This is not mind-reading magic. Hunch gains its edge from real signals, learned connections and a long-term understanding of you. One example: a new file shows up that belongs to a decision from three weeks ago.</p>
+    </div>
+    <figure class="fig reveal" aria-hidden="true"><model-viewer class="fig-3d" src="../figures/fig-moment.glb" poster="../figures/fig-moment.png" alt="" reveal="auto" loading="lazy" auto-rotate auto-rotate-delay="800" rotation-per-second="9deg" camera-controls disable-zoom disable-pan interaction-prompt="none" touch-action="pan-y" camera-orbit="-20deg 82deg 105%" min-camera-orbit="auto 65deg auto" max-camera-orbit="auto 100deg auto" exposure="1" shadow-intensity="0" environment-image="neutral"></model-viewer><img class="fig-png" src="../figures/fig-moment.png" width="900" height="900" alt="" loading="lazy" style="display:none"><figcaption>sundial · the right moment</figcaption></figure>
+    </div>
+    <div class="flow reveal">
+      <ol>
+        <li><b>Signal</b><span>A local sensor you switched on reports a real event — a file, an appointment, a message.</span></li>
+        <li><b>Memory</b><span>Hunch links it to a goal, an earlier decision or an open loop.</span></li>
+        <li><b>Recognised intent</b><span>The Observer estimates a possible intent and rates its confidence — and may decide to do nothing.</span></li>
+        <li><b>Quality threshold</b><span>Only sufficient relevance (default 0.85) moves things forward. Anything below is filed quietly.</span></li>
+        <li class="hot"><b>Thread or action</b><span>For a longer task Hunch starts a thread; otherwise the Executive prepares the next step.</span></li>
+        <li class="hot"><b>Authority Gate</b><span>Before a risky action Hunch shows reason, target, tool and concrete arguments — you approve or decline.</span></li>
+        <li><b>Result</b><span>After approval the Executive acts, verifies the result and delivers it to the active surface.</span></li>
+        <li><b>Learned</b><span>The outcome improves Hunch's personal knowledge — or is saved as a reusable routine.</span></li>
+      </ol>
+      <div class="seq">Signal → memory → recognised intent → quality threshold → thread/action → Authority Gate → result → learned</div>
+    </div>
+  </div>
+</section>
+
+<!-- VS ORDINARY -->
+<section id="unterschied" class="sheet" data-serial="02 / difference · scope: hunchagent.io · status signed">
+  <div class="wrap">
+    <div class="head">
+      <span class="eyebrow reveal" data-no="02">Not another AI agent</span>
+      <h2 class="reveal">How it differs from ordinary prompt agents.</h2>
+    </div>
+    <div class="vs reveal">
+      <div class="col ordinary">
+        <h3>Ordinary assistants</h3>
+        <ul>
+          <li>wait for a prompt</li>
+          <li>start from scratch in every new chat</li>
+          <li>mostly know the current conversation</li>
+          <li>need to be told again and again how to work</li>
+          <li>process tasks one after another</li>
+          <li>tie identity and features to one vendor</li>
+          <li>treat autonomy like an on/off switch</li>
+        </ul>
+      </div>
+      <div class="col hunch">
+        <h3>Hunch</h3>
+        <ul>
+          <li>also reacts to relevant changes, not only to prompts</li>
+          <li>has a lasting identity and relationship with you</li>
+          <li>connects memory, goals, patterns, working style and context</li>
+          <li>remembers how you want to be addressed and supported</li>
+          <li>pursues several threads in parallel</li>
+          <li>is separate from the interchangeable model</li>
+          <li>distinguishes perceiving, proposing and acting — and is explicitly allowed to do nothing</li>
+        </ul>
+      </div>
+    </div>
+    <p class="lead reveal" style="margin-top:1.6rem">A good intentional agent is not as active as possible. It also recognises when no intervention makes sense.</p>
+  </div>
+</section>
+
+<!-- PERSONAL MODEL & ANTICIPATION -->
+<section id="modell" data-serial="03 / personal model · scope: hunchagent.io · status signed">
+  <div class="wrap">
+    <div class="head-row">
+<div class="head">
+      <span class="eyebrow reveal" data-no="03">Personal model &amp; anticipation</span>
+      <h2 class="reveal">What makes Hunch anticipate.</h2>
+      <p class="lead reveal">The personal model connects only activated, controllable sources — among them memories, conversations, tasks, goals and intentions, decisions, people and topics, working rhythms, apps, files and projects in use, recurring routines, open loops and the results of earlier actions. “Hunch reads everything” is explicitly wrong — browser, clipboard, file, app and screen context are optional, locally controllable sensors.</p>
+    </div>
+    <figure class="fig reveal" aria-hidden="true"><model-viewer class="fig-3d" src="../figures/fig-modell.glb" poster="../figures/fig-modell.png" alt="" reveal="auto" loading="lazy" auto-rotate auto-rotate-delay="800" rotation-per-second="9deg" camera-controls disable-zoom disable-pan interaction-prompt="none" touch-action="pan-y" camera-orbit="-20deg 82deg 105%" min-camera-orbit="auto 65deg auto" max-camera-orbit="auto 100deg auto" exposure="1" shadow-intensity="0" environment-image="neutral"></model-viewer><img class="fig-png" src="../figures/fig-modell.png" width="900" height="900" alt="" loading="lazy" style="display:none"><figcaption>knight · the next move</figcaption></figure>
+    </div>
+    <div class="grid g4">
+      <div class="card reveal"><h3>Routine <span class="tag heute">Today</span></h3><p>What usually happens at this time of day? An hourly profile of your topics.</p></div>
+      <div class="card reveal"><h3>Follow-on <span class="tag heute">Today</span></h3><p>Where does the current focus usually lead next?</p></div>
+      <div class="card reveal"><h3>Recurring <span class="tag heute">Today</span></h3><p>Which recurring topic is due again right now?</p></div>
+      <div class="card reveal"><h3>Momentum <span class="tag heute">Today</span></h3><p>Which topic is gaining so much weight that it will probably continue?</p></div>
+    </div>
+    <p class="lead reveal" style="margin-top:1.4rem">Hunch also detects topic spikes, dormant projects resurfacing, unusual activity times, new bridges between previously separate topics and relevant old decisions in the current context. These four kinds of anticipation are pure statistics over your own memory — no extra model call, no cost. A broader “pattern of life” across a single runtime is still being built.<span class="tag exp">Experimental</span></p>
+  </div>
+</section>
+
+<!-- BRAIN -->
+<section id="brain" class="sheet" data-serial="04 / brain & intentions · scope: hunchagent.io · status signed">
+  <div class="wrap">
+    <div class="head-row">
+<div class="head">
+      <span class="eyebrow reveal" data-no="04">Brain, intentions &amp; open loops</span>
+      <h2 class="reveal">A living personal memory — not an empty dashboard.</h2>
+      <p class="lead reveal">Brain holds memories, conversations, tasks, goals, working preferences, relevant people and topics, momentum, open loops, connections as well as results and failures. By default it lives locally on your device.</p>
+    </div>
+    <figure class="fig reveal" aria-hidden="true"><model-viewer class="fig-3d" src="../figures/fig-brain.glb" poster="../figures/fig-brain.png" alt="" reveal="auto" loading="lazy" auto-rotate auto-rotate-delay="800" rotation-per-second="9deg" camera-controls disable-zoom disable-pan interaction-prompt="none" touch-action="pan-y" camera-orbit="-20deg 82deg 105%" min-camera-orbit="auto 65deg auto" max-camera-orbit="auto 100deg auto" exposure="1" shadow-intensity="0" environment-image="neutral"></model-viewer><img class="fig-png" src="../figures/fig-brain.png" width="900" height="900" alt="" loading="lazy" style="display:none"><figcaption>memory · living register</figcaption></figure>
+    </div>
+    <div class="rule reveal">
+      <b>Task ≠ intention.</b>A task is a single step. An intention is something you want to achieve or change. Hunch does not decide your goal.<div class="note">You set purpose and goal — Hunch decides the path within its authority. Multi-day autonomous intentions are part of the 2.0 vision.<span class="tag vision">Vision</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- SELF IMPROVEMENT -->
+<section id="lernen" data-serial="05 / self-improvement · scope: hunchagent.io · status signed">
+  <div class="wrap">
+    <div class="head-row">
+<div class="head">
+      <span class="eyebrow reveal" data-no="05">Hunch gets better with you — under control</span>
+      <h2 class="reveal">Self-improvement is not a vague “the AI keeps getting smarter”.</h2>
+    </div>
+    <figure class="fig reveal" aria-hidden="true"><model-viewer class="fig-3d" src="../figures/fig-lernen.glb" poster="../figures/fig-lernen.png" alt="" reveal="auto" loading="lazy" auto-rotate auto-rotate-delay="800" rotation-per-second="9deg" camera-controls disable-zoom disable-pan interaction-prompt="none" touch-action="pan-y" camera-orbit="-20deg 82deg 105%" min-camera-orbit="auto 65deg auto" max-camera-orbit="auto 100deg auto" exposure="1" shadow-intensity="0" environment-image="neutral"></model-viewer><img class="fig-png" src="../figures/fig-lernen.png" width="900" height="900" alt="" loading="lazy" style="display:none"><figcaption>spiral stair · better, not just more</figcaption></figure>
+    </div>
+    <div class="grid g3">
+      <div class="card reveal"><h3>Its understanding of you<span class="tag heute">Today</span></h3>
+        <p>Recurring experiences are condensed into reliable knowledge. Fleeting content and suspicious instructions are filtered.</p></div>
+      <div class="card reveal"><h3>Its own assumptions<span class="tag heute">Today</span></h3>
+        <p>When an intention changes, Hunch can correct or withdraw assumptions it derived itself. Memories you wrote yourself stay untouched.</p></div>
+      <div class="card reveal"><h3>Its routines<span class="tag heute">Today</span></h3>
+        <p>If a complex tool sequence succeeds repeatedly, Hunch can turn it into a visible, editable skill — available again next time.</p></div>
+    </div>
+    <div class="rule reveal">Hunch doesn't simply remember more. It learns which context really counts, which paths work and when an earlier assumption no longer holds.<div class="note">No autonomous training of its own foundation model, no uncontrolled self-programming, no rewriting of the entire source code. Successful routines become controllable skills — visible, editable and removable. Parts of the pattern-of-life system are prototypes today and not yet unified in a single runtime.<span class="tag exp">Experimental</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- WORKSTYLE & MEMORY SCOPES -->
+<section id="arbeitsweise" class="sheet" data-serial="06 / working style & memory · scope: hunchagent.io · status signed">
+  <div class="wrap">
+    <div class="head-row">
+<div class="head">
+      <span class="eyebrow reveal" data-no="06">Personal working style &amp; memory</span>
+      <h2 class="reveal">Hunch learns not only who you are — but how it should work with you.</h2>
+      <p class="lead reveal">It remembers not only facts but the way you want to collaborate: whether you want short or detailed answers, whether Hunch should act directly or explain first, when questions make sense, which decisions Hunch may take itself and which actions must never happen automatically.</p>
+    </div>
+    <figure class="fig reveal" aria-hidden="true"><model-viewer class="fig-3d" src="../figures/fig-scopes.glb" poster="../figures/fig-scopes.png" alt="" reveal="auto" loading="lazy" auto-rotate auto-rotate-delay="800" rotation-per-second="9deg" camera-controls disable-zoom disable-pan interaction-prompt="none" touch-action="pan-y" camera-orbit="-20deg 82deg 105%" min-camera-orbit="auto 65deg auto" max-camera-orbit="auto 100deg auto" exposure="1" shadow-intensity="0" environment-image="neutral"></model-viewer><img class="fig-png" src="../figures/fig-scopes.png" width="900" height="900" alt="" loading="lazy" style="display:none"><figcaption>three rings · global, project, thread</figcaption></figure>
+    </div>
+    <div class="scopes">
+      <div class="scope reveal"><h3>Global level<span class="tag heute">Today</span></h3>
+        <p>Identity, goals, communication style, basic working preferences, permanent boundaries.</p>
+        <div class="items"><span>Identity</span><span>Goals</span><span>Style</span><span>Boundaries</span></div></div>
+      <div class="scope reveal"><h3>Project level<span class="tag next">Next</span></h3>
+        <p>Project-specific knowledge and rules, roles, files, decisions, current state.</p>
+        <div class="items"><span>Knowledge</span><span>Rules</span><span>Roles</span><span>State</span></div></div>
+      <div class="scope reveal"><h3>Thread level<span class="tag heute">Today</span></h3>
+        <p>Concrete task, working context, progress, tools, approvals, result.</p>
+        <div class="items"><span>Task</span><span>Progress</span><span>Approvals</span><span>Result</span></div></div>
+      <div class="scope reveal"><h3>Session context<span class="tag heute">Today</span></h3>
+        <p>Current dialogue, short-lived information, assumptions not yet confirmed.</p>
+        <div class="items"><span>Dialogue</span><span>short-lived</span><span>Assumptions</span></div></div>
+    </div>
+    <div class="rule reveal">Each memory shows, where possible, source, scope and time — whether it came from you or from Hunch, whether it is global, project- or thread-bound, and whether it can be edited, forgotten or deleted. Explicit instructions from you take precedence over derived preferences.<div class="note">Example rule: “Be direct. Carry out safe, reversible tasks without unnecessary questions. Push back only on a real error, risk or irreversible consequence. Then report the result.” — The Authority Gate always stays active: a “don't ask” preference can never override critical approvals, owner rights, irreversible actions or security boundaries. Structured project and thread scopes are partly still a target picture.<span class="tag next">Next</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- OBSERVER / EXECUTIVE -->
+<section id="observer" data-serial="07 / observer & executive · scope: hunchagent.io · status signed">
+  <div class="wrap">
+    <div class="head-row">
+<div class="head">
+      <span class="eyebrow reveal" data-no="07">Observer &amp; Executive</span>
+      <h2 class="reveal">One watches quietly. One acts — only within your rules.</h2>
+      <p class="lead reveal">Hunch doesn't think out loud all the time. A quiet Observer recognises what might become relevant. Only then does the Executive take over.</p>
+    </div>
+    <figure class="fig reveal" aria-hidden="true"><model-viewer class="fig-3d" src="../figures/fig-observer.glb" poster="../figures/fig-observer.png" alt="" reveal="auto" loading="lazy" auto-rotate auto-rotate-delay="800" rotation-per-second="9deg" camera-controls disable-zoom disable-pan interaction-prompt="none" touch-action="pan-y" camera-orbit="-20deg 82deg 105%" min-camera-orbit="auto 65deg auto" max-camera-orbit="auto 100deg auto" exposure="1" shadow-intensity="0" environment-image="neutral"></model-viewer><img class="fig-png" src="../figures/fig-observer.png" width="900" height="900" alt="" loading="lazy" style="display:none"><figcaption>eye and hand · observe, act</figcaption></figure>
+    </div>
+    <div class="duo">
+      <div class="card reveal">
+        <div class="role">Always on · small · cheap</div>
+        <h3>Observer</h3>
+        <p>Watches only activated events, never answers. Bundles signals, checks memory, patterns and working preferences, estimates intent and confidence — and can decide to do nothing.</p>
+      </div>
+      <div class="card exec reveal">
+        <div class="role">Woken on demand · large · safeguarded</div>
+        <h3>Executive</h3>
+        <p>Wakes only at sufficient relevance, plans the next step, uses tools or starts threads, checks authority, explains its why, acts and verifies the result.</p>
+      </div>
+    </div>
+    <p class="lead reveal" style="margin-top:1.4rem">Observer and Executive may use different providers and models independently of each other.<span class="tag heute">Today</span></p>
+  </div>
+</section>
+
+<!-- GLOBAL SESSION -->
+<section id="session" class="sheet" data-serial="08 / global session · scope: hunchagent.io · status signed">
+  <div class="wrap">
+    <div class="head-row">
+<div class="head">
+      <span class="eyebrow reveal" data-no="08">One global session</span>
+      <h2 class="reveal">One Hunch, one relationship — everywhere.</h2>
+      <p class="lead reveal">You change the surface, not the counterpart. Hunch keeps goals, decisions, working style and relevant connections in view — no matter which model or device is in use. Switch from iPhone to computer, terminal or Telegram without a mental restart.</p>
+    </div>
+    <figure class="fig reveal" aria-hidden="true"><model-viewer class="fig-3d" src="../figures/fig-session.glb" poster="../figures/fig-session.png" alt="" reveal="auto" loading="lazy" auto-rotate auto-rotate-delay="800" rotation-per-second="9deg" camera-controls disable-zoom disable-pan interaction-prompt="none" touch-action="pan-y" camera-orbit="-20deg 82deg 105%" min-camera-orbit="auto 65deg auto" max-camera-orbit="auto 100deg auto" exposure="1" shadow-intensity="0" environment-image="neutral"></model-viewer><img class="fig-png" src="../figures/fig-session.png" width="900" height="900" alt="" loading="lazy" style="display:none"><figcaption>möbius · one continuous relationship</figcaption></figure>
+    </div>
+    <div class="rule reveal">Shared identity and shared memory exist; app, runtime and MCP can already share context; persistent sessions and threads exist in parts of the system.<div class="note">A single seamless live conversation with full history and presence routing across every surface is still being built. Today not every word of a chat continues seamlessly on every device.<span class="tag next">Next</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- FÄDEN -->
+<section id="faeden" data-serial="09 / threads · scope: hunchagent.io · status signed">
+  <div class="wrap">
+    <div class="head-row">
+<div class="head">
+      <span class="eyebrow reveal" data-no="09">Threads</span>
+      <h2 class="reveal">You keep thinking, Hunch keeps working.</h2>
+      <p class="lead reveal">Threads are parallel, persistent lines of work within your relationship with Hunch. While a longer task runs, the main conversation stays free immediately — an ordinary assistant would block the dialogue. Every thread has a clear goal, its own context, its own tool rounds, approvals and a result that returns to the original channel.</p>
+    </div>
+    <figure class="fig reveal" aria-hidden="true"><model-viewer class="fig-3d" src="../figures/fig-faeden.glb" poster="../figures/fig-faeden.png" alt="" reveal="auto" loading="lazy" auto-rotate auto-rotate-delay="800" rotation-per-second="9deg" camera-controls disable-zoom disable-pan interaction-prompt="none" touch-action="pan-y" camera-orbit="-20deg 82deg 105%" min-camera-orbit="auto 65deg auto" max-camera-orbit="auto 100deg auto" exposure="1" shadow-intensity="0" environment-image="neutral"></model-viewer><img class="fig-png" src="../figures/fig-faeden.png" width="900" height="900" alt="" loading="lazy" style="display:none"><figcaption>three threads · one braid</figcaption></figure>
+    </div>
+    <div class="grid g3">
+      <div class="card reveal"><h3><span class="tag heute" style="background:rgba(30,122,60,.12)">Running</span></h3><p>The thread works on its task and shows progress and runtime.</p></div>
+      <div class="card reveal"><h3><span class="tag exp">Waiting</span></h3><p>The thread is parked on an approval and continues afterwards — or finds another way.</p></div>
+      <div class="card reveal"><h3><span class="tag next" style="color:#3B5BA5">Done</span></h3><p>The result is ready and returns to the surface the task came from.</p></div>
+    </div>
+    <p class="lead reveal" style="margin-top:1.4rem">States: running, waiting, done, failed, cancelled — persistent across runtime restarts. Threads are implemented in the runtime<span class="tag heute">Today</span>; the fully global live session is a target.</p>
+  </div>
+</section>
+
+<!-- AUTHORITY GATE -->
+<section id="autoritaet" class="sheet" data-serial="10 / authority gate · scope: hunchagent.io · status signed">
+  <div class="wrap">
+    <div class="head-row">
+<div class="head">
+      <span class="eyebrow reveal" data-no="10">Authority Gate</span>
+      <h2 class="reveal">Hunch may recognise intentions. It does not invent authority.</h2>
+      <p class="lead reveal">The Authority Gate is not a single magic switch but the visible interplay of several layers of protection. Anticipating, but never acting on its own authority.</p>
+    </div>
+    <div class="gate-card reveal" role="img" aria-label="Authority Gate — example of an approval card with anonymised data">
+      <div class="gate-top"><span class="gate-risk">elevated risk</span><span class="gate-serial">authority gate · 04</span></div>
+      <h3>Hunch wants to submit the booking for real.</h3>
+      <p>This action creates external costs and cannot be undone automatically.</p>
+      <dl class="gate-facts">
+        <div><dt>owner credential</dt><dd>HID · 6699</dd></div>
+        <div><dt>scope</dt><dd>Thread “Berlin”</dd></div>
+        <div><dt>provider</dt><dd>ÖBB</dd></div>
+        <div><dt>amount</dt><dd>€ 49,90</dd></div>
+        <div><dt>log</dt><dd>active</dd></div>
+      </dl>
+      <div class="gate-actions"><span class="gate-btn">decline</span><span class="gate-btn primary">approve</span></div>
+      <div class="gate-foot">specimen · anonymised data · receipt follows the decision</div>
+    </div>
+    </div>
+    <div class="grid g4">
+      <div class="card reveal"><h3>Identity<span class="tag heute">Today</span></h3><p>The owner device creates a private key in the Secure Enclave — biometrically protected, not exportable, not in backups. Your HID is derived from the public key.</p></div>
+      <div class="card reveal"><h3>Authority &amp; risk<span class="tag heute">Today</span></h3><p>The Governor distinguishes risk classes, budgets, limits, always-ask rules and circuit breakers.</p></div>
+      <div class="card reveal"><h3>Second opinion<span class="tag heute">Today</span></h3><p>A separate review model may only rate concrete, non-critical steps as harmless. Critical actions are never approved automatically.</p></div>
+      <div class="card reveal"><h3>Preview &amp; consent<span class="tag heute">Today</span></h3><p>Before protected actions you see tool, arguments, target, risk and reasoning. You approve or decline.</p></div>
+      <div class="card reveal"><h3>Execution &amp; audit<span class="tag heute">Today</span></h3><p>Action, decision, result and cost remain traceable in the append-only log.</p></div>
+      <div class="card reveal"><h3>Isolation<span class="tag heute">Today</span></h3><p>Guests get a separate context — neither your personal memory nor your tools.</p></div>
+      <div class="card reveal"><h3>Impulse &amp; failure brake<span class="tag heute">Today</span></h3><p>Minimum spacing plus a daily limit for impulses; three failures of one tool lead to a pause.</p></div>
+      <div class="card reveal"><h3>Way back &amp; boundary<span class="tag heute">Today</span></h3><p>Remembered facts and created tasks can be taken back; the boundary — what Hunch never does without asking — is visible in one place. Full undo for every action and finer device trust are still being built.<span class="tag next">Next</span></p></div>
+    </div>
+    <div class="rule reveal">Hunch may perceive, formulate an intent and propose something — but act only with matching authority. Deleting, buying, sending externally and publishing are specially protected.<div class="note">Before an owner identity is set up, a less strict mode can exist for compatibility. The cryptographic lock is not automatically active before setup is complete.</div>
+    </div>
+  </div>
+</section>
+
+<!-- MODELS / SKILLS / CAPABILITY LAYER -->
+<section id="modelle" data-serial="11 / models & skills · scope: hunchagent.io · status signed">
+  <div class="wrap">
+    <div class="head-row">
+<div class="head">
+      <span class="eyebrow reveal" data-no="11">Models, skills, MCPs &amp; harnesses</span>
+      <h2 class="reveal">The model is interchangeable. Hunch stays.</h2>
+      <p class="lead reveal">Bring your model, keep your hunch. Hunch's identity, memory, authority, working preferences and skills are not tied to a model provider — three independent layers.</p>
+    </div>
+    <figure class="fig reveal" aria-hidden="true"><model-viewer class="fig-3d" src="../figures/fig-modelle.glb" poster="../figures/fig-modelle.png" alt="" reveal="auto" loading="lazy" auto-rotate auto-rotate-delay="800" rotation-per-second="9deg" camera-controls disable-zoom disable-pan interaction-prompt="none" touch-action="pan-y" camera-orbit="-20deg 82deg 105%" min-camera-orbit="auto 65deg auto" max-camera-orbit="auto 100deg auto" exposure="1" shadow-intensity="0" environment-image="neutral"></model-viewer><img class="fig-png" src="../figures/fig-modelle.png" width="900" height="900" alt="" loading="lazy" style="display:none"><figcaption>the owl stays · the module changes</figcaption></figure>
+    </div>
+    <div class="grid g3">
+      <div class="card reveal"><h3>1 · Hunch <span class="tag heute">Today</span></h3><p>Identity, Brain, intentions, working style and authority. The lasting core.</p></div>
+      <div class="card reveal"><h3>2 · Models<span class="tag heute">Today</span></h3><p>Interchangeable engines for Observer and Executive — selectable independently.</p><p style="margin-top:.5rem">claude · openai · gemini · kimi · deepseek · qwen · mistral · grok · groq · apple on-device · ollama · lm studio · llama.cpp · your own OpenAI-compatible endpoints.</p></div>
+      <div class="card reveal"><h3>3 · Capabilities<span class="tag heute">Today</span></h3><p>Provider-neutral via<span class="k">SKILL.md</span>, Python skills, MCP servers, function schemas, REST connectors, built-in tools and external agent harnesses (Claude Code, Codex, Gemini CLI, Aider, your own CLIs).</p></div>
+    </div>
+    <div class="rule reveal">Skills and tools are not tied to the model provider. Hunch unifies open formats and adapters — MCP, function schemas, Markdown and Python skills, REST and external agent harnesses.<div class="note">Any provider can be connected if the model or tool is reachable via a supported standard or adapter. A proprietary plugin package may need an adapter. Additional providers via harnesses/adapters (e.g. OpenRouter, Together, Fireworks, Cerebras, Perplexity, Bedrock) — what is shown is what the deployed runtime actually loads.<span class="tag next">Next</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- APPS / SURFACES / SCREENSHOTS -->
+<section id="apps" class="sheet" data-serial="12 / surfaces · scope: hunchagent.io · status signed">
+  <div class="wrap">
+    <div class="head center">
+      <span class="eyebrow reveal" data-no="12">One Hunch, several entry points</span>
+      <h2 class="reveal">Not just an iPhone app.</h2>
+      <p class="lead reveal">The runtime on Mac, PC, Linux or VPS observes, remembers and executes. The iPhone app is your companion for Brain, threads, machines, nodes, channels, skills and approvals. Terminal, Telegram, WhatsApp, MCP, HTTP and WebSocket are further entry points — not every surface has the same feature parity.</p>
+    </div>
+
+    <div class="stage reveal">
+      <div class="phone side left float"><div class="screen"><img src="../app-shots/fx-03-ausweis.png" alt="Hunch ID card with HID" loading="lazy" width="1206" height="2622"></div></div>
+      <div class="phone heroP float"><div class="screen"><video src="../app-shots/demo-web.mp4" poster="../app-shots/fx-01-hub.png" autoplay muted loop playsinline width="1206" height="2622"></video></div></div>
+      <div class="phone side right float"><div class="screen"><img src="../app-shots/fx-02-brain.png" alt="Brain — personal memory" loading="lazy" width="1206" height="2622"></div></div>
+    </div>
+
+    <div class="screens">
+      <figure class="shot reveal">
+        <figcaption class="cap"><b>Hub</b><span>Brain, machines, channels, skills &amp; MCPs, threads, nodes — your agent in one place.</span></figcaption>
+        <div class="phone"><div class="screen"><img src="../app-shots/fx-01-hub.png" alt="Hunch hub" loading="lazy" width="1206" height="2622"></div></div>
+      </figure>
+      <figure class="shot reveal">
+        <figcaption class="cap"><b>Brain</b><span>Memories, tasks, goals and conversations — locally on the device.</span></figcaption>
+        <div class="phone"><div class="screen"><img src="../app-shots/fx-02-brain.png" alt="Brain overview" loading="lazy" width="1206" height="2622"></div></div>
+      </figure>
+      <figure class="shot reveal">
+        <figcaption class="cap"><b>Any model</b><span>Observer and Executive freely on any provider — cloud, local or on-device.</span></figcaption>
+        <div class="phone"><div class="screen"><img src="../app-shots/fx-04-modelle.png" alt="Model selection" loading="lazy" width="1206" height="2622"></div></div>
+      </figure>
+      <figure class="shot reveal">
+        <figcaption class="cap"><b>ID card</b><span>Secure Enclave identity with HID — shareable via QR, no app needed on the other side.</span></figcaption>
+        <div class="phone"><div class="screen"><img src="../app-shots/fx-03-ausweis.png" alt="ID card" loading="lazy" width="1206" height="2622"></div></div>
+      </figure>
+      <figure class="shot reveal">
+        <figcaption class="cap"><b>Voice</b><span>On-device speech in the foreground — talk instead of type.</span></figcaption>
+        <div class="phone"><div class="screen"><img src="../app-shots/fx-06-voice.png" alt="Voice mode" loading="lazy" width="1206" height="2622"></div></div>
+      </figure>
+      <figure class="shot reveal">
+        <figcaption class="cap"><b>Channels</b><span>Telegram and WhatsApp as entry points — execution runs on the runtime.</span></figcaption>
+        <div class="phone"><div class="screen"><img src="../app-shots/fx-05-kanaele.png" alt="Channels" loading="lazy" width="1206" height="2622"></div></div>
+      </figure>
+    </div>
+
+    <h3 class="reveal" style="margin-top:3rem;text-align:center;font-size:1.2rem">Work Live Activity in the Dynamic Island</h3>
+    <div class="island reveal">
+      <div class="pill"><div class="dot work" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M21 12a9 9 0 1 1-9-9"/><path d="M12 7v5l3 2"/></svg></div><div class="txt"><b>Working</b><span>Thread running · progress &amp; runtime, deep link back to the task</span></div></div>
+      <div class="pill"><div class="dot wait" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v8"/><circle cx="12" cy="18" r="1.2" fill="currentColor" stroke="none"/></svg></div><div class="txt"><b>Waiting for you</b><span>Approval required — tool, target and arguments visible</span></div></div>
+    </div>
+    <p class="lead reveal" style="margin-top:1.2rem;text-align:center;margin-left:auto;margin-right:auto">States: thinking, working, waiting, done, failed.<span class="tag heute">Today</span>— Voice uses background audio only in an already active session; the app does not start spontaneously in the background.</p>
+  </div>
+</section>
+
+<!-- LOCAL FIRST / PRIVACY -->
+<section id="privat" data-serial="13 / local-first & control · scope: hunchagent.io · status signed">
+  <div class="wrap">
+    <div class="head-row">
+<div class="head">
+      <span class="eyebrow reveal" data-no="13">Local-first &amp; control</span>
+      <h2 class="reveal">Not just “privacy first” as a slogan — this is how control works.</h2>
+    </div>
+    <figure class="fig reveal" aria-hidden="true"><model-viewer class="fig-3d" src="../figures/fig-privat.glb" poster="../figures/fig-privat.png" alt="" reveal="auto" loading="lazy" auto-rotate auto-rotate-delay="800" rotation-per-second="9deg" camera-controls disable-zoom disable-pan interaction-prompt="none" touch-action="pan-y" camera-orbit="-20deg 82deg 105%" min-camera-orbit="auto 65deg auto" max-camera-orbit="auto 100deg auto" exposure="1" shadow-intensity="0" environment-image="neutral"></model-viewer><img class="fig-png" src="../figures/fig-privat.png" width="900" height="900" alt="" loading="lazy" style="display:none"><figcaption>owner bound · locked locally</figcaption></figure>
+    </div>
+    <div class="grid g3">
+      <div class="card reveal"><h3>Local &amp; your hardware</h3><p>Personal memory lives locally by default. The runtime runs on your own hardware.</p></div>
+      <div class="card reveal"><h3>Sensors opt-in</h3><p>Sensors are activated explicitly, imports are opt-in. No “Hunch reads everything”.</p></div>
+      <div class="card reveal"><h3>Isolation &amp; authority</h3><p>Guests are isolated, critical tools need authority, external agents only get limited interfaces.</p></div>
+      <div class="card reveal"><h3>Foreign content = distrust</h3><p>Foreign content is treated as potentially untrustworthy and handled as a quote, never as a command.</p></div>
+      <div class="card reveal"><h3>Visible &amp; deletable</h3><p>Memories, preferences and learned skills are visible, controllable and deletable.</p></div>
+      <div class="card reveal"><h3>Mood is a signal</h3><p>Tone of voice is a heuristic signal, not real emotion recognition.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- STATUS MATRIX -->
+<section id="status" class="sheet" data-serial="14 / product truth · scope: hunchagent.io · status signed">
+  <div class="wrap">
+    <div class="head-row">
+<div class="head center">
+      <span class="eyebrow reveal" data-no="14">Honest status</span>
+      <h2 class="reveal">What runs today, what is experimental, what is coming.</h2>
+      <p class="lead reveal">The vision stays strong — but nothing here is presented as shipped that isn't.</p>
+    </div>
+    <div class="stamp reveal" aria-hidden="true"><span>product truth</span><b>signed</b><span>2026 · specimen</span></div>
+    </div>
+    <div class="matrix">
+      <div class="col reveal"><h3><span class="tag heute">Today</span></h3><ul>
+        <li>Persistent personal memory</li><li>Observer &amp; Executive</li><li>Threads</li>
+        <li>Provider choice, local &amp; cloud models</li><li>SKILL.md, Python skills, MCP, REST, harnesses</li>
+        <li>Approvals, risk classes, budgets, audit</li><li>Secure Enclave identity, guest isolation</li>
+        <li>Runtime, app, CLI, HTTP &amp; WebSocket</li><li>Brain sync, machines, nodes, channels</li>
+        <li>Work Live Activity, Telegram/WhatsApp</li>
+        <li>Intentions with state &amp; next step (runtime, app, agent tools, sync)</li>
+      </ul></div>
+      <div class="col reveal"><h3><span class="tag exp">Experimental</span></h3><ul>
+        <li>Pattern of Life</li><li>Knowledge graph</li><li>App/browser/file/screen context</li>
+        <li>Rewind &amp; transcript import</li><li>Automatic condensation</li>
+        <li>Skills learned from routines</li><li>Broader harness providers</li>
+        <li>Proactive predictions &amp; nudges</li><li>Structured preferences with scopes</li>
+      </ul></div>
+      <div class="col reveal"><h3><span class="tag next">Next</span></h3><ul>
+        <li>Fully global live conversation</li>
+        <li>Presence routing</li><li>Complete action log</li><li>Comprehensive undo (way back for memories, tasks &amp; intentions: today)</li>
+        <li>Finer device &amp; action boundaries</li><li>Global/project/thread memory management</li>
+        <li>Intentions on desktop surfaces too</li>
+      </ul></div>
+      <div class="col reveal"><h3><span class="tag vision">Vision 2.0</span></h3><ul>
+        <li>Multi-day intentions</li><li>Choosing the path itself once the goal is set</li>
+        <li>Reacting to pauses, failures, changed conditions</li>
+        <li>Questions only for decisions that belong to you</li>
+        <li>A lasting counterpart across models, devices and years</li>
+        <li>Relay service (reachability without your own network) — deliberately not planned; reachability runs over a private network of your choice (VPN/mesh) — your devices, no third party in the middle</li>
+      </ul></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <div class="wrap">
+    <div class="seal reveal" aria-hidden="true">hunch</div>
+    <h2 class="reveal">Hunch is not the model you talk to today.</h2>
+    <p class="lead reveal" style="margin:1rem auto 0">It is the agent that gets to know you over years, understands where you are heading, knows how you want to work with it — and acts at the right moment within your rules.</p>
+    <a class="btn btn-primary reveal" href="mailto:schenkei@hunchagent.io?subject=Hunch%20Early%20Access">Request early access</a>
+    <div class="receipt reveal"><span>credential</span><b>owner bound · secure enclave</b><span>scope</span><b>global · project · thread</b><span>authority</span><b>approval before effect · undo · audit</b><span>status</span><b>today / experimental / vision — signed</b></div>
+    <p class="fine">schenkei@hunchagent.io · no newsletter, no trackers on this page.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot">
+    <a class="logo" href="#top"><img src="../owl-mark.png" alt="">hunch</a>
+    <div>© 2026 Hunch — hunchagent.io · <a href="../docs/index.html">Documentation</a></div>
+  </div>
+  <div class="wrap microprint" aria-hidden="true">hunch · intentional agent · owner bound · authority controlled · knows you · understands the moment · acts on your behalf · hunch · intentional agent · owner bound · authority controlled · knows you · understands the moment · acts on your behalf · hunch · intentional agent · owner bound · authority controlled</div>
+</footer>
+
+<script>
+  // 3D-Modelle: drehbar, ruhig. Reduced Motion oder Ladefehler → statisches Render.
+  (function(){
+    var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+    function pair(mv, img){
+      if(!mv||!img) return;
+      function fallback(){ mv.style.display='none'; img.style.display=''; }
+      if(reduce){ fallback(); return; }
+      mv.addEventListener('error', fallback);
+      setTimeout(function(){ if(!mv.modelIsVisible && !mv.loaded) fallback(); }, 12000);
+    }
+    pair(document.getElementById('owl3d'), document.getElementById('owlhero'));
+    document.querySelectorAll('.fig').forEach(function(f){ pair(f.querySelector('model-viewer'), f.querySelector('.fig-png')); });
+  })();
+
+  // sticky nav shadow
+  var nav = document.getElementById('nav');
+  addEventListener('scroll', function(){ nav.classList.toggle('scrolled', scrollY>8); }, {passive:true});
+  var hero=document.getElementById('top');
+  if(hero&&'IntersectionObserver' in window){
+    new IntersectionObserver(function(es){ nav.classList.toggle('over-ink', es[0].isIntersecting); },
+      {rootMargin:'-60px 0px 0px 0px',threshold:0}).observe(hero);
+  } else { nav.classList.add('over-ink'); }
+
+  // reveal on scroll
+  var io = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  },{threshold:0.12});
+  document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+</script>
+
+</body>
+</html>
