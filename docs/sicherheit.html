@@ -43,6 +43,18 @@ append-only-Protokoll nachvollziehbar.</li>
 noch deine Werkzeuge.</li>
 </ol>
 
+<h2>Rückweg (Undo) <span class="tag heute">Heute</span></h2>
+<p>Umkehrbare Handlungen — gemerkte Fakten, angelegte Aufgaben — hinterlassen einen Rückweg.
+<code>GET /rueckweg</code> zeigt, was sich zurücknehmen lässt, <code>POST /rueckweg/{id}</code> nimmt
+zurück; append-only, feste Liste erlaubter Umkehrungen, doppeltes Zurücknehmen ist ein No-op.
+In der App unter Einstellungen → Agent-Runtime → „Rückweg“. Ein vollständiges Undo für jede
+Aktion (Shell, externe Agenten) ist noch Ausbau. <span class="tag next">Als Nächstes</span></p>
+
+<h2>Die Grenze — einsehbar <span class="tag heute">Heute</span></h2>
+<p><code>GET /grenze</code> zeigt an einer Stelle, was Hunch nie ohne Rückfrage tut: Löschen, Überschreiben,
+externes Senden, Veröffentlichen, fremde Agenten, alle kritischen Werkzeuge — plus den Hinweis auf den
+weniger strengen Modus vor der Besitzer-Einrichtung. In der App unter „Die Grenze“.</p>
+
 <h2>Was besonders geschützt ist</h2>
 <p>Löschen, Kaufen, externes Senden und Veröffentlichen. Hunch darf wahrnehmen, eine Absicht
 formulieren und vorschlagen — aber nur mit entsprechender Autorität handeln.</p>

@@ -102,8 +102,11 @@ Roadmap/Zielbild kennzeichnen, nicht als ausgeliefert.
 - **Weniger strenger Modus vor der Einrichtung:** ohne enrollten Besitzer gibt `darf_alles()`
   True zurück — bewusst (`ausweis.py:216`). Die kryptografische Sperre ist NICHT automatisch
   aktiv, bevor die Besitzeridentität eingerichtet ist. Ehrlich so dokumentieren.
+- **Rückweg (Undo) — HEUTE (2026-08-21):** `rueckweg.py`, remember/add_task hinterlassen Rückweg,
+  `GET/POST /rueckweg`; App: Einstellungen → Agent-Runtime → Rückweg. Nur Erinnerungen/Aufgaben.
+- **Grenze einsehbar — HEUTE (2026-08-21):** `GET /grenze`; App: „Die Grenze“.
 - Noch nicht vollständig (ALS NÄCHSTES): fein abgestuftes Vertrauen pro Gerät/Aktion,
-  vollständiges Undo, universell sichtbare Begründung vor JEDER Aktion, geräteübergreifende
+  vollständiges Undo für jede Aktion (Shell/Agenten), universell sichtbare Begründung vor JEDER Aktion, geräteübergreifende
   Authority-Oberfläche.
 
 ### Endpoints — HEUTE (39 HTTP + 2 WebSocket, code-verifiziert)
@@ -119,6 +122,7 @@ vault: `/v1/vault[...]`
 providers: `/providers`, `/runtimes`, `/v1/machine`
 wallet: `/v1/wallet`, `/v1/wallet-pass`
 events/nudges/push: `/events`, `/v1/events`, `/nudges`, `/v1/push[-token]`
+rechenschaft: `/rueckweg` (GET), `/rueckweg/{id}` (POST) — Undo; `/grenze` (GET) — einsehbare Grenze (beide hinter Ausweis, 2026-08-21)
 status: `/status`, `/v1/web/login|profile`
 stream/ws: `WS /ws`, `WS /v1/ws`, `GET /v1/stream` (SSE-Fallback)
 web: `GET /`, `GET /chat`

@@ -47,6 +47,10 @@ POST /v1/channels/{id}/test      DELETE /v1/channels/{id}</code></pre>
 <pre><code>POST /brain/sync   GET /brain/search?q=   GET /v1/intents
 POST /sitzung      GET /vorhersage</code></pre>
 
+<h2>Rechenschaft: Rückweg &amp; Grenze</h2>
+<pre><code>GET /rueckweg            POST /rueckweg/{id}      (Undo: Erinnerung/Aufgabe zurücknehmen)
+GET /grenze              (was Hunch nie ohne Rückfrage tut)</code></pre>
+
 <h2>Werkzeuge, Audit, Status</h2>
 <pre><code>GET /tools   GET /audit   GET /status
 GET /providers   GET /runtimes   GET /v1/machine</code></pre>
