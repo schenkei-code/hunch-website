@@ -318,13 +318,12 @@ footer{border-top:1px solid var(--line);padding:2.4rem 0 calc(2.4rem + env(safe-
         Zusammenhängen und dem Verständnis für dich den nächsten sinnvollen Schritt.</p>
       </div>
       <div class="owl-stage">
-        <model-viewer id="owl3d" src="owl.glb" poster="owl.png" alt="Die Hunch-Eule als 3D-Modell"
-          reveal="manual" loading="lazy"
+        <model-viewer id="owl3d" src="owl.glb" alt="Die Hunch-Eule als 3D-Modell"
+          reveal="auto" loading="eager"
           auto-rotate auto-rotate-delay="0" rotation-per-second="12deg"
           camera-controls disable-zoom disable-pan interaction-prompt="none"
-          camera-orbit="0deg 82deg 105%" exposure="1.25" shadow-intensity="0.6" shadow-softness="0.9"
-          style="display:none"></model-viewer>
-        <img class="owl-fallback" id="owlpng" src="owl.png" alt="Die Hunch-Eule">
+          camera-orbit="0deg 82deg 105%" exposure="1.25" shadow-intensity="0.6" shadow-softness="0.9"></model-viewer>
+        <img class="owl-fallback" id="owlpng" src="owl.png" alt="Die Hunch-Eule" style="display:none">
       </div>
     </div>
   </div>
@@ -763,29 +762,17 @@ footer{border-top:1px solid var(--line);padding:2.4rem 0 calc(2.4rem + env(safe-
 </footer>
 
 <script>
-  // Owl: only show 3D when GLB present and motion allowed; otherwise keep the static poster.
+  // Eule direkt als 3D-Modell (kein Bild davor). Das statische PNG erscheint nur,
+  // wenn reduzierte Bewegung gewünscht ist oder das Modell nicht lädt.
   (function(){
     var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
     var mv = document.getElementById('owl3d'), png = document.getElementById('owlpng');
-    if (reduce || !mv) return;
+    if (!mv) return;
     function fallback(){ mv.style.display='none'; png.style.display=''; }
-    // Wenn das Modell nicht lädt: Poster behalten, nie eine leere Bühne.
+    if (reduce){ fallback(); return; }
     mv.addEventListener('error', fallback);
-    fetch('owl.glb', {method:'HEAD'}).then(function(r){
-      if(!r.ok){ fallback(); return; }
-      var io = new IntersectionObserver(function(es){
-        es.forEach(function(e){
-          if(e.isIntersecting){
-            mv.style.display='block'; png.style.display='none';
-            if(mv.dismissPoster) mv.dismissPoster();
-            io.disconnect();
-            // Sicherheitsnetz: rendert das Modell nach 6s nicht, Poster zurück.
-            setTimeout(function(){ if(!mv.modelIsVisible) fallback(); }, 6000);
-          }
-        });
-      },{rootMargin:'200px'});
-      io.observe(mv.parentElement);
-    }).catch(fallback);
+    // Sicherheitsnetz: rendert das Modell nach 8s nicht, statisches Bild zeigen.
+    setTimeout(function(){ if(!mv.modelIsVisible) fallback(); }, 8000);
   })();
 
   // sticky nav shadow
