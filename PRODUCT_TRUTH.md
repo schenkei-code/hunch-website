@@ -103,7 +103,10 @@ Roadmap/Zielbild kennzeichnen, nicht als ausgeliefert.
   True zurück — bewusst (`ausweis.py:216`). Die kryptografische Sperre ist NICHT automatisch
   aktiv, bevor die Besitzeridentität eingerichtet ist. Ehrlich so dokumentieren.
 - **Rückweg (Undo) — HEUTE (2026-08-21):** `rueckweg.py`, remember/add_task hinterlassen Rückweg,
-  `GET/POST /rueckweg`; App: Einstellungen → Agent-Runtime → Rückweg. Nur Erinnerungen/Aufgaben.
+  `GET/POST /rueckweg`; App: Einstellungen → Agent-Runtime → Rückweg. Erinnerungen/Aufgaben/Vorhaben.
+- **Vorhaben (1.8) — HEUTE (2026-08-21):** Runtime `goals` mit `stand`/`next_step`, Tools list_goals/add_goal/update_goal,
+  `add_task(goal=…)` verknüpft Schritt ↔ Vorhaben, `/vorhaben` (Ausweis-gated), Abgleich über `/brain/sync`
+  (jüngerer Stand gewinnt); App: BrainGoal.stand/nextStep (Schema v2), Bearbeiten in der Zielzeile, MCP get_goals.
 - **Grenze einsehbar — HEUTE (2026-08-21):** `GET /grenze`; App: „Die Grenze“.
 - Noch nicht vollständig (ALS NÄCHSTES): fein abgestuftes Vertrauen pro Gerät/Aktion,
   vollständiges Undo für jede Aktion (Shell/Agenten), universell sichtbare Begründung vor JEDER Aktion, geräteübergreifende
