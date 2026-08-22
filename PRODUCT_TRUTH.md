@@ -70,6 +70,10 @@ gecacht). Das ist statistische Mustererkennung, kein Wissensgraph. Nicht als fer
 - **Externe Agent-Harnesses:** eingebaut **codex, claude, gemini, aider**; eigene via
   `~/.hunch/harnesses.json`. Ein Tool `run_agent`, immer kritisch. `harness.py`
 
+### Automatische Verdichtung — HEUTE (Nachweis 2026-08-22)
+`verdichter.py`, Schleife „verdichtung" alle 6 h (Ruhezeit beachtet); Audit `actor=verdichter` — auf der
+laufenden Runtime 16 Einträge, Nulllauf wird protokolliert („nichts zu verdichten"). `test_verdichter`.
+
 ### Gelernte Skills — HEUTE (mit Grenze)
 Nach ≥3 identischen Erfolgen schreibt die Runtime `auto_<tool>.SKILL.md` (sichtbar/editierbar).
 Kein autonomes Training, keine Selbstumprogrammierung. `executive._maybe_learn_skill`.
@@ -79,19 +83,31 @@ Cloud: `claude, openai, gemini, kimi, deepseek, qwen, mistral, grok, groq`.
 Gerät: `appleLocal` (nur On-Device). Lokal: `ollama, lmstudio, llamacpp`.
 CLI: `claude-cli, codex-cli, gemini-cli`. Fallbacks: `cli:<cmd>`, `custom:<name>` +
 `HUNCH_*_BASE_URL` (jeder OpenAI-kompatible Endpoint). `providers.py`, `test_providers.py`.
-Breitere Harness-/Adapter-Provider (OpenRouter, Together, Fireworks, Cerebras, Perplexity,
-Bedrock …): nur zeigen, was die eingesetzte Runtime/Surface tatsächlich lädt — sonst ALS NÄCHSTES.
+Breitere Provider — HEUTE (2026-08-22, G6): `openrouter`, `together`, `fireworks`, `cerebras`,
+`perplexity`, `bedrock` (OpenAI-kompatibler Bedrock-Endpunkt, Bearer-API-Key, Region via
+`HUNCH_*_BASE_URL`) in `providers.py` **und** `ProviderRegistry.swift` (Build 103); `test_providers`
+prüft Wire-Format + Swift-Abgleich (17 Zeilen deckungsgleich).
 
 ### Gedächtnis / Brain — HEUTE
+Sync-Cursor zeigt nie in die laufende Millisekunde (2026-08-22): vorher konnte ein Eintrag derselben
+Millisekunde mit kleinerer ID für immer übersprungen werden (59 von 60 im Test) — jetzt doppelt statt
+fehlend, `merge` verwirft Dubletten.
 Schema identisch zur App (`memories`, `action_items`). `POST /brain/sync` beidseitig, Cursor
 aus Zeitstempel+ID; Erinnerungen wachsen nur, Aufgaben jüngster Stand. FTS5-Suche.
 MCP-Server-Modus bietet `search_memory, remember, list_tasks, add_task, recent_context`
 (bewusst kein `run_command`/`run_agent`). `memory.py`, `mcp_server.py`, `test_brain_shared.py`.
 
-### Memory-Scopes (global / projekt / faden) — ALS NÄCHSTES / VISION
-**Nicht implementiert.** Erinnerungen tragen `category` und `conversation_id`, keinen Scope.
-Die strukturierte global/projekt/faden-Architektur ist Zielbild — auf der Website als
-Roadmap/Zielbild kennzeichnen, nicht als ausgeliefert.
+### Memory-Scopes (global / projekt / faden) — HEUTE (2026-08-22, G2)
+`memories.scope` (`global` | `projekt:<goal_id>` | `faden:<id>`) in Runtime (`memory.py`, Migration +
+Index) und App (`BrainMemory.scope`, Schema v3). Ablage/Suche/Kontext je Ebene, Dublette nur innerhalb
+einer Ebene, Verschieben (`set_memory_scope` / `moveMemory`) wandert über `/brain/sync` (jüngerer Stand
+gewinnt; Antwort trägt `schema: 3`), Vorhaben fließen jetzt auch App→Runtime. Fäden legen automatisch in
+`faden:<id>` ab und lesen global+Faden; Werkzeuge `remember`/`search_memory`, MCP (`scope`, `HUNCH_SCOPE`),
+CLI `--scope`, Endpunkte `/brain/scopes`, `/brain/memories`, `POST /brain/memories/{id}/scope`,
+`DELETE /brain/memories/{id}` (Ausweis). App: Brain → Ebenen-Filter, Ebene an der Zeile, Kontextmenü
+„Verschieben nach"/„Löschen" (Build 103). Tests: `tests/test_scopes.py`, `test_brain_shared.py`.
+**Präferenzen** bleiben flach (`UserIdentity.preferences`); strukturierte Präferenzen = Erinnerungen mit
+Ebene (Kategorie „Präferenz") — kein eigener Speicher.
 
 ### Autorität / Sicherheit — HEUTE (Kette, kein Einzelschalter)
 - Secure-Enclave-Besitzeridentität: Runtime hält nur den P-256-Public-Key, Challenge/Verify
@@ -107,13 +123,15 @@ Roadmap/Zielbild kennzeichnen, nicht als ausgeliefert.
 - **Wallet (Logins, Zahlungsmethoden, Passkeys) — HEUTE, Menschen-Seite (2026-08-22, Build 99):** App → Profil → Wallet:
   Einträge lokal, Geheimnisse im Schlüsselbund (SecretStore), Aufdecken nur mit Face ID/Code. Agenten-Seite (Runtime-Tresor,
   Werkzeug hinter Authority Gate, Audit/Rückweg) — ALS NÄCHSTES.
+- **Mitteilungen als Authority-Gate-Anfrage beim Öffnen — HEUTE (Build 102):** `MitteilungenGateView` (Ink-Karte,
+  Erlauben/Später), erst „Erlauben" ruft den System-Dialog; Gerätezeichen geht an jede verbundene Maschine (`pushEinrichten`).
 - **Freigaben aus der Mitteilung — HEUTE (Build 98):** Push-Kategorie HUNCH_APPROVAL mit Freigeben (Face ID)/Ablehnen; erscheint auf
   iPhone und gespiegelt auf der Apple Watch. Eigene Watch-App (Voice über verbundene Maschinen) — ALS NÄCHSTES.
 - **Profil = Credential-Hub — HEUTE (Build 99):** Ausweis, Nachweise (HID/Secure Enclave, World ID, vertrauende Maschinen), Wallet, Profile.
 - **World ID Human in the Loop — EXPERIMENTELL (2026-08-22):** Runtime `world_id.py` + Sidecar (offizielles IDKit): `GET /world`,
   `POST/GET /approvals/{id}/world`; Proof an Action `authority-approve` + RP-signierte Nonce gebunden, Verify gegen
   `developer.world.org/api/v4/verify/{rp_id}`, Replay-Schutz, Audit mit Nullifier/Credential. Live bestätigt 2026-08-22 13:06 (proof_of_human).
-  App: Button „Mit World ID bestätigen" gebaut, noch nicht in TestFlight. World ist optional — Ausweis/App bleiben Standard.
+  App: Button „Mit World ID bestätigen" seit Build 98 in TestFlight (Freigaben-Kachel). World ist optional — Ausweis/App bleiben Standard. → HEUTE (Runtime & App).
 - **Vorhaben (1.8) — HEUTE (2026-08-21):** Runtime `goals` mit `stand`/`next_step`, Tools list_goals/add_goal/update_goal,
   `add_task(goal=…)` verknüpft Schritt ↔ Vorhaben, `/vorhaben` (Ausweis-gated), Abgleich über `/brain/sync`
   (jüngerer Stand gewinnt); App: BrainGoal.stand/nextStep (Schema v2), Bearbeiten in der Zielzeile, MCP get_goals.

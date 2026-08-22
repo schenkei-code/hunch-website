@@ -936,7 +936,7 @@ section[data-serial] > .wrap{position:relative;z-index:1}
       <div class="scope reveal"><h3>Global level<span class="tag heute">Today</span></h3>
         <p>Identity, goals, communication style, basic working preferences, permanent boundaries.</p>
         <div class="items"><span>Identity</span><span>Goals</span><span>Style</span><span>Boundaries</span></div></div>
-      <div class="scope reveal"><h3>Project level<span class="tag next">Next</span></h3>
+      <div class="scope reveal"><h3>Project level<span class="tag heute">Today</span></h3>
         <p>Project-specific knowledge and rules, roles, files, decisions, current state.</p>
         <div class="items"><span>Knowledge</span><span>Rules</span><span>Roles</span><span>State</span></div></div>
       <div class="scope reveal"><h3>Thread level<span class="tag heute">Today</span></h3>
@@ -946,7 +946,7 @@ section[data-serial] > .wrap{position:relative;z-index:1}
         <p>Current dialogue, short-lived information, assumptions not yet confirmed.</p>
         <div class="items"><span>Dialogue</span><span>short-lived</span><span>Assumptions</span></div></div>
     </div>
-    <div class="rule reveal">Each memory shows, where possible, source, scope and time — whether it came from you or from Hunch, whether it is global, project- or thread-bound, and whether it can be edited, forgotten or deleted. Explicit instructions from you take precedence over derived preferences.<div class="note">Example rule: “Be direct. Carry out safe, reversible tasks without unnecessary questions. Push back only on a real error, risk or irreversible consequence. Then report the result.” — The Authority Gate always stays active: a “don't ask” preference can never override critical approvals, owner rights, irreversible actions or security boundaries. Structured project and thread scopes are partly still a target picture.<span class="tag next">Next</span></div>
+    <div class="rule reveal">Each memory shows, where possible, source, scope and time — whether it came from you or from Hunch, whether it is global, project- or thread-bound, and whether it can be edited, forgotten or deleted. Explicit instructions from you take precedence over derived preferences.<div class="note">Example rule: “Be direct. Carry out safe, reversible tasks without unnecessary questions. Push back only on a real error, risk or irreversible consequence. Then report the result.” — The Authority Gate always stays active: a “don't ask” preference can never override critical approvals, owner rights, irreversible actions or security boundaries. Memories carry their level (global, intention, thread) and can be moved — in runtime, app, MCP and CLI.<span class="tag heute">Today</span></div>
     </div>
   </div>
 </section>
@@ -1089,7 +1089,7 @@ section[data-serial] > .wrap{position:relative;z-index:1}
       <div class="card reveal"><h3>2 · Models<span class="tag heute">Today</span></h3><p>Interchangeable engines for Observer and Executive — selectable independently.</p><p style="margin-top:.5rem">claude · openai · gemini · kimi · deepseek · qwen · mistral · grok · groq · apple on-device · ollama · lm studio · llama.cpp · your own OpenAI-compatible endpoints.</p></div>
       <div class="card reveal"><h3>3 · Capabilities<span class="tag heute">Today</span></h3><p>Provider-neutral via<span class="k">SKILL.md</span>, Python skills, MCP servers, function schemas, REST connectors, built-in tools and external agent harnesses (Claude Code, Codex, Gemini CLI, Aider, your own CLIs).</p></div>
     </div>
-    <div class="rule reveal">Skills and tools are not tied to the model provider. Hunch unifies open formats and adapters — MCP, function schemas, Markdown and Python skills, REST and external agent harnesses.<div class="note">Any provider can be connected if the model or tool is reachable via a supported standard or adapter. A proprietary plugin package may need an adapter. Additional providers via harnesses/adapters (e.g. OpenRouter, Together, Fireworks, Cerebras, Perplexity, Bedrock) — what is shown is what the deployed runtime actually loads.<span class="tag next">Next</span></div>
+    <div class="rule reveal">Skills and tools are not tied to the model provider. Hunch unifies open formats and adapters — MCP, function schemas, Markdown and Python skills, REST and external agent harnesses.<div class="note">Any provider can be connected if the model or tool is reachable via a supported standard or adapter. A proprietary plugin package may need an adapter. Additional providers (OpenRouter, Together, Fireworks, Cerebras, Perplexity, Bedrock) — registered in runtime and app, OpenAI-compatible with your own key.<span class="tag heute">Today</span></div>
     </div>
   </div>
 </section>
@@ -1208,18 +1208,20 @@ section[data-serial] > .wrap{position:relative;z-index:1}
         <li>Runtime, app, CLI, HTTP &amp; WebSocket</li><li>Brain sync, machines, nodes, channels</li>
         <li>Work Live Activity, Telegram/WhatsApp</li>
         <li>Intentions with state &amp; next step (runtime, app, agent tools, sync)</li>
+        <li>Automatic condensation (every 6 h, logged)</li><li>Skills learned from routines</li>
+        <li>World ID human in the loop in the Authority Gate (runtime &amp; app)</li>
+        <li>Memory levels global / intention / thread — store, search, move, sync (runtime, app, MCP, CLI)</li>
+        <li>Broader providers: OpenRouter, Together, Fireworks, Cerebras, Perplexity, Amazon Bedrock</li>
       </ul></div>
       <div class="col reveal"><h3><span class="tag exp">Experimental</span></h3><ul>
         <li>Pattern of Life</li><li>Knowledge graph</li><li>App/browser/file/screen context</li>
-        <li>Rewind &amp; transcript import</li><li>Automatic condensation</li>
-        <li>Skills learned from routines</li><li>Broader harness providers</li>
-        <li>Proactive predictions &amp; nudges</li>
-        <li>World ID human in the loop in the Authority Gate (runtime today, app button with next build)</li><li>Structured preferences with scopes</li>
+        <li>Rewind &amp; transcript import</li>
+        <li>Proactive predictions &amp; nudges (heartbeat today, push under verification)</li>
       </ul></div>
       <div class="col reveal"><h3><span class="tag next">Next</span></h3><ul>
         <li>Fully global live conversation</li>
         <li>Presence routing</li><li>Complete action log</li><li>Comprehensive undo (way back for memories, tasks &amp; intentions: today)</li>
-        <li>Finer device &amp; action boundaries</li><li>Global/project/thread memory management</li>
+        <li>Finer device &amp; action boundaries</li>
         <li>Intentions on desktop surfaces too</li>
       </ul></div>
       <div class="col reveal"><h3><span class="tag vision">Vision 2.0</span></h3><ul>
