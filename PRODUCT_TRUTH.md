@@ -104,6 +104,12 @@ Roadmap/Zielbild kennzeichnen, nicht als ausgeliefert.
   aktiv, bevor die Besitzeridentität eingerichtet ist. Ehrlich so dokumentieren.
 - **Rückweg (Undo) — HEUTE (2026-08-21):** `rueckweg.py`, remember/add_task hinterlassen Rückweg,
   `GET/POST /rueckweg`; App: Einstellungen → Agent-Runtime → Rückweg. Erinnerungen/Aufgaben/Vorhaben.
+- **Wallet (Logins, Zahlungsmethoden, Passkeys) — HEUTE, Menschen-Seite (2026-08-22, Build 99):** App → Profil → Wallet:
+  Einträge lokal, Geheimnisse im Schlüsselbund (SecretStore), Aufdecken nur mit Face ID/Code. Agenten-Seite (Runtime-Tresor,
+  Werkzeug hinter Authority Gate, Audit/Rückweg) — ALS NÄCHSTES.
+- **Freigaben aus der Mitteilung — HEUTE (Build 98):** Push-Kategorie HUNCH_APPROVAL mit Freigeben (Face ID)/Ablehnen; erscheint auf
+  iPhone und gespiegelt auf der Apple Watch. Eigene Watch-App (Voice über verbundene Maschinen) — ALS NÄCHSTES.
+- **Profil = Credential-Hub — HEUTE (Build 99):** Ausweis, Nachweise (HID/Secure Enclave, World ID, vertrauende Maschinen), Wallet, Profile.
 - **World ID Human in the Loop — EXPERIMENTELL (2026-08-22):** Runtime `world_id.py` + Sidecar (offizielles IDKit): `GET /world`,
   `POST/GET /approvals/{id}/world`; Proof an Action `authority-approve` + RP-signierte Nonce gebunden, Verify gegen
   `developer.world.org/api/v4/verify/{rp_id}`, Replay-Schutz, Audit mit Nullifier/Credential. Live bestätigt 2026-08-22 13:06 (proof_of_human).
