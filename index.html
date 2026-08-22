@@ -509,6 +509,55 @@ footer{border-top:1px solid var(--security-line);padding:2.2rem 0 calc(2.2rem + 
   .rcpt span{grid-column:2}
 }
 
+/* ornament — gravierte Randleiste oben in jedem Kapitel (nicht hinter Text) */
+section[data-serial]{background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='22' viewBox='0 0 160 22'><g fill='none' stroke='%23ae862e' stroke-opacity='.34' stroke-width='.7'><path d='M0 11C20 2 40 2 60 11S100 20 120 11 160 2 160 11'/><path d='M0 11C20 20 40 20 60 11S100 2 120 11 160 20 160 11'/><path d='M0 6C20 1 40 1 60 6S100 11 120 6 160 1 160 6' stroke-opacity='.18'/><path d='M0 16C20 21 40 21 60 16S100 11 120 16 160 21 160 16' stroke-opacity='.18'/></g></svg>");
+  background-repeat:repeat-x;background-position:center 1.1rem;background-size:160px 22px}
+section[data-serial]::after{content:"";position:absolute;left:0;right:0;top:0;height:3.4rem;pointer-events:none;
+  background:linear-gradient(90deg,var(--ivory-100) 0,transparent 18%,transparent 82%,var(--ivory-100) 100%)}
+section.sheet::after{background:linear-gradient(90deg,rgba(255,255,255,.42) 0,transparent 18%,transparent 82%,rgba(255,255,255,.42) 100%)}
+section[data-serial] > .wrap{position:relative;z-index:1}
+/* id card — das urdokument (Bible Kap. 13), specimen */
+.idcard-wrap{margin-top:2.2rem;display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:clamp(1.2rem,4vw,3rem);align-items:center}
+.idcard{position:relative;aspect-ratio:1.586;width:100%;max-width:34rem;border-radius:28px;padding:clamp(.9rem,2.4vw,1.6rem);color:var(--ink);
+  background:linear-gradient(118deg,#fcfcfe 0%,#eaedf2 42%,#f6f2ea 72%,#fbf7ef 100%);border:1px solid #d4d4db;box-shadow:var(--document-shadow);overflow:hidden;
+  display:grid;grid-template-columns:27% 1fr;grid-template-rows:auto 1fr auto;gap:clamp(.5rem,1.6vw,1.2rem)}
+.idcard::before{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(circle at 78% 15%,rgba(255,255,255,.92),transparent 24%)}
+.idcard::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;padding:2px;background:linear-gradient(115deg,rgba(226,190,102,.75),rgba(179,216,236,.54),rgba(242,190,207,.45),rgba(185,226,207,.52),rgba(206,158,53,.72));
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude}
+.idcard svg.g{position:absolute;inset:0;width:100%;height:100%;color:#ae862e;opacity:.14;pointer-events:none}
+.idcard > *{position:relative;z-index:2}
+.idcard-brand{grid-column:1 / -1;display:flex;align-items:center;justify-content:space-between;color:#98752b;font:700 clamp(7px,.9vw,11px)/1 var(--mono);letter-spacing:.22em;text-transform:uppercase}
+.idcard-brand strong{font:800 clamp(12px,1.5vw,19px)/1 var(--display);letter-spacing:.1em;color:#98752b}
+.idcard-portrait{align-self:center;aspect-ratio:.78;display:grid;place-items:center;border:1px solid rgba(174,134,46,.35);border-radius:16px;background:rgba(255,255,255,.28);overflow:hidden}
+.idcard-portrait img{width:72%;height:auto;filter:drop-shadow(0 4px 8px rgba(60,40,5,.3))}
+.idcard-data{align-self:center;display:grid;grid-template-columns:1.3fr .7fr;gap:clamp(.5rem,1.6vw,1.4rem)}
+.idcard-data div{min-width:0}
+.idcard-data div.wide{grid-column:1 / -1}
+.idcard-data span{display:block;color:#8e897d;font:650 clamp(6px,.7vw,9px)/1.2 var(--mono);letter-spacing:.16em;text-transform:uppercase}
+.idcard-data strong{display:block;margin-top:4px;font:800 clamp(11px,1.6vw,19px)/1 var(--display);letter-spacing:.025em;text-transform:uppercase}
+.idcard-data code{display:block;margin-top:5px;color:#504c44;font:600 clamp(8px,.95vw,12px)/1 var(--mono);letter-spacing:.09em}
+.idcard-foot{grid-column:1 / -1;display:grid;grid-template-columns:1fr auto auto;gap:clamp(.6rem,1.6vw,1.4rem);align-items:end}
+.idcard-sig{font:italic clamp(16px,2.2vw,28px)/1 Georgia,"Times New Roman",serif;color:#5f5748}
+.idcard-micro{align-self:center;color:#9b7730;font:650 clamp(5px,.5vw,7px)/1 var(--mono);letter-spacing:.15em;text-transform:uppercase;white-space:nowrap}
+.idcard-holo{width:clamp(30px,5vw,60px);aspect-ratio:1.22;position:relative;border:1px solid rgba(255,255,255,.8);background:var(--foil);box-shadow:inset 0 0 0 1px rgba(255,255,255,.35)}
+.idcard-holo::before{content:"";position:absolute;inset:12%;border:1px solid rgba(96,74,21,.38);border-radius:50%;box-shadow:0 0 0 4px rgba(255,255,255,.15),0 0 0 8px rgba(96,74,21,.12)}
+.idcard-copy{display:grid;gap:0;border-top:1px solid var(--security-line)}
+.idcard-copy div{padding:.8rem 0;border-bottom:1px solid var(--security-line)}
+.idcard-copy b{display:block;margin-bottom:.25rem;color:var(--security-gold);font:650 .56rem/1 var(--mono);letter-spacing:.12em;text-transform:uppercase}
+.idcard-copy span{font-size:.88rem;color:var(--dim)}
+/* official line — typografisches specimen im CTA */
+.official{margin:0 auto 1.6rem;max-width:40rem;text-align:left;display:grid;gap:.1rem}
+.official span{font:800 clamp(1.6rem,4.6vw,3.2rem)/1.02 var(--display);letter-spacing:-.035em;text-transform:lowercase;color:var(--ink)}
+.official span:nth-child(2){color:var(--ink-700)}
+.official span:nth-child(3){color:var(--gold-700)}
+.official i{display:block;margin-top:.9rem;font:600 .58rem/1 var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--security-gold);font-style:normal}
+@media(max-width:900px){
+  .idcard-wrap{grid-template-columns:1fr}
+  .idcard{max-width:none;border-radius:18px}
+  .idcard-micro{display:none}
+  section[data-serial]{background-position:center .8rem;background-size:120px 16.5px}
+}
+
 @media(max-width:1500px){ .nav-serial{display:none} }
 @media(max-width:900px){
   .hero-grid{grid-template-columns:1fr}
@@ -1072,6 +1121,15 @@ footer{border-top:1px solid var(--security-line);padding:2.2rem 0 calc(2.2rem + 
     </div>
     <figure class="fig reveal" aria-hidden="true"><model-viewer class="fig-3d" src="figures/fig-privat.glb" poster="figures/fig-privat.png" alt="" reveal="auto" loading="lazy" camera-controls disable-zoom disable-pan interaction-prompt="none" touch-action="pan-y" camera-orbit="-20deg 82deg 105%" min-camera-orbit="auto 65deg auto" max-camera-orbit="auto 100deg auto" exposure="1" shadow-intensity="0" environment-image="neutral"></model-viewer><img class="fig-png" src="figures/fig-privat.png" width="900" height="900" alt="" loading="lazy" style="display:none"><figcaption>owner bound · lokal verschlossen</figcaption></figure>
     </div>
+    <div class="idcard-wrap reveal">
+      <div class="idcard" role="img" aria-label="identity credential · der ausweis ist das urdokument · specimen"><svg class="g" viewBox="0 0 800 505" preserveAspectRatio="none" aria-hidden="true"><defs><pattern id="cw" width="160" height="54" patternUnits="userSpaceOnUse"><path d="M0 27C26.7 9 53.3 9 80 27S133.3 45 160 27" fill="none" stroke="currentColor" stroke-width=".8"/><path d="M0 27C26.7 45 53.3 45 80 27S133.3 9 160 27" fill="none" stroke="currentColor" stroke-width=".8"/><path d="M0 14C26.7 5 53.3 5 80 14S133.3 23 160 14" fill="none" stroke="currentColor" stroke-width=".5"/><path d="M0 40C26.7 49 53.3 49 80 40S133.3 31 160 40" fill="none" stroke="currentColor" stroke-width=".5"/></pattern></defs><rect width="100%" height="100%" fill="url(#cw)"/><g fill="none" stroke="currentColor" stroke-width=".65" transform="translate(625 250)"><ellipse rx="152" ry="70"/><ellipse rx="138" ry="92" transform="rotate(30)"/><ellipse rx="138" ry="92" transform="rotate(60)"/><ellipse rx="138" ry="92" transform="rotate(90)"/><ellipse rx="112" ry="54" transform="rotate(15)"/><ellipse rx="112" ry="54" transform="rotate(75)"/></g></svg>
+        <div class="idcard-brand"><span>hunch</span><strong>identität</strong><span>owner credential</span></div>
+        <div class="idcard-portrait"><img src="owl-mark.png" alt=""></div>
+        <div class="idcard-data"><div class=""><span>name</span><strong>Mensch</strong></div><div class=""><span>rolle</span><strong>anonym</strong></div><div class=""><span>ausgestellt</span><strong>2026</strong></div><div class="wide"><span>ausweis-nr</span><code>HID · 6699 3937</code></div></div>
+        <div class="idcard-foot"><span class="idcard-sig">Mensch</span><span class="idcard-micro">identity · authority · continuity · owner bound</span><i class="idcard-holo" aria-hidden="true"></i></div>
+      </div>
+      <div class="idcard-copy"><div><b>urdokument</b><span>Der Ausweis ist der genetische Ursprung des Interfaces: Sicherheitspapier, Gravur, Guilloché, Perlmutt, Folie, physische Kante, owner-bound Siegel.</span></div><div><b>format</b><span>1.586 : 1 · max. 340 pt · Radius 28 · Tilt max. 7°, Reduced Motion blendet statt zu kippen.</span></div><div><b>ehrlich</b><span>Optik ist kein Beweis: Guilloché signalisiert Identität — verifiziert wird durch Signatur, Authority, Herkunft und Audit.</span></div><div><b>specimen</b><span>Anonymisierte Daten, keine externe Identität. Echte HID entsteht aus dem Secure-Enclave-Schlüssel deines Geräts.</span></div></div>
+    </div>
     <div class="specimen reveal" data-label="local-first · deine geräte, keine fremde mitte · specimen">
       <div class="local-map">
         <div class="node"><b>iPhone</b><span>app · brain lokal</span></div>
@@ -1138,6 +1196,7 @@ footer{border-top:1px solid var(--security-line);padding:2.2rem 0 calc(2.2rem + 
 <!-- CTA -->
 <section class="cta">
   <div class="wrap">
+        <div class="official reveal"><span>kennt dich.</span><span>erkennt den moment.</span><span>handelt in deinem auftrag.</span><i>official line · brand system 2026.03</i></div>
     <div class="seal reveal" aria-hidden="true">hunch</div>
     <h2 class="reveal">Hunch ist nicht das Modell, mit dem du heute sprichst.</h2>
     <p class="lead reveal" style="margin:1rem auto 0">Es ist der Agent, der dich über Jahre kennenlernt,
