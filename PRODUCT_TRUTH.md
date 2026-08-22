@@ -69,12 +69,12 @@ Live 2026-08-22: 106 Knoten/625 Kanten aus 26 Erinnerungen + 416 Ereignissen. Ap
 ### Sensoren / Rewind / Import — HEUTE (2026-08-22, G11; macOS)
 `sensoren.py`: Vordergrund-App, Fenstertitel (Bedienungshilfen-Recht), Browser-URL (Safari/Chrome via
 osascript), Dateiänderungen (Ordner aus `HUNCH_SENSOREN_ORDNER`), Screen-OCR nur mit Bildschirmaufnahme-
-Recht **und** installiertem tesseract (sonst ehrlich gemeldet); Ruhezeiten 23–7, Dedupe, Schleife 15 s,
+Recht, über macOS Vision (`sidecar/ocr/hunch-ocr.swift`, einmalig mit swiftc gebaut; Rückfall tesseract; sonst ehrlich gemeldet); Ruhezeiten 23–7, Dedupe, Schleife 15 s,
 ein/aus über `HUNCH_SENSOREN`, `hunch sensoren an|aus|status`, `GET/POST /sensoren`; Ereignisse
 `source=sensor`. Standardmäßig nur ins Gedächtnis, `HUNCH_SENSOREN_OBSERVER=1` reicht an den Observer.
 MCP `search_screen`/`get_screen_activity` echt. `chat_import.py` + `hunch import <datei>` (txt/md,
 ChatGPT-`conversations.json`, Claude-Export) → Ereignisse `source=import` mit Originalzeit.
-`tests/test_sensoren.py` (15). Live: Sensoren 2026-08-22 eingeschaltet (OCR: tesseract fehlt).
+`tests/test_sensoren.py` (15). Live: Sensoren 2026-08-22 eingeschaltet; Vision-OCR las den Sperrbildschirm-Text in 0,3 s.
 
 ### Auslöser + Wiederaufnahme — HEUTE (2026-08-22, G8)
 `ausloeser.py`: Arten zeit (`taeglich 07:30`, `alle 30 min`, `mo,mi 09:00`, `werktags …`), datei
