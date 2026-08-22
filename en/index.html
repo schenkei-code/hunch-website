@@ -326,6 +326,97 @@ footer{border-top:1px solid var(--security-line);padding:2.2rem 0 calc(2.2rem + 
   .stamp{margin:0 auto}
 }
 
+/* specimens — codebasierte Visuals in der Brand-Grammatik (Bible Kap. 14): Papier, Hairline, Mono, Scope */
+.specimen{margin-top:2.2rem;position:relative;background:var(--paper-pearl);border:1px solid var(--security-line);border-radius:var(--r-doc);box-shadow:var(--document-shadow);padding:clamp(1.1rem,3vw,1.8rem);overflow:hidden}
+.specimen::before{content:attr(data-label);display:block;margin-bottom:1.1rem;padding-bottom:.7rem;border-bottom:1px solid var(--security-line);font:650 .58rem/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--security-gold)}
+.specimen .mono{font:600 .62rem/1.4 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--stone-500)}
+/* brain ledger */
+.ledger-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:.7rem}
+.stat{padding:.9rem 1rem;border:1px solid var(--security-line);border-radius:14px;background:rgba(255,255,255,.7)}
+.stat b{display:block;color:var(--gold-600);font:650 .62rem var(--mono)}
+.stat strong{display:block;margin:.7rem 0 .25rem;font:800 1.7rem/1 var(--display);letter-spacing:-.03em}
+.stat span{font:650 .58rem/1.3 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--stone-500)}
+.ledger-rows{margin-top:1rem;border-top:1px solid var(--security-line)}
+.ledger-row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:1rem;padding:.7rem 0 .7rem .9rem;border-bottom:1px solid var(--security-line-soft);align-items:center;
+  background:linear-gradient(90deg,var(--gold-400) 0 2px,transparent 2px) left center / 2px 40% no-repeat}
+.ledger-row p{font-size:.92rem;color:var(--ink)}
+.ledger-row span{font:600 .58rem/1.5 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--stone-500);text-align:right;white-space:nowrap}
+/* threads */
+.session-strip{display:grid;grid-template-columns:auto 1fr;gap:1rem;align-items:center;padding:.8rem 1rem;border:1px solid var(--security-line);border-radius:12px;background:rgba(255,255,255,.6);margin-bottom:.8rem}
+.session-strip b{font:700 .62rem/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--gold-700)}
+.session-strip span{font-size:.86rem;color:var(--dim)}
+.thread-list{display:grid;gap:.7rem}
+.thread{display:grid;grid-template-columns:12px 1fr auto;gap:.9rem;padding:1rem 1.1rem;border:1px solid var(--security-line);border-radius:14px;background:rgba(255,255,255,.7);position:relative}
+.thread::after{content:attr(data-scope);position:absolute;right:1.1rem;bottom:.6rem;font:600 .52rem/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--stone-500)}
+.thread i{width:8px;height:8px;margin-top:6px;border-radius:50%;background:var(--gold-400);box-shadow:0 0 0 4px rgba(213,173,77,.14)}
+.thread.wait i{background:var(--stone-500);box-shadow:0 0 0 4px rgba(113,107,94,.14)}
+.thread strong{display:block;font-size:.98rem}
+.thread p{margin-top:.25rem;font-size:.84rem;color:var(--dim)}
+.thread time{font:650 .6rem/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--gold-700);padding-top:.25rem}
+/* lanes — observer / executive */
+.lanes{display:grid;gap:.8rem}
+.lane{display:grid;grid-template-columns:9rem 1fr;gap:1rem;align-items:center;padding:.9rem 1rem;border:1px solid var(--security-line);border-radius:14px;background:rgba(255,255,255,.7)}
+.lane.exec{background:linear-gradient(135deg,#151410,#25241f);color:var(--ivory-50);border-color:rgba(231,207,130,.28)}
+.lane header b{display:block;font:700 1rem/1.1 var(--display);letter-spacing:-.01em}
+.lane header span{display:block;margin-top:.25rem;font:600 .56rem/1.4 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--stone-500)}
+.lane.exec header span{color:var(--gold-300)}
+.steps{display:flex;flex-wrap:wrap;gap:.4rem;align-items:center}
+.steps span{font:600 .72rem/1 var(--mono);padding:.5rem .65rem;border:1px solid var(--security-line);border-radius:8px;background:rgba(255,255,255,.6)}
+.lane.exec .steps span{border-color:rgba(255,254,250,.22);background:rgba(255,255,255,.04)}
+.steps i{font-style:normal;color:var(--stone-500);font:600 .7rem var(--mono)}
+.lane.exec .steps i{color:rgba(255,254,250,.5)}
+.steps .gate{border-color:var(--gold-400);color:var(--gold-300);background:rgba(213,173,77,.12)}
+.lane-bridge{display:grid;grid-template-columns:9rem 1fr;gap:1rem;align-items:center;padding:0 1rem}
+.lane-bridge span{font:600 .58rem/1.4 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--security-gold)}
+.lane-bridge i{display:block;height:1px;background:linear-gradient(90deg,var(--gold-400),transparent);position:relative}
+.lane-bridge i::before{content:"▼";position:absolute;left:2rem;top:-.55rem;font-size:.6rem;color:var(--gold-500);font-style:normal}
+/* session map */
+.session-map{display:grid;grid-template-columns:1fr auto 1fr;gap:1rem;align-items:center}
+.session-map .owner{justify-self:center;width:10.5rem;aspect-ratio:1;border-radius:50%;display:grid;place-content:center;text-align:center;gap:.25rem;
+  border:1px solid var(--security-gold);outline:1px solid var(--security-line);outline-offset:-8px;background:radial-gradient(circle,rgba(255,255,255,.9),rgba(255,255,255,.4) 70%);box-shadow:var(--shadow-s)}
+.session-map .owner b{font:800 1.05rem/1 var(--display);text-transform:lowercase}
+.session-map .owner span{font:650 .54rem/1.5 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--gold-700)}
+.session-map ul{list-style:none;display:grid;gap:.5rem}
+.session-map li{display:grid;grid-template-columns:1fr auto;gap:.8rem;align-items:center;padding:.6rem .9rem;border:1px solid var(--security-line);border-radius:10px;background:rgba(255,255,255,.7);font-size:.9rem}
+.session-map li span{font:600 .54rem/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--stone-500)}
+.session-map li.target{border-style:dashed;color:var(--dim)}
+.session-map .left li{grid-template-columns:auto 1fr;text-align:left}
+/* scope rings */
+.scope-rings{display:grid;grid-template-columns:minmax(14rem,18rem) 1fr;gap:1.6rem;align-items:center}
+.scope-rings svg{width:100%;height:auto}
+.scope-legend{display:grid;gap:.55rem}
+.scope-legend div{display:grid;grid-template-columns:1.2rem 1fr;gap:.7rem;align-items:baseline;font-size:.9rem;color:var(--ink-2)}
+.scope-legend b{font:700 .6rem/1 var(--mono);color:var(--gold-700)}
+.scope-legend span{font:600 .56rem/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--stone-500);margin-left:.4rem}
+/* engine register */
+.engines{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.socket{padding:1rem 1.1rem;border:1px solid var(--security-line);border-radius:14px;background:rgba(255,255,255,.7)}
+.socket b{display:block;font:650 .58rem/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--stone-500)}
+.socket strong{display:block;margin-top:.5rem;font:800 1.15rem/1.1 var(--display);letter-spacing:-.01em}
+.socket span{display:block;margin-top:.3rem;font:600 .62rem/1.4 var(--mono);color:var(--gold-700)}
+.rack{grid-column:1 / -1;display:flex;flex-wrap:wrap;gap:.4rem;padding-top:.9rem;border-top:1px solid var(--security-line)}
+.rack span{font:600 .68rem/1 var(--mono);padding:.45rem .6rem;border:1px solid var(--security-line);border-radius:8px;background:rgba(255,255,255,.6);color:var(--ink-2)}
+.rack span.on{border-color:var(--gold-400);color:var(--gold-700);background:rgba(213,173,77,.12)}
+/* local map */
+.local-map{display:grid;grid-template-columns:1fr auto 1fr;gap:.8rem;align-items:center;text-align:center}
+.local-map .node{padding:1rem;border:1px solid var(--security-line);border-radius:14px;background:rgba(255,255,255,.7)}
+.local-map .node b{display:block;font:800 1rem/1.1 var(--display)}
+.local-map .node span{display:block;margin-top:.3rem;font:600 .56rem/1.5 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--stone-500)}
+.local-map .link{display:grid;gap:.3rem;justify-items:center}
+.local-map .link i{display:block;width:6rem;height:1px;background:repeating-linear-gradient(90deg,var(--gold-500) 0 6px,transparent 6px 10px)}
+.local-map .link span{font:600 .54rem/1.4 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--gold-700)}
+.local-map .none{grid-column:1 / -1;font:600 .58rem/1.5 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--stone-500);text-decoration:line-through;text-decoration-color:var(--gold-500)}
+@media(max-width:900px){
+  .ledger-stats{grid-template-columns:repeat(2,1fr)}
+  .lane,.lane-bridge{grid-template-columns:1fr}
+  .session-map{grid-template-columns:1fr}
+  .session-map .owner{order:-1}
+  .scope-rings{grid-template-columns:1fr}
+  .engines{grid-template-columns:1fr}
+  .local-map{grid-template-columns:1fr}
+  .local-map .link i{width:1px;height:2.5rem;background:repeating-linear-gradient(180deg,var(--gold-500) 0 6px,transparent 6px 10px)}
+}
+
 @media(max-width:1500px){ .nav-serial{display:none} }
 @media(max-width:900px){
   .hero-grid{grid-template-columns:1fr}
@@ -520,6 +611,10 @@ footer{border-top:1px solid var(--security-line);padding:2.2rem 0 calc(2.2rem + 
     </div>
     <figure class="fig reveal" aria-hidden="true"><model-viewer class="fig-3d" src="../figures/fig-brain.glb" poster="../figures/fig-brain.png" alt="" reveal="auto" loading="lazy" camera-controls disable-zoom disable-pan interaction-prompt="none" touch-action="pan-y" camera-orbit="-20deg 82deg 105%" min-camera-orbit="auto 65deg auto" max-camera-orbit="auto 100deg auto" exposure="1" shadow-intensity="0" environment-image="neutral"></model-viewer><img class="fig-png" src="../figures/fig-brain.png" width="900" height="900" alt="" loading="lazy" style="display:none"><figcaption>memory · living register</figcaption></figure>
     </div>
+    <div class="specimen reveal" data-label="brain · ledger · specimen">
+      <div class="ledger-stats"><div class="stat"><b>◌</b><strong>128</strong><span>memories</span></div><div class="stat"><b>✦</b><strong>42</strong><span>conversations</span></div><div class="stat"><b>≡</b><strong>7</strong><span>open tasks</span></div><div class="stat"><b>●</b><strong>3</strong><span>intentions</span></div></div>
+      <div class="ledger-rows"><div class="ledger-row"><p>Prefers short answers, direct, no follow-up question after every reply.</p><span>from you · global · 12 aug</span></div><div class="ledger-row"><p>Project “Launch”: check claims against product truth before publishing.</p><span>derived · project · 19 aug</span></div><div class="ledger-row"><p>Thread “Berlin”: Authority Gate before purchase, budget € 60.</p><span>from you · thread · today</span></div></div>
+    </div>
     <div class="rule reveal">
       <b>Task ≠ intention.</b>A task is a single step. An intention is something you want to achieve or change. Hunch does not decide your goal.<div class="note">You set purpose and goal — Hunch decides the path within its authority. Multi-day autonomous intentions are part of the 2.0 vision.<span class="tag vision">Vision</span></div>
     </div>
@@ -560,6 +655,9 @@ footer{border-top:1px solid var(--security-line);padding:2.2rem 0 calc(2.2rem + 
     </div>
     <figure class="fig reveal" aria-hidden="true"><model-viewer class="fig-3d" src="../figures/fig-scopes.glb" poster="../figures/fig-scopes.png" alt="" reveal="auto" loading="lazy" camera-controls disable-zoom disable-pan interaction-prompt="none" touch-action="pan-y" camera-orbit="-20deg 82deg 105%" min-camera-orbit="auto 65deg auto" max-camera-orbit="auto 100deg auto" exposure="1" shadow-intensity="0" environment-image="neutral"></model-viewer><img class="fig-png" src="../figures/fig-scopes.png" width="900" height="900" alt="" loading="lazy" style="display:none"><figcaption>three rings · global, project, thread</figcaption></figure>
     </div>
+    <div class="specimen reveal" data-label="memory scopes · four levels · specimen">
+      <div class="scope-rings"><svg viewBox="0 0 320 320" role="img" aria-label="memory scopes · four levels · specimen"><g fill="none" stroke="#ae862e" stroke-opacity=".55"><circle cx="160" cy="160" r="150" stroke-width="1.2"/><circle cx="160" cy="160" r="112" stroke-width="1"/><circle cx="160" cy="160" r="76" stroke-width="1"/><circle cx="160" cy="160" r="40" stroke-width="1"/><circle cx="160" cy="160" r="150" stroke-dasharray="2 6" stroke-opacity=".35" transform="rotate(8 160 160)"/></g><g font-family="SFMono-Regular,ui-monospace,monospace" font-size="9" font-weight="700" fill="#624508" letter-spacing="1.2"><text x="160" y="24" text-anchor="middle">GLOBAL</text><text x="160" y="62" text-anchor="middle">PROJECT</text><text x="160" y="98" text-anchor="middle">THREAD</text><text x="160" y="163" text-anchor="middle">SESSION</text></g></svg><div class="scope-legend"><div><b>01</b><p>global — identity · goals · style · boundaries<span>today</span></p></div><div><b>02</b><p>project — knowledge · rules · roles · state<span>next</span></p></div><div><b>03</b><p>thread — task · progress · approvals<span>today</span></p></div><div><b>04</b><p>session — dialogue · short-lived · assumptions<span>today</span></p></div></div></div>
+    </div>
     <div class="scopes">
       <div class="scope reveal"><h3>Global level<span class="tag heute">Today</span></h3>
         <p>Identity, goals, communication style, basic working preferences, permanent boundaries.</p>
@@ -590,6 +688,13 @@ footer{border-top:1px solid var(--security-line);padding:2.2rem 0 calc(2.2rem + 
     </div>
     <figure class="fig reveal" aria-hidden="true"><model-viewer class="fig-3d" src="../figures/fig-observer.glb" poster="../figures/fig-observer.png" alt="" reveal="auto" loading="lazy" camera-controls disable-zoom disable-pan interaction-prompt="none" touch-action="pan-y" camera-orbit="-20deg 82deg 105%" min-camera-orbit="auto 65deg auto" max-camera-orbit="auto 100deg auto" exposure="1" shadow-intensity="0" environment-image="neutral"></model-viewer><img class="fig-png" src="../figures/fig-observer.png" width="900" height="900" alt="" loading="lazy" style="display:none"><figcaption>eye and hand · observe, act</figcaption></figure>
     </div>
+    <div class="specimen reveal" data-label="observer / executive · process strip · specimen">
+      <div class="lanes">
+        <div class="lane"><header><b>Observer</b><span>always on · small · cheap</span></header><div class="steps"><span>signal</span><i>→</i><span>bundle</span><i>→</i><span>memory & patterns</span><i>→</i><span>intent + confidence</span><i>→</i><span>may: do nothing</span></div></div>
+        <div class="lane-bridge"><span>threshold 0.85 · wakes the executive</span><i></i></div>
+        <div class="lane exec"><header><b>Executive</b><span>woken · large · safeguarded</span></header><div class="steps"><span>plan</span><i>→</i><span>tools / thread</span><i>→</i><span class="gate">authority gate</span><i>→</i><span>act</span><i>→</i><span>verify</span><i>→</i><span>result</span></div></div>
+      </div>
+    </div>
     <div class="duo">
       <div class="card reveal">
         <div class="role">Always on · small · cheap</div>
@@ -617,6 +722,13 @@ footer{border-top:1px solid var(--security-line);padding:2.2rem 0 calc(2.2rem + 
     </div>
     <figure class="fig reveal" aria-hidden="true"><model-viewer class="fig-3d" src="../figures/fig-session.glb" poster="../figures/fig-session.png" alt="" reveal="auto" loading="lazy" camera-controls disable-zoom disable-pan interaction-prompt="none" touch-action="pan-y" camera-orbit="-20deg 82deg 105%" min-camera-orbit="auto 65deg auto" max-camera-orbit="auto 100deg auto" exposure="1" shadow-intensity="0" environment-image="neutral"></model-viewer><img class="fig-png" src="../figures/fig-session.png" width="900" height="900" alt="" loading="lazy" style="display:none"><figcaption>möbius · one continuous relationship</figcaption></figure>
     </div>
+    <div class="specimen reveal" data-label="global session · one owner, many surfaces · specimen">
+      <div class="session-map">
+        <ul class="left"><li class="">iPhone<span>app · today</span></li><li class="">Mac / PC<span>runtime · today</span></li><li class="">Terminal<span>cli · today</span></li></ul>
+        <div class="owner"><b>hunch</b><span>owner credential<br>HID · 6699</span></div>
+        <ul><li class="">Telegram / WhatsApp<span>channel · today</span></li><li class="">MCP / HTTP<span>interface · today</span></li><li class="target">Live conversation everywhere<span>presence · target</span></li></ul>
+      </div>
+    </div>
     <div class="rule reveal">Shared identity and shared memory exist; app, runtime and MCP can already share context; persistent sessions and threads exist in parts of the system.<div class="note">A single seamless live conversation with full history and presence routing across every surface is still being built. Today not every word of a chat continues seamlessly on every device.<span class="tag next">Next</span></div>
     </div>
   </div>
@@ -632,6 +744,10 @@ footer{border-top:1px solid var(--security-line);padding:2.2rem 0 calc(2.2rem + 
       <p class="lead reveal">Threads are parallel, persistent lines of work within your relationship with Hunch. While a longer task runs, the main conversation stays free immediately — an ordinary assistant would block the dialogue. Every thread has a clear goal, its own context, its own tool rounds, approvals and a result that returns to the original channel.</p>
     </div>
     <figure class="fig reveal" aria-hidden="true"><model-viewer class="fig-3d" src="../figures/fig-faeden.glb" poster="../figures/fig-faeden.png" alt="" reveal="auto" loading="lazy" camera-controls disable-zoom disable-pan interaction-prompt="none" touch-action="pan-y" camera-orbit="-20deg 82deg 105%" min-camera-orbit="auto 65deg auto" max-camera-orbit="auto 100deg auto" exposure="1" shadow-intensity="0" environment-image="neutral"></model-viewer><img class="fig-png" src="../figures/fig-faeden.png" width="900" height="900" alt="" loading="lazy" style="display:none"><figcaption>three threads · one braid</figcaption></figure>
+    </div>
+    <div class="specimen reveal" data-label="threads · thread scope · specimen">
+      <div class="session-strip"><b>global session</b><span>Identity and basic preferences apply across devices. Each thread keeps only its own working context.</span></div>
+      <div class="thread-list"><article class="thread " data-scope="scope · project launch"><i></i><div><strong>Prepare launch</strong><p>Next step: check the last claims against product truth</p></div><time>active</time></article><article class="thread wait" data-scope="scope · thread berlin"><i></i><div><strong>Berlin</strong><p>Next step: compare connections, Authority Gate before purchase</p></div><time>waiting</time></article><article class="thread " data-scope="scope · thread research"><i></i><div><strong>Research</strong><p>Next step: bundle sources and mark assumptions</p></div><time>running</time></article></div>
     </div>
     <div class="grid g3">
       <div class="card reveal"><h3><span class="tag heute" style="background:rgba(30,122,60,.12)">Running</span></h3><p>The thread works on its task and shows progress and runtime.</p></div>
@@ -691,6 +807,10 @@ footer{border-top:1px solid var(--security-line);padding:2.2rem 0 calc(2.2rem + 
       <p class="lead reveal">Bring your model, keep your hunch. Hunch's identity, memory, authority, working preferences and skills are not tied to a model provider — three independent layers.</p>
     </div>
     <figure class="fig reveal" aria-hidden="true"><model-viewer class="fig-3d" src="../figures/fig-modelle.glb" poster="../figures/fig-modelle.png" alt="" reveal="auto" loading="lazy" camera-controls disable-zoom disable-pan interaction-prompt="none" touch-action="pan-y" camera-orbit="-20deg 82deg 105%" min-camera-orbit="auto 65deg auto" max-camera-orbit="auto 100deg auto" exposure="1" shadow-intensity="0" environment-image="neutral"></model-viewer><img class="fig-png" src="../figures/fig-modelle.png" width="900" height="900" alt="" loading="lazy" style="display:none"><figcaption>the owl stays · the module changes</figcaption></figure>
+    </div>
+    <div class="specimen reveal" data-label="engine register · bring your model, keep your hunch · specimen">
+      <div class="engines"><div class="socket"><b>observer · socket</b><strong>Claude Haiku 4.5</strong><span>small · always on · 0.85 threshold</span></div><div class="socket"><b>executive · socket</b><strong>Claude Fable 5</strong><span>large · woken · authority required</span></div>
+        <div class="rack"><span class="on">claude</span><span class="">openai</span><span class="">gemini</span><span class="">kimi</span><span class="">deepseek</span><span class="">qwen</span><span class="">mistral</span><span class="">grok</span><span class="">groq</span><span class="">apple on-device</span><span class="">ollama</span><span class="">lm studio</span><span class="">llama.cpp</span><span class="">openai-compatible</span></div></div>
     </div>
     <div class="grid g3">
       <div class="card reveal"><h3>1 · Hunch <span class="tag heute">Today</span></h3><p>Identity, Brain, intentions, working style and authority. The lasting core.</p></div>
@@ -762,6 +882,14 @@ footer{border-top:1px solid var(--security-line);padding:2.2rem 0 calc(2.2rem + 
       <h2 class="reveal">Not just “privacy first” as a slogan — this is how control works.</h2>
     </div>
     <figure class="fig reveal" aria-hidden="true"><model-viewer class="fig-3d" src="../figures/fig-privat.glb" poster="../figures/fig-privat.png" alt="" reveal="auto" loading="lazy" camera-controls disable-zoom disable-pan interaction-prompt="none" touch-action="pan-y" camera-orbit="-20deg 82deg 105%" min-camera-orbit="auto 65deg auto" max-camera-orbit="auto 100deg auto" exposure="1" shadow-intensity="0" environment-image="neutral"></model-viewer><img class="fig-png" src="../figures/fig-privat.png" width="900" height="900" alt="" loading="lazy" style="display:none"><figcaption>owner bound · locked locally</figcaption></figure>
+    </div>
+    <div class="specimen reveal" data-label="local-first · your devices, no third party in the middle · specimen">
+      <div class="local-map">
+        <div class="node"><b>iPhone</b><span>app · brain local</span></div>
+        <div class="link"><i></i><span>private network<br>vpn / mesh · tls</span></div>
+        <div class="node"><b>Mac / PC / VPS</b><span>runtime · memory · tools</span></div>
+        <div class="none">no relay · no hosting · no service in the middle</div>
+      </div>
     </div>
     <div class="grid g3">
       <div class="card reveal"><h3>Local &amp; your hardware</h3><p>Personal memory lives locally by default. The runtime runs on your own hardware.</p></div>

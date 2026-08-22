@@ -326,6 +326,97 @@ footer{border-top:1px solid var(--security-line);padding:2.2rem 0 calc(2.2rem + 
   .stamp{margin:0 auto}
 }
 
+/* specimens — codebasierte Visuals in der Brand-Grammatik (Bible Kap. 14): Papier, Hairline, Mono, Scope */
+.specimen{margin-top:2.2rem;position:relative;background:var(--paper-pearl);border:1px solid var(--security-line);border-radius:var(--r-doc);box-shadow:var(--document-shadow);padding:clamp(1.1rem,3vw,1.8rem);overflow:hidden}
+.specimen::before{content:attr(data-label);display:block;margin-bottom:1.1rem;padding-bottom:.7rem;border-bottom:1px solid var(--security-line);font:650 .58rem/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--security-gold)}
+.specimen .mono{font:600 .62rem/1.4 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--stone-500)}
+/* brain ledger */
+.ledger-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:.7rem}
+.stat{padding:.9rem 1rem;border:1px solid var(--security-line);border-radius:14px;background:rgba(255,255,255,.7)}
+.stat b{display:block;color:var(--gold-600);font:650 .62rem var(--mono)}
+.stat strong{display:block;margin:.7rem 0 .25rem;font:800 1.7rem/1 var(--display);letter-spacing:-.03em}
+.stat span{font:650 .58rem/1.3 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--stone-500)}
+.ledger-rows{margin-top:1rem;border-top:1px solid var(--security-line)}
+.ledger-row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:1rem;padding:.7rem 0 .7rem .9rem;border-bottom:1px solid var(--security-line-soft);align-items:center;
+  background:linear-gradient(90deg,var(--gold-400) 0 2px,transparent 2px) left center / 2px 40% no-repeat}
+.ledger-row p{font-size:.92rem;color:var(--ink)}
+.ledger-row span{font:600 .58rem/1.5 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--stone-500);text-align:right;white-space:nowrap}
+/* threads */
+.session-strip{display:grid;grid-template-columns:auto 1fr;gap:1rem;align-items:center;padding:.8rem 1rem;border:1px solid var(--security-line);border-radius:12px;background:rgba(255,255,255,.6);margin-bottom:.8rem}
+.session-strip b{font:700 .62rem/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--gold-700)}
+.session-strip span{font-size:.86rem;color:var(--dim)}
+.thread-list{display:grid;gap:.7rem}
+.thread{display:grid;grid-template-columns:12px 1fr auto;gap:.9rem;padding:1rem 1.1rem;border:1px solid var(--security-line);border-radius:14px;background:rgba(255,255,255,.7);position:relative}
+.thread::after{content:attr(data-scope);position:absolute;right:1.1rem;bottom:.6rem;font:600 .52rem/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--stone-500)}
+.thread i{width:8px;height:8px;margin-top:6px;border-radius:50%;background:var(--gold-400);box-shadow:0 0 0 4px rgba(213,173,77,.14)}
+.thread.wait i{background:var(--stone-500);box-shadow:0 0 0 4px rgba(113,107,94,.14)}
+.thread strong{display:block;font-size:.98rem}
+.thread p{margin-top:.25rem;font-size:.84rem;color:var(--dim)}
+.thread time{font:650 .6rem/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--gold-700);padding-top:.25rem}
+/* lanes — observer / executive */
+.lanes{display:grid;gap:.8rem}
+.lane{display:grid;grid-template-columns:9rem 1fr;gap:1rem;align-items:center;padding:.9rem 1rem;border:1px solid var(--security-line);border-radius:14px;background:rgba(255,255,255,.7)}
+.lane.exec{background:linear-gradient(135deg,#151410,#25241f);color:var(--ivory-50);border-color:rgba(231,207,130,.28)}
+.lane header b{display:block;font:700 1rem/1.1 var(--display);letter-spacing:-.01em}
+.lane header span{display:block;margin-top:.25rem;font:600 .56rem/1.4 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--stone-500)}
+.lane.exec header span{color:var(--gold-300)}
+.steps{display:flex;flex-wrap:wrap;gap:.4rem;align-items:center}
+.steps span{font:600 .72rem/1 var(--mono);padding:.5rem .65rem;border:1px solid var(--security-line);border-radius:8px;background:rgba(255,255,255,.6)}
+.lane.exec .steps span{border-color:rgba(255,254,250,.22);background:rgba(255,255,255,.04)}
+.steps i{font-style:normal;color:var(--stone-500);font:600 .7rem var(--mono)}
+.lane.exec .steps i{color:rgba(255,254,250,.5)}
+.steps .gate{border-color:var(--gold-400);color:var(--gold-300);background:rgba(213,173,77,.12)}
+.lane-bridge{display:grid;grid-template-columns:9rem 1fr;gap:1rem;align-items:center;padding:0 1rem}
+.lane-bridge span{font:600 .58rem/1.4 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--security-gold)}
+.lane-bridge i{display:block;height:1px;background:linear-gradient(90deg,var(--gold-400),transparent);position:relative}
+.lane-bridge i::before{content:"▼";position:absolute;left:2rem;top:-.55rem;font-size:.6rem;color:var(--gold-500);font-style:normal}
+/* session map */
+.session-map{display:grid;grid-template-columns:1fr auto 1fr;gap:1rem;align-items:center}
+.session-map .owner{justify-self:center;width:10.5rem;aspect-ratio:1;border-radius:50%;display:grid;place-content:center;text-align:center;gap:.25rem;
+  border:1px solid var(--security-gold);outline:1px solid var(--security-line);outline-offset:-8px;background:radial-gradient(circle,rgba(255,255,255,.9),rgba(255,255,255,.4) 70%);box-shadow:var(--shadow-s)}
+.session-map .owner b{font:800 1.05rem/1 var(--display);text-transform:lowercase}
+.session-map .owner span{font:650 .54rem/1.5 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--gold-700)}
+.session-map ul{list-style:none;display:grid;gap:.5rem}
+.session-map li{display:grid;grid-template-columns:1fr auto;gap:.8rem;align-items:center;padding:.6rem .9rem;border:1px solid var(--security-line);border-radius:10px;background:rgba(255,255,255,.7);font-size:.9rem}
+.session-map li span{font:600 .54rem/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--stone-500)}
+.session-map li.target{border-style:dashed;color:var(--dim)}
+.session-map .left li{grid-template-columns:auto 1fr;text-align:left}
+/* scope rings */
+.scope-rings{display:grid;grid-template-columns:minmax(14rem,18rem) 1fr;gap:1.6rem;align-items:center}
+.scope-rings svg{width:100%;height:auto}
+.scope-legend{display:grid;gap:.55rem}
+.scope-legend div{display:grid;grid-template-columns:1.2rem 1fr;gap:.7rem;align-items:baseline;font-size:.9rem;color:var(--ink-2)}
+.scope-legend b{font:700 .6rem/1 var(--mono);color:var(--gold-700)}
+.scope-legend span{font:600 .56rem/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--stone-500);margin-left:.4rem}
+/* engine register */
+.engines{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.socket{padding:1rem 1.1rem;border:1px solid var(--security-line);border-radius:14px;background:rgba(255,255,255,.7)}
+.socket b{display:block;font:650 .58rem/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--stone-500)}
+.socket strong{display:block;margin-top:.5rem;font:800 1.15rem/1.1 var(--display);letter-spacing:-.01em}
+.socket span{display:block;margin-top:.3rem;font:600 .62rem/1.4 var(--mono);color:var(--gold-700)}
+.rack{grid-column:1 / -1;display:flex;flex-wrap:wrap;gap:.4rem;padding-top:.9rem;border-top:1px solid var(--security-line)}
+.rack span{font:600 .68rem/1 var(--mono);padding:.45rem .6rem;border:1px solid var(--security-line);border-radius:8px;background:rgba(255,255,255,.6);color:var(--ink-2)}
+.rack span.on{border-color:var(--gold-400);color:var(--gold-700);background:rgba(213,173,77,.12)}
+/* local map */
+.local-map{display:grid;grid-template-columns:1fr auto 1fr;gap:.8rem;align-items:center;text-align:center}
+.local-map .node{padding:1rem;border:1px solid var(--security-line);border-radius:14px;background:rgba(255,255,255,.7)}
+.local-map .node b{display:block;font:800 1rem/1.1 var(--display)}
+.local-map .node span{display:block;margin-top:.3rem;font:600 .56rem/1.5 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--stone-500)}
+.local-map .link{display:grid;gap:.3rem;justify-items:center}
+.local-map .link i{display:block;width:6rem;height:1px;background:repeating-linear-gradient(90deg,var(--gold-500) 0 6px,transparent 6px 10px)}
+.local-map .link span{font:600 .54rem/1.4 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--gold-700)}
+.local-map .none{grid-column:1 / -1;font:600 .58rem/1.5 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--stone-500);text-decoration:line-through;text-decoration-color:var(--gold-500)}
+@media(max-width:900px){
+  .ledger-stats{grid-template-columns:repeat(2,1fr)}
+  .lane,.lane-bridge{grid-template-columns:1fr}
+  .session-map{grid-template-columns:1fr}
+  .session-map .owner{order:-1}
+  .scope-rings{grid-template-columns:1fr}
+  .engines{grid-template-columns:1fr}
+  .local-map{grid-template-columns:1fr}
+  .local-map .link i{width:1px;height:2.5rem;background:repeating-linear-gradient(180deg,var(--gold-500) 0 6px,transparent 6px 10px)}
+}
+
 @media(max-width:1500px){ .nav-serial{display:none} }
 @media(max-width:900px){
   .hero-grid{grid-template-columns:1fr}
@@ -535,6 +626,10 @@ footer{border-top:1px solid var(--security-line);padding:2.2rem 0 calc(2.2rem + 
     </div>
     <figure class="fig reveal" aria-hidden="true"><model-viewer class="fig-3d" src="figures/fig-brain.glb" poster="figures/fig-brain.png" alt="" reveal="auto" loading="lazy" camera-controls disable-zoom disable-pan interaction-prompt="none" touch-action="pan-y" camera-orbit="-20deg 82deg 105%" min-camera-orbit="auto 65deg auto" max-camera-orbit="auto 100deg auto" exposure="1" shadow-intensity="0" environment-image="neutral"></model-viewer><img class="fig-png" src="figures/fig-brain.png" width="900" height="900" alt="" loading="lazy" style="display:none"><figcaption>gedächtnis · lebendes register</figcaption></figure>
     </div>
+    <div class="specimen reveal" data-label="brain · ledger · specimen">
+      <div class="ledger-stats"><div class="stat"><b>◌</b><strong>128</strong><span>erinnerungen</span></div><div class="stat"><b>✦</b><strong>42</strong><span>gespräche</span></div><div class="stat"><b>≡</b><strong>7</strong><span>offene aufgaben</span></div><div class="stat"><b>●</b><strong>3</strong><span>vorhaben</span></div></div>
+      <div class="ledger-rows"><div class="ledger-row"><p>Bevorzugt kurze Antworten, direkt, ohne Rückfrage nach jeder Antwort.</p><span>von dir · global · 12.08.</span></div><div class="ledger-row"><p>Projekt „Launch“: Claims vor Veröffentlichung gegen Product Truth prüfen.</p><span>abgeleitet · projekt · 19.08.</span></div><div class="ledger-row"><p>Faden „Berlin“: vor Kauf Authority Gate, Budget € 60.</p><span>von dir · faden · heute</span></div></div>
+    </div>
     <div class="rule reveal">
       <b>Aufgabe ≠ Vorhaben.</b> Eine Aufgabe ist ein einzelner Schritt. Ein Vorhaben ist etwas, das du
       erreichen oder verändern möchtest. Hunch entscheidet nicht über dein Ziel.
@@ -590,6 +685,9 @@ footer{border-top:1px solid var(--security-line);padding:2.2rem 0 calc(2.2rem + 
     </div>
     <figure class="fig reveal" aria-hidden="true"><model-viewer class="fig-3d" src="figures/fig-scopes.glb" poster="figures/fig-scopes.png" alt="" reveal="auto" loading="lazy" camera-controls disable-zoom disable-pan interaction-prompt="none" touch-action="pan-y" camera-orbit="-20deg 82deg 105%" min-camera-orbit="auto 65deg auto" max-camera-orbit="auto 100deg auto" exposure="1" shadow-intensity="0" environment-image="neutral"></model-viewer><img class="fig-png" src="figures/fig-scopes.png" width="900" height="900" alt="" loading="lazy" style="display:none"><figcaption>drei ringe · global, projekt, faden</figcaption></figure>
     </div>
+    <div class="specimen reveal" data-label="memory scopes · vier ebenen · specimen">
+      <div class="scope-rings"><svg viewBox="0 0 320 320" role="img" aria-label="memory scopes · vier ebenen · specimen"><g fill="none" stroke="#ae862e" stroke-opacity=".55"><circle cx="160" cy="160" r="150" stroke-width="1.2"/><circle cx="160" cy="160" r="112" stroke-width="1"/><circle cx="160" cy="160" r="76" stroke-width="1"/><circle cx="160" cy="160" r="40" stroke-width="1"/><circle cx="160" cy="160" r="150" stroke-dasharray="2 6" stroke-opacity=".35" transform="rotate(8 160 160)"/></g><g font-family="SFMono-Regular,ui-monospace,monospace" font-size="9" font-weight="700" fill="#624508" letter-spacing="1.2"><text x="160" y="24" text-anchor="middle">GLOBAL</text><text x="160" y="62" text-anchor="middle">PROJEKT</text><text x="160" y="98" text-anchor="middle">FADEN</text><text x="160" y="163" text-anchor="middle">SITZUNG</text></g></svg><div class="scope-legend"><div><b>01</b><p>global — identität · ziele · stil · grenzen<span>heute</span></p></div><div><b>02</b><p>projekt — wissen · regeln · rollen · stand<span>als nächstes</span></p></div><div><b>03</b><p>faden — auftrag · fortschritt · approvals<span>heute</span></p></div><div><b>04</b><p>sitzung — dialog · kurzfristig · vermutungen<span>heute</span></p></div></div></div>
+    </div>
     <div class="scopes">
       <div class="scope reveal"><h3>Globale Ebene <span class="tag heute">Heute</span></h3>
         <p>Identität, Ziele, Kommunikationsstil, grundlegende Arbeitspräferenzen, dauerhafte Grenzen.</p>
@@ -629,6 +727,13 @@ footer{border-top:1px solid var(--security-line);padding:2.2rem 0 calc(2.2rem + 
     </div>
     <figure class="fig reveal" aria-hidden="true"><model-viewer class="fig-3d" src="figures/fig-observer.glb" poster="figures/fig-observer.png" alt="" reveal="auto" loading="lazy" camera-controls disable-zoom disable-pan interaction-prompt="none" touch-action="pan-y" camera-orbit="-20deg 82deg 105%" min-camera-orbit="auto 65deg auto" max-camera-orbit="auto 100deg auto" exposure="1" shadow-intensity="0" environment-image="neutral"></model-viewer><img class="fig-png" src="figures/fig-observer.png" width="900" height="900" alt="" loading="lazy" style="display:none"><figcaption>auge und hand · beobachten, handeln</figcaption></figure>
     </div>
+    <div class="specimen reveal" data-label="observer / executive · prozessstreifen · specimen">
+      <div class="lanes">
+        <div class="lane"><header><b>Observer</b><span>immer an · klein · günstig</span></header><div class="steps"><span>signal</span><i>→</i><span>bündeln</span><i>→</i><span>gedächtnis & muster</span><i>→</i><span>absicht + konfidenz</span><i>→</i><span>kann: nichts tun</span></div></div>
+        <div class="lane-bridge"><span>schwelle 0.85 · weckt den executive</span><i></i></div>
+        <div class="lane exec"><header><b>Executive</b><span>geweckt · groß · abgesichert</span></header><div class="steps"><span>plan</span><i>→</i><span>tools / faden</span><i>→</i><span class="gate">authority gate</span><i>→</i><span>handeln</span><i>→</i><span>verifizieren</span><i>→</i><span>ergebnis</span></div></div>
+      </div>
+    </div>
     <div class="duo">
       <div class="card reveal">
         <div class="role">Immer an · klein · günstig</div>
@@ -661,6 +766,13 @@ footer{border-top:1px solid var(--security-line);padding:2.2rem 0 calc(2.2rem + 
     </div>
     <figure class="fig reveal" aria-hidden="true"><model-viewer class="fig-3d" src="figures/fig-session.glb" poster="figures/fig-session.png" alt="" reveal="auto" loading="lazy" camera-controls disable-zoom disable-pan interaction-prompt="none" touch-action="pan-y" camera-orbit="-20deg 82deg 105%" min-camera-orbit="auto 65deg auto" max-camera-orbit="auto 100deg auto" exposure="1" shadow-intensity="0" environment-image="neutral"></model-viewer><img class="fig-png" src="figures/fig-session.png" width="900" height="900" alt="" loading="lazy" style="display:none"><figcaption>möbius · eine fortlaufende beziehung</figcaption></figure>
     </div>
+    <div class="specimen reveal" data-label="globale session · ein owner, viele surfaces · specimen">
+      <div class="session-map">
+        <ul class="left"><li class="">iPhone<span>app · heute</span></li><li class="">Mac / PC<span>runtime · heute</span></li><li class="">Terminal<span>cli · heute</span></li></ul>
+        <div class="owner"><b>hunch</b><span>owner credential<br>HID · 6699</span></div>
+        <ul><li class="">Telegram / WhatsApp<span>kanal · heute</span></li><li class="">MCP / HTTP<span>schnittstelle · heute</span></li><li class="target">Live-Konversation überall<span>presence · zielbild</span></li></ul>
+      </div>
+    </div>
     <div class="rule reveal">
       Gemeinsame Identität und gemeinsames Gedächtnis sind vorhanden; App, Runtime und MCP können bereits
       Kontext teilen; persistente Sessions und Fäden existieren in Teilen des Systems.
@@ -684,6 +796,10 @@ footer{border-top:1px solid var(--security-line);padding:2.2rem 0 calc(2.2rem + 
       Tool-Runden, Freigaben und ein Ergebnis, das zum ursprünglichen Kanal zurückkehrt.</p>
     </div>
     <figure class="fig reveal" aria-hidden="true"><model-viewer class="fig-3d" src="figures/fig-faeden.glb" poster="figures/fig-faeden.png" alt="" reveal="auto" loading="lazy" camera-controls disable-zoom disable-pan interaction-prompt="none" touch-action="pan-y" camera-orbit="-20deg 82deg 105%" min-camera-orbit="auto 65deg auto" max-camera-orbit="auto 100deg auto" exposure="1" shadow-intensity="0" environment-image="neutral"></model-viewer><img class="fig-png" src="figures/fig-faeden.png" width="900" height="900" alt="" loading="lazy" style="display:none"><figcaption>drei fäden · ein zopf</figcaption></figure>
+    </div>
+    <div class="specimen reveal" data-label="fäden · thread scope · specimen">
+      <div class="session-strip"><b>globale session</b><span>Identität und grundlegende Präferenzen gelten über Geräte. Jeder Faden hält nur seinen eigenen Arbeitskontext.</span></div>
+      <div class="thread-list"><article class="thread " data-scope="scope · projekt launch"><i></i><div><strong>Launch vorbereiten</strong><p>Nächster Schritt: letzte Claims gegen Product Truth prüfen</p></div><time>aktiv</time></article><article class="thread wait" data-scope="scope · faden berlin"><i></i><div><strong>Berlin</strong><p>Nächster Schritt: Verbindung vergleichen, vor Kauf Authority Gate</p></div><time>wartet</time></article><article class="thread " data-scope="scope · faden research"><i></i><div><strong>Research</strong><p>Nächster Schritt: Quellen bündeln und Annahmen markieren</p></div><time>läuft</time></article></div>
     </div>
     <div class="grid g3">
       <div class="card reveal"><h3><span class="tag heute" style="background:rgba(30,122,60,.12)">Läuft</span></h3><p>Der Faden arbeitet an seinem Auftrag, zeigt Fortschritt und Laufzeit.</p></div>
@@ -752,6 +868,10 @@ footer{border-top:1px solid var(--security-line);padding:2.2rem 0 calc(2.2rem + 
       Arbeitspräferenzen und Skills sind nicht an einen Modellprovider gebunden — drei unabhängige Ebenen.</p>
     </div>
     <figure class="fig reveal" aria-hidden="true"><model-viewer class="fig-3d" src="figures/fig-modelle.glb" poster="figures/fig-modelle.png" alt="" reveal="auto" loading="lazy" camera-controls disable-zoom disable-pan interaction-prompt="none" touch-action="pan-y" camera-orbit="-20deg 82deg 105%" min-camera-orbit="auto 65deg auto" max-camera-orbit="auto 100deg auto" exposure="1" shadow-intensity="0" environment-image="neutral"></model-viewer><img class="fig-png" src="figures/fig-modelle.png" width="900" height="900" alt="" loading="lazy" style="display:none"><figcaption>die eule bleibt · das modul wechselt</figcaption></figure>
+    </div>
+    <div class="specimen reveal" data-label="engine register · bring your model, keep your hunch · specimen">
+      <div class="engines"><div class="socket"><b>observer · socket</b><strong>Claude Haiku 4.5</strong><span>klein · immer an · 0,85 schwelle</span></div><div class="socket"><b>executive · socket</b><strong>Claude Fable 5</strong><span>groß · geweckt · authority-pflichtig</span></div>
+        <div class="rack"><span class="on">claude</span><span class="">openai</span><span class="">gemini</span><span class="">kimi</span><span class="">deepseek</span><span class="">qwen</span><span class="">mistral</span><span class="">grok</span><span class="">groq</span><span class="">apple on-device</span><span class="">ollama</span><span class="">lm studio</span><span class="">llama.cpp</span><span class="">openai-kompatibel</span></div></div>
     </div>
     <div class="grid g3">
       <div class="card reveal"><h3>1 · Hunch <span class="tag heute">Heute</span></h3><p>Identität, Brain, Vorhaben, Arbeitsweise und Authority. Der bleibende Kern.</p></div>
@@ -834,6 +954,14 @@ footer{border-top:1px solid var(--security-line);padding:2.2rem 0 calc(2.2rem + 
       <h2 class="reveal">Nicht nur „Privacy first" als Slogan — so funktioniert die Kontrolle.</h2>
     </div>
     <figure class="fig reveal" aria-hidden="true"><model-viewer class="fig-3d" src="figures/fig-privat.glb" poster="figures/fig-privat.png" alt="" reveal="auto" loading="lazy" camera-controls disable-zoom disable-pan interaction-prompt="none" touch-action="pan-y" camera-orbit="-20deg 82deg 105%" min-camera-orbit="auto 65deg auto" max-camera-orbit="auto 100deg auto" exposure="1" shadow-intensity="0" environment-image="neutral"></model-viewer><img class="fig-png" src="figures/fig-privat.png" width="900" height="900" alt="" loading="lazy" style="display:none"><figcaption>owner bound · lokal verschlossen</figcaption></figure>
+    </div>
+    <div class="specimen reveal" data-label="local-first · deine geräte, keine fremde mitte · specimen">
+      <div class="local-map">
+        <div class="node"><b>iPhone</b><span>app · brain lokal</span></div>
+        <div class="link"><i></i><span>privates netz<br>vpn / mesh · tls</span></div>
+        <div class="node"><b>Mac / PC / VPS</b><span>runtime · gedächtnis · werkzeuge</span></div>
+        <div class="none">kein relay · kein hosting · kein dienst in der mitte</div>
+      </div>
     </div>
     <div class="grid g3">
       <div class="card reveal"><h3>Lokal &amp; deine Hardware</h3><p>Persönliches Gedächtnis liegt standardmäßig lokal. Die Runtime läuft auf deiner eigenen Hardware.</p></div>
