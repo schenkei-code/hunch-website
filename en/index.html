@@ -597,6 +597,80 @@ section[data-serial] > .wrap{position:relative;z-index:1}
 @media(max-width:900px){#autoritaet .head-row{grid-template-columns:1fr}.gate-card.tilt{transform:none}.gate-cred{grid-template-columns:3rem 1fr}.gate-cred .ok{grid-column:2;text-align:left}}
 @media (prefers-reduced-motion: reduce){.gate-card.tilt{transform:none}.gate-result{animation:none}}
 
+/* motion — bewegung erklärt: einmalige, kurze, abbrechbare Reveals (140/220/420 ms), keine Schleifen */
+.anim{--d:0ms}
+.anim > *{opacity:0;transform:translateY(10px);transition:opacity var(--t-reveal) var(--ease) var(--d),transform var(--t-reveal) var(--ease) var(--d)}
+.anim.in > *{opacity:1;transform:none}
+.anim.in > *:nth-child(1){--d:0ms}.anim.in > *:nth-child(2){--d:70ms}.anim.in > *:nth-child(3){--d:140ms}.anim.in > *:nth-child(4){--d:210ms}.anim.in > *:nth-child(5){--d:280ms}.anim.in > *:nth-child(6){--d:350ms}.anim.in > *:nth-child(7){--d:420ms}.anim.in > *:nth-child(8){--d:490ms}.anim.in > *:nth-child(n+9){--d:560ms}
+/* hero entrance */
+.hero .wordmark,.hero .eyebrow,.hero .three span,.hero .lead,.hero-actions,.hero-meta{opacity:0;transform:translateY(12px);animation:rise var(--t-reveal) var(--ease) forwards}
+.hero .wordmark{animation-delay:40ms}.hero .eyebrow{animation-delay:160ms}.hero .three span:nth-child(1){animation-delay:260ms}.hero .three span:nth-child(2){animation-delay:340ms}.hero .three span:nth-child(3){animation-delay:420ms}.hero .lead{animation-delay:520ms}.hero-actions{animation-delay:600ms}.hero-meta{animation-delay:680ms}
+.hero .eyebrow{border-top-width:1px}
+.hero .eyebrow::after{content:"";display:block;height:1px;margin-top:-.9rem;margin-bottom:.9rem;background:var(--gold-400);transform:scaleX(0);transform-origin:left;animation:draw 420ms var(--ease) 260ms forwards}
+.owl-stage{opacity:0;transform:translateY(14px) scale(.98);animation:rise 560ms var(--ease) 120ms forwards}
+@keyframes rise{to{opacity:1;transform:none}}
+@keyframes draw{to{transform:scaleX(1)}}
+/* counters */
+.stat strong{font-variant-numeric:tabular-nums}
+/* bars wachsen */
+.bars i{transform:scaleY(0);transform-origin:bottom;transition:transform 420ms var(--ease)}
+.anim.in .bars i{transform:scaleY(1)}
+.anim.in .bars i:nth-child(n){transition-delay:calc(var(--i,0) * 22ms)}
+/* ringe zeichnen sich */
+.scope-rings circle,.scope-rings path{stroke-dasharray:1;stroke-dashoffset:1}
+.anim.in .scope-rings circle,.anim.in .scope-rings path{animation:drawpath 900ms var(--ease) forwards}
+.anim.in .scope-rings g:nth-of-type(2) path{animation-delay:300ms}
+@keyframes drawpath{to{stroke-dashoffset:0}}
+/* receipt-zeilen laufen ein */
+.receipt-spec .rcpt{opacity:0;transform:translateX(-8px);transition:opacity 220ms var(--ease),transform 220ms var(--ease)}
+.anim.in .receipt-spec .rcpt{opacity:1;transform:none}
+.anim.in .receipt-spec .rcpt:nth-child(1){transition-delay:80ms}.anim.in .receipt-spec .rcpt:nth-child(2){transition-delay:260ms}.anim.in .receipt-spec .rcpt:nth-child(3){transition-delay:440ms}.anim.in .receipt-spec .rcpt:nth-child(4){transition-delay:620ms}.anim.in .receipt-spec .rcpt:nth-child(5){transition-delay:820ms}.anim.in .receipt-spec .rcpt:nth-child(6){transition-delay:1040ms}
+.anim.in .rcpt.gate{animation:gatepulse 600ms var(--ease) 820ms 1}
+@keyframes gatepulse{0%{background-color:transparent}40%{background-color:rgba(213,173,77,.14)}100%{background-color:transparent}}
+.rcpt-sum{opacity:0;transition:opacity 220ms var(--ease) 1260ms}
+.anim.in .rcpt-sum{opacity:1}
+/* threads: status-punkt meldet sich einmal */
+.anim.in .thread i{animation:ping 700ms var(--ease) 1}
+.anim.in .thread:nth-child(2) i{animation-delay:120ms}.anim.in .thread:nth-child(3) i{animation-delay:240ms}
+@keyframes ping{0%{box-shadow:0 0 0 0 rgba(213,173,77,.45)}100%{box-shadow:0 0 0 12px rgba(213,173,77,0)}}
+/* lanes: schwelle zieht sich */
+.lane-bridge i{transform:scaleX(0);transform-origin:left;transition:transform 420ms var(--ease) 300ms}
+.anim.in .lane-bridge i{transform:scaleX(1)}
+.steps span{opacity:0;transform:translateY(6px);transition:opacity 220ms var(--ease),transform 220ms var(--ease)}
+.anim.in .steps span{opacity:1;transform:none}
+.anim.in .steps span:nth-child(1){transition-delay:60ms}.anim.in .steps span:nth-child(3){transition-delay:140ms}.anim.in .steps span:nth-child(5){transition-delay:220ms}.anim.in .steps span:nth-child(7){transition-delay:300ms}.anim.in .steps span:nth-child(9){transition-delay:380ms}.anim.in .steps span:nth-child(11){transition-delay:460ms}
+/* gate: foil shimmer einmal */
+.anim.in.gate-card::before{background-size:300% 100%;animation:foil 1200ms var(--ease) 200ms 1}
+@keyframes foil{from{background-position:100% 0}to{background-position:0 0}}
+/* siegel stempelt */
+.cta .seal{opacity:0;transform:scale(1.25) rotate(-10deg)}
+.cta .seal.in{animation:stamp 420ms cubic-bezier(.2,.9,.25,1.2) forwards}
+@keyframes stamp{to{opacity:1;transform:none}}
+/* official line */
+.official span{opacity:0;transform:translateY(10px);transition:opacity 420ms var(--ease),transform 420ms var(--ease)}
+.official.in span:nth-child(1){opacity:1;transform:none}.official.in span:nth-child(2){opacity:1;transform:none;transition-delay:160ms}.official.in span:nth-child(3){opacity:1;transform:none;transition-delay:320ms}
+.official i{opacity:0;transition:opacity 220ms var(--ease) 560ms}.official.in i{opacity:1}
+/* idcard: licht läuft einmal drüber */
+.anim.in .idcard::before{animation:sheen 900ms var(--ease) 300ms 1}
+@keyframes sheen{from{background-position:-40% 0}to{background-position:140% 0}}
+.idcard::before{background-size:200% 100%}
+/* hover micro (140 ms) */
+.card,.stat,.thread,.hub-row,.socket,.rack span,.ledger-row,.session-map li,.matrix .col,.legend div,.pattern-kinds div,.scope .items span{transition:transform var(--t-micro) var(--ease),box-shadow var(--t-micro) var(--ease),border-color var(--t-micro) var(--ease),background-color var(--t-micro) var(--ease)}
+.card:hover,.matrix .col:hover{transform:translateY(-2px);box-shadow:0 1px 1.5px rgba(0,0,0,.08),0 8px 18px rgba(0,0,0,.08),0 24px 40px rgba(0,0,0,.07)}
+.stat:hover,.thread:hover,.hub-row:hover,.socket:hover,.session-map li:hover,.legend div:hover,.pattern-kinds div:hover{border-color:rgba(174,134,46,.5);transform:translateY(-1px)}
+.rack span:hover{border-color:var(--gold-400);color:var(--gold-700);background:rgba(213,173,77,.12)}
+.ledger-row:hover{background:linear-gradient(90deg,var(--gold-400) 0 2px,rgba(213,173,77,.08) 2px) left center / 100% 100% no-repeat}
+.hub-row:hover b{transform:translateX(3px);color:var(--gold-700)}
+.hub-row b{transition:transform var(--t-micro) var(--ease),color var(--t-micro) var(--ease)}
+.fig-3d{transition:transform var(--t-shift) var(--ease)}
+.fig:hover .fig-3d{transform:translateY(-4px)}
+@media (prefers-reduced-motion: reduce){
+  .anim > *,.anim.in > *,.hero .wordmark,.hero .eyebrow,.hero .three span,.hero .lead,.hero-actions,.hero-meta,.owl-stage,.bars i,.receipt-spec .rcpt,.rcpt-sum,.steps span,.lane-bridge i,.official span,.official i,.cta .seal{opacity:1!important;transform:none!important;animation:none!important;transition:none!important}
+  .scope-rings circle,.scope-rings path{stroke-dasharray:none;stroke-dashoffset:0;animation:none!important}
+  .hero .eyebrow::after{display:none}
+  .anim.in .thread i,.anim.in .rcpt.gate,.anim.in.gate-card::before,.anim.in .idcard::before{animation:none!important}
+}
+
 @media(max-width:1500px){ .nav-serial{display:none} }
 @media(max-width:900px){
   .hero-grid{grid-template-columns:1fr}
@@ -1213,6 +1287,24 @@ section[data-serial] > .wrap{position:relative;z-index:1}
       card.addEventListener('pointerleave',function(){card.style.setProperty('--ty','0deg');card.style.setProperty('--tx','0deg')});
     }
   });
+
+
+  // Reveal-Choreografie: einmalige Einblendungen, Zähler, Balken, Ringe — nichts läuft endlos.
+  (function(){
+    var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var targets=document.querySelectorAll('.specimen,.flow,.vs-cards,.chain,.legend,.matrix,.grid,.duo,.scopes,.screens,.island,.gate-card,.idcard-wrap,.official,.cta .seal,.lanes,.receipt-spec');
+    targets.forEach(function(el){ if(!el.classList.contains('official') && !el.classList.contains('seal')) el.classList.add('anim'); });
+    document.querySelectorAll('.bars i').forEach(function(b,i){ b.style.setProperty('--i',i); });
+    function count(el){
+      var to=parseInt(el.textContent,10); if(isNaN(to)||reduce) return; var t0=null, from=0;
+      function step(ts){ if(!t0) t0=ts; var p=Math.min(1,(ts-t0)/700); var e=1-Math.pow(1-p,3); el.textContent=Math.round(from+(to-from)*e); if(p<1) requestAnimationFrame(step); }
+      requestAnimationFrame(step);
+    }
+    if('IntersectionObserver' in window){
+      var io2=new IntersectionObserver(function(es){ es.forEach(function(e){ if(!e.isIntersecting) return; e.target.classList.add('in'); e.target.querySelectorAll('.stat strong').forEach(count); io2.unobserve(e.target); }); },{threshold:0.18});
+      targets.forEach(function(el){ io2.observe(el); });
+    } else { targets.forEach(function(el){ el.classList.add('in'); }); }
+  })();
 
   // sticky nav shadow
   var nav = document.getElementById('nav');
