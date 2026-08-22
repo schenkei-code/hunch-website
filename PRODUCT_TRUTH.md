@@ -117,7 +117,7 @@ geben" + Abschnitt „Auf der Maschine" (Build 105). `tests/test_agent_tresor.py
 ### Apple Watch — HEUTE (Build 105, G13)
 watchOS-Target `HunchWatch`: Freigaben (WatchConnectivity ↔ iPhone, Freigeben/Ablehnen), Arbeitsschritt der
 Work-Live-Activity als Zeile, HUNCH_APPROVAL-Aktionen auf der Uhr, Sprechen (Diktat → Maschine → Antwort
-vorgelesen). Offen: Complication, Gerätetest durch Dominik.
+vorgelesen). Complication (WidgetKit: accessoryCircular/Rectangular/Inline, App Group `group.com.hunchagent.hunch`, Build 107). Offen: Gerätetest durch Dominik.
 
 ### Werkzeuge — HEUTE (vier Herkünfte, ein Verzeichnis)
 - **Eingebaut:** `search_memory`, `remember`, `list_tasks`, `add_task`, `run_command`,
