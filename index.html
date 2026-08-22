@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Hunch — dein persönlicher intentional agent</title>
+<!-- world-id: human in the loop, 2026-08-22 -->
 <meta name="description" content="Hunch ist kein weiteres Chat-Interface. Es baut ein fortlaufendes persönliches Modell auf, erkennt den nächsten sinnvollen Schritt und handelt nur innerhalb deiner Regeln. Bring your model, keep your hunch.">
 <meta property="og:title" content="Hunch — dein persönlicher intentional agent">
 <meta property="og:description" content="Es kennt dich. Es versteht den Moment. Es handelt in deinem Auftrag — innerhalb deiner Grenzen.">
@@ -1116,6 +1117,7 @@ section[data-serial] > .wrap{position:relative;z-index:1}
       <div class="card reveal"><h3>Isolation <span class="tag heute">Heute</span></h3><p>Gäste erhalten einen getrennten Kontext — weder dein persönliches Gedächtnis noch deine Werkzeuge.</p></div>
       <div class="card reveal"><h3>Impuls- &amp; Fehlerbremse <span class="tag heute">Heute</span></h3><p>Mindestabstand plus Tagesgrenze für Impulse; drei Fehlschläge eines Werkzeugs führen zu einer Pause.</p></div>
       <div class="card reveal"><h3>Rückweg &amp; Grenze <span class="tag heute">Heute</span></h3><p>Gemerkte Fakten und angelegte Aufgaben lassen sich zurücknehmen; die Grenze — was Hunch nie ohne Rückfrage tut — ist an einer Stelle einsehbar. Vollständiges Undo für jede Aktion und feineres Gerätevertrauen sind noch im Ausbau. <span class="tag next">Als Nächstes</span></p></div>
+      <div class="card reveal"><h3>World ID · Human in the Loop <span class="tag exp">Experimentell</span></h3><p>Zweiter Weg für dieselbe Freigabe: du bestätigst in der World App mit deinem Proof of Human; der Proof ist an die Aktion und eine einmalige, von Hunch signierte Nonce gebunden, wird gegen die World-API verifiziert und landet mit Nullifier und Credential im Audit. Ausweis und App-Freigabe bleiben immer der Standard- und Notfallweg.</p></div>
     </div>
     <div class="rule reveal">
       Hunch darf wahrnehmen, eine Absicht formulieren und etwas vorschlagen — aber nur mit entsprechender
@@ -1283,7 +1285,8 @@ section[data-serial] > .wrap{position:relative;z-index:1}
         <li>Pattern of Life</li><li>Wissensgraph</li><li>App-/Browser-/Datei-/Screen-Kontext</li>
         <li>Rewind &amp; Transcript-Import</li><li>Automatische Verdichtung</li>
         <li>Gelernte Skills aus Abläufen</li><li>Breitere Harness-Provider</li>
-        <li>Proaktive Predictions &amp; Nudges</li><li>Strukturierte Präferenzen mit Scopes</li>
+        <li>Proaktive Predictions &amp; Nudges</li>
+        <li>World ID Human in the Loop im Authority Gate (Runtime heute, App-Button mit nächstem Build)</li><li>Strukturierte Präferenzen mit Scopes</li>
       </ul></div>
       <div class="col reveal"><h3><span class="tag next">Als Nächstes</span></h3><ul>
         <li>Vollständig globale Live-Konversation</li>

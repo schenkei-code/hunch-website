@@ -104,6 +104,10 @@ Roadmap/Zielbild kennzeichnen, nicht als ausgeliefert.
   aktiv, bevor die Besitzeridentität eingerichtet ist. Ehrlich so dokumentieren.
 - **Rückweg (Undo) — HEUTE (2026-08-21):** `rueckweg.py`, remember/add_task hinterlassen Rückweg,
   `GET/POST /rueckweg`; App: Einstellungen → Agent-Runtime → Rückweg. Erinnerungen/Aufgaben/Vorhaben.
+- **World ID Human in the Loop — EXPERIMENTELL (2026-08-22):** Runtime `world_id.py` + Sidecar (offizielles IDKit): `GET /world`,
+  `POST/GET /approvals/{id}/world`; Proof an Action `authority-approve` + RP-signierte Nonce gebunden, Verify gegen
+  `developer.world.org/api/v4/verify/{rp_id}`, Replay-Schutz, Audit mit Nullifier/Credential. Live bestätigt 2026-08-22 13:06 (proof_of_human).
+  App: Button „Mit World ID bestätigen" gebaut, noch nicht in TestFlight. World ist optional — Ausweis/App bleiben Standard.
 - **Vorhaben (1.8) — HEUTE (2026-08-21):** Runtime `goals` mit `stand`/`next_step`, Tools list_goals/add_goal/update_goal,
   `add_task(goal=…)` verknüpft Schritt ↔ Vorhaben, `/vorhaben` (Ausweis-gated), Abgleich über `/brain/sync`
   (jüngerer Stand gewinnt); App: BrainGoal.stand/nextStep (Schema v2), Bearbeiten in der Zielzeile, MCP get_goals.
