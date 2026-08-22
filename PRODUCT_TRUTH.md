@@ -83,13 +83,16 @@ oder Faden; Wiederaufnahme: lange gescheiterte/wartende Fäden → `pausiert`, `
 `GET/POST/DELETE /ausloeser`, `hunch ausloeser list|add|rm`, Schleife 60 s. Live: Zeitauslöser
 „Tagesstart 07:30" angelegt. `tests/test_ausloeser.py` (8).
 
-### Globale Konversation + Presence — HEUTE Runtime/CLI/Web/Telegram, App-Chat EXPERIMENTELL (G9)
+### Globale Konversation + Presence — HEUTE (G9; App-Chat seit Build 106)
 `memory.py`: `conversations`/`messages` im Schema und im Brain-Sync (Schema 4); Konsole, Telegram-Chat
 und Web-Chat spiegeln in denselben Verlauf, die Konsole liest eine Sitzung nach Neustart zurück;
 `GET /v1/conversations`, `GET /v1/conversations/{id}/messages`. `presence.py`: `POST/GET /v1/presence`,
 `app_state`-Ereignisse zählen; Impulse/Freigaben zuerst an die aktive Oberfläche (offene Verbindung), sonst
-alle offenen, sonst Push — Audit `zustellung`. App meldet Presence (Build 105). **Offen:** der App-Chat
-(AgentSession) ist noch nicht im conversations-Abgleich → Matrix: Experimentell. `tests/test_konversation.py`.
+alle offenen, sonst Push — Audit `zustellung`. App meldet Presence (Build 105). App-Chat (Build 106):
+`AgentSession.archiveToBrain` spiegelt jede Chat-Sitzung als Brain-Gespräch (`surface: app`), BrainSync trägt
+conversations/messages (Schema V4, append-only, jüngerer Stand am Gespräch), fremde Gespräche (cli/web/telegram)
+erscheinen im Brain mit Surface-Mono-Label und lassen sich „Hier fortsetzen" (letzte 30 Zeilen in die
+Session, Antwort wandert zurück). `tests/test_konversation.py`, `PocketTests/KonversationSyncTests` (7).
 
 ### Vorhaben auf Desktop-Surfaces — HEUTE (2026-08-22, G10)
 `hunch vorhaben list|add|stand`, Weboberfläche (Abschnitt Vorhaben, `GET /vorhaben/ansicht`), Cockpit-Block.
