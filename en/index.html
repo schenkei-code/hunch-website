@@ -172,20 +172,28 @@ h2{font-size:clamp(2rem,4.8vw,3.5rem);font-weight:800;line-height:1.02;margin-to
 .card p{color:var(--dim);font-size:.92rem;line-height:1.55}
 .card .k{font-family:var(--mono);font-size:.76rem;color:var(--gold-700);background:rgba(174,134,46,.1);border:1px solid var(--security-line);padding:.1em .4em;border-radius:4px}
 
-/* hunch-moment — Ablauf als ruhiges Dokument: Hairlines statt Kästen, Serien-Nummern */
-.flow{margin-top:2.6rem;background:var(--paper-pearl);border:1px solid var(--security-line);border-radius:var(--r-doc);padding:clamp(1.2rem,4vw,2.4rem) clamp(1.2rem,4vw,2.6rem);box-shadow:var(--document-shadow);position:relative;overflow:hidden}
+/* hunch-moment — Prozessdiagramm: eine Gold-Schiene, acht Knoten (desktop horizontal, mobil vertikal) */
+.flow{margin-top:2.2rem;background:var(--paper-pearl);border:1px solid var(--security-line);border-radius:var(--r-doc);padding:clamp(1.2rem,4vw,2.2rem) clamp(1.2rem,4vw,2.4rem);box-shadow:var(--document-shadow);position:relative;overflow:hidden}
 .flow::after{content:"";position:absolute;left:1.6rem;right:1.6rem;top:0;height:1px;background:linear-gradient(90deg,transparent,rgba(174,134,46,.5),transparent);pointer-events:none}
-.flow ol{list-style:none;counter-reset:step;display:grid}
-.flow li{counter-increment:step;display:grid;grid-template-columns:2rem minmax(0,1fr);column-gap:.9rem;align-items:start;padding:.95rem 0;border-bottom:1px solid var(--security-line-soft)}
-.flow li:last-child{border-bottom:0}
-.flow li::before{content:counter(step,decimal-leading-zero);grid-column:1;grid-row:1 / span 2;display:flex;align-items:center;justify-content:center;
-  width:2rem;height:2rem;border-radius:50%;font:600 .68rem var(--mono);color:var(--gold-700);border:1px solid var(--security-gold);background:rgba(255,255,255,.6)}
-.flow li.hot{position:relative}
-.flow li.hot::after{content:"";position:absolute;left:-1.2rem;top:.9rem;bottom:.9rem;width:2px;background:var(--gold-400);border-radius:2px}
-.flow li.hot::before{background:linear-gradient(180deg,var(--gold-300),var(--gold-400));color:var(--ink-1000);border-color:var(--gold-500)}
-.flow li b{grid-column:2;grid-row:1;font-size:.98rem;color:var(--ink);margin-bottom:.15rem}
-.flow li span{grid-column:2;grid-row:2;color:var(--dim);font-size:.9rem}
-.flow .seq{margin-top:1.2rem;padding-top:1rem;border-top:1px solid var(--security-line);font:600 .66rem/1.9 var(--mono);letter-spacing:.06em;color:var(--gold-700);text-align:center;overflow-x:auto;white-space:nowrap;padding-bottom:.2rem}
+.flow ol{list-style:none;counter-reset:step;display:grid;grid-template-columns:repeat(8,1fr);gap:0;position:relative}
+.flow ol::before{content:"";position:absolute;left:calc(100% / 16);right:calc(100% / 16);top:.55rem;height:1px;background:linear-gradient(90deg,var(--gold-500),var(--gold-300),var(--gold-500));opacity:.8}
+.flow li{counter-increment:step;position:relative;display:grid;grid-template-rows:auto auto auto;justify-items:center;text-align:center;padding:0 .5rem;row-gap:.45rem}
+.flow li::before{content:"";width:1.1rem;height:1.1rem;border-radius:50%;background:var(--ivory-50);border:1.5px solid var(--gold-500);box-shadow:0 0 0 4px var(--ivory-50);z-index:1;transition:transform var(--t-micro) var(--ease)}
+.flow li:hover::before{transform:scale(1.15)}
+.flow li.hot::before{background:linear-gradient(180deg,var(--gold-300),var(--gold-500));box-shadow:0 0 0 4px var(--ivory-50),0 0 0 5px rgba(174,134,46,.35)}
+.flow li b{display:block;font:700 .86rem/1.2 var(--display);letter-spacing:-.01em;color:var(--ink);margin-top:.3rem}
+.flow li b::before{content:counter(step,decimal-leading-zero) "  ";font:650 .56rem/1 var(--mono);letter-spacing:.12em;color:var(--security-gold)}
+.flow li span{display:block;font-size:.76rem;line-height:1.45;color:var(--dim)}
+.flow li.hot b{color:var(--gold-700)}
+.flow .seq{margin-top:1.4rem;padding-top:1rem;border-top:1px solid var(--security-line);font:600 .66rem/1.9 var(--mono);letter-spacing:.06em;color:var(--gold-700);text-align:center;overflow-x:auto;white-space:nowrap;padding-bottom:.2rem}
+@media(max-width:900px){
+  .flow ol{grid-template-columns:1fr;row-gap:0}
+  .flow ol::before{left:.55rem;right:auto;top:.6rem;bottom:.6rem;width:1px;height:auto;background:linear-gradient(180deg,var(--gold-500),var(--gold-300),var(--gold-500))}
+  .flow li{grid-template-columns:1.3rem minmax(0,1fr);grid-template-rows:auto auto;justify-items:start;text-align:left;column-gap:.9rem;row-gap:.15rem;padding:.55rem 0}
+  .flow li::before{grid-row:1 / span 2;align-self:start;margin-top:.15rem}
+  .flow li b{margin-top:0;font-size:.95rem}
+  .flow li span{font-size:.84rem}
+}
 
 /* comparison */
 .vs{display:grid;grid-template-columns:1fr 1fr;gap:1.1rem;margin-top:2.6rem}
@@ -688,8 +696,6 @@ section[data-serial] > .wrap{position:relative;z-index:1}
   .stage .side{display:none}
   .stage .heroP{--pw:min(86vw,20rem)}
   .shot .phone{--pw:min(86vw,22rem);margin:0 auto}
-  .flow li{grid-template-columns:1.8rem minmax(0,1fr);column-gap:.7rem}
-  .flow li.hot::after{left:-.9rem}
   .vs .hunch::after{position:static;display:inline-block;margin-bottom:.8rem}
 }
 @media (prefers-reduced-motion: reduce){
