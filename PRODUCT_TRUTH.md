@@ -57,9 +57,64 @@ Quelle: `faeden.py`, `test_faeden.py`.
 Untrusted/synthetische (heartbeat) Ereignisse ausgeschlossen. Hinter Ausweis (Verhaltensprofil).
 Quelle: `vorhersage.py`, `test_vorhersage.py`; `GET /vorhersage`.
 
-### Pattern-of-Life / Wissensgraph — EXPERIMENTELL / ALS NÄCHSTES
-Kein Graph im Code. Vorhanden sind Stundenprofil + Markov-Übergangstabellen (als `notes`
-gecacht). Das ist statistische Mustererkennung, kein Wissensgraph. Nicht als fertig zeigen.
+### Pattern-of-Life / Wissensgraph — HEUTE (2026-08-22, G7)
+`graph.py`: Tabellen `graph_nodes`/`graph_edges` (thema, person, ort, datei, vorhaben, faden; Kanten
+erwaehnt/gehoert_zu/folgt_auf/gleichzeitig), regelbasierte Extraktion (kein LLM), inkrementell über
+`graph.cursor`, Dauerlauf „graph" alle 30 min mit Nulllauf-Protokoll; `GET /graph`, `GET /muster`
+(Stundenprofil + Übergänge aus `vorhersage.py` + Kadenzen + Graph-Kennzahlen), beide hinter Ausweis.
+Live 2026-08-22: 106 Knoten/625 Kanten aus 26 Erinnerungen + 416 Ereignissen. App: Brain → Graph
+(Canvas, Kraft-Layout einmal gerechnet, Tippen zeigt Name · Art) + Karte „Muster" (Build 105).
+`tests/test_graph.py`.
+
+### Sensoren / Rewind / Import — HEUTE (2026-08-22, G11; macOS)
+`sensoren.py`: Vordergrund-App, Fenstertitel (Bedienungshilfen-Recht), Browser-URL (Safari/Chrome via
+osascript), Dateiänderungen (Ordner aus `HUNCH_SENSOREN_ORDNER`), Screen-OCR nur mit Bildschirmaufnahme-
+Recht **und** installiertem tesseract (sonst ehrlich gemeldet); Ruhezeiten 23–7, Dedupe, Schleife 15 s,
+ein/aus über `HUNCH_SENSOREN`, `hunch sensoren an|aus|status`, `GET/POST /sensoren`; Ereignisse
+`source=sensor`. Standardmäßig nur ins Gedächtnis, `HUNCH_SENSOREN_OBSERVER=1` reicht an den Observer.
+MCP `search_screen`/`get_screen_activity` echt. `chat_import.py` + `hunch import <datei>` (txt/md,
+ChatGPT-`conversations.json`, Claude-Export) → Ereignisse `source=import` mit Originalzeit.
+`tests/test_sensoren.py` (15). Live: Sensoren 2026-08-22 eingeschaltet (OCR: tesseract fehlt).
+
+### Auslöser + Wiederaufnahme — HEUTE (2026-08-22, G8)
+`ausloeser.py`: Arten zeit (`taeglich 07:30`, `alle 30 min`, `mo,mi 09:00`, `werktags …`), datei
+(mtime-Polling), build (Kommando mit Exit≠0), kanal (Quelle+Muster, Hook in `Runtime.submit`) → Auftrag
+oder Faden; Wiederaufnahme: lange gescheiterte/wartende Fäden → `pausiert`, `POST /faeden/{id}/fortsetzen`.
+`GET/POST/DELETE /ausloeser`, `hunch ausloeser list|add|rm`, Schleife 60 s. Live: Zeitauslöser
+„Tagesstart 07:30" angelegt. `tests/test_ausloeser.py` (8).
+
+### Globale Konversation + Presence — HEUTE Runtime/CLI/Web/Telegram, App-Chat EXPERIMENTELL (G9)
+`memory.py`: `conversations`/`messages` im Schema und im Brain-Sync (Schema 4); Konsole, Telegram-Chat
+und Web-Chat spiegeln in denselben Verlauf, die Konsole liest eine Sitzung nach Neustart zurück;
+`GET /v1/conversations`, `GET /v1/conversations/{id}/messages`. `presence.py`: `POST/GET /v1/presence`,
+`app_state`-Ereignisse zählen; Impulse/Freigaben zuerst an die aktive Oberfläche (offene Verbindung), sonst
+alle offenen, sonst Push — Audit `zustellung`. App meldet Presence (Build 105). **Offen:** der App-Chat
+(AgentSession) ist noch nicht im conversations-Abgleich → Matrix: Experimentell. `tests/test_konversation.py`.
+
+### Vorhaben auf Desktop-Surfaces — HEUTE (2026-08-22, G10)
+`hunch vorhaben list|add|stand`, Weboberfläche (Abschnitt Vorhaben, `GET /vorhaben/ansicht`), Cockpit-Block.
+`tests/test_vorhaben_surfaces.py` (6).
+
+### Vorhaben-Ausführer (2.0) — HEUTE (2026-08-22, G12)
+`planer.py`: Plan (3–8 Schritte) aus dem Executive-Modell in `vorhaben_plaene`, Schritte als Fäden unter
+`vorhaben:<id>`, rückt nach fertigen Fäden vor, schreibt `stand`/`next_step`; Fehlschlag → einmal neu planen,
+dann `pausiert` + Impuls; Schleife „planer" 60 s setzt nach Neustart fort; Modellwechsel ändert den Zustand
+nicht (liegt in der DB). `POST /vorhaben/{id}/ausfuehren`, `GET /vorhaben/{id}/plan`,
+`POST /vorhaben/{id}/pausieren`; App: „Ausführen lassen"/Plan/„Pausieren" unter jedem aktiven Vorhaben
+(Build 105). `tests/test_planer.py` (6). Rückfragen nur für Besitzer-Entscheidungen: sichere/reversible
+Schritte ohne Nachfrage (Governor), kritische durchs Gate.
+
+### Agenten-Tresor — HEUTE (2026-08-22, G5)
+`agent_tresor.py`: `tresor_eintraege` (login/payment/passkey), Geheimnis nur mit dem Tresor-Schlüssel
+verschlüsselt (Anlegen nur bei offenem Tresor), Werkzeug `vault_use` (immer critical, `HART_IMMER_FRAGEN` —
+kein „immer annehmen"; Zahlungsmittel nur mit Zweck + Betrag), Audit schwärzt Geheimnisse,
+`GET/POST/DELETE /v1/vault/items`, `POST …/reveal`, `hunch tresor list|add`. App: Wallet → „An Maschine
+geben" + Abschnitt „Auf der Maschine" (Build 105). `tests/test_agent_tresor.py` (7).
+
+### Apple Watch — HEUTE (Build 105, G13)
+watchOS-Target `HunchWatch`: Freigaben (WatchConnectivity ↔ iPhone, Freigeben/Ablehnen), Arbeitsschritt der
+Work-Live-Activity als Zeile, HUNCH_APPROVAL-Aktionen auf der Uhr, Sprechen (Diktat → Maschine → Antwort
+vorgelesen). Offen: Complication, Gerätetest durch Dominik.
 
 ### Werkzeuge — HEUTE (vier Herkünfte, ein Verzeichnis)
 - **Eingebaut:** `search_memory`, `remember`, `list_tasks`, `add_task`, `run_command`,
@@ -147,7 +202,7 @@ Ebene (Kategorie „Präferenz") — kein eigener Speicher.
   (`read_only` | `write_low_risk` | `critical_action`), `Ausweis.darf(quelle, risk)`; Einlass-Code beginnt mit
   `write_low_risk`; Fäden prüfen die Grenze ihrer Quelle; `GET/POST /v1/identity/geraete`, `hunch geraete`; App: Profil →
   Nachweise → Maschinen → **Vertrauen** (Grenze setzen/entziehen, Build 104). `tests/test_geraete.py`.
-- Noch offen (ALS NÄCHSTES): geräteübergreifende Authority-Oberfläche (Presence-Routing, G9).
+- Geräteübergreifende Authority-Oberfläche — HEUTE (G9/G13): Freigaben an die aktive Oberfläche, sonst Push; Uhr, iPhone, CLI, Web.
 
 ### Endpoints — HEUTE (39 HTTP + 2 WebSocket, code-verifiziert)
 identity: `/v1/identity`, `/v1/identity/enroll|challenge|verify|grant`, `/v1/einlass[/erzeugen]`

@@ -876,7 +876,7 @@ section[data-serial] > .wrap{position:relative;z-index:1}
     ruhende Projekte, ungewöhnliche Aktivitätszeiten, neue Brücken zwischen bisher getrennten Themen und
     relevante alte Entscheidungen im aktuellen Kontext. Diese vier Antizipationsarten sind reine Statistik
     über dein eigenes Gedächtnis — kein zusätzlicher Modell-Aufruf, keine Kosten. Ein breiteres
-    „Pattern of Life" über eine einzige Runtime ist noch im Ausbau. <span class="tag exp">Experimentell</span></p>
+    „Pattern of Life" läuft in einer Runtime: Stundenprofil, Übergänge, Kadenzen und der Wissensgraph stehen unter <span class="mono">/muster</span> und <span class="mono">/graph</span>. <span class="tag heute">Heute</span></p>
   </div>
 </section>
 
@@ -901,7 +901,7 @@ section[data-serial] > .wrap{position:relative;z-index:1}
       <b>Aufgabe ≠ Vorhaben.</b> Eine Aufgabe ist ein einzelner Schritt. Ein Vorhaben ist etwas, das du
       erreichen oder verändern möchtest. Hunch entscheidet nicht über dein Ziel.
       <div class="note">Der Mensch bestimmt Zweck und Ziel — Hunch entscheidet den Weg innerhalb seiner Authority.
-      Mehrtägige autonome Vorhaben sind Teil der 2.0-Vision. <span class="tag vision">Vision</span></div>
+      Mehrtägige Vorhaben laufen: Plan aus Schritten, Schritte als Fäden, über Tage und Neustarts, Fehlschlag → neu planen oder pausieren und fragen. <span class="tag heute">Heute</span></div>
     </div>
   </div>
 </section>
@@ -939,8 +939,7 @@ section[data-serial] > .wrap{position:relative;z-index:1}
       funktionieren und wann eine frühere Annahme nicht mehr stimmt.
       <div class="note">Kein autonomes Training eines eigenen Foundation-Models, keine unkontrollierte
       Selbstprogrammierung, kein Umschreiben des gesamten Source-Codes. Erfolgreiche Abläufe werden zu
-      kontrollierbaren Skills — sichtbar, editierbar und entfernbar. Teile des Pattern-of-Life-Systems
-      sind heute Prototyp und noch nicht in einer einzigen Runtime vereinigt. <span class="tag exp">Experimentell</span></div>
+      kontrollierbaren Skills — sichtbar, editierbar und entfernbar. Pattern of Life und Wissensgraph laufen in einer Runtime (Schleife „graph", inkrementell, ohne Modellaufruf). <span class="tag heute">Heute</span></div>
     </div>
   </div>
 </section>
@@ -1050,9 +1049,7 @@ section[data-serial] > .wrap{position:relative;z-index:1}
     <div class="rule reveal">
       Gemeinsame Identität und gemeinsames Gedächtnis sind vorhanden; App, Runtime und MCP können bereits
       Kontext teilen; persistente Sessions und Fäden existieren in Teilen des Systems.
-      <div class="note">Eine einzige, nahtlose Live-Konversation mit vollständigem Verlauf und
-      Presence-Routing über jede Surface ist noch im Ausbau. Es wird heute nicht jedes Wort eines Chats
-      auf jedem Gerät nahtlos fortgesetzt. <span class="tag next">Als Nächstes</span></div>
+      <div class="note">Runtime, CLI, Web und Telegram teilen heute einen Verlauf, und Impulse gehen an die aktive Oberfläche (Presence); der App-Chat kommt mit dem nächsten Build in denselben Verlauf. <span class="tag exp">Experimentell</span></div>
     </div>
   </div>
 </section>
@@ -1117,7 +1114,7 @@ section[data-serial] > .wrap{position:relative;z-index:1}
       <div class="card reveal"><h3>Isolation <span class="tag heute">Heute</span></h3><p>Gäste erhalten einen getrennten Kontext — weder dein persönliches Gedächtnis noch deine Werkzeuge.</p></div>
       <div class="card reveal"><h3>Impuls- &amp; Fehlerbremse <span class="tag heute">Heute</span></h3><p>Mindestabstand plus Tagesgrenze für Impulse; drei Fehlschläge eines Werkzeugs führen zu einer Pause.</p></div>
       <div class="card reveal"><h3>Rückweg &amp; Grenze <span class="tag heute">Heute</span></h3><p>Gemerkte Fakten und angelegte Aufgaben lassen sich zurücknehmen; die Grenze — was Hunch nie ohne Rückfrage tut — ist an einer Stelle einsehbar. Jede Handlung steht mit Begründung im Fahrtenbuch; der Rückweg gilt für alles Rückholbare, Shell- und Agentenläufe sind ehrlich als nicht umkehrbar markiert; jedes Gerät hat seine Aktionsgrenze. <span class="tag heute">Heute</span></p></div>
-      <div class="card reveal"><h3>World ID · Human in the Loop <span class="tag exp">Experimentell</span></h3><p>Zweiter Weg für dieselbe Freigabe: du bestätigst in der World App mit deinem Proof of Human; der Proof ist an die Aktion und eine einmalige, von Hunch signierte Nonce gebunden, wird gegen die World-API verifiziert und landet mit Nullifier und Credential im Audit. Ausweis und App-Freigabe bleiben immer der Standard- und Notfallweg.</p></div>
+      <div class="card reveal"><h3>World ID · Human in the Loop <span class="tag heute">Heute</span></h3><p>Zweiter Weg für dieselbe Freigabe: du bestätigst in der World App mit deinem Proof of Human; der Proof ist an die Aktion und eine einmalige, von Hunch signierte Nonce gebunden, wird gegen die World-API verifiziert und landet mit Nullifier und Credential im Audit. Ausweis und App-Freigabe bleiben immer der Standard- und Notfallweg.</p></div>
     </div>
     <div class="rule reveal">
       Hunch darf wahrnehmen, eine Absicht formulieren und etwas vorschlagen — aber nur mit entsprechender
@@ -1287,21 +1284,28 @@ section[data-serial] > .wrap{position:relative;z-index:1}
         <li>Fahrtenbuch: jede Handlung mit Begründung, Ausgang und Rückweg (Runtime &amp; App)</li>
         <li>Rückweg für alles Rückholbare — Erinnerungen, Aufgaben, Vorhaben &amp; ihre Änderungen, Ebenen, gelernte Skills, Dateien; Shell/Agent ehrlich als nicht umkehrbar markiert</li>
         <li>Geräte- &amp; Aktionsgrenzen: jedes Gerät, jeder Kanal bis zu seiner Risikoklasse (Nur lesen · Lesen und merken · Alles)</li>
+        <li>Wissensgraph &amp; Pattern of Life: Themen, Personen, Orte, Dateien, Vorhaben, Fäden als Graph; Stundenprofil, Übergänge, Kadenzen (Runtime, App → Brain → Graph)</li>
+        <li>App-/Fenster-/Browser-/Datei-Kontext als Sensoren der Maschine (einschaltbar, Ruhezeiten; Screen-OCR mit tesseract), Rewind über MCP, Transcript-Import (ChatGPT/Claude-Export, Text)</li>
+        <li>Proaktive Predictions &amp; Nudges: Vorhersage-Impulse im Heartbeat, Zustellung an die aktive Oberfläche, sonst Push</li>
+        <li>Presence-Routing: die Maschine weiß, welche Oberfläche gerade aktiv ist, und liefert dorthin</li>
+        <li>Vorhaben auf Desktop-Surfaces: <span class="mono">hunch vorhaben</span>, Weboberfläche, Cockpit</li>
+        <li>Agenten-Tresor: Logins, Zahlungsmittel, Passkeys aus dem Wallet an die Maschine — jede Nutzung durchs Authority Gate, Zahlungsmittel nur mit Zweck und Betrag, Geheimnis nie im Protokoll</li>
+        <li>Apple-Watch-App: Freigaben, Arbeitsschritt, Sprechen über die verbundene Maschine</li>
+        <li>Vorhaben-Ausführer: Ziel setzen, Plan aus Schritten, Schritte als Fäden, über Tage und Neustarts; Fehlschlag → einmal neu planen, dann pausieren und fragen; Rückfragen nur, wo das Gate sie verlangt</li>
+        <li>Auslöser: Zeit, Dateiänderung, fehlgeschlagener Build, Kanal-Nachricht → Auftrag oder Faden; pausierte Fäden wieder aufnehmen</li>
       </ul></div>
       <div class="col reveal"><h3><span class="tag exp">Experimentell</span></h3><ul>
-        <li>Pattern of Life</li><li>Wissensgraph</li><li>App-/Browser-/Datei-/Screen-Kontext</li>
-        <li>Rewind &amp; Transcript-Import</li>
-        <li>Proaktive Predictions &amp; Nudges (Heartbeat heute, Push in Prüfung)</li>
+        <li>Globale Live-Konversation: Runtime, CLI, Web und Telegram teilen einen Verlauf — der App-Chat kommt mit dem nächsten Build in den Abgleich</li>
+        <li>Screen-OCR: nur mit tesseract; Fenstertitel nur mit Bedienungshilfen-Recht</li>
       </ul></div>
       <div class="col reveal"><h3><span class="tag next">Als Nächstes</span></h3><ul>
-        <li>Vollständig globale Live-Konversation</li>
-        <li>Presence-Routing</li>
-        <li>Vorhaben auch auf Desktop-Surfaces</li>
+        <li>App-Chat im globalen Verlauf</li>
+        <li>Watch-Complication</li>
+        <li>Screen-OCR ohne Zusatzinstallation (Vision)</li>
       </ul></div>
       <div class="col reveal"><h3><span class="tag vision">Vision 2.0</span></h3><ul>
-        <li>Mehrtägige Vorhaben</li><li>Selbstständige Wahl des Wegs bei gesetztem Ziel</li>
-        <li>Reaktion auf Pausen, Fehlschläge, veränderte Bedingungen</li>
-        <li>Rückfragen nur für Entscheidungen, die dir gehören</li>
+        <li>Ausgeliefert: mehrtägige Vorhaben, Wegwahl innerhalb der Authority, Reaktion auf Fehlschläge, Rückfragen nur für Besitzer-Entscheidungen</li>
+        <li>Offen bleibt die Richtung: ein Gegenüber, das über Jahre mit dir mitwächst</li>
         <li>Ein dauerhaftes Gegenüber über Modelle, Geräte und Jahre</li>
         <li>Relay-Dienst (Erreichbarkeit ohne eigenes Netz) — bewusst nicht geplant; Erreichbarkeit läuft über ein privates Netz deiner Wahl (VPN/Mesh) — deine Geräte, keine fremde Mitte</li>
       </ul></div>
