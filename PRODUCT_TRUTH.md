@@ -136,9 +136,18 @@ Ebene (Kategorie „Präferenz") — kein eigener Speicher.
   `add_task(goal=…)` verknüpft Schritt ↔ Vorhaben, `/vorhaben` (Ausweis-gated), Abgleich über `/brain/sync`
   (jüngerer Stand gewinnt); App: BrainGoal.stand/nextStep (Schema v2), Bearbeiten in der Zielzeile, MCP get_goals.
 - **Grenze einsehbar — HEUTE (2026-08-21):** `GET /grenze`; App: „Die Grenze“.
-- Noch nicht vollständig (ALS NÄCHSTES): fein abgestuftes Vertrauen pro Gerät/Aktion,
-  vollständiges Undo für jede Aktion (Shell/Agenten), universell sichtbare Begründung vor JEDER Aktion, geräteübergreifende
-  Authority-Oberfläche.
+- **Fahrtenbuch (Action-Log) — HEUTE (2026-08-22, G3):** jeder Audit-Eintrag trägt Begründung (`reasoning`, vor der
+  Ausführung gesetzt), `rueckweg_id` und `umkehrbar` (True/False/None); `GET /audit` liefert `rueckweg_offen`.
+  App: Einstellungen → Agent-Runtime → **Fahrtenbuch** mit Zurück-Knopf (Build 104). `tests/test_fahrtenbuch.py`.
+- **Umfassendes Undo — HEUTE (2026-08-22, G3):** Rückweg-Typen `memory`, `task`, `goal`, `goal_update` (alter
+  Stand/nächster Schritt/Fortschritt/aktiv), `memory_scope`, `skill` (gelernte SKILL.md + Registrierung), `file`
+  (Schnappschuss in `~/.hunch/rueckweg/`, oder Datei wieder entfernen). `run_command`, `run_agent`, `web_ansehen` sind
+  ausdrücklich **nicht umkehrbar** (`UNUMKEHRBAR`) und so protokolliert — kein stilles Schweigen.
+- **Geräte- & Aktionsgrenzen — HEUTE (2026-08-22, G4):** Freigabe je Gerät/Kanal mit `max_risk`
+  (`read_only` | `write_low_risk` | `critical_action`), `Ausweis.darf(quelle, risk)`; Einlass-Code beginnt mit
+  `write_low_risk`; Fäden prüfen die Grenze ihrer Quelle; `GET/POST /v1/identity/geraete`, `hunch geraete`; App: Profil →
+  Nachweise → Maschinen → **Vertrauen** (Grenze setzen/entziehen, Build 104). `tests/test_geraete.py`.
+- Noch offen (ALS NÄCHSTES): geräteübergreifende Authority-Oberfläche (Presence-Routing, G9).
 
 ### Endpoints — HEUTE (39 HTTP + 2 WebSocket, code-verifiziert)
 identity: `/v1/identity`, `/v1/identity/enroll|challenge|verify|grant`, `/v1/einlass[/erzeugen]`
