@@ -180,11 +180,11 @@ Ebene (Kategorie „Präferenz") — kein eigener Speicher.
   `GET/POST /rueckweg`; App: Einstellungen → Agent-Runtime → Rückweg. Erinnerungen/Aufgaben/Vorhaben.
 - **Wallet (Logins, Zahlungsmethoden, Passkeys) — HEUTE, Menschen-Seite (2026-08-22, Build 99):** App → Profil → Wallet:
   Einträge lokal, Geheimnisse im Schlüsselbund (SecretStore), Aufdecken nur mit Face ID/Code. Agenten-Seite (Runtime-Tresor,
-  Werkzeug hinter Authority Gate, Audit/Rückweg) — ALS NÄCHSTES.
+  Werkzeug hinter Authority Gate, Audit/Rückweg) — HEUTE seit Build 105 (Agenten-Tresor `tresor.py`, `vault_use`).
 - **Mitteilungen als Authority-Gate-Anfrage beim Öffnen — HEUTE (Build 102):** `MitteilungenGateView` (Ink-Karte,
   Erlauben/Später), erst „Erlauben" ruft den System-Dialog; Gerätezeichen geht an jede verbundene Maschine (`pushEinrichten`).
 - **Freigaben aus der Mitteilung — HEUTE (Build 98):** Push-Kategorie HUNCH_APPROVAL mit Freigeben (Face ID)/Ablehnen; erscheint auf
-  iPhone und gespiegelt auf der Apple Watch. Eigene Watch-App (Voice über verbundene Maschinen) — ALS NÄCHSTES.
+  iPhone und gespiegelt auf der Apple Watch. Eigene Watch-App: Freigaben + Complication — HEUTE seit Build 107; Watch-Voice über die verbundene Maschine — siehe Z8.
 - **Profil = Credential-Hub — HEUTE (Build 99):** Ausweis, Nachweise (HID/Secure Enclave, World ID, vertrauende Maschinen), Wallet, Profile.
 - **World ID Human in the Loop — EXPERIMENTELL (2026-08-22):** Runtime `world_id.py` + Sidecar (offizielles IDKit): `GET /world`,
   `POST/GET /approvals/{id}/world`; Proof an Action `authority-approve` + RP-signierte Nonce gebunden, Verify gegen
