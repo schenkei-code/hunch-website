@@ -10,7 +10,7 @@ Status-Legende:
 - **ALS NÄCHSTES** — in Arbeit / nahe Roadmap
 - **VISION** — 2.0-Zielbild, nicht ausgeliefert
 
-Repos geprüft (Stand 2026-08-21):
+Repos geprüft (Stand 2026-08-31):
 - `hunch-runtime` @ `init-runtime` — Python-Runtime, FastAPI, CLI, MCP-Server
 - `hunch-app-repo` (hunch-app) @ `feat/english-localization` — iOS-App (Pocket)
 - `hunch-harness`, `hunch-windows`, `hunch` (Brain-Forschung), `hunch-website`
@@ -236,13 +236,11 @@ Kein gehosteter Relay-Dienst. Erreichbarkeit von unterwegs = Tailscale-Adresse +
 ## App / iOS — verifiziert (branch feat/english-localization)
 
 ### Hub — HEUTE
-Aktueller Code (`AppModel.swift:27`, `HunchHubView.swift`) hat **7 Kacheln**: brain, maschinen,
-kanaele, skills, faeden, **sitzung**, nodes.
-**Diskrepanz/Blocker:** Die Produktvorgabe sagt, „Sitzung" soll NICHT mehr als aktueller Hub
-gezeigt werden — der Code auf diesem Branch enthält die Kachel aber noch. Auf der Website wird
-der Hub mit den **6** vom Besitzer bestimmten Punkten beschrieben (brain, maschinen, kanäle,
-skills & mcps, fäden, nodes). Wenn Sitzung wirklich raus soll, muss der App-Code angepasst
-werden — offener Punkt, im Delivery gemeldet.
+Der aktuelle Hub zeigt **11 Einträge**: Freigaben, Brain, Maschinen, Kanäle,
+Skills & MCPs, Fäden, Bildschirm, Intention, Nodes, Apps und GitHub.
+`.sitzung` ist nur der interne Routenschlüssel für `SitzungView`; sichtbar heißt
+die Fläche „Intention“. Es gibt dazu keinen offenen Produkt-Blocker.
+Quelle: `AppModel.swift:24-29`, `HunchHubView.swift:63-124`.
 
 ### Dynamic Island / Work Live Activity — HEUTE
 `WorkActivityAttributes.swift` Phase-Enum: **denkt, arbeitet, wartet, fertig, gescheitert**.
@@ -252,10 +250,14 @@ Deep-Link `pocket://chat`. Zweite (Voice) Live Activity existiert ebenfalls.
 Quelle: `HunchWidgets/WorkLiveActivity.swift`, `AI/WorkLiveActivityController.swift`.
 
 ### Voice — HEUTE (ehrlich)
-On-Device-Sprache (`VoiceEngine.swift`, `AVAudioSession .playAndRecord/.voiceChat`), Vordergrund-
-Modus im Chat. **Kein `UIBackgroundModes` in Info.plist** → die App kann NICHT spontan im
-Hintergrund eine Unterhaltung starten. Hintergrund-Signale kommen per APNs-Push, nicht per Audio.
-So auf der Website darstellen. Quelle: `Info.plist`, `VoiceEngine.swift`, `PushRegistrar`.
+Voice nimmt Audio auf dem Gerät auf; die Gesprächsverarbeitung läuft wahlweise
+über Gemini Live mit Nutzer-Key oder über die verbundene Runtime-/S2S-Brücke.
+`UIBackgroundModes` enthält `audio`; die Audio-Session unterstützt Bluetooth,
+A2DP und AirPlay. Siri/CarPlay kann die App über „Sprich mit Hunch“ öffnen und
+Voice sofort starten. Hunch startet weiterhin kein Gespräch autonom aus dem
+Hintergrund; proaktive Signale kommen per APNs.
+Quelle: `VoiceSettingsView.swift:8-17`, `VoiceEngine.swift:95-111, 460-468`,
+`VoiceIntents.swift:5-17`, `Info.plist:5-8`.
 
 ### Identität / Secure Enclave — HEUTE
 EC-P-256-Schlüssel in der Secure Enclave (`kSecAttrTokenIDSecureEnclave`), biometrisch
@@ -268,20 +270,24 @@ Quelle: `AI/OwnerIdentity.swift`, `Connection/IntentionalAgentClient.swift:610`.
 ### App-Fähigkeiten — Status
 HEUTE (lokal, ohne Runtime seedbar): Brain (Erinnerungen/Aufgaben/Ziele/Gespräche, SQLite+FTS5),
 deterministische Predictions+Topics+Momentum (`BrainEngine`), lokale Nudges, Audit-Trail,
-Token-Budget (CostGovernor), Secure-Enclave-Identität, Work-Live-Activity, Voice (Vordergrund).
+Token-Budget (CostGovernor), Secure-Enclave-Identität, Work-Live-Activity,
+Voice und Hunch-Memory-Export/-Import als JSON.
 HEUTE, aber runtime-abhängig (holen live vom `IntentionalAgentClient`): Fäden, Nodes/Maschinen,
-Skills & MCPs mit Risiko, Sitzung/Vorhersage, Kanäle-Status, App-Nudge-Banner.
-EXPERIMENTELL/PLANNED: Pattern-of-Life, Wissensgraph, Rewind/Screen-Kontext-Sensoren
-(MCP-Tool-Definitionen `search_screen`/`get_screen_activity` existieren, aber „noch ohne Erfassung"),
-Transcript-Import extern, **strukturierte Arbeitspräferenzen mit Scopes** (heute nur flaches
-`UserIdentity.preferences: [String]`, kein Scope-Konzept — global/projekt/faden = Zielbild).
-Szene-Sensoren minimal: app_state + aktueller Screen (bewusst kleiner erster Umfang).
+Skills & MCPs mit Risiko, Intention/Vorhersage, Kanäle, Freigaben, Apps,
+GitHub, Wissensgraph/Pattern-of-Life, Bildschirm-Fernansicht und App-Nudges.
+Memory-Scopes `global`, `projekt:<id>` und `faden:<id>` sind in App, Runtime
+und Brain-Sync vorhanden. `UserIdentity.preferences` bleibt flach; strukturierte
+Präferenzen werden als Erinnerungen der Kategorie „Präferenz“ in einem Scope abgelegt.
+Externe Transkripte importiert heute die Runtime-CLI (txt/md, ChatGPT, Claude);
+die native iOS-Dateiauswahl akzeptiert derzeit nur Hunch-Memory-JSON.
+Grenze: Das iPhone selbst sendet als Szenensensor weiterhin nur `app_state`
+und den aktuellen App-Screen; Bildschirm-OCR entsteht auf der Maschine.
 
 ### StoreKit / Paywall — EXISTIERT NICHT
 Kein StoreKit/Paywall/IAP im aktuellen Branch. „Subscription"-Treffer betreffen OAuth-Login
 gegen ein bestehendes ChatGPT/Claude-Abo als Alternative zum API-Key, keine App-Store-Monetarisierung.
 
-### Screenshot-Fixtures — NEU implementiert
+### Screenshot-Fixtures — HEUTE
 `-uitest-marketing-fixtures` seedet lokal reproduzierbare, anonymisierte Demo-Daten (Brain,
 Identität, Audit, Budget). Runtime-abhängige Screens (Fäden/Nodes/Skills/Sitzung/Kanäle) brauchen
 einen Fixture-Pfad im `IntentionalAgentClient` — siehe Delivery, welche Screens echt gefüllt sind
