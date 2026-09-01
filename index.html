@@ -13,6 +13,7 @@
 <meta property="og:image" content="https://hunchagent.io/owl-bronze.png">
 <meta name="theme-color" content="#0d0d0b">
 <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js" integrity="sha384-Ftcjj/GNLxPvzNDftO/oryXB9aGxsGZY9JGqsXG0uUKgQDl9RfDgsx9NJ/4IVNPe" crossorigin="anonymous"></script>
+<script src="site-nav.js" defer></script>
 <link rel="alternate" hreflang="de" href="https://hunchagent.io/">
 <link rel="alternate" hreflang="en" href="https://hunchagent.io/en/">
 <link rel="alternate" hreflang="x-default" href="https://hunchagent.io/">
@@ -42,7 +43,7 @@
   --display:-apple-system,BlinkMacSystemFont,"SF Pro Display","Helvetica Neue",Arial,sans-serif;
   --text:-apple-system,BlinkMacSystemFont,"SF Pro Text","Helvetica Neue",Arial,sans-serif;
   --mono:"SFMono-Regular",ui-monospace,"Cascadia Mono","Roboto Mono",monospace;
-  --r-card:18px; --r-doc:28px; --r-field:12px;
+  --r-action:9px; --r-card:18px; --r-doc:28px; --r-field:12px;
   --maxw:1120px;
   /* guilloché: gekreuzte Wellenfamilien, statisch, ≤14 % Gold, nie hinter Primärtext */
   --guilloche-paper:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='54' viewBox='0 0 160 54'><g fill='none' stroke='%23ae862e' stroke-opacity='.16'><path d='M0 27C26.7 9 53.3 9 80 27S133.3 45 160 27' stroke-width='.8'/><path d='M0 27C26.7 45 53.3 45 80 27S133.3 9 160 27' stroke-width='.8'/><path d='M0 14C26.7 5 53.3 5 80 14S133.3 23 160 14' stroke-width='.5'/><path d='M0 40C26.7 49 53.3 49 80 40S133.3 31 160 40' stroke-width='.5'/></g></svg>");
@@ -56,6 +57,7 @@ body{background:var(--bg);color:var(--ink);font:400 100%/1.6 var(--text);-webkit
   background-attachment:fixed}
 a{color:inherit;text-decoration:none}
 img,video{max-width:100%;display:block}
+.sr-only{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);clip-path:inset(50%);white-space:nowrap;border:0}
 .wrap{max-width:var(--maxw);margin:0 auto;padding:0 clamp(1rem,4vw,1.5rem)}
 ::selection{background:var(--gold-300);color:var(--ink-1000)}
 h1,h2,h3{font-family:var(--display);letter-spacing:-.02em}
@@ -87,31 +89,38 @@ nav.over-ink .nav-links a:hover{color:var(--ivory-50)}
 nav.over-ink .logo img{filter:brightness(0) invert(1)}
 nav.over-ink .nav-serial{color:var(--gold-300);border-color:var(--security-line-dark)}
 nav.over-ink.scrolled{box-shadow:0 8px 24px rgba(0,0,0,.35)}
-.logo{display:flex;align-items:center;gap:.55rem;font-weight:700;font-size:1.05rem;letter-spacing:-.02em;text-transform:lowercase;flex:0 0 auto;margin-right:.6rem}
+.logo{display:flex;min-height:44px;align-items:center;gap:.55rem;font-weight:700;font-size:1.05rem;letter-spacing:-.02em;text-transform:lowercase;flex:0 0 auto;margin-right:.6rem}
 .logo img{width:1.5rem;height:auto;max-height:1.9rem;object-fit:contain}
 .nav-links{display:flex;gap:1rem;font:500 .76rem/1 var(--text);color:var(--dim);white-space:nowrap;flex:0 1 auto;min-width:0}
-.nav-links a{transition:color var(--t-micro) var(--ease)}
+.nav-links a{display:inline-flex;min-height:44px;align-items:center;transition:color var(--t-micro) var(--ease)}
 .nav-links a:hover{color:var(--ink)}
-.lang{font:700 .62rem/1 var(--mono);letter-spacing:.14em;color:var(--dim);padding:.4em .2em;margin-left:.2rem}
+.lang{display:inline-flex;min-width:44px;min-height:44px;align-items:center;justify-content:center;font:700 .62rem/1 var(--mono);letter-spacing:.14em;color:var(--dim);padding:.4em .2em;margin-left:.2rem}
 .lang:hover{color:var(--ink)}
 nav.over-ink .lang{color:var(--ivory-300)}
 nav.over-ink .lang:hover{color:var(--ivory-50)}
 .nav-serial{font:600 .58rem/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--security-gold);border-left:1px solid var(--security-line);padding-left:1rem;white-space:nowrap}
-.nav-cta{font-size:.8rem;font-weight:700;padding:.5rem 1rem;border-radius:8px;border:1px solid var(--gold-400);
+.nav-cta{display:inline-flex;min-height:44px;align-items:center;justify-content:center;font-size:.8rem;font-weight:700;padding:.5rem 1rem;border-radius:var(--r-action);border:1px solid var(--gold-400);
   background:linear-gradient(135deg,#efcf6f,#c79a3a);color:#4a3410;
   box-shadow:inset 0 1px rgba(255,255,255,.55),0 4px 12px rgba(190,140,46,.2);transition:transform var(--t-micro) var(--ease);white-space:nowrap}
 .nav-cta:active{transform:scale(.97)}
 
 /* buttons — Folie heißt Autorität: Gold nur auf der Handlung */
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;font-size:.95rem;font-weight:700;
-  padding:.8rem 1.4rem;border-radius:8px;min-height:48px;border:1px solid transparent;transition:transform var(--t-micro) var(--ease),box-shadow var(--t-shift) var(--ease)}
+  padding:.8rem 1.4rem;border-radius:var(--r-action);min-height:48px;border:1px solid transparent;transition:transform var(--t-micro) var(--ease),box-shadow var(--t-shift) var(--ease)}
 .btn-primary{background:linear-gradient(135deg,#efcf6f,#c79a3a);color:#4a3410;border-color:var(--gold-400);
   box-shadow:inset 0 1px rgba(255,255,255,.55),0 6px 16px rgba(190,140,46,.2)}
 .btn-primary:hover{transform:translateY(-1px);box-shadow:inset 0 1px rgba(255,255,255,.6),0 10px 22px rgba(190,140,46,.26)}
 .btn-primary:active{transform:scale(.98)}
-.btn-quiet{color:var(--ink-1000);padding:.8rem 1.2rem;min-height:48px;border:1px solid rgba(13,13,11,.4);border-radius:8px;background:transparent}
+.btn-quiet{color:var(--ink-1000);padding:.8rem 1.2rem;min-height:48px;border:1px solid rgba(13,13,11,.4);border-radius:var(--r-action);background:transparent}
 .btn-quiet:hover{border-color:var(--ink-1000)}
-.btn-quiet:focus-visible,.btn-primary:focus-visible,a:focus-visible,button:focus-visible{outline:2px solid var(--gold-500);outline-offset:3px;border-radius:6px}
+.btn-quiet:focus-visible,.btn-primary:focus-visible,a:focus-visible,button:focus-visible{outline:2px solid var(--gold-500);outline-offset:3px;border-radius:var(--r-action)}
+
+.menu-toggle{display:none;min-width:58px;min-height:44px;align-items:center;justify-content:center;border:1px solid currentColor;border-radius:var(--r-action);background:transparent;color:inherit;font:700 .68rem/1 var(--mono);letter-spacing:.08em}
+.mobile-menu{display:none;position:fixed;inset:calc(3.75rem + env(safe-area-inset-top)) 0 0;z-index:59;overflow-y:auto;overscroll-behavior:contain;background:var(--ivory-100);color:var(--ink);padding:1rem clamp(1rem,4vw,1.5rem) calc(2rem + env(safe-area-inset-bottom));border-top:1px solid var(--security-line)}
+.mobile-menu a{display:flex;min-height:44px;min-width:0;align-items:center;border-bottom:1px solid var(--security-line-soft);font-weight:650;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.mobile-menu .mobile-menu-meta{font-family:var(--mono);font-size:.72rem;letter-spacing:.08em;color:var(--stone-600)}
+.mobile-menu .mobile-menu-cta{justify-content:center;margin-top:1rem;border:1px solid var(--gold-400);border-radius:var(--r-action);background:linear-gradient(135deg,#efcf6f,#c79a3a);color:#4a3410}
+html.mobile-menu-open,body.mobile-menu-open{overflow:hidden}
 
 /* sections — jede Fläche trägt Herkunft: Serienzeile oben (Nummer · Titel · Scope) */
 section{padding:clamp(3.6rem,8vw,6.2rem) 0;position:relative}
@@ -172,30 +181,7 @@ h2{font-size:clamp(2rem,4.8vw,3.5rem);font-weight:800;line-height:1.02;margin-to
 .g4{grid-template-columns:repeat(4,1fr)}
 .card h3{font-size:1.05rem;font-weight:700;margin-bottom:.5rem;display:flex;align-items:center;gap:.5rem;flex-wrap:wrap;letter-spacing:-.01em}
 .card p{color:var(--dim);font-size:.92rem;line-height:1.55}
-.card .k{font-family:var(--mono);font-size:.76rem;color:var(--gold-700);background:rgba(174,134,46,.1);border:1px solid var(--security-line);padding:.1em .4em;border-radius:4px}
-
-/* hunch-moment — Prozessdiagramm: eine Gold-Schiene, acht Knoten (desktop horizontal, mobil vertikal) */
-.flow{margin-top:2.2rem;background:var(--paper-pearl);border:1px solid var(--security-line);border-radius:var(--r-doc);padding:clamp(1.2rem,4vw,2.2rem) clamp(1.2rem,4vw,2.4rem);box-shadow:var(--document-shadow);position:relative;overflow:hidden}
-.flow::after{content:"";position:absolute;left:1.6rem;right:1.6rem;top:0;height:1px;background:linear-gradient(90deg,transparent,rgba(174,134,46,.5),transparent);pointer-events:none}
-.flow ol{list-style:none;counter-reset:step;display:grid;grid-template-columns:repeat(8,1fr);gap:0;position:relative}
-.flow ol::before{content:"";position:absolute;left:calc(100% / 16);right:calc(100% / 16);top:.55rem;height:1px;background:linear-gradient(90deg,var(--gold-500),var(--gold-300),var(--gold-500));opacity:.8}
-.flow li{counter-increment:step;position:relative;display:grid;grid-template-rows:auto auto auto;justify-items:center;text-align:center;padding:0 .5rem;row-gap:.45rem}
-.flow li::before{content:"";width:1.1rem;height:1.1rem;border-radius:50%;background:var(--ivory-50);border:1.5px solid var(--gold-500);box-shadow:0 0 0 4px var(--ivory-50);z-index:1;transition:transform var(--t-micro) var(--ease)}
-.flow li:hover::before{transform:scale(1.15)}
-.flow li.hot::before{background:linear-gradient(180deg,var(--gold-300),var(--gold-500));box-shadow:0 0 0 4px var(--ivory-50),0 0 0 5px rgba(174,134,46,.35)}
-.flow li b{display:block;font:700 .86rem/1.2 var(--display);letter-spacing:-.01em;color:var(--ink);margin-top:.3rem}
-.flow li b::before{content:counter(step,decimal-leading-zero) "  ";font:650 .56rem/1 var(--mono);letter-spacing:.12em;color:var(--security-gold)}
-.flow li span{display:block;font-size:.76rem;line-height:1.45;color:var(--dim)}
-.flow li.hot b{color:var(--gold-700)}
-.flow .seq{margin-top:1.4rem;padding-top:1rem;border-top:1px solid var(--security-line);font:600 .66rem/1.9 var(--mono);letter-spacing:.06em;color:var(--gold-700);text-align:center;overflow-x:auto;white-space:nowrap;padding-bottom:.2rem}
-@media(max-width:900px){
-  .flow ol{grid-template-columns:1fr;row-gap:0}
-  .flow ol::before{left:.55rem;right:auto;top:.6rem;bottom:.6rem;width:1px;height:auto;background:linear-gradient(180deg,var(--gold-500),var(--gold-300),var(--gold-500))}
-  .flow li{grid-template-columns:1.3rem minmax(0,1fr);grid-template-rows:auto auto;justify-items:start;text-align:left;column-gap:.9rem;row-gap:.15rem;padding:.55rem 0}
-  .flow li::before{grid-row:1 / span 2;align-self:start;margin-top:.15rem}
-  .flow li b{margin-top:0;font-size:.95rem}
-  .flow li span{font-size:.84rem}
-}
+.card .k{font-family:var(--mono);font-size:.76rem;color:var(--gold-700)}
 
 /* comparison */
 .vs{display:grid;grid-template-columns:1fr 1fr;gap:1.1rem;margin-top:2.6rem}
@@ -205,9 +191,8 @@ h2{font-size:clamp(2rem,4.8vw,3.5rem);font-weight:800;line-height:1.02;margin-to
 .vs .hunch::after{content:"owner bound";position:absolute;right:1.2rem;top:1.2rem;font:700 .56rem/1 var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--security-gold)}
 .vs .col h3{font-size:1.05rem;font-weight:700;margin-bottom:1rem}
 .vs ul{list-style:none;display:grid;gap:.6rem}
-.vs li{display:grid;grid-template-columns:1.2rem 1fr;gap:.6rem;font-size:.92rem;color:var(--ink-2);line-height:1.45}
-.vs .ordinary li::before{content:"–";color:var(--dim);font-weight:700}
-.vs .hunch li::before{content:"✓";color:var(--gold-600);font-weight:700}
+.vs li{font-size:.92rem;color:var(--ink-2);line-height:1.45;padding-left:.7rem;border-left:2px solid var(--stone-300)}
+.vs .hunch li{border-left-color:var(--gold-500)}
 
 /* memory architecture */
 .scopes{display:grid;gap:.9rem;margin-top:2.4rem}
@@ -215,7 +200,7 @@ h2{font-size:clamp(2rem,4.8vw,3.5rem);font-weight:800;line-height:1.02;margin-to
 .scope h3{font-size:1rem;display:flex;gap:.5rem;align-items:center;flex-wrap:wrap}
 .scope p{color:var(--dim);font-size:.9rem;margin-top:.35rem}
 .scope .items{margin-top:.6rem;display:flex;flex-wrap:wrap;gap:.4rem}
-.scope .items span{font:500 .74rem/1 var(--mono);color:var(--ink-2);background:rgba(255,255,255,.7);border:1px solid var(--security-line);border-radius:4px;padding:.35rem .55rem}
+.scope .items span{font:500 .74rem/1.4 var(--mono);color:var(--ink-2);padding:.35rem 0;border-bottom:1px solid var(--security-line)}
 .rule{margin-top:2rem;background:var(--paper-pearl);border:1px solid rgba(174,134,46,.45);border-radius:var(--r-card);padding:1.3rem 1.4rem;box-shadow:var(--shadow-s)}
 .rule b{color:var(--gold-700)}
 .rule .note{margin-top:.6rem;font-size:.85rem;color:var(--dim)}
@@ -227,22 +212,15 @@ h2{font-size:clamp(2rem,4.8vw,3.5rem);font-weight:800;line-height:1.02;margin-to
 
 /* phones — Produktframe: vollständige Bildfläche, kein Crop, keine künstliche Island */
 .stage{display:flex;align-items:center;justify-content:center;gap:1.5rem;margin-top:3rem;flex-wrap:nowrap}
-.phone{position:relative;width:var(--pw,15rem);flex:0 0 auto;border-radius:2.7rem;padding:.5rem;
+.phone{position:relative;width:var(--pw,15rem);flex:0 0 auto;border-radius:28px;padding:.5rem;
   background:linear-gradient(155deg,#eae5d7,#d0c8b3 42%,#b7ac90);
   box-shadow:0 2px 4px rgba(29,29,31,.08),0 26px 56px rgba(110,84,36,.18),inset 0 1px 2px rgba(255,255,255,.6)}
-.phone .screen{width:100%;border-radius:2.25rem;overflow:hidden;background:#F6F5F2;box-shadow:inset 0 0 0 1px rgba(0,0,0,.05)}
+.phone .screen{width:100%;border-radius:24px;overflow:hidden;background:#F6F5F2;box-shadow:inset 0 0 0 1px rgba(0,0,0,.05)}
 .phone .screen img,.phone .screen video{width:100%;height:auto;object-fit:contain;object-position:center top}
 .stage .side{--pw:12rem;opacity:.92}
 .stage .side.left{transform:rotate(-5deg) translateY(.8rem)}
 .stage .side.right{transform:rotate(5deg) translateY(.8rem)}
 .stage .heroP{--pw:16rem;z-index:2}
-.float{animation:flt 7s ease-in-out infinite}
-@keyframes flt{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
-.stage .side.left.float{animation-name:fltL}
-.stage .side.right.float{animation-name:fltR}
-@keyframes fltL{0%,100%{transform:rotate(-5deg) translateY(.8rem)}50%{transform:rotate(-5deg) translateY(.1rem)}}
-@keyframes fltR{0%,100%{transform:rotate(5deg) translateY(.8rem)}50%{transform:rotate(5deg) translateY(.1rem)}}
-
 /* screen figures */
 .screens{display:grid;grid-template-columns:repeat(3,1fr);gap:1.6rem 1.4rem;margin-top:2.8rem;align-items:start}
 .shot{display:flex;flex-direction:column}
@@ -252,11 +230,10 @@ h2{font-size:clamp(2rem,4.8vw,3.5rem);font-weight:800;line-height:1.02;margin-to
 .shot .phone{width:100%;--pw:100%}
 .shot.concept .screen{border:1px dashed rgba(174,134,46,.5)}
 .concept-badge{font:700 .58rem/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--gold-700);margin-left:.5rem}
-.concept-badge::before{content:"◌ "}
 
 /* island live activity strip */
 .island{display:flex;gap:1rem;flex-wrap:wrap;margin-top:2.4rem}
-.island .pill{flex:1 1 15rem;background:#0c0c0e;color:#fff;border-radius:1.4rem;padding:1.1rem 1.3rem;border:1px solid var(--security-line-dark);
+.island .pill{flex:1 1 15rem;background:#0c0c0e;color:#fff;border-radius:24px;padding:1.1rem 1.3rem;border:1px solid var(--security-line-dark);
   display:flex;align-items:center;gap:.9rem;box-shadow:var(--document-shadow)}
 .island .dot{width:2.4rem;height:2.4rem;border-radius:50%;flex:0 0 auto;display:flex;align-items:center;justify-content:center;color:var(--gold-300);border:1px solid rgba(231,207,130,.35)}
 .island .work{background:rgba(213,173,77,.16)}
@@ -319,7 +296,7 @@ footer{border-top:1px solid var(--security-line);padding:2.2rem 0 calc(2.2rem + 
 .gate-facts dt{font:500 .86rem/1.3 var(--text);color:rgba(255,254,250,.58);text-transform:none;letter-spacing:0}
 .gate-facts dd{margin:0;font:600 .86rem/1.3 var(--mono);color:var(--ivory-50);text-align:right}
 .gate-actions{margin:1.6rem 1.5rem 0;display:grid;grid-template-columns:1fr 1fr;gap:.75rem}
-.gate-btn{display:flex;align-items:center;justify-content:center;min-height:48px;padding:12px 16px;border:1px solid rgba(255,254,250,.4);border-radius:8px;color:var(--ivory-50);font-weight:700;font-size:.95rem}
+.gate-btn{display:flex;align-items:center;justify-content:center;min-height:48px;padding:12px 16px;border:1px solid rgba(255,254,250,.4);border-radius:var(--r-action);color:var(--ivory-50);font-weight:700;font-size:.95rem}
 .gate-btn.primary{background:linear-gradient(135deg,#efcf6f,#c79a3a);color:#4a3410;border-color:var(--gold-400);box-shadow:inset 0 1px rgba(255,255,255,.55),0 6px 16px rgba(190,140,46,.2)}
 .gate-foot{margin:1.2rem 1.5rem 1.4rem;padding-top:.8rem;border-top:1px solid rgba(255,254,250,.12);font:600 .55rem/1.5 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:rgba(255,254,250,.45)}
 #autoritaet .head-row{grid-template-columns:minmax(0,1fr) minmax(20rem,30rem);align-items:start}
@@ -341,10 +318,10 @@ footer{border-top:1px solid var(--security-line);padding:2.2rem 0 calc(2.2rem + 
 .specimen::before{content:attr(data-label);display:block;margin-bottom:1.1rem;padding-bottom:.7rem;border-bottom:1px solid var(--security-line);font:650 .58rem/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--security-gold)}
 .specimen .mono{font:600 .62rem/1.4 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--stone-500)}
 /* brain ledger */
-.ledger-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:.7rem}
-.stat{padding:.9rem 1rem;border:1px solid var(--security-line);border-radius:14px;background:rgba(255,255,255,.7)}
-.stat b{display:block;color:var(--gold-600);font:650 .62rem var(--mono)}
-.stat strong{display:block;margin:.7rem 0 .25rem;font:800 1.7rem/1 var(--display);letter-spacing:-.03em}
+.ledger-stats{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--security-line);border-bottom:1px solid var(--security-line)}
+.stat{padding:.9rem 1rem;border-right:1px solid var(--security-line)}
+.stat:last-child{border-right:0}
+.stat strong{display:block;margin:0 0 .25rem;font:800 1.7rem/1 var(--display);letter-spacing:-.03em}
 .stat span{font:650 .58rem/1.3 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--stone-500)}
 .ledger-rows{margin-top:1rem;border-top:1px solid var(--security-line)}
 .ledger-row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:1rem;padding:.7rem 0 .7rem .9rem;border-bottom:1px solid var(--security-line-soft);align-items:center;
@@ -356,7 +333,7 @@ footer{border-top:1px solid var(--security-line);padding:2.2rem 0 calc(2.2rem + 
 .session-strip b{font:700 .62rem/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--gold-700)}
 .session-strip span{font-size:.86rem;color:var(--dim)}
 .thread-list{display:grid;gap:.7rem}
-.thread{display:grid;grid-template-columns:12px 1fr auto;gap:.9rem;padding:1rem 1.1rem;border:1px solid var(--security-line);border-radius:14px;background:rgba(255,255,255,.7);position:relative}
+.thread{display:grid;grid-template-columns:12px 1fr auto;gap:.9rem;padding:1rem 1.1rem;border:1px solid var(--security-line);border-radius:16px;background:rgba(255,255,255,.7);position:relative}
 .thread::after{content:attr(data-scope);position:absolute;right:1.1rem;bottom:.6rem;font:600 .52rem/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--stone-500)}
 .thread i{width:8px;height:8px;margin-top:6px;border-radius:50%;background:var(--gold-400);box-shadow:0 0 0 4px rgba(213,173,77,.14)}
 .thread.wait i{background:var(--stone-500);box-shadow:0 0 0 4px rgba(113,107,94,.14)}
@@ -365,21 +342,20 @@ footer{border-top:1px solid var(--security-line);padding:2.2rem 0 calc(2.2rem + 
 .thread time{font:650 .6rem/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--gold-700);padding-top:.25rem}
 /* lanes — observer / executive */
 .lanes{display:grid;gap:.8rem}
-.lane{display:grid;grid-template-columns:9rem 1fr;gap:1rem;align-items:center;padding:.9rem 1rem;border:1px solid var(--security-line);border-radius:14px;background:rgba(255,255,255,.7)}
+.lane{display:grid;grid-template-columns:9rem 1fr;gap:1rem;align-items:start;padding:.9rem 1rem;border:1px solid var(--security-line);border-radius:16px;background:rgba(255,255,255,.7)}
 .lane.exec{background:linear-gradient(135deg,#151410,#25241f);color:var(--ivory-50);border-color:rgba(231,207,130,.28)}
-.lane header b{display:block;font:700 1rem/1.1 var(--display);letter-spacing:-.01em}
-.lane header span{display:block;margin-top:.25rem;font:600 .56rem/1.4 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--stone-500)}
+.lane header{min-width:0}
+.lane header b{display:block;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font:700 1rem/1.1 var(--display);letter-spacing:-.01em}
+.lane header span{display:block;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;margin-top:.25rem;font:600 .56rem/1.4 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--stone-500)}
 .lane.exec header span{color:var(--gold-300)}
-.steps{display:flex;flex-wrap:wrap;gap:.4rem;align-items:center}
-.steps span{font:600 .72rem/1 var(--mono);padding:.5rem .65rem;border:1px solid var(--security-line);border-radius:8px;background:rgba(255,255,255,.6)}
-.lane.exec .steps span{border-color:rgba(255,254,250,.22);background:rgba(255,255,255,.04)}
-.steps i{font-style:normal;color:var(--stone-500);font:600 .7rem var(--mono)}
-.lane.exec .steps i{color:rgba(255,254,250,.5)}
-.steps .gate{border-color:var(--gold-400);color:var(--gold-300);background:rgba(213,173,77,.12)}
+.lane-ledger{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid var(--security-line)}
+.lane-ledger span{display:block;min-width:0;min-height:2.35rem;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font:600 .68rem/1.35 var(--mono);padding:.55rem 0;border-bottom:1px solid var(--security-line);color:var(--ink-2)}
+.lane.exec .lane-ledger{border-top-color:rgba(255,254,250,.22)}
+.lane.exec .lane-ledger span{border-bottom-color:rgba(255,254,250,.18);color:var(--ivory-100)}
+.lane-ledger .gate{color:var(--gold-300)}
 .lane-bridge{display:grid;grid-template-columns:9rem 1fr;gap:1rem;align-items:center;padding:0 1rem}
 .lane-bridge span{font:600 .58rem/1.4 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--security-gold)}
 .lane-bridge i{display:block;height:1px;background:linear-gradient(90deg,var(--gold-400),transparent);position:relative}
-.lane-bridge i::before{content:"▼";position:absolute;left:2rem;top:-.55rem;font-size:.6rem;color:var(--gold-500);font-style:normal}
 /* session map */
 .session-map{display:grid;grid-template-columns:1fr auto 1fr;gap:1rem;align-items:center}
 .session-map .owner{justify-self:center;width:10.5rem;aspect-ratio:1;border-radius:50%;display:grid;place-content:center;text-align:center;gap:.25rem;
@@ -387,9 +363,8 @@ footer{border-top:1px solid var(--security-line);padding:2.2rem 0 calc(2.2rem + 
 .session-map .owner b{font:800 1.05rem/1 var(--display);text-transform:lowercase}
 .session-map .owner span{font:650 .54rem/1.5 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--gold-700)}
 .session-map ul{list-style:none;display:grid;gap:.5rem}
-.session-map li{display:grid;grid-template-columns:1fr auto;gap:.8rem;align-items:center;padding:.6rem .9rem;border:1px solid var(--security-line);border-radius:10px;background:rgba(255,255,255,.7);font-size:.9rem}
+.session-map li{display:grid;grid-template-columns:1fr auto;gap:.8rem;align-items:center;padding:.6rem .9rem;border:1px solid var(--security-line);border-radius:12px;background:rgba(255,255,255,.7);font-size:.9rem}
 .session-map li span{font:600 .54rem/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--stone-500)}
-.session-map li.target{border-style:dashed;color:var(--dim)}
 .session-map .left li{grid-template-columns:auto 1fr;text-align:left}
 /* scope rings */
 .scope-rings{display:grid;grid-template-columns:minmax(14rem,19rem) 1fr;gap:1.6rem;align-items:center}
@@ -401,16 +376,16 @@ footer{border-top:1px solid var(--security-line);padding:2.2rem 0 calc(2.2rem + 
 .scope-legend span{font:600 .56rem/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--stone-500);margin-left:.4rem}
 /* engine register */
 .engines{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
-.socket{padding:1rem 1.1rem;border:1px solid var(--security-line);border-radius:14px;background:rgba(255,255,255,.7)}
+.socket{padding:1rem 1.1rem;border:1px solid var(--security-line);border-radius:16px;background:rgba(255,255,255,.7)}
 .socket b{display:block;font:650 .58rem/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--stone-500)}
 .socket strong{display:block;margin-top:.5rem;font:800 1.15rem/1.1 var(--display);letter-spacing:-.01em}
 .socket span{display:block;margin-top:.3rem;font:600 .62rem/1.4 var(--mono);color:var(--gold-700)}
 .rack{grid-column:1 / -1;display:flex;flex-wrap:wrap;gap:.4rem;padding-top:.9rem;border-top:1px solid var(--security-line)}
-.rack span{font:600 .68rem/1 var(--mono);padding:.45rem .6rem;border:1px solid var(--security-line);border-radius:8px;background:rgba(255,255,255,.6);color:var(--ink-2)}
+.rack span{font:600 .68rem/1.4 var(--mono);padding:.45rem 0;border-bottom:1px solid var(--security-line);color:var(--ink-2)}
 .rack span.on{border-color:var(--gold-400);color:var(--gold-700);background:rgba(213,173,77,.12)}
 /* local map */
 .local-map{display:grid;grid-template-columns:1fr auto 1fr;gap:.8rem;align-items:center;text-align:center}
-.local-map .node{padding:1rem;border:1px solid var(--security-line);border-radius:14px;background:rgba(255,255,255,.7)}
+.local-map .node{padding:1rem;border:1px solid var(--security-line);border-radius:16px;background:rgba(255,255,255,.7)}
 .local-map .node b{display:block;font:800 1rem/1.1 var(--display)}
 .local-map .node span{display:block;margin-top:.3rem;font:600 .56rem/1.5 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--stone-500)}
 .local-map .link{display:grid;gap:.3rem;justify-items:center}
@@ -420,6 +395,7 @@ footer{border-top:1px solid var(--security-line);padding:2.2rem 0 calc(2.2rem + 
 @media(max-width:900px){
   .ledger-stats{grid-template-columns:repeat(2,1fr)}
   .lane,.lane-bridge{grid-template-columns:1fr}
+  .lane-ledger{grid-template-columns:repeat(2,minmax(0,1fr))}
   .session-map{grid-template-columns:1fr}
   .session-map .owner{order:-1}
   .scope-rings{grid-template-columns:1fr}
@@ -466,44 +442,40 @@ footer{border-top:1px solid var(--security-line);padding:2.2rem 0 calc(2.2rem + 
 /* pattern register */
 .pattern{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:1.4rem;align-items:end}
 .bars{display:grid;grid-template-columns:repeat(24,1fr);gap:3px;align-items:end;height:7.5rem;padding-bottom:.4rem;border-bottom:1px solid var(--security-line)}
-.bars i{display:block;background:linear-gradient(180deg,var(--gold-400),var(--gold-600));border-radius:2px 2px 0 0;opacity:.85;min-height:2px}
+.bars i{display:block;background:linear-gradient(180deg,var(--gold-400),var(--gold-600));border-radius:9px 9px 0 0;opacity:.85;min-height:2px}
 .bars i.now{background:var(--ink-1000);opacity:1}
 .bars-x{display:flex;justify-content:space-between;font:600 .52rem/1 var(--mono);letter-spacing:.1em;color:var(--stone-500);margin-top:.35rem}
 .pattern-kinds{display:grid;gap:.45rem}
-.pattern-kinds div{display:grid;grid-template-columns:auto 1fr auto;gap:.7rem;align-items:center;padding:.55rem .8rem;border:1px solid var(--security-line);border-radius:10px;background:rgba(255,255,255,.65)}
+.pattern-kinds div{display:grid;grid-template-columns:auto 1fr auto;gap:.7rem;align-items:center;padding:.55rem .8rem;border:1px solid var(--security-line);border-radius:12px;background:rgba(255,255,255,.65)}
 .pattern-kinds b{font:700 .6rem/1 var(--mono);color:var(--gold-700)}
 .pattern-kinds p{font-size:.84rem;color:var(--ink-2)}
 .pattern-kinds span{font:650 .56rem/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--stone-500)}
 /* condense — runs → skill */
 .condense{display:grid;grid-template-columns:1fr auto 1fr;gap:1rem;align-items:center}
 .runs{display:grid;gap:.5rem}
-.run{padding:.6rem .8rem;border:1px solid var(--security-line);border-radius:10px;background:rgba(255,255,255,.6);font:600 .7rem/1.5 var(--mono);color:var(--ink-2)}
+.run{padding:.6rem 0;border-bottom:1px solid var(--security-line);font:600 .7rem/1.5 var(--mono);color:var(--ink-2)}
 .run span{color:var(--stone-500)}
 .condense-arrow{display:grid;justify-items:center;gap:.3rem;font:650 .54rem/1.4 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--gold-700);text-align:center}
 .condense-arrow i{display:block;width:3rem;height:1px;background:var(--gold-500);position:relative}
 .condense-arrow i::after{content:"";position:absolute;right:-1px;top:-3px;border:3.5px solid transparent;border-left-color:var(--gold-500)}
-.skill{padding:1rem 1.1rem;border:1px solid rgba(174,134,46,.45);border-radius:14px;background:var(--paper-pearl);box-shadow:var(--shadow-s)}
+.skill{padding:1rem 1.1rem;border:1px solid rgba(174,134,46,.45);border-radius:16px;background:var(--paper-pearl);box-shadow:var(--shadow-s)}
 .skill b{display:block;font:650 .56rem/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--security-gold)}
 .skill strong{display:block;margin:.5rem 0 .3rem;font:800 1.05rem/1.1 var(--display)}
 .skill p{font-size:.82rem;color:var(--dim)}
 .skill .flags{margin-top:.6rem;display:flex;gap:.4rem;flex-wrap:wrap}
-.skill .flags span{font:600 .56rem/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--gold-700);padding:.35rem .5rem;border:1px solid var(--security-line);border-radius:6px}
+.skill .flags span{font:600 .56rem/1.4 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--gold-700);padding:.35rem 0;border-bottom:1px solid var(--security-line)}
 /* trust chain */
-.chain{display:grid;grid-template-columns:repeat(6,1fr);gap:0;margin-top:2.2rem;border:1px solid var(--security-line);border-radius:14px;overflow:hidden;background:rgba(255,255,255,.6)}
-.chain div{padding:.9rem 1rem;border-right:1px solid var(--security-line);position:relative}
-.chain div:last-child{border-right:0}
-.chain div::after{content:"›";position:absolute;right:-.35rem;top:50%;transform:translateY(-50%);color:var(--gold-500);font-weight:700;background:var(--ivory-50);padding:0 .1rem;z-index:1}
-.chain div:last-child::after{display:none}
-.chain b{display:block;font:650 .54rem/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--security-gold)}
-.chain strong{display:block;margin-top:.4rem;font:700 .9rem/1.15 var(--display);letter-spacing:-.01em}
+.authority-ledger{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));margin-top:2.2rem;border-top:1px solid var(--security-line)}
+.authority-ledger div{display:grid;min-width:0;min-height:3.35rem;grid-template-columns:minmax(8rem,.7fr) minmax(0,1fr);gap:1rem;align-items:center;padding:.8rem 0;border-bottom:1px solid var(--security-line)}
+.authority-ledger strong{display:block;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font:700 .9rem/1.2 var(--display)}
+.authority-ledger span{display:block;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font:600 .6rem/1.4 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--stone-500)}
 /* hub specimen */
-.hub-spec{display:grid;gap:.45rem;max-width:30rem}
-.hub-row{display:grid;grid-template-columns:2.2rem 1fr auto;gap:.8rem;align-items:center;padding:.65rem .9rem;border:1px solid var(--security-line);border-radius:14px;background:rgba(255,255,255,.7);position:relative}
-.hub-row::after{content:"route · owner session";position:absolute;right:2rem;top:.45rem;font:600 .46rem/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--stone-500)}
-.hub-row i{width:2.2rem;height:2.2rem;border-radius:50%;display:grid;place-items:center;font:700 .7rem/1 var(--mono);color:var(--gold-700);background:rgba(213,173,77,.12);border:1px solid var(--security-line);font-style:normal}
-.hub-row strong{display:block;font-size:.92rem}
-.hub-row span{display:block;font-size:.76rem;color:var(--dim)}
-.hub-row b{color:var(--stone-500);font-weight:400;font-size:1.1rem}
+.hub-spec{display:grid;max-width:30rem;border-top:1px solid var(--security-line)}
+.hub-row{display:grid;min-height:4.5rem;grid-template-columns:minmax(0,1fr) auto;gap:.8rem;align-items:center;padding:.75rem 0;border-bottom:1px solid var(--security-line);position:relative}
+.hub-row > div{min-width:0}
+.hub-row::after{content:"owner session";white-space:nowrap;font:600 .46rem/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--stone-500)}
+.hub-row strong{display:block;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:.92rem}
+.hub-row span{display:block;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:.76rem;color:var(--dim)}
 /* status legend */
 .legend{display:grid;grid-template-columns:repeat(4,1fr);gap:.8rem;margin-top:2.2rem}
 .legend div{padding:.8rem 1rem;border:1px solid var(--security-line);border-radius:12px;background:rgba(255,255,255,.6);display:grid;gap:.25rem}
@@ -516,9 +488,8 @@ footer{border-top:1px solid var(--security-line);padding:2.2rem 0 calc(2.2rem + 
   .condense{grid-template-columns:1fr}
   .condense-arrow i{width:1px;height:2rem}
   .condense-arrow i::after{right:-3px;top:auto;bottom:-1px;border:3.5px solid transparent;border-top-color:var(--gold-500)}
-  .chain{grid-template-columns:1fr 1fr}
-  .chain div{border-bottom:1px solid var(--security-line)}
-  .chain div::after{display:none}
+  .authority-ledger{grid-template-columns:1fr}
+  .authority-ledger div{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
   .legend{grid-template-columns:1fr 1fr}
   .rcpt{grid-template-columns:4rem 1fr}
   .rcpt span{grid-column:2}
@@ -542,7 +513,6 @@ section[data-serial] > .wrap{position:relative;z-index:1}
 .idcard > *{position:relative;z-index:2}
 .idcard-brand{grid-column:1 / -1;display:flex;align-items:center;justify-content:space-between}
 .idcard-brand .wm{font:900 clamp(11px,1.5vw,17px)/1 var(--display);letter-spacing:.18em;color:#b08a2e;background:linear-gradient(180deg,#d8b65a,#9a7526);-webkit-background-clip:text;background-clip:text;color:transparent}
-.idcard-brand .wm::before{content:"› ";-webkit-text-fill-color:#b08a2e}
 .idcard-brand .id{font:700 clamp(8px,1vw,11px)/1 var(--text);letter-spacing:.3em;color:#a8852f}
 .idcard-photo{width:clamp(5.2rem,13vw,8.2rem);aspect-ratio:.92;border-radius:16px;border:1.5px solid rgba(201,162,74,.8);background:linear-gradient(180deg,#fbfaf6,#efebe1);display:grid;grid-template-rows:1fr auto;place-items:center;padding:.45rem .45rem .35rem;box-shadow:inset 0 1px 0 rgba(255,255,255,.8),inset 0 -8px 14px rgba(0,0,0,.04)}
 .idcard-photo svg{width:72%;height:auto}
@@ -558,7 +528,7 @@ section[data-serial] > .wrap{position:relative;z-index:1}
 .idcard-serial div:last-child{text-align:right}
 .idcard-foot{grid-column:1 / -1;display:flex;justify-content:space-between;align-items:end;gap:1rem}
 .idcard-sig{font:italic clamp(16px,2.3vw,28px)/1 Georgia,"Times New Roman",serif;color:#4a473f}
-.idcard-holo{width:clamp(34px,5.4vw,64px);aspect-ratio:1.6;border-radius:4px;border:1px solid rgba(255,255,255,.9);background:linear-gradient(120deg,#f6f8ff,#ffe9f3 30%,#fffbe6 50%,#e6fff4 70%,#eaf2ff);box-shadow:inset 0 0 0 1px rgba(255,255,255,.6),0 1px 2px rgba(0,0,0,.08);position:relative;overflow:hidden}
+.idcard-holo{width:clamp(34px,5.4vw,64px);aspect-ratio:1.6;border-radius:9px;border:1px solid rgba(255,255,255,.9);background:linear-gradient(120deg,#f6f8ff,#ffe9f3 30%,#fffbe6 50%,#e6fff4 70%,#eaf2ff);box-shadow:inset 0 0 0 1px rgba(255,255,255,.6),0 1px 2px rgba(0,0,0,.08);position:relative;overflow:hidden}
 .idcard-holo::after{content:"";position:absolute;inset:0;background:linear-gradient(115deg,transparent 35%,rgba(255,255,255,.9) 50%,transparent 65%)}
 @media(max-width:900px){.idcard{max-width:none;border-radius:18px}}
 .idcard-copy{display:grid;gap:0;border-top:1px solid var(--security-line)}
@@ -585,7 +555,7 @@ section[data-serial] > .wrap{position:relative;z-index:1}
 .gate-risk{text-transform:none;letter-spacing:.06em;font-size:11px}
 .gate-cred{margin:1.4rem 1.5rem 0;display:grid;grid-template-columns:3.2rem minmax(0,1fr) auto;gap:.9rem;align-items:center;padding:.8rem .9rem;border:1px solid rgba(231,207,130,.35);border-radius:12px;
   background:linear-gradient(125deg,#fdfdfe 0%,#f3f2f4 40%,#ebeaee 65%,#f7f4ee 100%);color:#1d1d1f;box-shadow:inset 0 1px 0 rgba(255,255,255,.9),0 6px 16px rgba(0,0,0,.25)}
-.gate-cred .pic{width:3.2rem;aspect-ratio:.92;border-radius:8px;border:1px solid rgba(201,162,74,.8);background:linear-gradient(180deg,#fbfaf6,#efebe1);display:grid;place-items:center;padding:.25rem}
+.gate-cred .pic{width:3.2rem;aspect-ratio:.92;border-radius:9px;border:1px solid rgba(201,162,74,.8);background:linear-gradient(180deg,#fbfaf6,#efebe1);display:grid;place-items:center;padding:.25rem}
 .gate-cred .pic svg{width:78%;height:auto}
 .gate-cred b{display:block;font:700 .52rem/1.2 var(--text);letter-spacing:.2em;text-transform:uppercase;color:#8e8a84}
 .gate-cred strong{display:block;margin-top:2px;font:700 .95rem/1.1 var(--display);letter-spacing:.03em;text-transform:uppercase}
@@ -602,7 +572,7 @@ section[data-serial] > .wrap{position:relative;z-index:1}
 .gate-result b{display:block;font:800 1.05rem/1.1 var(--display);letter-spacing:-.01em;color:var(--gold-300)}
 .gate-result p{margin:.35rem 0 0;font-size:.86rem;color:rgba(255,254,250,.78)}
 .gate-result time{display:block;margin-top:.5rem;font:600 .56rem/1.4 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:rgba(255,254,250,.5)}
-.gate-result button{margin-top:.7rem;background:none;border:0;padding:0;color:var(--gold-300);font:600 .62rem/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;cursor:pointer;border-bottom:1px solid rgba(231,207,130,.4)}
+.gate-result button{display:inline-flex;min-height:44px;align-items:center;margin-top:.7rem;background:none;border:0;padding:0;color:var(--gold-300);font:600 .62rem/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;cursor:pointer;border-bottom:1px solid rgba(231,207,130,.4)}
 .gate-card[data-state="ok"] .gate-result,.gate-card[data-state="no"] .gate-result{display:block;animation:gatein var(--t-shift) var(--ease)}
 .gate-card[data-state="ok"] .gate-actions,.gate-card[data-state="no"] .gate-actions{display:none}
 .gate-card[data-state="ok"] .gate-risk{color:#9fd3b0;border-color:#9fd3b0}
@@ -650,9 +620,9 @@ section[data-serial] > .wrap{position:relative;z-index:1}
 /* lanes: schwelle zieht sich */
 .lane-bridge i{transform:scaleX(0);transform-origin:left;transition:transform 420ms var(--ease) 300ms}
 .anim.in .lane-bridge i{transform:scaleX(1)}
-.steps span{opacity:0;transform:translateY(6px);transition:opacity 220ms var(--ease),transform 220ms var(--ease)}
-.anim.in .steps span{opacity:1;transform:none}
-.anim.in .steps span:nth-child(1){transition-delay:60ms}.anim.in .steps span:nth-child(3){transition-delay:140ms}.anim.in .steps span:nth-child(5){transition-delay:220ms}.anim.in .steps span:nth-child(7){transition-delay:300ms}.anim.in .steps span:nth-child(9){transition-delay:380ms}.anim.in .steps span:nth-child(11){transition-delay:460ms}
+.lane-ledger span{opacity:0;transform:translateY(6px);transition:opacity 220ms var(--ease),transform 220ms var(--ease)}
+.anim.in .lane-ledger span{opacity:1;transform:none}
+.anim.in .lane-ledger span:nth-child(2){transition-delay:80ms}.anim.in .lane-ledger span:nth-child(3){transition-delay:160ms}.anim.in .lane-ledger span:nth-child(4){transition-delay:240ms}.anim.in .lane-ledger span:nth-child(5){transition-delay:320ms}.anim.in .lane-ledger span:nth-child(6){transition-delay:400ms}
 /* gate: foil shimmer einmal */
 .anim.in.gate-card::before{background-size:300% 100%;animation:foil 1200ms var(--ease) 200ms 1}
 @keyframes foil{from{background-position:100% 0}to{background-position:0 0}}
@@ -674,12 +644,10 @@ section[data-serial] > .wrap{position:relative;z-index:1}
 .stat:hover,.thread:hover,.hub-row:hover,.socket:hover,.session-map li:hover,.legend div:hover,.pattern-kinds div:hover{border-color:rgba(174,134,46,.5);transform:translateY(-1px)}
 .rack span:hover{border-color:var(--gold-400);color:var(--gold-700);background:rgba(213,173,77,.12)}
 .ledger-row:hover{background:linear-gradient(90deg,var(--gold-400) 0 2px,rgba(213,173,77,.08) 2px) left center / 100% 100% no-repeat}
-.hub-row:hover b{transform:translateX(3px);color:var(--gold-700)}
-.hub-row b{transition:transform var(--t-micro) var(--ease),color var(--t-micro) var(--ease)}
 .fig-3d{transition:transform var(--t-shift) var(--ease)}
 .fig:hover .fig-3d{transform:translateY(-4px)}
 @media (prefers-reduced-motion: reduce){
-  .anim > *,.anim.in > *,.hero .wordmark,.hero .eyebrow,.hero .three span,.hero .lead,.hero-actions,.hero-meta,.owl-stage,.bars i,.receipt-spec .rcpt,.rcpt-sum,.steps span,.lane-bridge i,.official span,.official i,.cta .seal{opacity:1!important;transform:none!important;animation:none!important;transition:none!important}
+  .anim > *,.anim.in > *,.hero .wordmark,.hero .eyebrow,.hero .three span,.hero .lead,.hero-actions,.hero-meta,.owl-stage,.bars i,.receipt-spec .rcpt,.rcpt-sum,.lane-ledger span,.lane-bridge i,.official span,.official i,.cta .seal{opacity:1!important;transform:none!important;animation:none!important;transition:none!important}
   .scope-rings circle,.scope-rings path{stroke-dasharray:none;stroke-dashoffset:0;animation:none!important}
   .hero .eyebrow::after{display:none}
   .anim.in .thread i,.anim.in .rcpt.gate,.anim.in.gate-card::before,.anim.in .idcard::before{animation:none!important}
@@ -690,7 +658,9 @@ section[data-serial] > .wrap{position:relative;z-index:1}
   .hero-grid{grid-template-columns:1fr}
   .owl-stage{order:-1;height:clamp(16rem,56vw,22rem)}
   .hero-serial{display:none}
-  .nav-links,.nav-serial{display:none}
+  .nav-links,.nav-serial,.nav-in > .lang,.nav-in > .nav-cta{display:none}
+  .menu-toggle{display:inline-flex}
+  .mobile-menu:not([hidden]){display:flex;flex-direction:column}
   .g3,.g4,.matrix{grid-template-columns:1fr 1fr}
   .screens{grid-template-columns:1fr 1fr}
 }
@@ -718,9 +688,9 @@ section[data-serial] > .wrap{position:relative;z-index:1}
 </head>
 <body>
 
-<nav id="nav">
+<nav id="nav" aria-label="Hauptnavigation">
   <div class="wrap nav-in">
-    <a class="logo" href="#top"><img src="owl-mark.png" alt="Hunch">hunch</a>
+    <a class="logo" href="#top"><img src="owl-mark.png" alt="">hunch</a>
     <div class="nav-links">
       <a href="#moment">Der Moment</a>
       <a href="#modell">Persönliches Modell</a>
@@ -734,9 +704,16 @@ section[data-serial] > .wrap{position:relative;z-index:1}
     <a class="lang" href="en/" hreflang="en" lang="en">EN</a>
     <span class="nav-serial">intentional agent · owner bound · 2026</span>
     <a class="nav-cta" href="mailto:schenkei@hunchagent.io?subject=Hunch%20Early%20Access">Early Access</a>
+    <button class="menu-toggle" type="button" data-mobile-menu-toggle aria-expanded="false" aria-controls="mobile-menu">Menü</button>
   </div>
 </nav>
+<div class="mobile-menu" id="mobile-menu" role="navigation" aria-label="Mobile Hauptnavigation" hidden>
+  <a href="#moment">Der Moment</a><a href="#modell">Persönliches Modell</a><a href="#lernen">Selbstverbesserung</a><a href="#faeden">Fäden</a><a href="#autoritaet">Authority</a><a href="#apps">Apps</a><a href="#status">Status</a><a href="docs/index.html">Dokumentation</a>
+  <a class="mobile-menu-meta" href="en/" hreflang="en" lang="en">English</a>
+  <a class="mobile-menu-cta" href="mailto:schenkei@hunchagent.io?subject=Hunch%20Early%20Access">Early Access</a>
+</div>
 
+<main id="main-content">
 <!-- HERO -->
 <header class="hero" id="top">
   <div class="wrap">
@@ -754,7 +731,7 @@ section[data-serial] > .wrap{position:relative;z-index:1}
         erkennt den nächsten sinnvollen Schritt — und handelt nur innerhalb der Grenzen, die du festlegst.</p>
         <div class="hero-actions">
           <a class="btn btn-primary" href="mailto:schenkei@hunchagent.io?subject=Hunch%20Early%20Access">Early Access anfragen</a>
-          <a class="btn btn-quiet" href="#moment">Wie das aussieht ↓</a>
+          <a class="btn btn-quiet" href="#moment">Wie das aussieht</a>
         </div>
         <div class="hero-meta">
           <div><span>category</span><b>intentional agent</b></div>
@@ -813,7 +790,7 @@ section[data-serial] > .wrap{position:relative;z-index:1}
     </div>
         <div class="vs-cards reveal">
       <div class="cred ghost"><div class="cred-head"><div><span class="k">prompt assistant</span><h4>gewöhnlicher assistent</h4></div><span class="noseal">kein siegel · keine herkunft</span></div><div class="fields"><div><span>identität</span><b>session-id</b></div><div><span>gedächtnis</span><b>dieser chat</b></div><div><span>scope</span><b>—</b></div><div><span>autorität</span><b>an/aus</b></div></div></div>
-      <div class="cred owner"><div class="cred-head"><div><span class="k">owner credential</span><h4>hunch</h4></div><span class="seal">hunch</span></div><div class="fields"><div><span>identität</span><b>HID · 6699 · secure enclave</b></div><div><span>gedächtnis</span><b>brain · lokal · scopes</b></div><div><span>scope</span><b>global · projekt · faden</b></div><div><span>autorität</span><b>governor · gate · audit · undo</b></div></div></div>
+      <div class="cred owner"><div class="cred-head"><div><span class="k">owner credential</span><h4>hunch</h4></div><span class="seal">hunch</span></div><div class="fields"><div><span>identität</span><b>HID · XXXX XXXX · secure enclave</b></div><div><span>gedächtnis</span><b>brain · lokal · scopes</b></div><div><span>scope</span><b>global · projekt · faden</b></div><div><span>autorität</span><b>governor · gate · audit · undo</b></div></div></div>
     </div>
 <div class="vs reveal">
       <div class="col ordinary">
@@ -895,7 +872,7 @@ section[data-serial] > .wrap{position:relative;z-index:1}
     <figure class="fig reveal" aria-hidden="true"><model-viewer class="fig-3d" src="figures/fig-brain.glb" poster="figures/fig-brain.png" alt="" reveal="auto" loading="lazy" camera-controls disable-zoom disable-pan interaction-prompt="none" touch-action="pan-y" camera-orbit="-20deg 82deg 105%" min-camera-orbit="auto 65deg auto" max-camera-orbit="auto 100deg auto" exposure="1" shadow-intensity="0" environment-image="neutral"></model-viewer><img class="fig-png" src="figures/fig-brain.png" width="900" height="900" alt="" loading="lazy" style="display:none"><figcaption>gedächtnis · lebendes register</figcaption></figure>
     </div>
     <div class="specimen reveal" data-label="brain · ledger · specimen">
-      <div class="ledger-stats"><div class="stat"><b>◌</b><strong>128</strong><span>erinnerungen</span></div><div class="stat"><b>✦</b><strong>42</strong><span>gespräche</span></div><div class="stat"><b>≡</b><strong>7</strong><span>offene aufgaben</span></div><div class="stat"><b>●</b><strong>3</strong><span>vorhaben</span></div></div>
+      <div class="ledger-stats"><div class="stat"><strong>128</strong><span>erinnerungen</span></div><div class="stat"><strong>42</strong><span>gespräche</span></div><div class="stat"><strong>7</strong><span>offene aufgaben</span></div><div class="stat"><strong>3</strong><span>vorhaben</span></div></div>
       <div class="ledger-rows"><div class="ledger-row"><p>Bevorzugt kurze Antworten, direkt, ohne Rückfrage nach jeder Antwort.</p><span>von dir · global · 12.08.</span></div><div class="ledger-row"><p>Projekt „Launch“: Claims vor Veröffentlichung gegen Product Truth prüfen.</p><span>abgeleitet · projekt · 19.08.</span></div><div class="ledger-row"><p>Faden „Berlin“: vor Kauf Authority Gate, Budget € 60.</p><span>von dir · faden · heute</span></div></div>
     </div>
     <div class="rule reveal">
@@ -919,7 +896,7 @@ section[data-serial] > .wrap{position:relative;z-index:1}
     </div>
     <div class="specimen reveal" data-label="selbstverbesserung · aus abläufen wird ein skill · specimen">
       <div class="condense">
-        <div class="runs"><div class="run"><span>run 01</span> · export → prüfen → markieren · ok</div><div class="run"><span>run 02</span> · export → prüfen → markieren · ok</div><div class="run"><span>run 03</span> · export → prüfen → markieren · ok</div></div>
+        <div class="runs"><div class="run"><span>run 01</span> · export · prüfen · markieren · ok</div><div class="run"><span>run 02</span> · export · prüfen · markieren · ok</div><div class="run"><span>run 03</span> · export · prüfen · markieren · ok</div></div>
         <div class="condense-arrow"><i></i>verdichtet · 3 erfolgreiche läufe</div>
         <div class="skill"><b>skill · sichtbar</b><strong>claims-check</strong><p>Exportiert die Claims, prüft gegen Product Truth, markiert Abweichungen.</p><div class="flags"><span>editierbar</span><span>entfernbar</span><span>authority-pflichtig</span></div></div>
       </div>
@@ -1003,9 +980,9 @@ section[data-serial] > .wrap{position:relative;z-index:1}
     </div>
     <div class="specimen reveal" data-label="observer / executive · prozessstreifen · specimen">
       <div class="lanes">
-        <div class="lane"><header><b>Observer</b><span>immer an · klein · günstig</span></header><div class="steps"><span>signal</span><i>→</i><span>bündeln</span><i>→</i><span>gedächtnis & muster</span><i>→</i><span>absicht + konfidenz</span><i>→</i><span>kann: nichts tun</span></div></div>
+        <div class="lane"><header><b>Observer</b><span>immer an · klein · günstig</span></header><div class="lane-ledger"><span>signal</span><span>bündeln</span><span>gedächtnis &amp; muster</span><span>absicht + konfidenz</span><span>kann: nichts tun</span></div></div>
         <div class="lane-bridge"><span>schwelle 0.85 · weckt den executive</span><i></i></div>
-        <div class="lane exec"><header><b>Executive</b><span>geweckt · groß · abgesichert</span></header><div class="steps"><span>plan</span><i>→</i><span>tools / faden</span><i>→</i><span class="gate">authority gate</span><i>→</i><span>handeln</span><i>→</i><span>verifizieren</span><i>→</i><span>ergebnis</span></div></div>
+        <div class="lane exec"><header><b>Executive</b><span>geweckt · groß · abgesichert</span></header><div class="lane-ledger"><span>plan</span><span>tools / faden</span><span class="gate">authority gate</span><span>handeln</span><span>verifizieren</span><span>ergebnis</span></div></div>
       </div>
     </div>
     <div class="duo">
@@ -1027,30 +1004,29 @@ section[data-serial] > .wrap{position:relative;z-index:1}
   </div>
 </section>
 
-<!-- GLOBAL SESSION -->
-<section id="session" class="sheet" data-serial="08 / globale session · scope: hunchagent.io · product truth">
+<!-- GEMEINSAMER VERLAUF + PRESENCE -->
+<section id="session" class="sheet" data-serial="08 / verlauf + presence · scope: hunchagent.io · product truth">
   <div class="wrap">
     <div class="head-row">
 <div class="head">
-      <span class="eyebrow reveal" data-no="08">Eine globale Session</span>
-      <h2 class="reveal">Ein Hunch, eine Beziehung — überall.</h2>
-      <p class="lead reveal">Du wechselst die Oberfläche, nicht das Gegenüber. Hunch behält Ziele,
-      Entscheidungen, Arbeitsweise und relevante Zusammenhänge im Blick — egal, welches Modell oder Gerät
-      gerade verwendet wird. Wechsel von iPhone zu Computer, Terminal oder Telegram ohne mentalen Neustart.</p>
+      <span class="eyebrow reveal" data-no="08">Verlauf + Presence</span>
+      <h2 class="reveal">Ein gemeinsamer Verlauf, gezielte Zustellung.</h2>
+      <p class="lead reveal">Konsole, Telegram und Web spiegeln Gespräche in denselben Verlauf. Die App
+      archiviert ihre Chats im Brain, zeigt Gespräche anderer Oberflächen und kann deren letzte 30 Zeilen
+      zum Fortsetzen übernehmen. Presence routet Impulse und Freigaben an eine erreichbare Oberfläche.</p>
     </div>
-    <figure class="fig reveal" aria-hidden="true"><model-viewer class="fig-3d" src="figures/fig-session.glb" poster="figures/fig-session.png" alt="" reveal="auto" loading="lazy" camera-controls disable-zoom disable-pan interaction-prompt="none" touch-action="pan-y" camera-orbit="-20deg 82deg 105%" min-camera-orbit="auto 65deg auto" max-camera-orbit="auto 100deg auto" exposure="1" shadow-intensity="0" environment-image="neutral"></model-viewer><img class="fig-png" src="figures/fig-session.png" width="900" height="900" alt="" loading="lazy" style="display:none"><figcaption>möbius · eine fortlaufende beziehung</figcaption></figure>
+    <figure class="fig reveal" aria-hidden="true"><model-viewer class="fig-3d" src="figures/fig-session.glb" poster="figures/fig-session.png" alt="" reveal="auto" loading="lazy" camera-controls disable-zoom disable-pan interaction-prompt="none" touch-action="pan-y" camera-orbit="-20deg 82deg 105%" min-camera-orbit="auto 65deg auto" max-camera-orbit="auto 100deg auto" exposure="1" shadow-intensity="0" environment-image="neutral"></model-viewer><img class="fig-png" src="figures/fig-session.png" width="900" height="900" alt="" loading="lazy" style="display:none"><figcaption>möbius · verlauf + presence</figcaption></figure>
     </div>
-    <div class="specimen reveal" data-label="globale session · ein owner, viele surfaces · specimen">
+    <div class="specimen reveal" data-label="verlauf + presence · belegte surfaces · specimen">
       <div class="session-map">
-        <ul class="left"><li class="">iPhone<span>app · heute</span></li><li class="">Mac / PC<span>runtime · heute</span></li><li class="">Terminal<span>cli · heute</span></li></ul>
-        <div class="owner"><b>hunch</b><span>owner credential<br>HID · 6699</span></div>
-        <ul><li class="">Telegram / WhatsApp<span>kanal · heute</span></li><li class="">MCP / HTTP<span>schnittstelle · heute</span></li><li class="target">Live-Konversation überall<span>presence · zielbild</span></li></ul>
+        <ul class="left"><li>App / Brain<span>archiv · heute</span></li><li>Runtime<span>verlauf · heute</span></li><li>Terminal<span>cli · heute</span></li></ul>
+        <div class="owner"><b>hunch</b><span>owner credential<br>HID · XXXX XXXX</span></div>
+        <ul><li>Telegram<span>verlauf · heute</span></li><li>Web<span>verlauf · heute</span></li><li>Verlauf + Presence<span>gemeinsam · heute</span></li></ul>
       </div>
     </div>
     <div class="rule reveal">
-      Gemeinsame Identität und gemeinsames Gedächtnis sind vorhanden; App, Runtime und MCP können bereits
-      Kontext teilen; persistente Sessions und Fäden existieren in Teilen des Systems.
-      <div class="note">App, Runtime, CLI, Web und Telegram teilen einen Verlauf, und Impulse gehen an die aktive Oberfläche (Presence). <span class="tag heute">Heute</span></div>
+      Gemeinsames Gedächtnis und ein gemeinsamer Verlauf sind für App, Runtime, CLI, Web und Telegram vorhanden.
+      <div class="note">Presence leitet Impulse und Freigaben zuerst an die aktive Oberfläche, sonst an offene Oberflächen oder per Push. <span class="tag heute">Heute</span></div>
     </div>
   </div>
 </section>
@@ -1070,7 +1046,7 @@ section[data-serial] > .wrap{position:relative;z-index:1}
     <figure class="fig reveal" aria-hidden="true"><model-viewer class="fig-3d" src="figures/fig-faeden.glb" poster="figures/fig-faeden.png" alt="" reveal="auto" loading="lazy" camera-controls disable-zoom disable-pan interaction-prompt="none" touch-action="pan-y" camera-orbit="-20deg 82deg 105%" min-camera-orbit="auto 65deg auto" max-camera-orbit="auto 100deg auto" exposure="1" shadow-intensity="0" environment-image="neutral"></model-viewer><img class="fig-png" src="figures/fig-faeden.png" width="900" height="900" alt="" loading="lazy" style="display:none"><figcaption>drei fäden · ein zopf</figcaption></figure>
     </div>
     <div class="specimen reveal" data-label="fäden · thread scope · specimen">
-      <div class="session-strip"><b>globale session</b><span>Identität und grundlegende Präferenzen gelten über Geräte. Jeder Faden hält nur seinen eigenen Arbeitskontext.</span></div>
+      <div class="session-strip"><b>gemeinsamer verlauf</b><span>Gespräche werden gespiegelt; jeder Faden hält seinen eigenen Arbeitskontext.</span></div>
       <div class="thread-list"><article class="thread " data-scope="scope · projekt launch"><i></i><div><strong>Launch vorbereiten</strong><p>Nächster Schritt: letzte Claims gegen Product Truth prüfen</p></div><time>aktiv</time></article><article class="thread wait" data-scope="scope · faden berlin"><i></i><div><strong>Berlin</strong><p>Nächster Schritt: Verbindung vergleichen, vor Kauf Authority Gate</p></div><time>wartet</time></article><article class="thread " data-scope="scope · faden research"><i></i><div><strong>Research</strong><p>Nächster Schritt: Quellen bündeln und Annahmen markieren</p></div><time>läuft</time></article></div>
     </div>
     <div class="grid g3">
@@ -1079,8 +1055,8 @@ section[data-serial] > .wrap{position:relative;z-index:1}
       <div class="card reveal"><h3><span class="tag next" style="color:#3B5BA5">Fertig</span></h3><p>Das Ergebnis liegt vor und kehrt auf die Surface zurück, von der der Auftrag kam.</p></div>
     </div>
     <p class="lead reveal" style="margin-top:1.4rem">Zustände: läuft, wartet, fertig, fehlgeschlagen,
-    abgebrochen — persistent über Runtime-Neustarts. Fäden sind in der Runtime implementiert
-    <span class="tag heute">Heute</span>; die vollständig globale Live-Session ist ein Ausbauziel.</p>
+    abgebrochen — persistent über Runtime-Neustarts. Fäden laufen in der Runtime; App, CLI, Web und Telegram
+    spiegeln Gespräche in einen gemeinsamen Verlauf, Presence routet Zustellungen <span class="tag heute">Heute</span>.</p>
   </div>
 </section>
 
@@ -1105,7 +1081,7 @@ section[data-serial] > .wrap{position:relative;z-index:1}
       <div class="gate-foot">Specimen · anonymisierte Daten · Receipt folgt nach Entscheidung</div>
     </div>
     </div>
-        <div class="chain reveal"><div><b>01</b><strong>Identität</strong></div><div><b>02</b><strong>Governor</strong></div><div><b>03</b><strong>Zweitprüfung</strong></div><div><b>04</b><strong>Vorschau & Zustimmung</strong></div><div><b>05</b><strong>Ausführung & Audit</strong></div><div><b>06</b><strong>Rückweg</strong></div></div>
+        <div class="authority-ledger reveal"><div><strong>Identität</strong><span>Besitzerbindung</span></div><div><strong>Governor</strong><span>Risiko und Grenze</span></div><div><strong>Zweitprüfung</strong><span>konkrete Handlung</span></div><div><strong>Vorschau &amp; Zustimmung</strong><span>sichtbare Konsequenz</span></div><div><strong>Ausführung &amp; Audit</strong><span>protokolliertes Ergebnis</span></div><div><strong>Rückweg</strong><span>wenn technisch belegt</span></div></div>
 <div class="grid g4">
       <div class="card reveal"><h3>Identität <span class="tag heute">Heute</span></h3><p>Das Besitzergerät erzeugt einen privaten Schlüssel in der Secure Enclave — biometrisch geschützt, nicht exportierbar, nicht im Backup. Aus dem Public-Key entsteht deine HID.</p></div>
       <div class="card reveal"><h3>Befugnis &amp; Risiko <span class="tag heute">Heute</span></h3><p>Der Governor unterscheidet Risikoklassen, Budgets, Limits, Always-Ask-Regeln und Circuit-Breaker.</p></div>
@@ -1144,9 +1120,9 @@ section[data-serial] > .wrap{position:relative;z-index:1}
         <div class="rack"><span class="on">claude</span><span class="">openai</span><span class="">gemini</span><span class="">kimi</span><span class="">deepseek</span><span class="">qwen</span><span class="">mistral</span><span class="">grok</span><span class="">groq</span><span class="">apple on-device</span><span class="">ollama</span><span class="">lm studio</span><span class="">llama.cpp</span><span class="">openai-kompatibel</span></div></div>
     </div>
     <div class="grid g3">
-      <div class="card reveal"><h3>1 · Hunch <span class="tag heute">Heute</span></h3><p>Identität, Brain, Vorhaben, Arbeitsweise und Authority. Der bleibende Kern.</p></div>
-      <div class="card reveal"><h3>2 · Modelle <span class="tag heute">Heute</span></h3><p>Austauschbare Motoren für Observer und Executive — unabhängig wählbar.</p><p style="margin-top:.5rem">claude · openai · gemini · kimi · deepseek · qwen · mistral · grok · groq · apple on-device · ollama · lm studio · llama.cpp · eigene OpenAI-kompatible Endpoints.</p></div>
-      <div class="card reveal"><h3>3 · Fähigkeiten <span class="tag heute">Heute</span></h3><p>Providerneutral über <span class="k">SKILL.md</span>, Python-Skills, MCP-Server, Function-Schemas, REST-Connectoren, Built-in-Tools und externe Agent-Harnesses (Claude Code, Codex, Gemini CLI, Aider, eigene CLIs).</p></div>
+      <div class="card reveal"><h3>Hunch <span class="tag heute">Heute</span></h3><p>Identität, Brain, Vorhaben, Arbeitsweise und Authority. Der bleibende Kern.</p></div>
+      <div class="card reveal"><h3>Modelle <span class="tag heute">Heute</span></h3><p>Austauschbare Motoren für Observer und Executive — unabhängig wählbar.</p><p style="margin-top:.5rem">claude · openai · gemini · kimi · deepseek · qwen · mistral · grok · groq · apple on-device · ollama · lm studio · llama.cpp · eigene OpenAI-kompatible Endpoints.</p></div>
+      <div class="card reveal"><h3>Fähigkeiten <span class="tag heute">Heute</span></h3><p>Providerneutral über <span class="k">SKILL.md</span>, Python-Skills, MCP-Server, Function-Schemas, REST-Connectoren, Built-in-Tools und externe Agent-Harnesses (Claude Code, Codex, Gemini CLI, Aider, eigene CLIs).</p></div>
     </div>
     <div class="rule reveal">
       Skills und Werkzeuge sind nicht an den Modellprovider gebunden. Hunch vereinheitlicht offene Formate
@@ -1172,11 +1148,11 @@ section[data-serial] > .wrap{position:relative;z-index:1}
     </div>
 
         <div class="specimen reveal" data-label="hub · capability register · specimen" style="max-width:32rem;margin-left:auto;margin-right:auto">
-      <div class="hub-spec"><div class="hub-row"><i>A</i><div><strong>Freigaben</strong><span>Was auf deinen Ausweis wartet</span></div><b>›</b></div><div class="hub-row"><i>B</i><div><strong>Brain</strong><span>Gedächtnis, Identität, Gespräche</span></div><b>›</b></div><div class="hub-row"><i>M</i><div><strong>Maschinen</strong><span>Computer verbinden und steuern</span></div><b>›</b></div><div class="hub-row"><i>K</i><div><strong>Kanäle</strong><span>Telegram, WhatsApp — Hunch erreichen</span></div><b>›</b></div><div class="hub-row"><i>S</i><div><strong>Skills & MCPs</strong><span>Was die Runtime kann und darf</span></div><b>›</b></div><div class="hub-row"><i>F</i><div><strong>Fäden</strong><span>Was gerade nebenher läuft</span></div><b>›</b></div><div class="hub-row"><i>R</i><div><strong>Bildschirm</strong><span>Was auf dem Rechner zu lesen war</span></div><b>›</b></div><div class="hub-row"><i>I</i><div><strong>Intention</strong><span>Was jetzt ansteht</span></div><b>›</b></div><div class="hub-row"><i>N</i><div><strong>Nodes</strong><span>Geräte im Hunch-Verbund</span></div><b>›</b></div><div class="hub-row"><i>P</i><div><strong>Apps</strong><span>Was Hunch an Apps kennt</span></div><b>›</b></div><div class="hub-row"><i>G</i><div><strong>GitHub</strong><span>Agent-Repos suchen und installieren</span></div><b>›</b></div></div>
+      <div class="hub-spec"><div class="hub-row"><div><strong>Freigaben</strong><span>Was auf deinen Ausweis wartet</span></div></div><div class="hub-row"><div><strong>Brain</strong><span>Gedächtnis, Identität, Gespräche</span></div></div><div class="hub-row"><div><strong>Maschinen</strong><span>Computer verbinden und steuern</span></div></div><div class="hub-row"><div><strong>Kanäle</strong><span>Telegram, WhatsApp — Hunch erreichen</span></div></div><div class="hub-row"><div><strong>Skills &amp; MCPs</strong><span>Was die Runtime kann und darf</span></div></div><div class="hub-row"><div><strong>Fäden</strong><span>Was gerade nebenher läuft</span></div></div><div class="hub-row"><div><strong>Bildschirm</strong><span>Was auf dem Rechner zu lesen war</span></div></div><div class="hub-row"><div><strong>Intention</strong><span>Was jetzt ansteht</span></div></div><div class="hub-row"><div><strong>Nodes</strong><span>Geräte im Hunch-Verbund</span></div></div><div class="hub-row"><div><strong>Apps</strong><span>Was Hunch an Apps kennt</span></div></div><div class="hub-row"><div><strong>GitHub</strong><span>Agent-Repos suchen und installieren</span></div></div></div>
     </div>
 <div class="stage reveal">
       <div class="phone side left"><div class="screen"><img src="app-shots/fx-03-ausweis.png" alt="Hunch-Ausweis-Karte mit HID" loading="lazy" width="1206" height="2622"></div></div>
-      <div class="phone heroP"><div class="screen"><video src="app-shots/demo-web.mp4" poster="app-shots/fx-01-hub.png" autoplay muted loop playsinline width="1206" height="2622"></video></div></div>
+      <div class="phone heroP"><div class="screen"><span class="sr-only" id="hub-demo-description">Stumme Bildschirmaufnahme der Hunch-App. Sie ergänzt die beschrifteten Ansichten für Hub, Brain, Kanäle und Freigaben unterhalb.</span><video src="app-shots/demo-web.mp4" poster="app-shots/fx-01-hub.png" controls preload="metadata" playsinline width="1206" height="2622" aria-label="Stumme Hunch-App-Demonstration" aria-describedby="hub-demo-description">Stumme Bildschirmaufnahme der Hunch-App.</video></div></div>
       <div class="phone side right"><div class="screen"><img src="app-shots/fx-02-brain.png" alt="Brain — persönliches Gedächtnis" loading="lazy" width="1206" height="2622"></div></div>
     </div>
 
@@ -1293,7 +1269,7 @@ section[data-serial] > .wrap{position:relative;z-index:1}
         <li>Agenten-Tresor: Logins, Zahlungsmittel, Passkeys aus dem Wallet an die Maschine — jede Nutzung durchs Authority Gate, Zahlungsmittel nur mit Zweck und Betrag, Geheimnis nie im Protokoll</li>
         <li>Vorhaben-Ausführer: Ziel setzen, Plan aus Schritten, Schritte als Fäden, über Tage und Neustarts; Fehlschlag → einmal neu planen, dann pausieren und fragen; Rückfragen nur, wo das Gate sie verlangt</li>
         <li>Auslöser: Zeit, Dateiänderung, fehlgeschlagener Build, Kanal-Nachricht → Auftrag oder Faden; pausierte Fäden wieder aufnehmen</li>
-        <li>Globale Live-Konversation: App, Runtime, CLI, Web und Telegram teilen einen Verlauf — Gespräche anderer Oberflächen im Brain sehen und hier fortsetzen</li>
+        <li>Gemeinsamer Verlauf + Presence: App, Runtime, CLI, Web und Telegram spiegeln Gespräche; fremde Gespräche im Brain sehen und mit den letzten 30 Zeilen fortsetzen; Zustellung an die aktive oder erreichbare Oberfläche</li>
       </ul></div>
       <div class="col reveal"><h3><span class="tag exp">Experimentell</span></h3><ul>
         <li>Fenstertitel nur mit Bedienungshilfen-Recht; Screen-OCR nur mit Bildschirmaufnahme-Recht</li>
@@ -1328,6 +1304,7 @@ section[data-serial] > .wrap{position:relative;z-index:1}
     <p class="fine">schenkei@hunchagent.io · kein Newsletter, keine Tracker auf dieser Seite.</p>
   </div>
 </section>
+</main>
 
 <footer>
   <div class="wrap foot">
@@ -1376,7 +1353,7 @@ section[data-serial] > .wrap{position:relative;z-index:1}
   // Reveal-Choreografie: einmalige Einblendungen, Zähler, Balken, Ringe — nichts läuft endlos.
   (function(){
     var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
-    var targets=document.querySelectorAll('.specimen,.flow,.vs-cards,.chain,.legend,.matrix,.grid,.duo,.scopes,.screens,.island,.gate-card,.idcard-wrap,.official,.cta .seal,.lanes,.receipt-spec');
+    var targets=document.querySelectorAll('.specimen,.vs-cards,.legend,.matrix,.grid,.duo,.scopes,.screens,.island,.gate-card,.idcard-wrap,.official,.cta .seal,.lanes,.receipt-spec');
     targets.forEach(function(el){ if(!el.classList.contains('official') && !el.classList.contains('seal')) el.classList.add('anim'); });
     document.querySelectorAll('.bars i').forEach(function(b,i){ b.style.setProperty('--i',i); });
     function count(el){
