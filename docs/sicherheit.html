@@ -44,11 +44,12 @@ noch deine Werkzeuge.</li>
 </ol>
 
 <h2>Rückweg (Undo) <span class="tag heute">Heute</span></h2>
-<p>Umkehrbare Handlungen — gemerkte Fakten, angelegte Aufgaben — hinterlassen einen Rückweg.
+<p>Umkehrbare Handlungen an Erinnerungen, Aufgaben, Vorhaben, Memory-Scopes, gelernten Skills und
+Dateien hinterlassen einen Rückweg.
 <code>GET /rueckweg</code> zeigt, was sich zurücknehmen lässt, <code>POST /rueckweg/{id}</code> nimmt
 zurück; append-only, feste Liste erlaubter Umkehrungen, doppeltes Zurücknehmen ist ein No-op.
-In der App unter Einstellungen → Agent-Runtime → „Rückweg“. Ein vollständiges Undo für jede
-Aktion (Shell, externe Agenten) ist noch Ausbau. <span class="tag next">Als Nächstes</span></p>
+In der App steht der Rückweg unter Einstellungen → Agent-Runtime. Shell-Kommandos, externe Agenten
+und <code>web_ansehen</code> sind ausdrücklich nicht umkehrbar und werden so protokolliert.</p>
 
 <h2>Die Grenze — einsehbar <span class="tag heute">Heute</span></h2>
 <p><code>GET /grenze</code> zeigt an einer Stelle, was Hunch nie ohne Rückfrage tut: Löschen, Überschreiben,
@@ -60,16 +61,21 @@ weniger strengen Modus vor der Besitzer-Einrichtung. In der App unter „Die Gre
 formulieren und vorschlagen — aber nur mit entsprechender Autorität handeln.</p>
 
 <h2>Gerätevertrauen / Einlass <span class="tag heute">Heute</span></h2>
-<p>Eigene Geräte kommen ohne Passwort rein, fremde einmalig mit Code: der Besitzer erzeugt einen
-Einmal-Code (15 min gültig, als Hash gespeichert), das fremde Gerät löst ihn ein und wird zu einer
-stehenden Freigabe.</p>
+<p>Jedes Gerät und jeder Kanal hat eine eigene Aktionsgrenze: <code>read_only</code>,
+<code>write_low_risk</code> oder <code>critical_action</code>. Der Besitzer kann diese Grenze in
+Profil → Nachweise → Maschinen → Vertrauen setzen oder entziehen. Ein Einlass-Code ist einmalig,
+15 Minuten gültig und nur als Hash gespeichert; ein damit aufgenommenes Gerät beginnt mit
+<code>write_low_risk</code>. Die Runtime übernimmt die Quelle nicht aus Nutzdaten: sie leitet sie aus
+dem authentifizierten Draht ab, hält unabhängige Geräte in getrennten Observer-Bündeln und prüft die
+Grenze vor dem Vollzug erneut. Entzug oder Senkung beendet offene WebSocket-, SSE- und Voice-Drähte.</p>
 
 <div class="rule"><b>Ehrlich:</b> Vor der Einrichtung einer Besitzeridentität existiert aus
 Kompatibilitätsgründen ein weniger strenger Modus — die kryptografische Sperre ist nicht automatisch
-aktiv, bevor die Einrichtung abgeschlossen ist. Noch im Ausbau: fein abgestuftes Vertrauen pro
-Gerät/Aktion, vollständiges Undo, geräteübergreifende Authority-Oberfläche. <span class="tag next">Als Nächstes</span></div>
+aktiv, bevor die Einrichtung abgeschlossen ist. Presence-Routing ist vorhanden; die
+Freigabe-Aktion auf einem echten iPhone und einer echten Apple Watch ist noch nicht Ende zu Ende
+bestätigt. <span class="tag exp">Experimentell</span></div>
 
-    <footer class="doc-foot">© 2026 Hunch — <a href="../">hunchagent.io</a> · Stand 2026-08-21, gegen aktuellen Code geprüft.</footer>
+    <footer class="doc-foot">© 2026 Hunch — <a href="../">hunchagent.io</a> · Stand 2026-09-01, gegen aktuellen Code geprüft.</footer>
   </main>
 </div>
 <script>

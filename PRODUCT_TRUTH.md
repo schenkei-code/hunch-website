@@ -10,10 +10,10 @@ Status-Legende:
 - **ALS NÄCHSTES** — in Arbeit / nahe Roadmap
 - **VISION** — 2.0-Zielbild, nicht ausgeliefert
 
-Repos geprüft (Stand 2026-08-31):
+Repos geprüft (Stand 2026-09-01):
 - `hunch-runtime` @ `init-runtime` — Python-Runtime, FastAPI, CLI, MCP-Server
 - `hunch-app-repo` (hunch-app) @ `feat/english-localization` — iOS-App (Pocket)
-- `hunch-harness`, `hunch-windows`, `hunch` (Brain-Forschung), `hunch-website`
+- `hunch-harness`, `hunch-windows-repo`, `hunch` (Brain-Forschung), `website`
 
 Bei iOS gilt: aktueller Swift-Code > HANDOFF.md > PLAN-INTENTIONAL.md > MEILENSTEINE-2.0.md.
 Ältere Roadmaps sind nur historisch. Beispiel: `MONETIZATION.md` behauptet StoreKit/Paywall
@@ -45,8 +45,10 @@ Besitzer ⇒ kein Werkzeug in Executive/Fäden) `executive.py:107`, `faeden.py:4
 
 ### Fäden (parallele persistente Arbeitsstränge) — HEUTE
 Eigener Auftrag, eigener Kontext, eigene Tool-Runden, persistent über Runtime-Neustart.
-Cap MAX_PARALLEL=3. Zustände: `offen`, `laeuft`, `wartet` (auf Freigabe), `fertig`,
-`gescheitert`, `abgebrochen`. Hinter Ausweis (Gäste bekommen Antwort, nie einen Agenten).
+Cap MAX_PARALLEL=3. Zustände: `offen`, `laeuft`, `wartet` (auf Freigabe), `pausiert`,
+`fertig`, `gescheitert`, `abgebrochen`. „Fortgesetzt" ist ein Historienereignis; der
+persistierte Zustand geht dabei zurück auf `offen`. Hinter Ausweis (Gäste bekommen Antwort,
+nie einen Agenten).
 Quelle: `faeden.py`, `test_faeden.py`.
 
 ### Antizipation / Vorhersage — HEUTE (4 Arten, reine Statistik, kein LLM, keine Kosten)
@@ -114,14 +116,17 @@ kein „immer annehmen"; Zahlungsmittel nur mit Zweck + Betrag), Audit schwärzt
 `GET/POST/DELETE /v1/vault/items`, `POST …/reveal`, `hunch tresor list|add`. App: Wallet → „An Maschine
 geben" + Abschnitt „Auf der Maschine" (Build 105). `tests/test_agent_tresor.py` (7).
 
-### Apple Watch — HEUTE (Build 105, G13)
-watchOS-Target `HunchWatch`: Freigaben (WatchConnectivity ↔ iPhone, Freigeben/Ablehnen), Arbeitsschritt der
-Work-Live-Activity als Zeile, HUNCH_APPROVAL-Aktionen auf der Uhr, Sprechen (Diktat → Maschine → Antwort
-vorgelesen). Complication (WidgetKit: accessoryCircular/Rectangular/Inline, App Group `group.com.hunchagent.hunch`, Build 107). Offen: Gerätetest durch Dominik.
+### Apple Watch — EXPERIMENTELL (Target gebaut; physischer Gerätetest offen)
+Der aktuelle Source enthält das watchOS-Target `HunchWatch`: Freigaben über WatchConnectivity ↔ iPhone,
+Arbeitsschritt der Work-Live-Activity als Zeile, HUNCH_APPROVAL-Aktionen, Diktat → Maschine → vorgelesene
+Antwort sowie die WidgetKit-Complication (accessoryCircular/Rectangular/Inline, App Group
+`group.com.hunchagent.hunch`). Target und Build sind belegt. Ob Freigabe, Sprache und Complication auf
+Dominiks echter Uhr Ende zu Ende funktionieren, ist noch nicht bestätigt; deshalb kein vollständiges HEUTE.
 
-### Werkzeuge — HEUTE (vier Herkünfte, ein Verzeichnis)
-- **Eingebaut:** `search_memory`, `remember`, `list_tasks`, `add_task`, `run_command`,
-  `http_get` (+ bedingte Bündel: Chat-, Reach-, Browser-Tools). `tools/builtin.py`
+### Werkzeuge — HEUTE (fünf Herkünfte, ein Verzeichnis)
+- **Eingebaut, u. a.:** `search_memory`, `remember`, `list_tasks`, `add_task`, `list_goals`,
+  `add_goal`, `update_goal`, `run_command`, `http_get`, `vault_use` (+ bedingte Bündel:
+  Chat-, Reach-, Browser-Tools). `tools/builtin.py`, `agent_tresor.py`
 - **Skills:** `SKILL.md` (Prosa fürs Modell) + Python `run(arguments)`. `tools/skills.py`
 - **MCP:** fremde Server aus `mcp_config.json`, dynamisch. `tools/mcp_client.py`
 - **REST:** Connectoren aus `connectors.json`, ohne Code. `register_rest_connector`
@@ -150,10 +155,13 @@ prüft Wire-Format + Swift-Abgleich (17 Zeilen deckungsgleich).
 Sync-Cursor zeigt nie in die laufende Millisekunde (2026-08-22): vorher konnte ein Eintrag derselben
 Millisekunde mit kleinerer ID für immer übersprungen werden (59 von 60 im Test) — jetzt doppelt statt
 fehlend, `merge` verwirft Dubletten.
-Schema identisch zur App (`memories`, `action_items`). `POST /brain/sync` beidseitig, Cursor
-aus Zeitstempel+ID; Erinnerungen wachsen nur, Aufgaben jüngster Stand. FTS5-Suche.
-MCP-Server-Modus bietet `search_memory, remember, list_tasks, add_task, recent_context`
-(bewusst kein `run_command`/`run_agent`). `memory.py`, `mcp_server.py`, `test_brain_shared.py`.
+Runtime und App führen getrennte lokale Datenbanken. Ihre gemeinsamen Sync-Formen umfassen
+`memories`, `action_items`, `goals`, `conversations` und `messages`. `POST /brain/sync` gleicht
+beidseitig ab, Cursor aus Zeitstempel+ID; Erinnerungen wachsen nur, bei veränderlichen Einträgen
+gewinnt der jüngere Stand. FTS5-Suche.
+MCP-Server-Modus bietet `search_memory`, `remember`, `list_tasks`, `add_task`, `recent_context`,
+`search_screen` und `get_screen_activity` (bewusst kein `run_command`/`run_agent`).
+`memory.py`, `mcp_server.py`, `test_brain_shared.py`, App `BrainSync.swift`.
 
 ### Memory-Scopes (global / projekt / faden) — HEUTE (2026-08-22, G2)
 `memories.scope` (`global` | `projekt:<goal_id>` | `faden:<id>`) in Runtime (`memory.py`, Migration +
@@ -180,16 +188,18 @@ Ebene (Kategorie „Präferenz") — kein eigener Speicher.
   `GET/POST /rueckweg`; App: Einstellungen → Agent-Runtime → Rückweg. Erinnerungen/Aufgaben/Vorhaben.
 - **Wallet (Logins, Zahlungsmethoden, Passkeys) — HEUTE, Menschen-Seite (2026-08-22, Build 99):** App → Profil → Wallet:
   Einträge lokal, Geheimnisse im Schlüsselbund (SecretStore), Aufdecken nur mit Face ID/Code. Agenten-Seite (Runtime-Tresor,
-  Werkzeug hinter Authority Gate, Audit/Rückweg) — HEUTE seit Build 105 (Agenten-Tresor `tresor.py`, `vault_use`).
+  Werkzeug hinter Authority Gate, Audit/Rückweg) — HEUTE seit Build 105 (Ausführung `agent_tresor.py` auf `tresor.py`, `vault_use`).
 - **Mitteilungen als Authority-Gate-Anfrage beim Öffnen — HEUTE (Build 102):** `MitteilungenGateView` (Ink-Karte,
   Erlauben/Später), erst „Erlauben" ruft den System-Dialog; Gerätezeichen geht an jede verbundene Maschine (`pushEinrichten`).
-- **Freigaben aus der Mitteilung — HEUTE (Build 98):** Push-Kategorie HUNCH_APPROVAL mit Freigeben (Face ID)/Ablehnen; erscheint auf
-  iPhone und gespiegelt auf der Apple Watch. Eigene Watch-App: Freigaben + Complication — HEUTE seit Build 107; Watch-Voice über die verbundene Maschine — siehe Z8.
+- **Freigaben aus der Mitteilung — EXPERIMENTELL (Code + APNs belegt; Aktion E2E offen):** Push-Kategorie
+  HUNCH_APPROVAL mit Freigeben (Face ID)/Ablehnen ist im App-Code vorhanden; APNs nahm den Server-Push
+  mit 200 an. Der Action-Handler wurde ab Build 118 korrigiert, aber ein echter Button-Tipp auf Build ≥118
+  wurde noch nicht bestätigt. Spiegelung und Aktion auf einer echten Apple Watch sind ebenfalls offen.
 - **Profil = Credential-Hub — HEUTE (Build 99):** Ausweis, Nachweise (HID/Secure Enclave, World ID, vertrauende Maschinen), Wallet, Profile.
-- **World ID Human in the Loop — EXPERIMENTELL (2026-08-22):** Runtime `world_id.py` + Sidecar (offizielles IDKit): `GET /world`,
+- **World ID Human in the Loop — HEUTE (2026-08-22):** Runtime `world_id.py` + Sidecar (offizielles IDKit): `GET /world`,
   `POST/GET /approvals/{id}/world`; Proof an Action `authority-approve` + RP-signierte Nonce gebunden, Verify gegen
   `developer.world.org/api/v4/verify/{rp_id}`, Replay-Schutz, Audit mit Nullifier/Credential. Live bestätigt 2026-08-22 13:06 (proof_of_human).
-  App: Button „Mit World ID bestätigen" seit Build 98 in TestFlight (Freigaben-Kachel). World ist optional — Ausweis/App bleiben Standard. → HEUTE (Runtime & App).
+  App: Button „Mit World ID bestätigen" seit Build 98 in TestFlight (Freigaben-Kachel). World ist optional — Ausweis/App bleiben Standard.
 - **Vorhaben (1.8) — HEUTE (2026-08-21):** Runtime `goals` mit `stand`/`next_step`, Tools list_goals/add_goal/update_goal,
   `add_task(goal=…)` verknüpft Schritt ↔ Vorhaben, `/vorhaben` (Ausweis-gated), Abgleich über `/brain/sync`
   (jüngerer Stand gewinnt); App: BrainGoal.stand/nextStep (Schema v2), Bearbeiten in der Zielzeile, MCP get_goals.
@@ -201,29 +211,42 @@ Ebene (Kategorie „Präferenz") — kein eigener Speicher.
   Stand/nächster Schritt/Fortschritt/aktiv), `memory_scope`, `skill` (gelernte SKILL.md + Registrierung), `file`
   (Schnappschuss in `~/.hunch/rueckweg/`, oder Datei wieder entfernen). `run_command`, `run_agent`, `web_ansehen` sind
   ausdrücklich **nicht umkehrbar** (`UNUMKEHRBAR`) und so protokolliert — kein stilles Schweigen.
-- **Geräte- & Aktionsgrenzen — HEUTE (2026-08-22, G4):** Freigabe je Gerät/Kanal mit `max_risk`
-  (`read_only` | `write_low_risk` | `critical_action`), `Ausweis.darf(quelle, risk)`; Einlass-Code beginnt mit
-  `write_low_risk`; Fäden prüfen die Grenze ihrer Quelle; `GET/POST /v1/identity/geraete`, `hunch geraete`; App: Profil →
-  Nachweise → Maschinen → **Vertrauen** (Grenze setzen/entziehen, Build 104). `tests/test_geraete.py`.
-- Geräteübergreifende Authority-Oberfläche — HEUTE (G9/G13): Freigaben an die aktive Oberfläche, sonst Push; Uhr, iPhone, CLI, Web.
+- **Geräte- & Aktionsgrenzen — HEUTE (2026-08-22, gehärtet 2026-09-01, G4):** Freigabe je
+  Gerät/Kanal mit `max_risk` (`read_only` | `write_low_risk` | `critical_action`). Die Runtime
+  leitet die Autorität serverseitig aus Token/Kanal ab, trennt Observer-Bündel je Principal und
+  persistiert sie an Signal, Faden und wartender Freigabe. Vor Ausführung wird die aktuelle Grenze
+  erneut geprüft; Entzug oder Senkung schließt offene WS-, SSE- und Voice-Drähte, auch nach einem
+  lokalen `hunch geraete`-Befehl. Einlass beginnt mit `write_low_risk`; Verwaltung über
+  `GET/POST /v1/identity/geraete`, `hunch geraete`; App: Profil → Nachweise → Maschinen →
+  **Vertrauen**. `ausweis.py`, `observer.py`, `faeden.py`, `executive.py`,
+  `tests/test_geraete.py`, `tests/test_risikogrenze.py`, `tests/test_voice.py`.
+- Geräteübergreifende Authority-Oberfläche — EXPERIMENTELL (G9/G13): Presence-Routing und Zustellung an
+  die aktive Oberfläche, sonst Push, sind im Code vorhanden. CLI und Web sind belegt; der korrigierte
+  Notification-Action-Pfad auf iPhone Build ≥118 und die Aktion auf einer echten Uhr warten noch auf E2E-Nachweis.
 
-### Endpoints — HEUTE (39 HTTP + 2 WebSocket, code-verifiziert)
+### Endpoints — HEUTE (Source/lokal verifiziert; kein aktuelles Live-Inventar)
+Lokale Introspektion des aktuellen Source ergibt 127 HTTP-Methoden/Pfad-Kombinationen auf 115
+eindeutigen HTTP-Pfaden: 108 stehen im lokal erfolgreich erzeugten OpenAPI-Schema; sieben sind bewusst
+nicht darin (OpenAPI-/Doku-Flächen sowie `/`, `/chat`, `/vorhaben/ansicht`). Dazu kommen drei WebSockets.
+Die laufende Runtime antwortete bei der Prüfung auf `/status` und `/doctor` mit 200, auf
+`/openapi.json` aber mit 500. Die folgende Auswahl ist daher ein Source-Nachweis, kein vollständiges
+Live-Inventar:
 identity: `/v1/identity`, `/v1/identity/enroll|challenge|verify|grant`, `/v1/einlass[/erzeugen]`
-fäden: `/faeden`, `/faeden/{id}` (GET/POST/DELETE)
+fäden: `/faeden` (GET/POST), `/faeden/{id}` (GET/DELETE), `/faeden/{id}/fortsetzen` (POST)
 approvals: `/approvals`, `/approvals/{id}`, `/proposals`, `/approve`, `/deny`
 console: `/v1/konsole[/{id}|/freigabe]`, `/v1/exec`
 channels: `/v1/channels[...]`, telegram/whatsapp
-memory: `/brain/sync`, `/brain/search`, `/v1/intents`
-tasks/session: `/sitzung`, `/vorhersage`
+memory: `/brain/sync`, `/brain/search`, `/brain/memories[...]`, `/brain/scopes`, `/v1/intents`
+tasks/session/goals: `/sitzung`, `/vorhersage`, `/vorhaben[...]`
 tools/audit: `/tools`, `/audit`
 vault: `/v1/vault[...]`
 providers: `/providers`, `/runtimes`, `/v1/machine`
 wallet: `/v1/wallet`, `/v1/wallet-pass`
 events/nudges/push: `/events`, `/v1/events`, `/nudges`, `/v1/push[-token]`
 rechenschaft: `/rueckweg` (GET), `/rueckweg/{id}` (POST) — Undo; `/grenze` (GET) — einsehbare Grenze (beide hinter Ausweis, 2026-08-21)
-status: `/status`, `/v1/web/login|profile`
-stream/ws: `WS /ws`, `WS /v1/ws`, `GET /v1/stream` (SSE-Fallback)
-web: `GET /`, `GET /chat`
+status: `/status`, `/doctor`, `/v1/web/login|profile`
+stream/ws: `WS /ws`, `WS /v1/ws`, `WS /v1/voice/ws`, `GET /v1/stream` (SSE-Fallback)
+web: `GET /`, `GET /chat`, `GET /vorhaben/ansicht`
 MCP: kein HTTP — nur stdio (`python -m hunch_runtime.mcp_server`).
 Keine erfundenen Endpoints auf der Website oder in der Doku.
 
