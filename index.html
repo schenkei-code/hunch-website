@@ -17,7 +17,7 @@
 <link rel="alternate" hreflang="en" href="https://hunchagent.io/en/">
 <link rel="alternate" hreflang="x-default" href="https://hunchagent.io/">
 <link rel="icon" type="image/png" href="favicon.png">
-<link rel="apple-touch-icon" href="owl-mark.png">
+<link rel="apple-touch-icon" href="app-icon.png">
 <style>
 :root{
   /* Brand System 2026.03 — security-document credential system. ink / ivory / signal gold */
@@ -84,6 +84,7 @@ nav.scrolled{box-shadow:0 8px 24px rgba(0,0,0,.05)}
 nav.over-ink{background:rgba(13,13,11,.7);color:var(--ivory-100);border-bottom-color:var(--security-line-dark)}
 nav.over-ink .nav-links{color:var(--ivory-300)}
 nav.over-ink .nav-links a:hover{color:var(--ivory-50)}
+nav.over-ink .logo img{filter:brightness(0) invert(1)}
 nav.over-ink .nav-serial{color:var(--gold-300);border-color:var(--security-line-dark)}
 nav.over-ink.scrolled{box-shadow:0 8px 24px rgba(0,0,0,.35)}
 .logo{display:flex;align-items:center;gap:.55rem;font-weight:700;font-size:1.05rem;letter-spacing:-.02em;text-transform:lowercase;flex:0 0 auto;margin-right:.6rem}
@@ -1286,29 +1287,30 @@ section[data-serial] > .wrap{position:relative;z-index:1}
         <li>Geräte- &amp; Aktionsgrenzen: jedes Gerät, jeder Kanal bis zu seiner Risikoklasse (Nur lesen · Lesen und merken · Alles)</li>
         <li>Wissensgraph &amp; Pattern of Life: Themen, Personen, Orte, Dateien, Vorhaben, Fäden als Graph; Stundenprofil, Übergänge, Kadenzen (Runtime, App → Brain → Graph)</li>
         <li>App-/Fenster-/Browser-/Datei-Kontext als Sensoren der Maschine (einschaltbar, Ruhezeiten; Screen-OCR über macOS Vision, hinter dem Bildschirmaufnahme-Recht), Rewind über MCP, Transcript-Import (ChatGPT/Claude-Export, Text)</li>
-        <li>Proaktive Predictions &amp; Nudges: Vorhersage-Impulse im Heartbeat, Zustellung an die aktive Oberfläche, sonst Push</li>
+        <li>Proaktive Predictions &amp; Nudges: Vorhersage-Impulse im Heartbeat und Zustellung an die aktive Oberfläche</li>
         <li>Presence-Routing: die Maschine weiß, welche Oberfläche gerade aktiv ist, und liefert dorthin</li>
         <li>Vorhaben auf Desktop-Surfaces: <span class="mono">hunch vorhaben</span>, Weboberfläche, Cockpit</li>
         <li>Agenten-Tresor: Logins, Zahlungsmittel, Passkeys aus dem Wallet an die Maschine — jede Nutzung durchs Authority Gate, Zahlungsmittel nur mit Zweck und Betrag, Geheimnis nie im Protokoll</li>
-        <li>Apple-Watch-App: Freigaben, Arbeitsschritt, Sprechen über die verbundene Maschine, Complication (offene Freigaben · Schritt)</li>
         <li>Vorhaben-Ausführer: Ziel setzen, Plan aus Schritten, Schritte als Fäden, über Tage und Neustarts; Fehlschlag → einmal neu planen, dann pausieren und fragen; Rückfragen nur, wo das Gate sie verlangt</li>
         <li>Auslöser: Zeit, Dateiänderung, fehlgeschlagener Build, Kanal-Nachricht → Auftrag oder Faden; pausierte Fäden wieder aufnehmen</li>
         <li>Globale Live-Konversation: App, Runtime, CLI, Web und Telegram teilen einen Verlauf — Gespräche anderer Oberflächen im Brain sehen und hier fortsetzen</li>
       </ul></div>
       <div class="col reveal"><h3><span class="tag exp">Experimentell</span></h3><ul>
-        
         <li>Fenstertitel nur mit Bedienungshilfen-Recht; Screen-OCR nur mit Bildschirmaufnahme-Recht</li>
+        <li>Apple-Watch-Target: Freigaben, Arbeitsschritt, Sprache und Complication sind gebaut; der Test auf der echten Uhr steht aus</li>
+        <li>Freigeben/Ablehnen aus einer Push-Mitteilung: Code und APNs-Annahme sind belegt; der korrigierte Button auf Build ≥118 wartet auf E2E-Bestätigung</li>
+        <li>Vorhersage-Push im Alltag: Erzeugung und Presence-Routing laufen, die tatsächliche Push-Zustellung ist noch nicht bestätigt</li>
       </ul></div>
       <div class="col reveal"><h3><span class="tag next">Als Nächstes</span></h3><ul>
         <li>Pro-Version im App Store (Einmalkauf, Kern bleibt frei) — sobald das Paid-Apps-Agreement aktiv ist</li>
       </ul></div>
       <div class="col reveal"><h3><span class="tag vision">Vision 2.0</span></h3><ul>
-        <li>Ausgeliefert: mehrtägige Vorhaben, Wegwahl innerhalb der Authority, Reaktion auf Fehlschläge, Rückfragen nur für Besitzer-Entscheidungen</li>
-        <li>Offen bleibt die Richtung: ein Gegenüber, das über Jahre mit dir mitwächst</li>
         <li>Ein dauerhaftes Gegenüber über Modelle, Geräte und Jahre</li>
-        <li>Relay-Dienst (Erreichbarkeit ohne eigenes Netz) — bewusst nicht geplant; Erreichbarkeit läuft über ein privates Netz deiner Wahl (VPN/Mesh) — deine Geräte, keine fremde Mitte</li>
       </ul></div>
     </div>
+    <p class="lead reveal" style="margin-top:1.4rem">Bewusst nicht geplant: ein gehosteter Relay-Dienst.
+    Erreichbarkeit von unterwegs läuft über ein privates Netz deiner Wahl (VPN/Mesh) plus TLS —
+    deine Geräte, keine fremde Mitte.</p>
   </div>
 </section>
 

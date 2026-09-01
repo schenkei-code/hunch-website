@@ -17,7 +17,7 @@
 <link rel="alternate" hreflang="en" href="https://hunchagent.io/en/">
 <link rel="alternate" hreflang="x-default" href="https://hunchagent.io/">
 <link rel="icon" type="image/png" href="../favicon.png">
-<link rel="apple-touch-icon" href="../owl-mark.png">
+<link rel="apple-touch-icon" href="../app-icon.png">
 <style>
 :root{
   /* Brand System 2026.03 — security-document credential system. ink / ivory / signal gold */
@@ -84,6 +84,7 @@ nav.scrolled{box-shadow:0 8px 24px rgba(0,0,0,.05)}
 nav.over-ink{background:rgba(13,13,11,.7);color:var(--ivory-100);border-bottom-color:var(--security-line-dark)}
 nav.over-ink .nav-links{color:var(--ivory-300)}
 nav.over-ink .nav-links a:hover{color:var(--ivory-50)}
+nav.over-ink .logo img{filter:brightness(0) invert(1)}
 nav.over-ink .nav-serial{color:var(--gold-300);border-color:var(--security-line-dark)}
 nav.over-ink.scrolled{box-shadow:0 8px 24px rgba(0,0,0,.35)}
 .logo{display:flex;align-items:center;gap:.55rem;font-weight:700;font-size:1.05rem;letter-spacing:-.02em;text-transform:lowercase;flex:0 0 auto;margin-right:.6rem}
@@ -1217,29 +1218,30 @@ section[data-serial] > .wrap{position:relative;z-index:1}
         <li>Device &amp; action boundaries: every device, every channel up to its risk class (read only · read and remember · everything)</li>
         <li>Knowledge graph &amp; Pattern of Life: topics, people, places, files, intentions, threads as a graph; hour profile, transitions, cadences (runtime, app → Brain → Graph)</li>
         <li>App/window/browser/file context as sensors of the machine (switchable, quiet hours; screen OCR via macOS Vision, behind the screen-recording permission), rewind via MCP, transcript import (ChatGPT/Claude export, text)</li>
-        <li>Proactive predictions &amp; nudges: prediction nudges in the heartbeat, delivered to the active surface, push otherwise</li>
+        <li>Proactive predictions &amp; nudges: prediction nudges in the heartbeat, delivered to the active surface</li>
         <li>Presence routing: the machine knows which surface is active right now and delivers there</li>
         <li>Intentions on desktop surfaces: <span class="mono">hunch vorhaben</span>, web UI, cockpit</li>
         <li>Agent vault: logins, payment methods, passkeys from the wallet onto the machine — every use through the Authority Gate, payment only with purpose and amount, the secret never in the log</li>
-        <li>Apple Watch app: approvals, work step, talking through the connected machine, complication (open approvals · step)</li>
         <li>Intention runner: set a goal, plan of steps, steps as threads, across days and restarts; failure → replan once, then pause and ask; questions only where the gate requires them</li>
         <li>Triggers: time, file change, failed build, channel message → job or thread; resume paused threads</li>
         <li>Global live conversation: app, runtime, CLI, web and Telegram share one history — see conversations from other surfaces in the Brain and continue them here</li>
       </ul></div>
       <div class="col reveal"><h3><span class="tag exp">Experimental</span></h3><ul>
-        
         <li>Window titles only with accessibility permission; screen OCR only with screen-recording permission</li>
+        <li>Apple Watch target: approvals, work step, voice and complication are built; the test on a physical watch is still open</li>
+        <li>Approve/decline from a push notification: code and APNs acceptance are proven; the corrected button on build ≥118 awaits end-to-end confirmation</li>
+        <li>Prediction push in daily use: generation and presence routing run, but actual push delivery has not yet been confirmed</li>
       </ul></div>
       <div class="col reveal"><h3><span class="tag next">Next</span></h3><ul>
         <li>Pro version in the App Store (one-time purchase, core stays free) — as soon as the paid-apps agreement is active</li>
       </ul></div>
       <div class="col reveal"><h3><span class="tag vision">Vision 2.0</span></h3><ul>
-        <li>Shipped: multi-day intentions, choosing the path within the authority, reacting to failures, questions only for owner decisions</li>
-        <li>What stays open is the direction: a counterpart that grows with you over years</li>
         <li>A lasting counterpart across models, devices and years</li>
-        <li>Relay service (reachability without your own network) — deliberately not planned; reachability runs over a private network of your choice (VPN/mesh) — your devices, no third party in the middle</li>
       </ul></div>
     </div>
+    <p class="lead reveal" style="margin-top:1.4rem">Deliberately not planned: a hosted relay service.
+    Reachability away from home runs over a private network of your choice (VPN/mesh) plus TLS —
+    your devices, no third party in the middle.</p>
   </div>
 </section>
 
