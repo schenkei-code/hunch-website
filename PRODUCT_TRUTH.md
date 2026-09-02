@@ -10,10 +10,11 @@ Status-Legende:
 - **ALS NÄCHSTES** — in Arbeit / nahe Roadmap
 - **VISION** — 2.0-Zielbild, nicht ausgeliefert
 
-Repos geprüft (Stand 2026-09-01):
+Repos geprüft (Stand 2026-09-02):
 - `hunch-runtime` @ `init-runtime` — Python-Runtime, FastAPI, CLI, MCP-Server
 - `hunch-app-repo` (hunch-app) @ `feat/english-localization` — iOS-App (Pocket)
-- `hunch-harness`, `hunch-windows-repo`, `hunch` (Brain-Forschung), `website`
+- `hunch-windows-repo` @ `windows-app` — Desktop-App (Electron)
+- `hunch-harness`, `hunch` (Brain-Forschung), `website`
 
 Bei iOS gilt: aktueller Swift-Code > HANDOFF.md > PLAN-INTENTIONAL.md > MEILENSTEINE-2.0.md.
 Ältere Roadmaps sind nur historisch. Beispiel: `MONETIZATION.md` behauptet StoreKit/Paywall
