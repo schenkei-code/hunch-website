@@ -10,7 +10,7 @@ Status-Legende:
 - **ALS NÄCHSTES** — in Arbeit / nahe Roadmap
 - **VISION** — 2.0-Zielbild, nicht ausgeliefert
 
-Repos geprüft (Stand 2026-09-02):
+Repos geprüft (Stand 2026-09-03):
 - `hunch-runtime` @ `init-runtime` — Python-Runtime, FastAPI, CLI, MCP-Server
 - `hunch-app-repo` (hunch-app) @ `feat/english-localization` — iOS-App (Pocket)
 - `hunch-windows-repo` @ `windows-app` — Desktop-App (Electron)
@@ -112,10 +112,14 @@ Schritte ohne Nachfrage (Governor), kritische durchs Gate.
 
 ### Agenten-Tresor — HEUTE (2026-08-22, G5)
 `agent_tresor.py`: `tresor_eintraege` (login/payment/passkey), Geheimnis nur mit dem Tresor-Schlüssel
-verschlüsselt (Anlegen nur bei offenem Tresor), Werkzeug `vault_use` (immer critical, `HART_IMMER_FRAGEN` —
-kein „immer annehmen"; Zahlungsmittel nur mit Zweck + Betrag), Audit schwärzt Geheimnisse,
+verschlüsselt (Anlegen nur bei offenem Tresor). `vault_use` ist immer kritisch und fest auf „immer
+fragen"; es bestätigt Zweck und bei Zahlungsmitteln Betrag, entschlüsselt das Geheimnis aber nicht und
+gibt es nie als Werkzeugergebnis aus. Eine echte Übergabe braucht einen zielgebundenen lokalen Adapter.
+Eine Aufsperrung läuft nach spätestens 24 Stunden ab; der Wartungstakt verlängert sie nicht.
+Audit schwärzt Geheimnisse,
 `GET/POST/DELETE /v1/vault/items`, `POST …/reveal`, `hunch tresor list|add`. App: Wallet → „An Maschine
-geben" + Abschnitt „Auf der Maschine" (Build 105). `tests/test_agent_tresor.py` (7).
+geben" + Abschnitt „Auf der Maschine" (Build 105). `tests/test_agent_tresor.py`,
+`tests/test_tresor_ablauf.py`.
 
 ### Apple Watch — EXPERIMENTELL (Target gebaut; physischer Gerätetest offen)
 Der aktuelle Source enthält das watchOS-Target `HunchWatch`: Freigaben über WatchConnectivity ↔ iPhone,
@@ -137,10 +141,15 @@ Dominiks echter Uhr Ende zu Ende funktionieren, ist noch nicht bestätigt; desha
 ### Automatische Verdichtung — HEUTE (Nachweis 2026-08-22)
 `verdichter.py`, Schleife „verdichtung" alle 6 h (Ruhezeit beachtet); Audit `actor=verdichter` — auf der
 laufenden Runtime 16 Einträge, Nulllauf wird protokolliert („nichts zu verdichten"). `test_verdichter`.
+Seit 2026-09-02 gelangen nur vertrauenswürdig markierte Ereignisse in die Verdichtung; externe/untrusted
+Inhalte und daraus abgeleitete Observer-Signale werden nicht als Erinnerung zurückgeschrieben.
 
 ### Gelernte Skills — HEUTE (mit Grenze)
-Nach ≥3 identischen Erfolgen schreibt die Runtime `auto_<tool>.SKILL.md` (sichtbar/editierbar).
-Kein autonomes Training, keine Selbstumprogrammierung. `executive._maybe_learn_skill`.
+Nach ≥3 identischen Erfolgen kann die Runtime `auto_<tool>.SKILL.md` schreiben (sichtbar/editierbar).
+Die Datei enthält nur wertfreie Platzhalter aus dem Werkzeugschema, nie frühere Argumente oder
+Begründungen. Gelernte Skills lernen nicht rekursiv weiter; `run_agent`, `run_command`, `vault_use`
+und Datei-/Sprachnachrichten-Versand sind ausgeschlossen. Kein autonomes Training, keine
+Selbstumprogrammierung. `executive._maybe_learn_skill`, `tests/test_skill_lernen.py`.
 
 ### Provider — HEUTE (Observer und Executive unabhängig wählbar)
 Cloud: `claude, openai, gemini, kimi, deepseek, qwen, mistral, grok, groq`.
@@ -185,6 +194,9 @@ Ebene (Kategorie „Präferenz") — kein eigener Speicher.
 - **Weniger strenger Modus vor der Einrichtung:** ohne enrollten Besitzer gibt `darf_alles()`
   True zurück — bewusst (`ausweis.py:216`). Die kryptografische Sperre ist NICHT automatisch
   aktiv, bevor die Besitzeridentität eingerichtet ist. Ehrlich so dokumentieren.
+- **Master-Token nach der Einrichtung:** bleibt Zugang für unpersönliche Betriebsdaten, ist aber
+  kein Besitzer-Ausweis. Brain, privater Chat, Graph, Muster, Sensoren, Voice und kritische Aktionen
+  verlangen danach einen widerrufbaren Geräte-Token mit passender Risikogrenze.
 - **Rückweg (Undo) — HEUTE (2026-08-21):** `rueckweg.py`, remember/add_task hinterlassen Rückweg,
   `GET/POST /rueckweg`; App: Einstellungen → Agent-Runtime → Rückweg. Erinnerungen/Aufgaben/Vorhaben.
 - **Wallet (Logins, Zahlungsmethoden, Passkeys) — HEUTE, Menschen-Seite (2026-08-22, Build 99):** App → Profil → Wallet:
@@ -224,6 +236,12 @@ Ebene (Kategorie „Präferenz") — kein eigener Speicher.
 - Geräteübergreifende Authority-Oberfläche — EXPERIMENTELL (G9/G13): Presence-Routing und Zustellung an
   die aktive Oberfläche, sonst Push, sind im Code vorhanden. CLI und Web sind belegt; der korrigierte
   Notification-Action-Pfad auf iPhone Build ≥118 und die Aktion auf einer echten Uhr warten noch auf E2E-Nachweis.
+- **Lokale Geheimnis- und Dateigrenze — HEUTE (gehärtet 2026-09-03):** Kanal-Tokens liegen außerhalb
+  von `channels.json`, der Web-Token nur im flüchtigen Tab-Speicher, externe Kindprozesse bekommen eine
+  Positivliste statt der gesamten Runtime-Umgebung, Wallet-Kennwörter gehen über stdin statt Prozessargumente.
+  Runtime-Datenordner/Sicherungen sind 0700, Datenbanken, Push-Zustand und Logs 0600; Nachrichtenanfänge
+  stehen nicht im Betriebslog. `tests/test_channel_secrets.py`, `tests/test_subprocess_sicherheit.py`,
+  `tests/test_wallet.py`, `tests/test_dateisicherheit.py`.
 
 ### Endpoints — HEUTE (Source/lokal verifiziert; kein aktuelles Live-Inventar)
 Lokale Introspektion des aktuellen Source ergibt 127 HTTP-Methoden/Pfad-Kombinationen auf 115
@@ -280,15 +298,17 @@ Voice nimmt Audio auf dem Gerät auf; die Gesprächsverarbeitung läuft wahlweis
 A2DP und AirPlay. Siri/CarPlay kann die App über „Sprich mit Hunch“ öffnen und
 Voice sofort starten. Hunch startet weiterhin kein Gespräch autonom aus dem
 Hintergrund; proaktive Signale kommen per APNs.
-Quelle: `VoiceSettingsView.swift:8-17`, `VoiceEngine.swift:95-111, 460-468`,
-`VoiceIntents.swift:5-17`, `Info.plist:5-8`.
+Quelle: `VoiceSettingsView.swift`, `VoiceEngine.swift`, `VoiceIntents.swift`, `Info.plist`.
 
 ### Identität / Secure Enclave — HEUTE
 EC-P-256-Schlüssel in der Secure Enclave (`kSecAttrTokenIDSecureEnclave`), biometrisch
 geschützt, nicht exportierbar, kein Backup. Nur Public-Key exportiert. **HID** = SHA-256-
 Fingerprint des Public-Keys als „HID 0000 0000 0000 0000". Challenge/Signatur beim Handshake.
-Vor Einrichtung: Platzhalter „HID · XXXX XXXX", Simulator nutzt Ersatz-Identität (ehrlicher Fake).
-Quelle: `AI/OwnerIdentity.swift`, `Connection/IntentionalAgentClient.swift:610`.
+Vor Schlüsselerzeugung meldet `OwnerIdentity` ehrlich „HID — — — —"; nur die sichtbare Karte
+markiert ihren kurzlebigen, namensbasierten Rückfall mit „HID ·“. Der Simulator nutzt eine
+Ersatz-Identität statt eine Secure Enclave vorzutäuschen.
+Quelle: `AI/OwnerIdentity.swift`, `Views/IdentityCardView.swift`,
+`Connection/IntentionalAgentClient.swift`.
 **Alte Fallback-HID „6699 3937" nicht mehr verwenden** — die neue Karte leitet aus dem Namen ab.
 
 ### App-Fähigkeiten — Status
