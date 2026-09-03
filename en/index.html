@@ -36,7 +36,7 @@
   --bg:var(--ivory-100); --bg-2:var(--ivory-50); --card:#FFFFFF;
   --ink:var(--ink-1000); --ink-2:var(--ink-700); --dim:var(--stone-600); --line:var(--security-line);
   --gold-100:var(--gold-300); --gold-text:var(--gold-600); --gold-text-deep:var(--gold-700); --btn-ink:var(--ink-1000);
-  --ok:#2e6b47; --warn:#9a5d08; --plan:var(--stone-600);
+  --ok:var(--ink-700); --warn:var(--stone-600); --plan:var(--stone-600);
   --shadow-s:0 1px 1.5px rgba(0,0,0,.07),0 5px 12px rgba(0,0,0,.05);
   --shadow-m:var(--document-shadow);
   --t-micro:140ms; --t-shift:220ms; --t-reveal:420ms; --ease:cubic-bezier(.2,.8,.2,1);
@@ -75,7 +75,7 @@ code,.mono{font-family:var(--mono)}
 .tag.heute{color:var(--ok)}
 .tag.exp{color:var(--warn)}
 .tag.next{color:var(--stone-600)}
-.tag.vision{color:var(--gold-600)}
+.tag.vision{color:var(--stone-600)}
 
 /* nav — Papierleiste mit Hairline + Serienfeld */
 nav{position:fixed;top:0;left:0;right:0;z-index:60;background:rgba(247,244,235,.82);
@@ -179,7 +179,7 @@ h2{font-size:clamp(2rem,4.8vw,3.5rem);font-weight:800;line-height:1.02;margin-to
 .g2{grid-template-columns:1fr 1fr}
 .g3{grid-template-columns:repeat(3,1fr)}
 .g4{grid-template-columns:repeat(4,1fr)}
-.card h3{font-size:1.05rem;font-weight:700;margin-bottom:.5rem;display:flex;align-items:center;gap:.5rem;flex-wrap:wrap;letter-spacing:-.01em}
+.card h3{font-size:1.05rem;font-weight:700;margin-bottom:.5rem;display:flex;align-items:center;gap:.5rem;flex-wrap:nowrap;white-space:nowrap;letter-spacing:-.01em}
 .card p{color:var(--dim);font-size:.92rem;line-height:1.55}
 .card .k{font-family:var(--mono);font-size:.76rem;color:var(--gold-700)}
 
@@ -197,7 +197,7 @@ h2{font-size:clamp(2rem,4.8vw,3.5rem);font-weight:800;line-height:1.02;margin-to
 /* memory architecture */
 .scopes{display:grid;gap:.9rem;margin-top:2.4rem}
 .scope{border:1px solid var(--security-line);border-radius:var(--r-card);padding:1.2rem 1.3rem;background:var(--paper-pearl);box-shadow:var(--shadow-s)}
-.scope h3{font-size:1rem;display:flex;gap:.5rem;align-items:center;flex-wrap:wrap}
+.scope h3{font-size:1rem;display:flex;gap:.5rem;align-items:center;flex-wrap:nowrap;white-space:nowrap}
 .scope p{color:var(--dim);font-size:.9rem;margin-top:.35rem}
 .scope .items{margin-top:.6rem;display:flex;flex-wrap:wrap;gap:.4rem}
 .scope .items span{font:500 .74rem/1.4 var(--mono);color:var(--ink-2);padding:.35rem 0;border-bottom:1px solid var(--security-line)}
@@ -560,7 +560,7 @@ section[data-serial] > .wrap{position:relative;z-index:1}
 .gate-cred b{display:block;font:700 .52rem/1.2 var(--text);letter-spacing:.2em;text-transform:uppercase;color:#8e8a84}
 .gate-cred strong{display:block;margin-top:2px;font:700 .95rem/1.1 var(--display);letter-spacing:.03em;text-transform:uppercase}
 .gate-cred code{display:block;margin-top:3px;font:500 .64rem/1.2 var(--mono);letter-spacing:.04em;color:#3a3a3c;white-space:nowrap}
-.gate-cred .ok{font:700 .52rem/1.3 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:#2e6b47;text-align:right;max-width:7rem}
+.gate-cred .ok{font:700 .52rem/1.3 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--gold-300);text-align:right;max-width:7rem}
 .gate-cred .ok::before{content:"● "}
 .gate-facts dt{text-transform:none;letter-spacing:0}
 .gate-btn{cursor:pointer;background:transparent;font:inherit;font-weight:700;font-size:.95rem;color:var(--ivory-50);transition:transform var(--t-micro) var(--ease),box-shadow var(--t-shift) var(--ease)}
@@ -575,7 +575,7 @@ section[data-serial] > .wrap{position:relative;z-index:1}
 .gate-result button{display:inline-flex;min-height:44px;align-items:center;margin-top:.7rem;background:none;border:0;padding:0;color:var(--gold-300);font:600 .62rem/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;cursor:pointer;border-bottom:1px solid rgba(231,207,130,.4)}
 .gate-card[data-state="ok"] .gate-result,.gate-card[data-state="no"] .gate-result{display:block;animation:gatein var(--t-shift) var(--ease)}
 .gate-card[data-state="ok"] .gate-actions,.gate-card[data-state="no"] .gate-actions{display:none}
-.gate-card[data-state="ok"] .gate-risk{color:#9fd3b0;border-color:#9fd3b0}
+.gate-card[data-state="ok"] .gate-risk{color:var(--gold-300);border-color:var(--gold-300)}
 .gate-card[data-state="no"] .gate-risk{color:rgba(255,254,250,.6);border-color:rgba(255,254,250,.4)}
 @keyframes gatein{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
 @media(max-width:900px){#autoritaet .head-row{grid-template-columns:1fr}.gate-card.tilt{transform:none}.gate-cred{grid-template-columns:3rem 1fr}.gate-cred .ok{grid-column:2;text-align:left}}
@@ -692,11 +692,9 @@ section[data-serial] > .wrap{position:relative;z-index:1}
   <div class="wrap nav-in">
     <a class="logo" href="#top"><img src="../owl-mark.png" alt="">hunch</a>
     <div class="nav-links">
-      <a href="#moment">The moment</a>
-      <a href="#modell">Personal model</a>
-      <a href="#lernen">Self-improvement</a>
-      <a href="#faeden">Threads</a>
-      <a href="#autoritaet">Authority</a>
+      <a href="#moment">Why Hunch</a>
+      <a href="#faeden">How Hunch acts</a>
+      <a href="#autoritaet">Safety</a>
       <a href="#apps">Apps</a>
       <a href="#status">Status</a>
       <a href="../docs/index.html">Docs</a>
@@ -708,7 +706,7 @@ section[data-serial] > .wrap{position:relative;z-index:1}
   </div>
 </nav>
 <div class="mobile-menu" id="mobile-menu" role="navigation" aria-label="Mobile primary navigation" hidden>
-  <a href="#moment">The moment</a><a href="#modell">Personal model</a><a href="#lernen">Self-improvement</a><a href="#faeden">Threads</a><a href="#autoritaet">Authority</a><a href="#apps">Apps</a><a href="#status">Status</a><a href="../docs/index.html">Documentation</a>
+  <a href="#moment">Why Hunch</a><a href="#faeden">How Hunch acts</a><a href="#autoritaet">Safety</a><a href="#apps">Apps</a><a href="#status">Status</a><a href="../docs/index.html">Documentation</a>
   <a class="mobile-menu-meta" href="../" hreflang="de" lang="de">Deutsch</a>
   <a class="mobile-menu-cta" href="mailto:schenkei@hunchagent.io?subject=Hunch%20Early%20Access">Early Access</a>
 </div>
@@ -884,9 +882,9 @@ section[data-serial] > .wrap{position:relative;z-index:1}
       </div>
     </div>
     <div class="grid g3">
-      <div class="card reveal"><h3>Its understanding of you<span class="tag heute">Today</span></h3>
+      <div class="card reveal"><h3>Understanding <span class="tag heute">Today</span></h3>
         <p>Recurring experiences are condensed into reliable knowledge. Fleeting content and suspicious instructions are filtered.</p></div>
-      <div class="card reveal"><h3>Its own assumptions<span class="tag heute">Today</span></h3>
+      <div class="card reveal"><h3>Assumptions <span class="tag heute">Today</span></h3>
         <p>When an intention changes, Hunch can correct or withdraw assumptions it derived itself. Memories you wrote yourself stay untouched.</p></div>
       <div class="card reveal"><h3>Its routines<span class="tag heute">Today</span></h3>
         <p>If a complex tool sequence succeeds repeatedly, Hunch can turn it into a visible, editable skill — available again next time.</p></div>
@@ -1035,12 +1033,12 @@ section[data-serial] > .wrap{position:relative;z-index:1}
       <div class="card reveal"><h3>Identity<span class="tag heute">Today</span></h3><p>The owner device creates a private key in the Secure Enclave — biometrically protected, not exportable, not in backups. Your HID is derived from the public key.</p></div>
       <div class="card reveal"><h3>Authority &amp; risk<span class="tag heute">Today</span></h3><p>The Governor distinguishes risk classes, budgets, limits, always-ask rules and circuit breakers.</p></div>
       <div class="card reveal"><h3>Second opinion<span class="tag heute">Today</span></h3><p>A separate review model may only rate concrete, non-critical steps as harmless. Critical actions are never approved automatically.</p></div>
-      <div class="card reveal"><h3>Preview &amp; consent<span class="tag heute">Today</span></h3><p>Before protected actions you see tool, arguments, target, risk and reasoning. You approve or decline.</p></div>
+      <div class="card reveal"><h3>Preview <span class="tag heute">Today</span></h3><p>Before protected actions you see tool, arguments, target, risk and reasoning. You approve or decline.</p></div>
       <div class="card reveal"><h3>Execution &amp; audit<span class="tag heute">Today</span></h3><p>Action, decision, result and cost remain traceable in the append-only log.</p></div>
       <div class="card reveal"><h3>Isolation<span class="tag heute">Today</span></h3><p>Guests get a separate context — neither your personal memory nor your tools.</p></div>
-      <div class="card reveal"><h3>Impulse &amp; failure brake<span class="tag heute">Today</span></h3><p>Minimum spacing plus a daily limit for impulses; three failures of one tool lead to a pause.</p></div>
-      <div class="card reveal"><h3>Way back &amp; boundary<span class="tag heute">Today</span></h3><p>Remembered facts and created tasks can be taken back; the boundary — what Hunch never does without asking — is visible in one place. Every action sits in the logbook with its reasoning; the way back covers everything recoverable, shell and agent runs are honestly marked as not reversible; every device has its action boundary.<span class="tag heute">Today</span></p></div>
-      <div class="card reveal"><h3>World ID · Human in the Loop <span class="tag heute">Today</span></h3><p>A second path for the same approval: you confirm in the World App with your Proof of Human. The proof is bound to the action and a one-time nonce signed by Hunch, then verified against the World API. The audit keeps only the confirmed credential type — never the raw proof, nonce, or nullifier. ID card and in-app approval always remain the default and fallback path.</p></div>
+      <div class="card reveal"><h3>Impulse brake <span class="tag heute">Today</span></h3><p>Minimum spacing plus a daily limit for impulses; three failures of one tool lead to a pause.</p></div>
+      <div class="card reveal"><h3>Undo &amp; boundary<span class="tag heute">Today</span></h3><p>Remembered facts and created tasks can be taken back; the boundary — what Hunch never does without asking — is visible in one place. Every action sits in the logbook with its reasoning; the way back covers everything recoverable, shell and agent runs are honestly marked as not reversible; every device has its action boundary.<span class="tag heute">Today</span></p></div>
+      <div class="card reveal"><h3>World ID <span class="tag heute">Today</span></h3><p>A second path for the same approval: you confirm in the World App with your Proof of Human. The proof is bound to the action and a one-time nonce signed by Hunch, then verified against the World API. The audit keeps only the confirmed credential type — never the raw proof, nonce, or nullifier. ID card and in-app approval always remain the default and fallback path.</p></div>
     </div>
     <div class="rule reveal">Hunch may perceive, formulate an intent and propose something — but act only with matching authority. Deleting, buying, sending externally and publishing are specially protected.<div class="note">Before an owner identity is set up, a less strict mode can exist for compatibility. The cryptographic lock is not automatically active before setup is complete.</div>
     </div>

@@ -101,10 +101,10 @@ html.mobile-menu-open,body.mobile-menu-open{overflow:hidden}
 /* status — signiert, nicht gekastelt */
 .tag{display:inline-flex;align-items:center;gap:.45em;font:650 .6rem/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;white-space:nowrap;vertical-align:middle;opacity:.9}
 .tag::before{content:"";width:.38rem;height:.38rem;border-radius:50%;background:currentColor;flex:0 0 auto}
-.tag.heute{color:#2e6b47}
-.tag.exp{color:#9a5d08}
+.tag.heute{color:var(--ink-700)}
+.tag.exp{color:var(--stone-600)}
 .tag.next{color:var(--stone-600)}
-.tag.vision{color:var(--gold-600)}
+.tag.vision{color:var(--stone-600)}
 .doc .rule{margin:1.4rem 0;background:var(--paper-pearl);border:1px solid rgba(174,134,46,.45);border-radius:12px;padding:1.1rem 1.2rem;font-size:.92rem;color:var(--ink-700);max-width:44rem;box-shadow:var(--shadow-card)}
 .doc .rule b{color:var(--gold-700)}
 .authority-ledger-doc{max-width:44rem;margin:.8rem 0;border-top:1px solid var(--security-line)}
