@@ -39,7 +39,8 @@ Die Website zeigt **7 Karten** (Website behauptete 7, zeigte aber nur 6 — beho
 4. Freigabe mit Vorschau (Werkzeug/Argumente/Ziel/Risiko/Begründung) — `executive.py:192`
 5. Impuls-Bremse (Cooldown 900s + Tagescap; Unterdrücktes abgelegt) — `governor.may_nudge`
 6. Kaputte Werkzeuge (3 Fehler → 5 min Pause) — `governor.record_tool_failure`
-7. Protokoll (append-only Audit mit Begründung) — `audit.py`
+7. Protokoll (append-only Audit mit Begründung); verschachtelte Geheimnisfelder werden
+   rekursiv geschwärzt, Modell-/Werkzeugausgaben nur als Länge + SHA-256 nachgewiesen — `audit.py`
 Zusätzlich im Code, nicht als Karte gezählt: **Prüfer** (Zweitprüfmodell, exakt `HARMLOS`
 oder fragen; nie Auto-Freigabe für kritisch) `pruefer.py`; **Ausweis-Tor** (kein verifizierter
 Besitzer ⇒ kein Werkzeug in Executive/Fäden) `executive.py:107`, `faeden.py:424`.
@@ -116,7 +117,7 @@ verschlüsselt (Anlegen nur bei offenem Tresor). `vault_use` ist immer kritisch 
 fragen"; es bestätigt Zweck und bei Zahlungsmitteln Betrag, entschlüsselt das Geheimnis aber nicht und
 gibt es nie als Werkzeugergebnis aus. Eine echte Übergabe braucht einen zielgebundenen lokalen Adapter.
 Eine Aufsperrung läuft nach spätestens 24 Stunden ab; der Wartungstakt verlängert sie nicht.
-Audit schwärzt Geheimnisse,
+Audit schwärzt auch verschachtelte Geheimnisfelder und dupliziert keine Klartextausgabe,
 `GET/POST/DELETE /v1/vault/items`, `POST …/reveal`, `hunch tresor list|add`. App: Wallet → „An Maschine
 geben" + Abschnitt „Auf der Maschine" (Build 105). `tests/test_agent_tresor.py`,
 `tests/test_tresor_ablauf.py`.
@@ -132,7 +133,12 @@ Dominiks echter Uhr Ende zu Ende funktionieren, ist noch nicht bestätigt; desha
 - **Eingebaut, u. a.:** `search_memory`, `remember`, `list_tasks`, `add_task`, `list_goals`,
   `add_goal`, `update_goal`, `run_command`, `http_get`, `vault_use` (+ bedingte Bündel:
   Chat-, Reach-, Browser-Tools). `tools/builtin.py`, `agent_tresor.py`
-- **Skills:** `SKILL.md` (Prosa fürs Modell) + Python `run(arguments)`. `tools/skills.py`
+- **Skills:** `SKILL.md` wird nur mit einem getrennten Manifest für exakten
+  Pfad, Namen, Byteumfang und SHA-256 geladen. Fremde GitHub-/Import-Referenzen
+  bleiben in Quarantäne. Python `run(arguments)` braucht zusätzlich die
+  ausdrückliche Startfreigabe. Kein Erweiterungsloader darf einen vorhandenen
+  Werkzeugnamen ersetzen; die Herkunft enthält den Inhalts-Hash.
+  `tools/skills.py`, `tools/registry.py`, `tests/test_skill_loader_security.py`.
 - **MCP:** fremde Server aus `mcp_config.json`, dynamisch. `tools/mcp_client.py`
 - **REST:** Connectoren aus `connectors.json`, ohne Code. `register_rest_connector`
 - **Externe Agent-Harnesses:** eingebaut **codex, claude, gemini, aider**; eigene via
@@ -147,9 +153,18 @@ Inhalte und daraus abgeleitete Observer-Signale werden nicht als Erinnerung zur�
 ### Gelernte Skills — HEUTE (mit Grenze)
 Nach ≥3 identischen Erfolgen kann die Runtime `auto_<tool>.SKILL.md` schreiben (sichtbar/editierbar).
 Die Datei enthält nur wertfreie Platzhalter aus dem Werkzeugschema, nie frühere Argumente oder
-Begründungen. Gelernte Skills lernen nicht rekursiv weiter; `run_agent`, `run_command`, `vault_use`
+Begründungen. Das v2-Format wird beim Schreiben im privaten Vertrauensmanifest an seinen Hash
+gebunden; eine Änderung nimmt ihm bis zur erneuten Prüfung die Aktivierung. Alte Auto-Dateien ohne
+dieses Format bleiben inaktiv und werden nie still überschrieben. Der Rückweg prüft Datei und
+Manifestfreigabe gegen Name und Inhalts-Hash; nur im passenden Stand entzieht er die Freigabe und
+entfernt anschließend die Datei. Einen bearbeiteten oder neueren Nachfolger lässt er unangetastet.
+Werkzeugnamen, die nicht verlustfrei aus Buchstaben, Ziffern und `_` bestehen, werden nicht
+automatisch als Skill gelernt.
+Gelernte Skills lernen nicht rekursiv weiter;
+`run_agent`, `run_command`, `vault_use`
 und Datei-/Sprachnachrichten-Versand sind ausgeschlossen. Kein autonomes Training, keine
-Selbstumprogrammierung. `executive._maybe_learn_skill`, `tests/test_skill_lernen.py`.
+Selbstumprogrammierung. `executive._maybe_learn_skill`, `tests/test_skill_lernen.py`,
+`tests/test_fahrtenbuch.py`.
 
 ### Provider — HEUTE (Observer und Executive unabhängig wählbar)
 Cloud: `claude, openai, gemini, kimi, deepseek, qwen, mistral, grok, groq`.
@@ -160,6 +175,10 @@ Breitere Provider — HEUTE (2026-08-22, G6): `openrouter`, `together`, `firewor
 `perplexity`, `bedrock` (OpenAI-kompatibler Bedrock-Endpunkt, Bearer-API-Key, Region via
 `HUNCH_*_BASE_URL`) in `providers.py` **und** `ProviderRegistry.swift` (Build 103); `test_providers`
 prüft Wire-Format + Swift-Abgleich (17 Zeilen deckungsgleich).
+Provider-, APNs- und World-ID-Diagnosen geben nur feste Fehlerklassen, HTTP-Status und bekannte
+Reason-Codes aus; weder Antwortkörper noch Token, Proof, Nonce oder Nullifier landen im Betriebslog.
+CLI und Cockpit entfernen Terminal-, Zwischenablage- und Bidi-Steuerfolgen vor Anzeige und Kürzung.
+`ausgabesicherheit.py`, `push.py`, `world_id.py`, `tests/test_ausgabesicherheit.py`.
 
 ### Gedächtnis / Brain — HEUTE
 Sync-Cursor zeigt nie in die laufende Millisekunde (2026-08-22): vorher konnte ein Eintrag derselben
@@ -190,7 +209,8 @@ Ebene (Kategorie „Präferenz") — kein eigener Speicher.
   (ECDSA), 24h-Session. `ausweis.py`
 - Risikoklassen, Governor, Budgets, Circuit-Breaker, Prüfer/Zweitprüfung
 - Freigabe mit Vorschau (Werkzeug/Argumente/Ziel/Risiko/Begründung), persistent
-- Audit (append-only), Gastisolation (`besitzer`/`frei`/`gast`), Einlass-Codes (Einmal, 15 min)
+- Audit (append-only, verschachtelte Geheimnisfelder geschwärzt, Inhaltsausgaben als Länge + SHA-256),
+  Gastisolation (`besitzer`/`frei`/`gast`), Einlass-Codes (Einmal, 15 min)
 - **Weniger strenger Modus vor der Einrichtung:** ohne enrollten Besitzer gibt `darf_alles()`
   True zurück — bewusst (`ausweis.py:216`). Die kryptografische Sperre ist NICHT automatisch
   aktiv, bevor die Besitzeridentität eingerichtet ist. Ehrlich so dokumentieren.
@@ -211,7 +231,8 @@ Ebene (Kategorie „Präferenz") — kein eigener Speicher.
 - **Profil = Credential-Hub — HEUTE (Build 99):** Ausweis, Nachweise (HID/Secure Enclave, World ID, vertrauende Maschinen), Wallet, Profile.
 - **World ID Human in the Loop — HEUTE (2026-08-22):** Runtime `world_id.py` + Sidecar (offizielles IDKit): `GET /world`,
   `POST/GET /approvals/{id}/world`; Proof an Action `authority-approve` + RP-signierte Nonce gebunden, Verify gegen
-  `developer.world.org/api/v4/verify/{rp_id}`, Replay-Schutz, Audit mit Nullifier/Credential. Live bestätigt 2026-08-22 13:06 (proof_of_human).
+  `developer.world.org/api/v4/verify/{rp_id}`, Replay-Schutz, Audit mit bestätigtem Credential-Typ,
+  aber ohne Proof-/Nonce-/Nullifier-Rohdaten. Live bestätigt 2026-08-22 13:06 (proof_of_human).
   App: Button „Mit World ID bestätigen" seit Build 98 in TestFlight (Freigaben-Kachel). World ist optional — Ausweis/App bleiben Standard.
 - **Vorhaben (1.8) — HEUTE (2026-08-21):** Runtime `goals` mit `stand`/`next_step`, Tools list_goals/add_goal/update_goal,
   `add_task(goal=…)` verknüpft Schritt ↔ Vorhaben, `/vorhaben` (Ausweis-gated), Abgleich über `/brain/sync`

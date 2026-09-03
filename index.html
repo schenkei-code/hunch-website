@@ -1050,9 +1050,9 @@ section[data-serial] > .wrap{position:relative;z-index:1}
       <div class="thread-list"><article class="thread " data-scope="scope · projekt launch"><i></i><div><strong>Launch vorbereiten</strong><p>Nächster Schritt: letzte Claims gegen Product Truth prüfen</p></div><time>aktiv</time></article><article class="thread wait" data-scope="scope · faden berlin"><i></i><div><strong>Berlin</strong><p>Nächster Schritt: Verbindung vergleichen, vor Kauf Authority Gate</p></div><time>wartet</time></article><article class="thread " data-scope="scope · faden research"><i></i><div><strong>Research</strong><p>Nächster Schritt: Quellen bündeln und Annahmen markieren</p></div><time>läuft</time></article></div>
     </div>
     <div class="grid g3">
-      <div class="card reveal"><h3><span class="tag heute" style="background:rgba(30,122,60,.12)">Läuft</span></h3><p>Der Faden arbeitet an seinem Auftrag, zeigt Fortschritt und Laufzeit.</p></div>
+      <div class="card reveal"><h3><span class="tag heute">Läuft</span></h3><p>Der Faden arbeitet an seinem Auftrag, zeigt Fortschritt und Laufzeit.</p></div>
       <div class="card reveal"><h3><span class="tag exp">Wartet</span></h3><p>Der Faden ist auf eine Freigabe geparkt und wird danach fortgesetzt — oder sucht einen anderen Weg.</p></div>
-      <div class="card reveal"><h3><span class="tag next" style="color:#3B5BA5">Fertig</span></h3><p>Das Ergebnis liegt vor und kehrt auf die Surface zurück, von der der Auftrag kam.</p></div>
+      <div class="card reveal"><h3><span class="tag next">Fertig</span></h3><p>Das Ergebnis liegt vor und kehrt auf die Surface zurück, von der der Auftrag kam.</p></div>
     </div>
     <p class="lead reveal" style="margin-top:1.4rem">Zustände: läuft, wartet, fertig, fehlgeschlagen,
     abgebrochen — persistent über Runtime-Neustarts. Fäden laufen in der Runtime; App, CLI, Web und Telegram
@@ -1091,7 +1091,7 @@ section[data-serial] > .wrap{position:relative;z-index:1}
       <div class="card reveal"><h3>Isolation <span class="tag heute">Heute</span></h3><p>Gäste erhalten einen getrennten Kontext — weder dein persönliches Gedächtnis noch deine Werkzeuge.</p></div>
       <div class="card reveal"><h3>Impuls- &amp; Fehlerbremse <span class="tag heute">Heute</span></h3><p>Mindestabstand plus Tagesgrenze für Impulse; drei Fehlschläge eines Werkzeugs führen zu einer Pause.</p></div>
       <div class="card reveal"><h3>Rückweg &amp; Grenze <span class="tag heute">Heute</span></h3><p>Gemerkte Fakten und angelegte Aufgaben lassen sich zurücknehmen; die Grenze — was Hunch nie ohne Rückfrage tut — ist an einer Stelle einsehbar. Jede Handlung steht mit Begründung im Fahrtenbuch; der Rückweg gilt für alles Rückholbare, Shell- und Agentenläufe sind ehrlich als nicht umkehrbar markiert; jedes Gerät hat seine Aktionsgrenze. <span class="tag heute">Heute</span></p></div>
-      <div class="card reveal"><h3>World ID · Human in the Loop <span class="tag heute">Heute</span></h3><p>Zweiter Weg für dieselbe Freigabe: du bestätigst in der World App mit deinem Proof of Human; der Proof ist an die Aktion und eine einmalige, von Hunch signierte Nonce gebunden, wird gegen die World-API verifiziert und landet mit Nullifier und Credential im Audit. Ausweis und App-Freigabe bleiben immer der Standard- und Notfallweg.</p></div>
+      <div class="card reveal"><h3>World ID · Human in the Loop <span class="tag heute">Heute</span></h3><p>Zweiter Weg für dieselbe Freigabe: du bestätigst in der World App mit deinem Proof of Human. Der Proof ist an die Aktion und eine einmalige, von Hunch signierte Nonce gebunden und wird gegen die World-API verifiziert. Das Audit hält nur den bestätigten Credential-Typ fest — niemals Proof, Nonce oder Nullifier im Rohtext. Ausweis und App-Freigabe bleiben immer der Standard- und Notfallweg.</p></div>
     </div>
     <div class="rule reveal">
       Hunch darf wahrnehmen, eine Absicht formulieren und etwas vorschlagen — aber nur mit entsprechender

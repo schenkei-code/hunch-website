@@ -29,7 +29,7 @@
     <span class="engraved">Dokumentation</span>
     <h1>Werkzeuge &amp; Skills</h1>
     
-<p class="lead">Vier Herkünfte, ein Verzeichnis — die Executive sieht keinen Unterschied, woher ein
+<p class="lead">Fünf Herkünfte, ein Verzeichnis — die Executive sieht keinen Unterschied, woher ein
 Werkzeug kommt. Skills und Werkzeuge sind nicht an den Modellprovider gebunden.</p>
 
 <h2>Eingebaut <span class="tag heute">Heute</span></h2>
@@ -41,10 +41,14 @@ Kanal verbunden ist), Reach-Tools (<code>youtube_lesen</code>, <code>github_lese
 
 <h2>Skills <span class="tag heute">Heute</span></h2>
 <ul>
-<li><strong>SKILL.md</strong> — eine Anleitung für das Modell (Prosa)</li>
-<li><strong>Python-Dateien</strong> mit <code>run(arguments)</code> — werden ausgeführt</li>
+<li><strong>SKILL.md</strong> — eine Anleitung für das Modell, aber nur mit getrennter Freigabe
+für exakten Pfad, Namen, Byteumfang und SHA-256.</li>
+<li><strong>Python-Dateien</strong> mit <code>run(arguments)</code> — brauchen dieselbe
+Hashfreigabe und zusätzlich <code>HUNCH_ALLOW_PYTHON_SKILLS=true</code>.</li>
 </ul>
-<p>Ort: <code>HUNCH_SKILLS_DIR</code> (Vorgabe <code>./skills</code>).</p>
+<p>Fremde GitHub-, App- und Übernahme-Texte bleiben zunächst in Quarantäne. Kein späterer Loader
+darf einen vorhandenen Werkzeugnamen ersetzen. Ort: <code>HUNCH_SKILLS_DIR</code> (Vorgabe
+<code>./skills</code>).</p>
 
 <h2>MCP <span class="tag heute">Heute</span></h2>
 <p>Werkzeuge fremder Server aus <code>mcp_config.json</code>, dynamisch geladen. Umgekehrt bietet
@@ -66,7 +70,7 @@ Standard oder Adapter erreichbar ist (MCP, Function-Schemas, Markdown/Python-Ski
 Harnesses). Ein proprietäres Plugin-Paket kann einen Adapter benötigen. Nicht jedes Plugin jedes
 Anbieters funktioniert automatisch.</p>
 
-    <footer class="doc-foot">© 2026 Hunch — <a href="../">hunchagent.io</a> · Stand 2026-08-21, gegen aktuellen Code geprüft.</footer>
+    <footer class="doc-foot">© 2026 Hunch — <a href="../">hunchagent.io</a> · Stand 2026-09-03, gegen aktuellen Code geprüft.</footer>
   </main>
 </div>
 <script>

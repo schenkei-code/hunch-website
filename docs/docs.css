@@ -107,5 +107,8 @@ html.mobile-menu-open,body.mobile-menu-open{overflow:hidden}
 .tag.vision{color:var(--gold-600)}
 .doc .rule{margin:1.4rem 0;background:var(--paper-pearl);border:1px solid rgba(174,134,46,.45);border-radius:12px;padding:1.1rem 1.2rem;font-size:.92rem;color:var(--ink-700);max-width:44rem;box-shadow:var(--shadow-card)}
 .doc .rule b{color:var(--gold-700)}
-.doc ol{margin:.8rem 0 .8rem 1.2rem;max-width:44rem;color:var(--ink-700)}
-.doc ol li{margin:.4rem 0}
+.authority-ledger-doc{max-width:44rem;margin:.8rem 0;border-top:1px solid var(--security-line)}
+.authority-ledger-doc div{display:grid;grid-template-columns:minmax(9rem,.34fr) 1fr;gap:1rem;padding:.8rem 0;border-bottom:1px solid var(--security-line-soft)}
+.authority-ledger-doc dt{font:650 .68rem/1.45 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--gold-700)}
+.authority-ledger-doc dd{color:var(--ink-700)}
+@media(max-width:600px){.authority-ledger-doc div{grid-template-columns:1fr;gap:.25rem}}

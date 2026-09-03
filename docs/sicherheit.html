@@ -33,22 +33,22 @@
 einzelner Schalter, sondern das Zusammenspiel mehrerer Schutzebenen.</p>
 
 <h2>Die Kette <span class="tag heute">Heute</span></h2>
-<ol>
-<li><strong>Identität</strong> — das Besitzergerät erzeugt einen P-256-Schlüssel in der Secure Enclave,
+<dl class="authority-ledger-doc">
+<div><dt>Identität</dt><dd>Das Besitzergerät erzeugt einen P-256-Schlüssel in der Secure Enclave,
 biometrisch geschützt, nicht exportierbar, nicht im Backup. Die Runtime hält nur den Public-Key; daraus
-entsteht die HID. Challenge/Verify per ECDSA-Signatur.</li>
-<li><strong>Befugnis &amp; Risiko</strong> — der Governor unterscheidet Risikoklassen, Budgets, Limits,
-Always-Ask-Regeln und Circuit-Breaker.</li>
-<li><strong>Zweitprüfung</strong> — ein getrenntes Prüfmodell darf nur konkrete, nicht kritische
-Schritte als unbedenklich bewerten. Kritische Aktionen werden nie automatisch freigegeben.</li>
-<li><strong>Vorschau &amp; Zustimmung</strong> — vor geschützten Aktionen siehst du Werkzeug,
-Argumente, Ziel, Risiko und Begründung. Du genehmigst oder lehnst ab; ein wartender Faden wird danach
-fortgesetzt oder sucht einen anderen Weg.</li>
-<li><strong>Ausführung &amp; Audit</strong> — Aktion, Entscheidung, Ergebnis und Kosten bleiben im
-append-only-Protokoll nachvollziehbar.</li>
-<li><strong>Isolation</strong> — Gäste erhalten einen getrennten Kontext, sehen weder dein Gedächtnis
-noch deine Werkzeuge.</li>
-</ol>
+entsteht die HID. Challenge/Verify per ECDSA-Signatur.</dd></div>
+<div><dt>Befugnis &amp; Risiko</dt><dd>Der Governor unterscheidet Risikoklassen, Budgets, Limits,
+Always-Ask-Regeln und Circuit-Breaker.</dd></div>
+<div><dt>Zweitprüfung</dt><dd>Ein getrenntes Prüfmodell darf nur konkrete, nicht kritische
+Handlungen als unbedenklich bewerten. Kritische Aktionen werden nie automatisch freigegeben.</dd></div>
+<div><dt>Vorschau &amp; Zustimmung</dt><dd>Vor geschützten Aktionen siehst du Werkzeug, Argumente,
+Ziel, Risiko und Begründung. Du genehmigst oder lehnst ab; ein wartender Faden wird danach fortgesetzt
+oder sucht einen anderen Weg.</dd></div>
+<div><dt>Ausführung &amp; Audit</dt><dd>Aktion, Entscheidung, Ergebnis und Kosten bleiben im
+append-only-Protokoll nachvollziehbar.</dd></div>
+<div><dt>Isolation</dt><dd>Gäste erhalten einen getrennten Kontext, sehen weder dein Gedächtnis
+noch deine Werkzeuge.</dd></div>
+</dl>
 
 <h2>Rückweg (Undo) <span class="tag heute">Heute</span></h2>
 <p>Umkehrbare Handlungen an Erinnerungen, Aufgaben, Vorhaben, Memory-Scopes, gelernten Skills und
@@ -82,7 +82,7 @@ aktiv, bevor die Einrichtung abgeschlossen ist. Presence-Routing ist vorhanden; 
 Freigabe-Aktion auf einem echten iPhone und einer echten Apple Watch ist noch nicht Ende zu Ende
 bestätigt. <span class="tag exp">Experimentell</span></div>
 
-    <footer class="doc-foot">© 2026 Hunch — <a href="../">hunchagent.io</a> · Stand 2026-09-01, gegen aktuellen Code geprüft.</footer>
+    <footer class="doc-foot">© 2026 Hunch — <a href="../">hunchagent.io</a> · Stand 2026-09-03, gegen aktuellen Code geprüft.</footer>
   </main>
 </div>
 <script>
