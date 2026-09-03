@@ -360,7 +360,10 @@ def main() -> int:
         errors.append("Landingpage enthält verbotene Dauerbewegung")
     for stale_ui in (
         'class="steps"',
+        'class="pill"',
         'class="chain reveal"',
+        '.island .pill',
+        '.concept-badge',
         'content:"✓"',
         'content:"◌',
         'content:"▼"',
@@ -389,6 +392,9 @@ def main() -> int:
         require_css(css, source, ".mobile-menu", ("position:fixed", "overscroll-behavior:contain"), errors)
         require_css(css, source, ".mobile-menu a", ("min-height:44px", "white-space:nowrap", "overflow:hidden", "text-overflow:ellipsis"), errors)
         require_css(css, source, "html.mobile-menu-open,body.mobile-menu-open", ("overflow:hidden",), errors)
+        require_css(css, source, ".card h3", ("flex-wrap:nowrap", "white-space:nowrap"), errors)
+        require_css(css, source, ".scope h3", ("flex-wrap:nowrap", "white-space:nowrap"), errors)
+        require_css(css, source, ".island .activity-row", ("min-width:0", "border-bottom:1px solid var(--security-line-dark)"), errors)
         if "backdrop-filter" in css_rule(css, ".mobile-menu"):
             errors.append(f"{source}: mobiles Overlay darf keinen eigenen Backdrop-Filter erzeugen")
         require_css(css, source, ".lane header b", ("min-width:0", "white-space:nowrap", "overflow:hidden", "text-overflow:ellipsis"), errors)
@@ -443,6 +449,9 @@ def main() -> int:
     for contract in ("prefers-reduced-motion", "prefers-reduced-transparency", "--r-action:9px"):
         if contract not in docs_css:
             errors.append(f"docs.css: Designvertrag fehlt: {contract}")
+    for foreign_status_color in ("#2e6b47", "#9a5d08", "#9fd3b0"):
+        if foreign_status_color in (joined + docs_css).casefold():
+            errors.append(f"Website enthält Statusfarbe außerhalb der Brand-Palette: {foreign_status_color}")
 
     if errors:
         print("Website-Verifikation fehlgeschlagen:")
