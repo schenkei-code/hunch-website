@@ -296,12 +296,22 @@ def main() -> int:
     landing = texts[(ROOT / "index.html").resolve()]
     landing_en = texts[(ROOT / "en" / "index.html").resolve()]
     docs_session = texts[(ROOT / "docs" / "session.html").resolve()]
+    docs_status = texts[(ROOT / "docs" / "status.html").resolve()]
+    docs_tools = texts[(ROOT / "docs" / "werkzeuge.html").resolve()]
+    docs_security = texts[(ROOT / "docs" / "sicherheit.html").resolve()]
     joined = landing + landing_en
     public_copy = "\n".join(texts.values())
     truth = (ROOT / "PRODUCT_TRUTH.md").read_text(encoding="utf-8")
+    truth_flat = re.sub(r"\s+", " ", truth)
     truth_contract = "### Globale Konversation + Presence — HEUTE"
     if truth_contract not in truth:
         errors.append(f"PRODUCT_TRUTH.md: erwarteter Wahrheitsvertrag fehlt: {truth_contract}")
+    truth_today_contract = (
+        "**HEUTE** — im aktuellen Code vorhanden und getestet; runtime-abhängige Aussagen zusätzlich "
+        "gegen die laufende Runtime nachgewiesen"
+    )
+    if truth_today_contract not in truth_flat:
+        errors.append("PRODUCT_TRUTH.md: HEUTE braucht bei Runtime-Claims einen Live-Nachweis")
     forbidden_claims = (
         "HID · 6699",
         "Live-Konversation überall",
@@ -331,10 +341,44 @@ def main() -> int:
         (landing_en, "History + presence", "englischer Verlauf-/Presence-Claim"),
         (landing_en, "app, runtime, CLI, web and Telegram", "englischer belegter Surface-Scope"),
         (landing_en, "last 30 lines", "englische Fortsetzungsgrenze"),
+        (
+            landing,
+            "Im aktuellen Code vorhanden und getestet; runtime-abhängige Aussagen sind zusätzlich "
+            "gegen die laufende Runtime nachgewiesen.",
+            "deutscher HEUTE-Nachweisvertrag",
+        ),
+        (
+            landing_en,
+            "Present and tested in current code; runtime-dependent claims are additionally proven "
+            "against the running runtime.",
+            "englischer HEUTE-Nachweisvertrag",
+        ),
+        (landing, "Kritische Hunch-Werkzeuge werden nie automatisch freigegeben.", "deutsche Hunch-Grenze"),
+        (landing, "Codex ist getrennt: Standard ist nur lesen", "deutsche Codex-Grenze"),
+        (landing_en, "Critical Hunch tools are never approved automatically.", "englische Hunch-Grenze"),
+        (landing_en, "Codex is separate: read-only is the default", "englische Codex-Grenze"),
         (docs_session, "Konsole, Telegram-Chat und Web-Chat", "Doku-Verlauf-Scope"),
         (docs_session, "letzten 30 Zeilen", "Doku-Fortsetzungsgrenze"),
         (docs_session, "App, Runtime, CLI, Web und Telegram", "Doku-belegter Surface-Scope"),
-        (docs_session, "Stand 2026-09-01, gegen PRODUCT_TRUTH geprüft", "Doku-Prüfstand"),
+        (docs_session, "Stand 2026-09-03, gegen PRODUCT_TRUTH geprüft", "Doku-Session-Prüfstand"),
+        (docs_status, "Stand 2026-09-03, gegen PRODUCT_TRUTH geprüft", "Doku-Status-Prüfstand"),
+        (
+            docs_status,
+            "Fenstertitel nur mit Bedienungshilfen-Recht",
+            "Sensor-Bedienungshilfen-Grenze im HEUTE-Stand",
+        ),
+        (
+            docs_status,
+            "Bildschirm-OCR nur mit Bildschirmaufnahme-Recht",
+            "Sensor-Bildschirmaufnahme-Grenze im HEUTE-Stand",
+        ),
+        (
+            docs_tools,
+            '<h2>Kompatibilität — aktuelle Grenze <span class="tag heute">Heute</span></h2>',
+            "HEUTE-Status der aktuellen Kompatibilitätsgrenze",
+        ),
+        (docs_security, "Kritische Hunch-Werkzeuge werden nie automatisch", "Doku-Hunch-Grenze"),
+        (docs_security, "Codex ist getrennt: Standard ist nur lesen", "Doku-Codex-Grenze"),
     )
     for source, claim, label in required_claims:
         if claim not in source:
@@ -355,6 +399,97 @@ def main() -> int:
                     f"Landingpage {language}: unbelegte Surface im Verlauf-/Presence-Abschnitt: "
                     f"{unsupported_surface}"
                 )
+
+    hub_groups = ["jetzt", "verstehen", "verbinden", "werkzeuge"]
+    hub_routes = [
+        "freigaben", "faeden", "sitzung", "brain", "bildschirm", "maschinen",
+        "kanaele", "nodes", "skills", "apps", "github",
+    ]
+    hub_contracts = (
+        (
+            landing,
+            "de",
+            ["Jetzt", "Verstehen", "Verbinden", "Werkzeuge"],
+            [
+                "Freigaben", "Fäden", "Intention", "Brain", "Bildschirm", "Maschinen",
+                "Kanäle", "Nodes", "Skills &amp; MCPs", "Apps", "GitHub",
+            ],
+            "Vier ruhige Gruppen, dieselben 11 Wege",
+        ),
+        (
+            landing_en,
+            "en",
+            ["Now", "Understand", "Connect", "Tools"],
+            [
+                "Approvals", "Threads", "Intention", "Brain", "Screen", "Machines",
+                "Channels", "Nodes", "Skills &amp; MCPs", "Apps", "GitHub",
+            ],
+            "Four quiet groups, the same 11 routes",
+        ),
+    )
+    for source, language, expected_group_labels, expected_route_labels, caption in hub_contracts:
+        actual_groups = re.findall(r'data-hub-group="([^"]+)"', source)
+        actual_routes = re.findall(r'data-hub-route="([^"]+)"', source)
+        actual_group_labels = re.findall(
+            r'data-hub-group="[^"]+"[^>]*>\s*<h3 class="hub-group-title">([^<]+)</h3>',
+            source,
+        )
+        actual_route_labels = re.findall(
+            r'data-hub-route="[^"]+"[^>]*>\s*<div>\s*<strong>([^<]+)</strong>',
+            source,
+        )
+        if actual_groups != hub_groups:
+            errors.append(f"Landingpage {language}: Hub-Gruppen oder Reihenfolge falsch: {actual_groups}")
+        if actual_routes != hub_routes:
+            errors.append(f"Landingpage {language}: Hub braucht dieselben 11 Routen: {actual_routes}")
+        if actual_group_labels != expected_group_labels:
+            errors.append(f"Landingpage {language}: sichtbare Hub-Gruppen falsch: {actual_group_labels}")
+        if actual_route_labels != expected_route_labels:
+            errors.append(f"Landingpage {language}: sichtbare Hub-Routen falsch: {actual_route_labels}")
+        if caption not in source:
+            errors.append(f"Landingpage {language}: Hub-Caption nennt die vier Gruppen nicht")
+
+    experimental_blocks = (
+        (
+            re.search(
+                r'<div class="col reveal"><h3><span class="tag exp">Experimentell</span>.*?</div>',
+                landing,
+                flags=re.S,
+            ),
+            ("Fenstertitel", "Bedienungshilfen-Recht", "Screen-OCR", "Bildschirmaufnahme-Recht"),
+            "deutsche Statusmatrix",
+        ),
+        (
+            re.search(
+                r'<div class="col reveal"><h3><span class="tag exp">Experimental</span>.*?</div>',
+                landing_en,
+                flags=re.S,
+            ),
+            ("Window titles", "accessibility permission", "screen OCR", "screen-recording permission"),
+            "englische Statusmatrix",
+        ),
+        (
+            re.search(
+                r'<h2><span class="tag exp">Experimentell</span>.*?(?=<h2>)',
+                docs_status,
+                flags=re.S,
+            ),
+            ("Fenstertitel", "Bedienungshilfen-Recht", "Bildschirm-OCR", "Bildschirmaufnahme-Recht"),
+            "Status-Doku",
+        ),
+    )
+    for match, stale_sensor_terms, label in experimental_blocks:
+        if match is None:
+            errors.append(f"{label}: Experimentell-Abschnitt fehlt")
+            continue
+        block = match.group(0).casefold()
+        for stale in stale_sensor_terms:
+            if stale.casefold() in block:
+                errors.append(f"{label}: Sensor-Berechtigung ist eine HEUTE-Grenze, kein Experiment: {stale}")
+
+    for source, label in ((docs_session, "Session-Doku"), (docs_status, "Status-Doku")):
+        if "Stand 2026-09-01" in source:
+            errors.append(f"{label}: veralteter Prüfstand 2026-09-01")
 
     if " infinite" in joined or "autoplay" in joined:
         errors.append("Landingpage enthält verbotene Dauerbewegung")
@@ -403,6 +538,8 @@ def main() -> int:
         require_css(css, source, ".authority-ledger div", ("min-height:3.35rem", "min-width:0"), errors)
         require_css(css, source, ".authority-ledger strong", ("min-width:0", "white-space:nowrap", "overflow:hidden", "text-overflow:ellipsis"), errors)
         require_css(css, source, ".authority-ledger span", ("min-width:0", "white-space:nowrap", "overflow:hidden", "text-overflow:ellipsis"), errors)
+        require_css(css, source, ".hub-group", ("display:grid",), errors)
+        require_css(css, source, ".hub-group-title", ("white-space:nowrap", "overflow:hidden", "text-overflow:ellipsis", "font:650 .56rem/1 var(--mono)"), errors)
         require_css(css, source, ".hub-row", ("min-height:4.5rem", "grid-template-columns:minmax(0,1fr) auto"), errors)
         require_css(css, source, ".hub-row > div", ("min-width:0",), errors)
         require_css(css, source, ".hub-row strong", ("min-width:0", "white-space:nowrap", "overflow:hidden", "text-overflow:ellipsis"), errors)
