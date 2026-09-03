@@ -467,6 +467,8 @@ footer{border-top:1px solid var(--security-line);padding:2.2rem 0 calc(2.2rem + 
 .authority-ledger span{display:block;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font:600 .6rem/1.4 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--stone-500)}
 /* hub specimen */
 .hub-spec{display:grid;max-width:30rem;border-top:1px solid var(--security-line)}
+.hub-group{display:grid}
+.hub-group-title{margin:0;padding:.75rem 0 .25rem;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font:650 .56rem/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--stone-500)}
 .hub-row{display:grid;min-height:4.5rem;grid-template-columns:minmax(0,1fr) auto;gap:.8rem;align-items:center;padding:.75rem 0;border-bottom:1px solid var(--security-line);position:relative}
 .hub-row > div{min-width:0}
 .hub-row::after{content:"owner session";white-space:nowrap;font:600 .46rem/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--stone-500)}
@@ -1029,7 +1031,7 @@ section[data-serial] > .wrap{position:relative;z-index:1}
 <div class="grid g4">
       <div class="card reveal"><h3>Identity<span class="tag heute">Today</span></h3><p>The owner device creates a private key in the Secure Enclave — biometrically protected, not exportable, not in backups. Your HID is derived from the public key.</p></div>
       <div class="card reveal"><h3>Authority &amp; risk<span class="tag heute">Today</span></h3><p>The Governor distinguishes risk classes, budgets, limits, always-ask rules and circuit breakers.</p></div>
-      <div class="card reveal"><h3>Second opinion<span class="tag heute">Today</span></h3><p>A separate review model may only rate concrete, non-critical steps as harmless. Critical actions are never approved automatically.</p></div>
+      <div class="card reveal"><h3>Second opinion<span class="tag heute">Today</span></h3><p>A separate review model may only clear specific, local, reversible Hunch write steps. Critical Hunch tools are never approved automatically. Codex is separate: read-only is the default; write access in the chosen working folder must be selected deliberately and then runs without per-command approval. Hunch does not offer full access for Codex.</p></div>
       <div class="card reveal"><h3>Preview <span class="tag heute">Today</span></h3><p>Before protected actions you see tool, arguments, target, risk and reasoning. You approve or decline.</p></div>
       <div class="card reveal"><h3>Execution &amp; audit<span class="tag heute">Today</span></h3><p>Action, decision, result and cost remain traceable in the append-only log.</p></div>
       <div class="card reveal"><h3>Isolation<span class="tag heute">Today</span></h3><p>Guests get a separate context — neither your personal memory nor your tools.</p></div>
@@ -1077,7 +1079,12 @@ section[data-serial] > .wrap{position:relative;z-index:1}
     </div>
 
         <div class="specimen reveal" data-label="hub · capability register · specimen" style="max-width:32rem;margin-left:auto;margin-right:auto">
-      <div class="hub-spec"><div class="hub-row"><div><strong>Approvals</strong><span>What waits for your credential</span></div></div><div class="hub-row"><div><strong>Brain</strong><span>Memory, identity, conversations</span></div></div><div class="hub-row"><div><strong>Machines</strong><span>Connect and control computers</span></div></div><div class="hub-row"><div><strong>Channels</strong><span>Telegram, WhatsApp — reach Hunch</span></div></div><div class="hub-row"><div><strong>Skills &amp; MCPs</strong><span>What the runtime can and may do</span></div></div><div class="hub-row"><div><strong>Threads</strong><span>What runs alongside</span></div></div><div class="hub-row"><div><strong>Screen</strong><span>What could be read on the machine</span></div></div><div class="hub-row"><div><strong>Intention</strong><span>What's up next</span></div></div><div class="hub-row"><div><strong>Nodes</strong><span>Devices in the Hunch network</span></div></div><div class="hub-row"><div><strong>Apps</strong><span>What Hunch knows about apps</span></div></div><div class="hub-row"><div><strong>GitHub</strong><span>Find and install agent repositories</span></div></div></div>
+      <div class="hub-spec">
+        <section class="hub-group" data-hub-group="jetzt"><h3 class="hub-group-title">Now</h3><div class="hub-row" data-hub-route="freigaben"><div><strong>Approvals</strong><span>What waits for your credential</span></div></div><div class="hub-row" data-hub-route="faeden"><div><strong>Threads</strong><span>What runs alongside</span></div></div><div class="hub-row" data-hub-route="sitzung"><div><strong>Intention</strong><span>What's up next</span></div></div></section>
+        <section class="hub-group" data-hub-group="verstehen"><h3 class="hub-group-title">Understand</h3><div class="hub-row" data-hub-route="brain"><div><strong>Brain</strong><span>Memory, identity, conversations</span></div></div><div class="hub-row" data-hub-route="bildschirm"><div><strong>Screen</strong><span>What could be read on the machine</span></div></div></section>
+        <section class="hub-group" data-hub-group="verbinden"><h3 class="hub-group-title">Connect</h3><div class="hub-row" data-hub-route="maschinen"><div><strong>Machines</strong><span>Connect and control computers</span></div></div><div class="hub-row" data-hub-route="kanaele"><div><strong>Channels</strong><span>Telegram, WhatsApp — reach Hunch</span></div></div><div class="hub-row" data-hub-route="nodes"><div><strong>Nodes</strong><span>Devices in the Hunch network</span></div></div></section>
+        <section class="hub-group" data-hub-group="werkzeuge"><h3 class="hub-group-title">Tools</h3><div class="hub-row" data-hub-route="skills"><div><strong>Skills &amp; MCPs</strong><span>What the runtime can and may do</span></div></div><div class="hub-row" data-hub-route="apps"><div><strong>Apps</strong><span>What Hunch knows about apps</span></div></div><div class="hub-row" data-hub-route="github"><div><strong>GitHub</strong><span>Find and install agent repositories</span></div></div></section>
+      </div>
     </div>
 <div class="stage reveal">
       <div class="phone side left"><div class="screen"><img src="../app-shots/fx-03-ausweis.png" alt="Hunch ID card with HID" loading="lazy" width="1206" height="2622"></div></div>
@@ -1087,7 +1094,7 @@ section[data-serial] > .wrap{position:relative;z-index:1}
 
     <div class="screens">
       <figure class="shot reveal">
-        <figcaption class="cap"><b>Hub</b><span>Approvals, Brain, machines, channels, skills &amp; MCPs, threads, screen, intention, nodes, apps and GitHub — your agent in one place.</span></figcaption>
+        <figcaption class="cap"><b>Hub</b><span>Four quiet groups, the same 11 routes: Now — Approvals, Threads, Intention; Understand — Brain, Screen; Connect — Machines, Channels, Nodes; Tools — Skills &amp; MCPs, Apps, GitHub.</span></figcaption>
         <div class="phone"><div class="screen"><img src="../app-shots/fx-01-hub.png" alt="Hunch hub" loading="lazy" width="1206" height="2622"></div></div>
       </figure>
       <figure class="shot reveal">
@@ -1172,7 +1179,7 @@ section[data-serial] > .wrap{position:relative;z-index:1}
     </div>
     <div class="stamp reveal" aria-hidden="true"><span>product truth</span><b>checked</b><span>2026 · specimen</span></div>
     </div>
-        <div class="legend reveal"><div><span class="tag heute">today</span><p>Present and tested in current code; each entry names the available surface.</p></div><div><span class="tag exp">experimental</span><p>Prototype or on one surface only — marked visibly.</p></div><div><span class="tag next">next</span><p>Concretely planned, target with date.</p></div><div><span class="tag vision">vision</span><p>Towards 2.0 — explicitly not shipped.</p></div></div>
+        <div class="legend reveal"><div><span class="tag heute">today</span><p>Present and tested in current code; runtime-dependent claims are additionally proven against the running runtime.</p></div><div><span class="tag exp">experimental</span><p>Prototype or on one surface only — marked visibly.</p></div><div><span class="tag next">next</span><p>Concretely planned, target with date.</p></div><div><span class="tag vision">vision</span><p>Towards 2.0 — explicitly not shipped.</p></div></div>
 <div class="matrix">
       <div class="col reveal"><h3><span class="tag heute">Today</span></h3><ul>
         <li>Persistent personal memory</li><li>Observer &amp; Executive</li><li>Threads</li>
@@ -1199,7 +1206,6 @@ section[data-serial] > .wrap{position:relative;z-index:1}
         <li>Shared history + presence: app, runtime, CLI, web and Telegram mirror conversations; see external conversations in the Brain and continue with their last 30 lines; delivery goes to the active or reachable surface</li>
       </ul></div>
       <div class="col reveal"><h3><span class="tag exp">Experimental</span></h3><ul>
-        <li>Window titles only with accessibility permission; screen OCR only with screen-recording permission</li>
         <li>Apple Watch target: approvals, work step, voice and complication are built; the test on a physical watch is still open</li>
         <li>Approve/decline from a push notification: code and APNs acceptance are proven; the corrected button on build ≥118 awaits end-to-end confirmation</li>
         <li>Prediction push in daily use: generation and presence routing run, but actual push delivery has not yet been confirmed</li>

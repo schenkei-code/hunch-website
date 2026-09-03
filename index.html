@@ -467,6 +467,8 @@ footer{border-top:1px solid var(--security-line);padding:2.2rem 0 calc(2.2rem + 
 .authority-ledger span{display:block;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font:600 .6rem/1.4 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--stone-500)}
 /* hub specimen */
 .hub-spec{display:grid;max-width:30rem;border-top:1px solid var(--security-line)}
+.hub-group{display:grid}
+.hub-group-title{margin:0;padding:.75rem 0 .25rem;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font:650 .56rem/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--stone-500)}
 .hub-row{display:grid;min-height:4.5rem;grid-template-columns:minmax(0,1fr) auto;gap:.8rem;align-items:center;padding:.75rem 0;border-bottom:1px solid var(--security-line);position:relative}
 .hub-row > div{min-width:0}
 .hub-row::after{content:"owner session";white-space:nowrap;font:600 .46rem/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--stone-500)}
@@ -1080,7 +1082,7 @@ section[data-serial] > .wrap{position:relative;z-index:1}
 <div class="grid g4">
       <div class="card reveal"><h3>Identität <span class="tag heute">Heute</span></h3><p>Das Besitzergerät erzeugt einen privaten Schlüssel in der Secure Enclave — biometrisch geschützt, nicht exportierbar, nicht im Backup. Aus dem Public-Key entsteht deine HID.</p></div>
       <div class="card reveal"><h3>Befugnis &amp; Risiko <span class="tag heute">Heute</span></h3><p>Der Governor unterscheidet Risikoklassen, Budgets, Limits, Always-Ask-Regeln und Circuit-Breaker.</p></div>
-      <div class="card reveal"><h3>Zweitprüfung <span class="tag heute">Heute</span></h3><p>Ein getrenntes Prüfmodell darf nur konkrete, nicht kritische Schritte als unbedenklich bewerten. Kritische Aktionen werden nie automatisch freigegeben.</p></div>
+      <div class="card reveal"><h3>Zweitprüfung <span class="tag heute">Heute</span></h3><p>Ein getrenntes Prüfmodell darf nur konkrete, lokale und rückholbare Hunch-Schreibschritte als unbedenklich bewerten. Kritische Hunch-Werkzeuge werden nie automatisch freigegeben. Codex ist getrennt: Standard ist nur lesen; Schreibzugriff im gewählten Arbeitsordner muss bewusst gewählt werden und läuft danach ohne Einzelrückfrage. Hunch bietet dafür keinen Vollzugriff an.</p></div>
       <div class="card reveal"><h3>Freigabe <span class="tag heute">Heute</span></h3><p>Vor geschützten Aktionen siehst du Werkzeug, Argumente, Ziel, Risiko und Begründung. Du genehmigst oder lehnst ab.</p></div>
       <div class="card reveal"><h3>Ausführung &amp; Audit <span class="tag heute">Heute</span></h3><p>Aktion, Entscheidung, Ergebnis und Kosten bleiben nachvollziehbar im append-only-Protokoll.</p></div>
       <div class="card reveal"><h3>Isolation <span class="tag heute">Heute</span></h3><p>Gäste erhalten einen getrennten Kontext — weder dein persönliches Gedächtnis noch deine Werkzeuge.</p></div>
@@ -1143,7 +1145,12 @@ section[data-serial] > .wrap{position:relative;z-index:1}
     </div>
 
         <div class="specimen reveal" data-label="hub · capability register · specimen" style="max-width:32rem;margin-left:auto;margin-right:auto">
-      <div class="hub-spec"><div class="hub-row"><div><strong>Freigaben</strong><span>Was auf deinen Ausweis wartet</span></div></div><div class="hub-row"><div><strong>Brain</strong><span>Gedächtnis, Identität, Gespräche</span></div></div><div class="hub-row"><div><strong>Maschinen</strong><span>Computer verbinden und steuern</span></div></div><div class="hub-row"><div><strong>Kanäle</strong><span>Telegram, WhatsApp — Hunch erreichen</span></div></div><div class="hub-row"><div><strong>Skills &amp; MCPs</strong><span>Was die Runtime kann und darf</span></div></div><div class="hub-row"><div><strong>Fäden</strong><span>Was gerade nebenher läuft</span></div></div><div class="hub-row"><div><strong>Bildschirm</strong><span>Was auf dem Rechner zu lesen war</span></div></div><div class="hub-row"><div><strong>Intention</strong><span>Was jetzt ansteht</span></div></div><div class="hub-row"><div><strong>Nodes</strong><span>Geräte im Hunch-Verbund</span></div></div><div class="hub-row"><div><strong>Apps</strong><span>Was Hunch an Apps kennt</span></div></div><div class="hub-row"><div><strong>GitHub</strong><span>Agent-Repos suchen und installieren</span></div></div></div>
+      <div class="hub-spec">
+        <section class="hub-group" data-hub-group="jetzt"><h3 class="hub-group-title">Jetzt</h3><div class="hub-row" data-hub-route="freigaben"><div><strong>Freigaben</strong><span>Was auf deinen Ausweis wartet</span></div></div><div class="hub-row" data-hub-route="faeden"><div><strong>Fäden</strong><span>Was gerade nebenher läuft</span></div></div><div class="hub-row" data-hub-route="sitzung"><div><strong>Intention</strong><span>Was jetzt ansteht</span></div></div></section>
+        <section class="hub-group" data-hub-group="verstehen"><h3 class="hub-group-title">Verstehen</h3><div class="hub-row" data-hub-route="brain"><div><strong>Brain</strong><span>Gedächtnis, Identität, Gespräche</span></div></div><div class="hub-row" data-hub-route="bildschirm"><div><strong>Bildschirm</strong><span>Was auf dem Rechner zu lesen war</span></div></div></section>
+        <section class="hub-group" data-hub-group="verbinden"><h3 class="hub-group-title">Verbinden</h3><div class="hub-row" data-hub-route="maschinen"><div><strong>Maschinen</strong><span>Computer verbinden und steuern</span></div></div><div class="hub-row" data-hub-route="kanaele"><div><strong>Kanäle</strong><span>Telegram, WhatsApp — Hunch erreichen</span></div></div><div class="hub-row" data-hub-route="nodes"><div><strong>Nodes</strong><span>Geräte im Hunch-Verbund</span></div></div></section>
+        <section class="hub-group" data-hub-group="werkzeuge"><h3 class="hub-group-title">Werkzeuge</h3><div class="hub-row" data-hub-route="skills"><div><strong>Skills &amp; MCPs</strong><span>Was die Runtime kann und darf</span></div></div><div class="hub-row" data-hub-route="apps"><div><strong>Apps</strong><span>Was Hunch an Apps kennt</span></div></div><div class="hub-row" data-hub-route="github"><div><strong>GitHub</strong><span>Agent-Repos suchen und installieren</span></div></div></section>
+      </div>
     </div>
 <div class="stage reveal">
       <div class="phone side left"><div class="screen"><img src="app-shots/fx-03-ausweis.png" alt="Hunch-Ausweis-Karte mit HID" loading="lazy" width="1206" height="2622"></div></div>
@@ -1153,7 +1160,7 @@ section[data-serial] > .wrap{position:relative;z-index:1}
 
     <div class="screens">
       <figure class="shot reveal">
-        <figcaption class="cap"><b>Hub</b><span>Freigaben, Brain, Maschinen, Kanäle, Skills &amp; MCPs, Fäden, Bildschirm, Intention, Nodes, Apps und GitHub — dein Agent an einem Ort.</span></figcaption>
+        <figcaption class="cap"><b>Hub</b><span>Vier ruhige Gruppen, dieselben 11 Wege: Jetzt — Freigaben, Fäden, Intention; Verstehen — Brain, Bildschirm; Verbinden — Maschinen, Kanäle, Nodes; Werkzeuge — Skills &amp; MCPs, Apps, GitHub.</span></figcaption>
         <div class="phone"><div class="screen"><img src="app-shots/fx-01-hub.png" alt="Hunch-Hub" loading="lazy" width="1206" height="2622"></div></div>
       </figure>
       <figure class="shot reveal">
@@ -1240,7 +1247,7 @@ section[data-serial] > .wrap{position:relative;z-index:1}
     </div>
     <div class="stamp reveal" aria-hidden="true"><span>product truth</span><b>geprüft</b><span>2026 · specimen</span></div>
     </div>
-        <div class="legend reveal"><div><span class="tag heute">heute</span><p>Im aktuellen Code vorhanden und getestet; die verfügbare Surface steht am Eintrag.</p></div><div><span class="tag exp">experimentell</span><p>Prototyp oder nur auf einer Surface — sichtbar markiert.</p></div><div><span class="tag next">als nächstes</span><p>Konkret geplant, Zielbild mit Datum.</p></div><div><span class="tag vision">vision</span><p>Richtung 2.0 — ausdrücklich nicht ausgeliefert.</p></div></div>
+        <div class="legend reveal"><div><span class="tag heute">heute</span><p>Im aktuellen Code vorhanden und getestet; runtime-abhängige Aussagen sind zusätzlich gegen die laufende Runtime nachgewiesen.</p></div><div><span class="tag exp">experimentell</span><p>Prototyp oder nur auf einer Surface — sichtbar markiert.</p></div><div><span class="tag next">als nächstes</span><p>Konkret geplant, Zielbild mit Datum.</p></div><div><span class="tag vision">vision</span><p>Richtung 2.0 — ausdrücklich nicht ausgeliefert.</p></div></div>
 <div class="matrix">
       <div class="col reveal"><h3><span class="tag heute">Heute</span></h3><ul>
         <li>Persistentes persönliches Gedächtnis</li><li>Observer &amp; Executive</li><li>Fäden</li>
@@ -1267,7 +1274,6 @@ section[data-serial] > .wrap{position:relative;z-index:1}
         <li>Gemeinsamer Verlauf + Presence: App, Runtime, CLI, Web und Telegram spiegeln Gespräche; fremde Gespräche im Brain sehen und mit den letzten 30 Zeilen fortsetzen; Zustellung an die aktive oder erreichbare Oberfläche</li>
       </ul></div>
       <div class="col reveal"><h3><span class="tag exp">Experimentell</span></h3><ul>
-        <li>Fenstertitel nur mit Bedienungshilfen-Recht; Screen-OCR nur mit Bildschirmaufnahme-Recht</li>
         <li>Apple-Watch-Target: Freigaben, Arbeitsschritt, Sprache und Complication sind gebaut; der Test auf der echten Uhr steht aus</li>
         <li>Freigeben/Ablehnen aus einer Push-Mitteilung: Code und APNs-Annahme sind belegt; der korrigierte Button auf Build ≥118 wartet auf E2E-Bestätigung</li>
         <li>Vorhersage-Push im Alltag: Erzeugung und Presence-Routing laufen, die tatsächliche Push-Zustellung ist noch nicht bestätigt</li>

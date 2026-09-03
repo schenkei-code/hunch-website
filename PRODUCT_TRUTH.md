@@ -5,7 +5,8 @@ Jede Website-Behauptung muss hier mit **Quelle** und **Status** belegt sein. Bei
 Widerspruch zwischen Roadmap und Code **gewinnt der Code**.
 
 Status-Legende:
-- **HEUTE** — im aktuellen Code vorhanden und getestet
+- **HEUTE** — im aktuellen Code vorhanden und getestet; runtime-abhängige Aussagen zusätzlich
+  gegen die laufende Runtime nachgewiesen
 - **EXPERIMENTELL** — teilweise, nur auf einer Surface, oder Prototyp
 - **ALS NÄCHSTES** — in Arbeit / nahe Roadmap
 - **VISION** — 2.0-Zielbild, nicht ausgeliefert
@@ -299,11 +300,12 @@ Kein gehosteter Relay-Dienst. Erreichbarkeit von unterwegs = Tailscale-Adresse +
 ## App / iOS — verifiziert (branch feat/english-localization)
 
 ### Hub — HEUTE
-Der aktuelle Hub zeigt **11 Einträge**: Freigaben, Brain, Maschinen, Kanäle,
-Skills & MCPs, Fäden, Bildschirm, Intention, Nodes, Apps und GitHub.
-`.sitzung` ist nur der interne Routenschlüssel für `SitzungView`; sichtbar heißt
-die Fläche „Intention“. Es gibt dazu keinen offenen Produkt-Blocker.
-Quelle: `AppModel.swift:24-29`, `HunchHubView.swift:63-124`.
+Der aktuelle Hub hält dieselben **11 Routen** in vier ruhigen Gruppen: **Jetzt** —
+Freigaben, Fäden, Intention; **Verstehen** — Brain, Bildschirm; **Verbinden** —
+Maschinen, Kanäle, Nodes; **Werkzeuge** — Skills & MCPs, Apps, GitHub. `.sitzung`
+bleibt nur der interne Schlüssel für die sichtbare Fläche „Intention“.
+Quelle: `AppModel.swift:24-29`, `HunchHubView.swift:81-136`;
+`IntentionalClientRenderSafetyTests.swift:404-434`.
 
 ### Dynamic Island / Work Live Activity — HEUTE
 `WorkActivityAttributes.swift` Phase-Enum: **denkt, arbeitet, wartet, fertig, gescheitert**.
@@ -331,6 +333,17 @@ Ersatz-Identität statt eine Secure Enclave vorzutäuschen.
 Quelle: `AI/OwnerIdentity.swift`, `Views/IdentityCardView.swift`,
 `Connection/IntentionalAgentClient.swift`.
 **Alte Fallback-HID „6699 3937" nicht mehr verwenden** — die neue Karte leitet aus dem Namen ab.
+
+### Lokale Werkzeug-Autorität / Codex — HEUTE
+„Nicht-kritisches automatisch erlauben“ gilt ausschließlich für begrenzte,
+umkehrbare Hunch-Werkzeuge. Kritisches fragt immer. Codex besitzt eine eigene
+Ausführungsschleife und deshalb keine Einzelrückfragen: Standard ist `read-only`;
+`workspace-write` muss bewusst gewählt werden und gibt Schreibrecht im gewählten
+Arbeitsordner. `danger-full-access` wird in Hunch nicht angeboten.
+Quelle: `AI/Runtime/ToolRegistry.swift:8-25`, `AgentSession.swift:570-575,841-859`,
+`SettingsView.swift:138-141`, `CodexProvider.swift:144-191,497-511`,
+`RuntimeSettingsViews.swift:1091-1116,1185-1191`;
+`IntentionalClientRenderSafetyTests.swift:337-434`.
 
 ### App-Fähigkeiten — Status
 HEUTE (lokal, ohne Runtime seedbar): Brain (Erinnerungen/Aufgaben/Ziele/Gespräche, SQLite+FTS5),
