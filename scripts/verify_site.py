@@ -523,6 +523,15 @@ def main() -> int:
         if css.count("{") != css.count("}") or css.count("(") != css.count(")"):
             errors.append(f"{source}: CSS-Klammern sind nicht ausgeglichen")
         check_radii(css, source, errors)
+        for contract in (
+            "--card:var(--ivory-50)",
+            "--on-gold:#4a3410",
+            "--btn-ink:var(--on-gold)",
+        ):
+            if compact_css(contract) not in compact_css(css):
+                errors.append(f"{source}: Brand-Farbvertrag fehlt: {contract}")
+        for selector in (".nav-cta", ".btn-primary", ".mobile-menu .mobile-menu-cta", ".gate-btn.primary"):
+            require_css(css, source, selector, ("color:var(--on-gold)",), errors)
         require_css(css, source, ".menu-toggle", ("min-width:58px", "min-height:44px"), errors)
         require_css(css, source, ".mobile-menu", ("position:fixed", "overscroll-behavior:contain"), errors)
         require_css(css, source, ".mobile-menu a", ("min-height:44px", "white-space:nowrap", "overflow:hidden", "text-overflow:ellipsis"), errors)
@@ -576,6 +585,24 @@ def main() -> int:
     if docs_css.count("{") != docs_css.count("}") or docs_css.count("(") != docs_css.count(")"):
         errors.append("docs/docs.css: CSS-Klammern sind nicht ausgeglichen")
     check_radii(docs_css, "docs/docs.css", errors)
+    for contract in (
+        "--card:var(--ivory-50)",
+        "--on-gold:#4a3410",
+        "--btn-ink:var(--on-gold)",
+    ):
+        if compact_css(contract) not in compact_css(docs_css):
+            errors.append(f"docs/docs.css: Brand-Farbvertrag fehlt: {contract}")
+    for selector in (".nav-cta", ".mobile-menu .mobile-menu-cta"):
+        require_css(
+            docs_css,
+            "docs/docs.css",
+            selector,
+            (
+                "background:linear-gradient(135deg,#efcf6f,#c79a3a)",
+                "color:var(--on-gold)",
+            ),
+            errors,
+        )
     require_css(docs_css, "docs/docs.css", ".menu-toggle", ("min-width:58px", "min-height:44px"), errors)
     require_css(docs_css, "docs/docs.css", ".mobile-menu", ("position:fixed", "overscroll-behavior:contain"), errors)
     require_css(docs_css, "docs/docs.css", ".mobile-menu a", ("min-height:44px", "white-space:nowrap", "overflow:hidden", "text-overflow:ellipsis"), errors)
