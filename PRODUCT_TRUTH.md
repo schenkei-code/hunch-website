@@ -11,9 +11,9 @@ Status-Legende:
 - **ALS NÄCHSTES** — in Arbeit / nahe Roadmap
 - **VISION** — 2.0-Zielbild, nicht ausgeliefert
 
-Repos geprüft (Stand 2026-09-03):
+Repos geprüft (Grundabgleich 2026-09-03; App-Menü-Nachtrag 2026-09-05):
 - `hunch-runtime` @ `init-runtime` — Python-Runtime, FastAPI, CLI, MCP-Server
-- `hunch-app-repo` (hunch-app) @ `feat/english-localization` — iOS-App (Pocket)
+- `hunch-app-repo` (hunch-app) @ `health-sync` — iOS-App (Pocket), aktueller geprüfter Branch
 - `hunch-windows-repo` @ `windows-app` — Desktop-App (Electron)
 - `hunch-harness`, `hunch` (Brain-Forschung), `website`
 
@@ -297,7 +297,21 @@ Keine erfundenen Endpoints auf der Website oder in der Doku.
 Kein gehosteter Relay-Dienst. Erreichbarkeit von unterwegs = Tailscale-Adresse + TLS + Token
 (siehe Loslegen). Auf der Website nicht als „Als Nächstes" führen.
 
-## App / iOS — verifiziert (branch feat/english-localization)
+## App / iOS — verifiziert (branch health-sync)
+
+### Menüordnung — geprüfter Quellstand, noch nicht ausgeliefert (05.09.2026)
+iOS `bab3029`: Modelle und eigene Anbieter stehen zusammen; der unverändert wirkende
+Schalter für nichtkritische Werkzeugfreigaben steht unter „Sicherheit & Freigaben“.
+Die Suche berücksichtigt die tatsächlich sichtbaren Plattform-/Debug-Bereiche.
+Desktop `cf82737`: Erinnerungen sind eine eigene Inhaltsroute, Wallet liegt im Profil;
+Agent-Konfiguration ist von allgemeinen Einstellungen getrennt. Aufnahmen erklärt den
+Unterschied zwischen fortlaufender Transkription und Voice-Chat. Der lokale Desktop-Tresor
+benennt ausdrücklich seine fehlende Verbindung zum Runtime-Tresor/Authority Gate.
+Quelle: `SettingsView.swift`, `SettingsSearchIndex.swift`, Desktop `Sidebar.tsx`,
+`Settings.tsx`, `AgentTab.tsx`, `RewindTab.tsx`, `Profil.tsx`, `Wallet.tsx`.
+Nachweis: 89 iOS-Tests, 866 Desktop-Tests bestanden; drei Desktop-Tests übersprungen.
+Gezielte Sichtprüfung, kein vollständiger Geräte-/Live-Nachweis. Kein neuer TestFlight-
+Build, keine Desktop-Installation und **kein neues öffentliches HEUTE-Versprechen**.
 
 ### Hub — HEUTE
 Der aktuelle Hub hält dieselben **11 Routen** in vier ruhigen Gruppen: **Jetzt** —
@@ -341,7 +355,7 @@ Ausführungsschleife und deshalb keine Einzelrückfragen: Standard ist `read-onl
 `workspace-write` muss bewusst gewählt werden und gibt Schreibrecht im gewählten
 Arbeitsordner. `danger-full-access` wird in Hunch nicht angeboten.
 Quelle: `AI/Runtime/ToolRegistry.swift:8-25`, `AgentSession.swift:570-575,841-859`,
-`SettingsView.swift:138-141`, `CodexProvider.swift:144-191,497-511`,
+`SettingsView.swift:186-197`, `CodexProvider.swift:144-191,497-511`,
 `RuntimeSettingsViews.swift:1091-1116,1185-1191`;
 `IntentionalClientRenderSafetyTests.swift:337-434`.
 
