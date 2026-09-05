@@ -337,6 +337,25 @@ ist keine App-Store-Veröffentlichung. Die neue Desktop-Installation wartet
 auf reguläres Beenden der bisher laufenden App; Paket und wiederherstellbare Sicherung
 sind vorbereitet. **Kein neues öffentliches HEUTE-Versprechen** und kein Website-Deploy.
 
+### Berechtigungszwecke — Source und Mac-Paket geprüft, Auslieferung offen (06.09.2026)
+Desktop `8112d4c` korrigiert die bisher falsch verschachtelten macOS-Zwecktexte.
+Das tatsächliche neue Bundle enthält Mikrofon-, Systemaudio- und Bildschirmzweck
+sowie passende deutsche und englische Systemressourcen; ungenutzte generische
+Kamera-/Bluetooth-Texte sind entfernt. Audio ist nicht pauschal lokal: die Zwecke
+benennen den eingerichteten Dienst bzw. die Runtime. Die native Mikrofon-Copy in
+`2dd4cc1` umfasst Voice und gestartete Gesprächsaufnahmen sowie mögliche Verarbeitung
+auf dem Gerät, durch Apple oder den eingerichteten Anbieter/Server.
+
+Nachweis: 873 Desktop-Tests bestanden, drei übersprungen, Produktionsbuild und
+Kontrolle des erzeugten Mac-Pakets grün; beide Sprachressourcen durch Foundation
+gelesen. Ein isolierter nativer Quellvertrag bestanden, kein vollständiger neuer
+App-Testlauf. Das Mac-Paket bleibt lokal, unsigniert und nicht installiert; echte
+Systemdialoge und Hardwareaufnahme sind offen. Die native Änderung ist **nicht in
+TestFlight/App-Store-Kandidat 146 enthalten** und benötigt ein neues signiertes Archiv.
+Keine neue öffentliche Verfügbarkeitszusage und keine Änderung des Grunddesigns.
+Quelle: Desktop `electron-builder.yml`, `scripts/mac-usage-descriptions.cjs`,
+`packaging/mac-privacy/`; nativ `Info.plist`, `InfoPlist.xcstrings`, `project.yml`.
+
 ### Hub — HEUTE
 Der aktuelle Hub hält dieselben **11 Routen** in vier ruhigen Gruppen: **Jetzt** —
 Freigaben, Fäden, Intention; **Verstehen** — Brain, Bildschirm; **Verbinden** —
