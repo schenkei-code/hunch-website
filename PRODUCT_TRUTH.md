@@ -356,6 +356,36 @@ Keine neue öffentliche Verfügbarkeitszusage und keine Änderung des Grunddesig
 Quelle: Desktop `electron-builder.yml`, `scripts/mac-usage-descriptions.cjs`,
 `packaging/mac-privacy/`; nativ `Info.plist`, `InfoPlist.xcstrings`, `project.yml`.
 
+### Aufnahme-Freigaben — geprüftes Desktop-Paket, noch nicht ausgeliefert (06.09.2026)
+Desktop `4fd05c2` ersetzt den simulierten Bildschirm-Erfolg durch eine echte
+Berechtigungsprüfung und bestätigtes Speichern. Auf macOS zählt der aktuelle
+Systemstatus; Windows/Linux prüfen bei der ausdrücklichen Aktivierung einen
+nutzbaren Videostream und geben ihn sofort wieder frei. Mikrofonfehler sind kein
+Erfolg. Überspringen während der Abfrage verhindert eine spätere Aktivierung;
+ab dem tatsächlichen Speicherauftrag ist Überspringen gesperrt.
+
+Bildschirmverlauf und automatische Insight-Analyse sind bei neuen Installationen
+ausgeschaltet. Vorhandene gültige Einstellungen bleiben unverändert; ein alter
+gespeicherter Einschaltwert beweist keine frühere bewusste Einwilligung. Automatischer
+Chat-Bildschirmtext benötigt eingeschalteten Verlauf und auf macOS zusätzlich die
+aktuelle Systemfreigabe. Die Oberfläche unterscheidet lokale Bilder von Bildschirmtext,
+der als Chat-Kontext oder bei separat eingeschalteter Analyse an Anbieter gehen kann.
+Einstellungen und Sidebar verwenden dieselbe Aktivierungsprüfung. Einzelaufnahmen
+bleiben ein eigener, ausdrücklich gestarteter Weg. Der ungenutzte simulierte
+Dateizugriff-Schritt ist entfernt; kein aktiver Menüweg entfällt.
+
+Nachweis: 993 Desktop-Tests bestanden, drei übersprungen; 23 gerenderte Fälle mit
+echten Komponenten und gemockten System-/Speicherantworten unter React.StrictMode
+bei 1024×640 und 375×812, einschließlich Reduced Motion. Keine Konsolenfehler,
+Warnungen oder externen Requests im isolierten Prüflauf. Produktionsbuild und
+tatsächliches Mac-Paket geprüft. Kein echter OS-Dialog, Hardware-, Vollsecurity-
+oder Installationsnachweis; kein neues öffentliches HEUTE-Versprechen. iOS/Watch
+lesen den Bildschirmverlauf der Maschine, besitzen aber keine entsprechende lokale
+Aufnahme. Das Grunddesign bleibt unverändert.
+Quelle: Desktop `screenCapturePermission.ts` (Main/Renderer), `PermissionStep.tsx`,
+`ScreenPermissionStep.tsx`, `MicPermissionStep.tsx`, `useScreenHistoryToggle.ts`,
+`rewindSettings.ts`, `insight/state.ts`, `ipc/screen.ts`, `ipc/rewind.ts`.
+
 ### Hub — HEUTE
 Der aktuelle Hub hält dieselben **11 Routen** in vier ruhigen Gruppen: **Jetzt** —
 Freigaben, Fäden, Intention; **Verstehen** — Brain, Bildschirm; **Verbinden** —
