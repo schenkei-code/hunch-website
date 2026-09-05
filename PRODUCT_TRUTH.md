@@ -11,7 +11,7 @@ Status-Legende:
 - **ALS NÄCHSTES** — in Arbeit / nahe Roadmap
 - **VISION** — 2.0-Zielbild, nicht ausgeliefert
 
-Repos geprüft (Grundabgleich 2026-09-03; App-Menü-Nachtrag 2026-09-05):
+Repos geprüft (Grundabgleich 2026-09-03; App-Menü-/Auslieferungsnachtrag 2026-09-06):
 - `hunch-runtime` @ `init-runtime` — Python-Runtime, FastAPI, CLI, MCP-Server
 - `hunch-app-repo` (hunch-app) @ `health-sync` — iOS-App (Pocket), aktueller geprüfter Branch
 - `hunch-windows-repo` @ `windows-app` — Desktop-App (Electron)
@@ -299,7 +299,7 @@ Kein gehosteter Relay-Dienst. Erreichbarkeit von unterwegs = Tailscale-Adresse +
 
 ## App / iOS — verifiziert (branch health-sync)
 
-### Menüordnung — geprüfter Quellstand, noch nicht ausgeliefert (05.09.2026)
+### Menüordnung — TestFlight 146 intern, Mac-Installation offen (06.09.2026)
 iOS `bab3029`: Modelle und eigene Anbieter stehen zusammen; der unverändert wirkende
 Schalter für nichtkritische Werkzeugfreigaben steht unter „Sicherheit & Freigaben“.
 Die Suche berücksichtigt die tatsächlich sichtbaren Plattform-/Debug-Bereiche.
@@ -310,8 +310,12 @@ benennt ausdrücklich seine fehlende Verbindung zum Runtime-Tresor/Authority Gat
 Quelle: `SettingsView.swift`, `SettingsSearchIndex.swift`, Desktop `Sidebar.tsx`,
 `Settings.tsx`, `AgentTab.tsx`, `RewindTab.tsx`, `Profil.tsx`, `Wallet.tsx`.
 Nachweis: 89 iOS-Tests, 866 Desktop-Tests bestanden; drei Desktop-Tests übersprungen.
-Gezielte Sichtprüfung, kein vollständiger Geräte-/Live-Nachweis. Kein neuer TestFlight-
-Build, keine Desktop-Installation und **kein neues öffentliches HEUTE-Versprechen**.
+Gezielte Sichtprüfung, kein vollständiger Geräte-/Live-Nachweis. TestFlight Build 146
+ist seit 06.09. `VALID` / `IN_BETA_TESTING`, mit geprüfter produktiver Push-Berechtigung,
+DE/EN-Versionshinweisen und bestätigter Zuordnung zu beiden internen Gruppen. Keine neue
+externe Beta-Review oder App-Store-Veröffentlichung. Die neue Desktop-Installation wartet
+auf reguläres Beenden der bisher laufenden App; Paket und wiederherstellbare Sicherung
+sind vorbereitet. **Kein neues öffentliches HEUTE-Versprechen** und kein Website-Deploy.
 
 ### Hub — HEUTE
 Der aktuelle Hub hält dieselben **11 Routen** in vier ruhigen Gruppen: **Jetzt** —
