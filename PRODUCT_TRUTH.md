@@ -206,6 +206,11 @@ CLI `--scope`, Endpunkte `/brain/scopes`, `/brain/memories`, `POST /brain/memori
 Ebene (Kategorie „Präferenz") — kein eigener Speicher.
 
 ### Autorität / Sicherheit — HEUTE (Kette, kein Einzelschalter)
+**Prüfgrenze, 06.09.2026:** Die folgenden gebauten Mechanismen sind keine vollständige
+Sicherheitsfreigabe. Der Nachweis für Berechtigungswechsel bei laufenden Verbindungen
+ist noch offen; lokale Korrekturen werden geprüft und sind noch nicht live eingespielt.
+Das öffentliche Update bleibt davon getrennt und ist nicht freigegeben.
+
 - Secure-Enclave-Besitzeridentität: Runtime hält nur den P-256-Public-Key, Challenge/Verify
   (ECDSA), 24h-Session. `ausweis.py`
 - Risikoklassen, Governor, Budgets, Circuit-Breaker, Prüfer/Zweitprüfung
@@ -385,6 +390,40 @@ Aufnahme. Das Grunddesign bleibt unverändert.
 Quelle: Desktop `screenCapturePermission.ts` (Main/Renderer), `PermissionStep.tsx`,
 `ScreenPermissionStep.tsx`, `MicPermissionStep.tsx`, `useScreenHistoryToggle.ts`,
 `rewindSettings.ts`, `insight/state.ts`, `ipc/screen.ts`, `ipc/rewind.ts`.
+
+### Datei-Discovery — Source geprüft, Auslieferung und Mac-Quellen offen (06.09.2026)
+Desktop `6f71bb9`: Der Einstieg liest erst nach „Dateien einlesen“ ein. Kein
+simulierter Erfolg oder automatischer Scan beim Öffnen. Vollständig, leer,
+teilweise lesbar, nicht unterstützt und fehlgeschlagen sind getrennte Zustände.
+Nur ein vollständiger Lauf ersetzt den Index atomar; bei Fehlern bleiben die
+alten gespeicherten Einträge erhalten. Gefundene und gespeicherte Anzahl sind
+nicht dasselbe. Hintergrundläufe bleiben nach Menüwechsel sichtbar; spätere
+Statusabfragen starten weder Scan noch Analyse.
+
+Dateinamen, Metadaten und App-Verknüpfungen werden lokal indexiert, keine Inhalte
+gelesen. „Neu scannen“ in Einstellungen startet keine Modellgraph-Analyse mehr.
+Ein späterer Chat oder die separate Wissensgraph-Analyse kann Indexdaten an den
+eingerichteten Anbieter schicken; deshalb kein pauschales „nie hochgeladen“.
+Der Scanner unterstützt tatsächlich nur Windows-Standardordner. Mac/Linux
+melden fehlende unterstützte Quellen; ein Mac-Dateiscanner ist damit nicht gebaut.
+iOS/Watch besitzen diesen lokalen Desktop-Indexer nicht. Installierte Apps im
+Onboarding-Graphen sind außerdem noch kein nachgewiesenes Nutzungsverhalten.
+
+Nachweis des Funktionsstands: 1.059 Tests bestanden, drei übersprungen;
+Produktionsbuild, beide Typechecks und 57 isolierte gerenderte Fälle grün.
+Echte Komponenten, synthetische Daten, StrictMode, 1024×640/375×812,
+normal/Reduced Motion. Kein echter Dateiscan, Geräte- oder Installationsnachweis.
+Grunddesign unverändert; kein neues HEUTE-Label. Quelle: Desktop
+`fileIndex/indexer.ts`, `ipc/fileIndex.ts`, `ipc/db.ts`, `useFileIndex.ts`,
+`fileIndexStatus.ts`, `BuildProfileStep.tsx`, `AdvancedTab.tsx`.
+
+**Paketstand `130c0cc`:** Explizites Laufzeit-Inventar verhindert das Mitpacken
+alter Builds und eigener Entwicklungsdateien auch bei anderem Ausgabeordner.
+Tatsächliches bereinigtes Mac-Paket geprüft; sieben Runtime-Dateien bytegleich,
+DE/EN-Zwecktexte korrekt. Vollständige Desktop-Suite danach 1.102 bestanden,
+drei übersprungen; 43 zusätzliche Paketprüfungen. Kein gültiges Distributions-
+Signing, keine Installation und keine öffentliche Auslieferung. Frühere lokale
+Prüfpakete mit zusätzlichem Entwicklungsinhalt nicht als Release verwenden.
 
 ### Hub — HEUTE
 Der aktuelle Hub hält dieselben **11 Routen** in vier ruhigen Gruppen: **Jetzt** —
