@@ -302,10 +302,21 @@ Kein gehosteter Relay-Dienst. Erreichbarkeit von unterwegs = Tailscale-Adresse +
 ### Öffentlicher App-Store-Stand — Update vorbereitet, noch nicht veröffentlicht (06.09.2026)
 App Store Connect bestätigt iOS 1.5 als `READY_FOR_SALE`. Der bestehende Update-Entwurf
 1.5.1 verwendet jetzt Build 146 statt Build 125; sein Status wechselte von
-`INVALID_BINARY` zu `PREPARE_FOR_SUBMISSION`. Aktuelle DE/EN-Versionshinweise sind
-gespeichert. Die bisherige Produktions-Einreichung trägt ungeklärte Beanstandungen;
-mindestens ein englisches Store-Screenshot ist leer. Deshalb kein erneutes Produktions-
-Submit und keine öffentliche Veröffentlichung von 1.5.1 behaupten. TestFlight ist separat.
+`INVALID_BINARY` zu `PREPARE_FOR_SUBMISSION`. Aktuelle DE/EN-Versionshinweise,
+Beschreibungen und Review-Anleitung sind gespeichert und nachgelesen. Der Apple-Verlauf
+zeigt die sofortige Zurückweisung des alten Builds 125 als ungültige Binärdatei am
+24.08.; ein weiterer Begründungstext ist nicht sichtbar. Die alte Einreichung ist noch
+nicht erneut übermittelt. Die englischen Store-Bilder sind leer bzw. zeigen die alte
+deutsche Oberfläche; frische anonyme Original-Captures fehlen. Der vorhandene gemeinsame
+Authority-Nachweis bleibt separat offen. Keine öffentliche Veröffentlichung von 1.5.1
+behaupten. TestFlight ist separat.
+
+Die Store-Copy trennt lokale Apple-Verarbeitung (iOS 26+, Systemmodell tatsächlich
+verfügbar) von gewählten Cloudmodellen und Voice-Diensten. Die optionale Voice-Brücke
+kann beim Verbindungsfehler auf Gemini mit vorhandenem Nutzer-Key zurückfallen; direkte
+Voice fordert derzeit deutsche Antworten an. Deshalb kein pauschales Local-only-
+Versprechen. Quelle: `AppleLocalProvider.swift:35–43`, `VoiceEngine.swift:285–310,362–370,403–413`,
+`VoiceScreen.swift:417`; Review-Anleitung ohne die entfernte Vier-Seiten-Tour.
 
 ### Menüordnung — TestFlight 146 intern/extern, Mac-Installation offen (06.09.2026)
 iOS `bab3029`: Modelle und eigene Anbieter stehen zusammen; der unverändert wirkende
