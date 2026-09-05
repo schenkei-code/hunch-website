@@ -299,7 +299,15 @@ Kein gehosteter Relay-Dienst. Erreichbarkeit von unterwegs = Tailscale-Adresse +
 
 ## App / iOS — verifiziert (branch health-sync)
 
-### Menüordnung — TestFlight 146 intern, Mac-Installation offen (06.09.2026)
+### Öffentlicher App-Store-Stand — Update vorbereitet, noch nicht veröffentlicht (06.09.2026)
+App Store Connect bestätigt iOS 1.5 als `READY_FOR_SALE`. Der bestehende Update-Entwurf
+1.5.1 verwendet jetzt Build 146 statt Build 125; sein Status wechselte von
+`INVALID_BINARY` zu `PREPARE_FOR_SUBMISSION`. Aktuelle DE/EN-Versionshinweise sind
+gespeichert. Die bisherige Produktions-Einreichung trägt ungeklärte Beanstandungen;
+mindestens ein englisches Store-Screenshot ist leer. Deshalb kein erneutes Produktions-
+Submit und keine öffentliche Veröffentlichung von 1.5.1 behaupten. TestFlight ist separat.
+
+### Menüordnung — TestFlight 146 intern/extern, Mac-Installation offen (06.09.2026)
 iOS `bab3029`: Modelle und eigene Anbieter stehen zusammen; der unverändert wirkende
 Schalter für nichtkritische Werkzeugfreigaben steht unter „Sicherheit & Freigaben“.
 Die Suche berücksichtigt die tatsächlich sichtbaren Plattform-/Debug-Bereiche.
@@ -312,8 +320,9 @@ Quelle: `SettingsView.swift`, `SettingsSearchIndex.swift`, Desktop `Sidebar.tsx`
 Nachweis: 89 iOS-Tests, 866 Desktop-Tests bestanden; drei Desktop-Tests übersprungen.
 Gezielte Sichtprüfung, kein vollständiger Geräte-/Live-Nachweis. TestFlight Build 146
 ist seit 06.09. `VALID` / `IN_BETA_TESTING`, mit geprüfter produktiver Push-Berechtigung,
-DE/EN-Versionshinweisen und bestätigter Zuordnung zu beiden internen Gruppen. Keine neue
-externe Beta-Review oder App-Store-Veröffentlichung. Die neue Desktop-Installation wartet
+DE/EN-Versionshinweisen und bestätigter Zuordnung zu beiden internen Gruppen. Apple hat
+inzwischen auch die externe Beta genehmigt (`APPROVED`, extern `IN_BETA_TESTING`). Das
+ist keine App-Store-Veröffentlichung. Die neue Desktop-Installation wartet
 auf reguläres Beenden der bisher laufenden App; Paket und wiederherstellbare Sicherung
 sind vorbereitet. **Kein neues öffentliches HEUTE-Versprechen** und kein Website-Deploy.
 
