@@ -425,6 +425,36 @@ drei übersprungen; 43 zusätzliche Paketprüfungen. Kein gültiges Distribution
 Signing, keine Installation und keine öffentliche Auslieferung. Frühere lokale
 Prüfpakete mit zusätzlichem Entwicklungsinhalt nicht als Release verwenden.
 
+### Kennenlernen und Graph-Herkunft — Source geprüft, nicht ausgeliefert (06.09.2026)
+Desktop `08ee271`, Runde 57: Neue App-Verknüpfungen heißen „im Datei-Index
+gefunden“, nicht „genutzt“. Zielvorschläge erhalten nur ausdrücklich indexbezogene
+App-Namen und werden weiterhin vor dem Speichern bearbeitet/bestätigt. Der
+Synthese-Prompt verlangt belegte Memory-Aussagen für Nutzungsbeziehungen; dies ist
+keine deterministische Prüfung der Modellantwort. Alte, möglicherweise unbelegte
+`uses`-Beziehungen bleiben unangetastet und sind keine nachträglich bestätigte Nutzung.
+
+Erneutes Öffnen des Desktop-Einstiegs lädt den gemeinsamen Graphen, statt ihn zu
+löschen. Laden und ausdrückliche Graph-Schreibvorgänge laufen geordnet; ein Fehler
+verwirft nicht den vorherigen sichtbaren Stand und sperrt keine Folgeanfragen.
+Keine Migration und kein Zugriff auf private Bestandsdaten im Prüflauf.
+
+Nativ `184f686`: macOS überspringt den wirkungslosen Berechtigungsschritt; iOS
+fragt weiterhin erst nach „Erlauben“ Mitteilungen und Mikrofon an. DE/EN versprechen
+keine garantierte Zahl von Systemdialogen. Der Abschluss unterscheidet lokale
+Speicherung von möglicher Kontextweitergabe an Anbieter/verbundene Maschinen.
+Keine Änderung der View-Geometrie, keine neue Aufnahmefähigkeit für den Mac.
+
+Nachweis: 1.116 Desktop-Tests bestanden, drei übersprungen; Produktionsbuild,
+beide Typechecks, Preload-Vertrag und gezieltes Lint grün. Nativ 34 isolierte
+Prüfungen des tatsächlichen Kennenlern-Scripts und iOS-SDK-Typecheck bestanden.
+20 isolierte gerenderte Desktop-Fälle bestanden: Discovery/Ziel bei 1024×640
+und 375×812, normal/Reduced Motion; echte Einstiegseite mit gestubbtem WebGL-Graph
+und unbetroffenen Diensten bei 1024×640. Keine Konsolenfehler oder Außenrequests.
+Das sind keine vollständige native App-/Geräteprüfung oder Release-Nachweise.
+Noch kein neues Paket/Archiv dieser Änderungen; Build 146 enthält sie nicht.
+Keine Watch-/CLI-/Web-Quelle für lokale Desktop-App-Shortcuts erfunden, keine
+Änderung des Grunddesigns und kein neues öffentliches HEUTE-Label.
+
 ### Hub — HEUTE
 Der aktuelle Hub hält dieselben **11 Routen** in vier ruhigen Gruppen: **Jetzt** —
 Freigaben, Fäden, Intention; **Verstehen** — Brain, Bildschirm; **Verbinden** —
