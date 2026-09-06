@@ -665,3 +665,28 @@ Upgrade. Watch/Web/CLI besitzen diese lokalen Editorwege nicht. Native Profil-
 Autosaves/Session-Merge, Nudge-Bestätigungen und Desktop-Chat-Archivierung bleiben
 separate Anschlussprüfungen. Build 146 enthält diese Source nicht; StoreKit/IAP
 bleibt ungebaut und das gemeinsame Authority-/Security-/Live-Gate offen.
+
+### 06.09.2026 — Ergebnisbelege nach Freigaben · Runde 64
+
+**QUELLSTAND, NOCH NICHT AUSGELIEFERT.** Nach einer Freigabe unterscheidet
+hunch die angenommene Entscheidung von der tatsächlichen Ausführung. Der neue
+Beleg nennt Entscheidung, Ausführungszustand, Zeitpunkt, Audit-Kennung und
+einen Rückweg nur dann, wenn er wirklich verfügbar ist. Eine unklare Antwort
+ist kein Erfolg: Die Apps lesen den Beleg nach, ohne die Handlung erneut
+auszulösen. Die Runtime hält bereits beanspruchte Entscheidungen dauerhaft
+fest; ein unterbrochener Versuch ist keine neue Ausführungserlaubnis.
+
+iPhone/native App und Desktop zeigen den aktuellen Beleg getrennt vom
+eingeklappten Verlauf. Alte Ergebnisse verdrängen keine offenen Entscheidungen.
+Watch, Runtime-Web und CLI verwenden denselben Ergebnisvertrag; die Watch
+verweist für das Zurücknehmen auf das iPhone. Lokale Werkzeugprotokolle bleiben
+von Runtime-Belegen getrennt. Neue Rückmeldungen sind Deutsch/Englisch; dies
+ist keine vollständige Übersetzung aller bestehenden Desktop-/Web-Texte.
+Grunddesign, Materialien und normale Schrift-/Symbolgrößen bleiben erhalten.
+
+Die Source-, isolierten Test-, Build- und anonymisierten Renderer-Nachweise
+stehen in PROGRESS/PARITAET/MENUE_AUDIT Runde 64. Keine neue Auslieferung,
+echte Geräte-/Push-/Watch-/Runtime-Endabnahme oder allgemeine Sicherheitsfreigabe.
+Build 146 enthält diese Änderungen nicht. Öffentlicher Release, neuer signierter
+Kandidat und passende Storebilder bleiben getrennte Gates; StoreKit/IAP bleibt
+ungebaut. Kein HEUTE-Label wird durch diese Quellarbeit angehoben.
