@@ -778,3 +778,25 @@ vollständige UI-Abnahme. Grunddesign unverändert. Aktuelle vollständige anony
 Storebilder nach Brand, gemeinsame Endabnahme und alte Apple-Review-Probleme
 bleiben offen. Kein öffentliches HEUTE-Upgrade oder Runtime-/Website-Deploy;
 der unfertige Desktop-Startstand bleibt außerhalb der Auslieferung. PROGRESS R72.
+
+## Geführte Einführung — LOKAL GEPRÜFT, NICHT AUSGELIEFERT (06.09., Runde 73)
+
+Native Quelle `bbb8961` und Desktop `d24deff` enthalten eine DE/EN-Einführung:
+ein Anliegen formulieren, eine Beispielhandlung annehmen oder ablehnen, den
+Unterschied zwischen Entscheidung und Ergebnis verstehen und die passenden
+App-Bereiche finden. Überspringbar, in den Einstellungen wiederholbar;
+persönliche Einrichtung getrennt. Die Übung versendet keine Nachrichten,
+zeichnet nicht auf und erteilt keine echten Freigaben. Watch mit Kurzhilfe.
+
+Beide Apps bündeln einen lokal erzeugten 24-Sekunden-Kurzfilm in DE/EN, mit
+Textfassung und manueller Wiedergabe ohne Schleife. Ein kurzer Startübergang
+und zentral abschaltbare iOS-Haptik ergänzen das unveränderte Grunddesign.
+1472 Tests der eigenständigen Desktop-Version sowie Typechecks/Build bestanden;
+native Übungslogik und Compilerlauf grün. Anonyme gerenderte Fälle bei schmaler
+und breiter Ansicht geprüft. Das belegt keine physische Haptik, vollständige
+native Bedienbarkeit oder allgemeine Verständlichkeit für neue Nutzer.
+
+Diese Änderungen sind nicht Teil des bereits hochgeladenen iOS 1.6 (147).
+Keine neue Buildnummer, kein Upload, keine Store-Einreichung und kein
+öffentlicher Funktionsstatus geändert. Bestehende Geräte-/Release-Gates und
+StoreKit/IAP-Status bleiben unverändert. Nachweise und Grenzen: PROGRESS R73.
