@@ -588,8 +588,9 @@ Native Source `712469b`: Anlegen, Ändern und Löschen lokaler Aufgaben sowie
 Ändern/Löschen von Zielen bestätigen den Datenbankeintrag. Fehler erhalten
 Entwürfe und zeigen keine falsche Erledigung; dasselbe gilt für die native
 MCP-Aufgabenerledigung. Kalender merkt bestätigte Teilimporte. Fehlgeschlagene
-Aufgaben aus Aufnahmen sind nur während der geöffneten Brain-Ansicht erneut
-speicherbar, nicht dauerhaft über Neustarts gepuffert.
+Aufgaben aus Aufnahmen waren in Runde 61 nur während der geöffneten Brain-
+Ansicht erneut speicherbar. Runde 63 erweitert dies auf die laufende App,
+weiterhin nicht dauerhaft über Neustarts gepuffert.
 
 Desktop `17589b3`: Tasks/Goals zeigen bestätigte Einzeländerungen statt optimistischer
 Listen. Fehler bei einem Eintrag rollen keine bereits gespeicherte andere
@@ -598,8 +599,8 @@ Eingaben bleiben bei Fehlern erhalten. Keine zusätzliche Maschinenarbeit,
 allgemeine bidirektionale Brain-Synchronisierung oder neue Fäden-Fähigkeit.
 
 Isolierte Fehler-/Retry-/Importprüfungen und vollständige Builds: PROGRESS und
-MENUE_AUDIT Runde 61. Native Gesprächs-/Memory-Speicherung und Sync-Upserts sind
-separate offene Prüfwege. Kein Geräte-/Live-Nachweis oder neues HEUTE-Label;
+MENUE_AUDIT Runde 61. Native Gesprächs-/Memory-Speicherung und Sync-Upserts
+wurden anschließend in Runde 63 getrennt geprüft. Kein Geräte-/Live-Nachweis oder neues HEUTE-Label;
 diese Änderungen sind nicht im App-Store-/TestFlight-Kandidaten 146 enthalten.
 
 ### Fäden-Zustände und Aktionen — QUELLSTAND, NOCH NICHT AUSGELIEFERT (06.09., Runde 62)
@@ -627,3 +628,40 @@ synthetische Daten, keine echte Runtime oder installierte App. Kein neues
 HEUTE-Label, Gerätetest, Store-Submit, Archiv, Runtime- oder Website-Deploy.
 Build 146 enthält diese Änderungen nicht; das gemeinsame Authority-/Security-
 und Live-Gate bleibt offen. Watch/Web/CLI erhalten keine erfundenen Fäden-Editoren.
+
+### Erinnerungen und Gespräche — QUELLSTAND, NOCH NICHT AUSGELIEFERT (06.09., Runde 63)
+
+Native Source `c239d3d` / `c643ec6`: Memory- und Gesprächsänderungen bestätigen
+den lokalen Schreibvorgang, bevor Entwürfe verschwinden, Spiegel aktualisiert
+oder Erfolge gemeldet werden. Sync bestätigt alle angenommenen Schreibvorgänge,
+bevor Cursor, Zeitstempel oder Bereinigung fortschreiten; bestätigte Teile
+bleiben bei einem späteren Fehler erhalten. Unbrauchbare Antworten sind kein
+erfolgreicher leerer Abgleich. MCP und der lokale Remember-Weg unterscheiden
+bestehende Erinnerungen von fehlgeschlagenem Speichern. Ein Chatwechsel verliert
+bei Archivfehlern nicht den aktuellen Verlauf.
+
+Aufnahme-Transkripte bleiben bei Speicherfehlern auf beiden App-Surfaces während
+der laufenden App erhalten. Ausdrückliches Wiederholen speichert den vorhandenen
+Text, ohne Mikrofon oder Modell neu zu starten. Diese Zwischenablage überlebt
+keinen App-Neustart. Nativ gilt dies auch für noch ungespeicherte extrahierte
+Erinnerungen und Aufgaben. Späte Berechtigungs- oder Zielvorschlagsantworten
+starten nach Verlassen keine versteckte Aufnahme bzw. überschreiben keinen
+neuen Entwurf. Kurze erkannte Notizen sind nicht mehr allein wegen ihrer
+Wortzahl Löschkandidaten; automatische Audio-Segmentierung bleibt unverändert.
+
+Desktop Source `5ee3e18` / `c19a075` bestätigt neue Erinnerungen unabhängig von einem späteren Ladefehler.
+Teilimporte behalten unbestätigte Vorschläge und warnen vor unklaren Antworten;
+vor erneutem Import soll die Liste geprüft werden. Titelentwürfe bleiben bei
+Fehlern offen, verspätete automatische Titel überschreiben keine manuelle
+Umbenennung. Mehrfachlöschen zeigt bestätigte Löschungen und Fehler getrennt;
+Undo gilt nur während der Wartefrist, nicht nach ausgeführter Löschung.
+
+Grunddesign, Materialien und normale Schriftgrößen unverändert. Neue
+Rückmeldungen DE/EN; dies ist noch keine vollständige Desktop-Lokalisierung.
+Quell-, isolierte Speicher-/Sync-, Build- und anonymisierte Renderer-Nachweise:
+PROGRESS/MENUE_AUDIT Runde 63. Keine echte Aufnahme-, Runtime- oder Geräteprüfung,
+keine allgemeine neue Brain-Synchronisierung, kein Release/Deploy oder HEUTE-
+Upgrade. Watch/Web/CLI besitzen diese lokalen Editorwege nicht. Native Profil-
+Autosaves/Session-Merge, Nudge-Bestätigungen und Desktop-Chat-Archivierung bleiben
+separate Anschlussprüfungen. Build 146 enthält diese Source nicht; StoreKit/IAP
+bleibt ungebaut und das gemeinsame Authority-/Security-/Live-Gate offen.
