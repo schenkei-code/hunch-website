@@ -455,6 +455,38 @@ Noch kein neues Paket/Archiv dieser Änderungen; Build 146 enthält sie nicht.
 Keine Watch-/CLI-/Web-Quelle für lokale Desktop-App-Shortcuts erfunden, keine
 Änderung des Grunddesigns und kein neues öffentliches HEUTE-Label.
 
+### Daten, Quellen und Wartung — Source geprüft, nicht ausgeliefert (06.09.2026)
+Desktop `403ea8f`, Runde 58: „Daten & Quellen“ enthält Import/Export, Integrationen
+und Datei-Index; „Wartung“ enthält Auto-Bereinigung, Erinnerungs-Wartung,
+Graph-Neuaufbau und erneute Einrichtung. Die bestehende Auto-Bereinigung entfernt
+technische Reste, nicht nach einer Zeitregel. Ihr gespeicherter Modus bleibt
+unverändert. Löschen steht im Aktionsmenü und verlangt weiter eine Bestätigung.
+Der frühere Erweitert-Link öffnet Daten & Quellen; alte Erinnerungs-Links behalten
+ihr Inhaltsziel. Suche und Bereichswechsel erhalten Entwürfe. Ein gewählter Bereich
+beginnt am sichtbaren Titel; bei schmaler Breite sind Navigation und Inhalt gestapelt.
+Normale Desktop-Maße, Palette, Schrift, Material und Ausweis-/Voice-Design bleiben.
+
+Die Import- und Kurznotiztexte erklären nun, dass Text und vorhandene Erinnerungen
+zur Extraktion an den gewählten Anbieter gehen können. Das frühere „Notizen werden
+nie hochgeladen“ war falsch. Der Graph-Neuaufbau erklärt Modellanalyse getrennt
+vom Dateiscan. Keine Änderung an Integrationskonten, Quellen, Freigaben oder Sync.
+
+Nativ `e716560`: Quellen/Kalender/Aufbewahrung/Bereinigung finden die bestehenden
+Memory-Einstellungen; App-Stand sichern/wiederherstellen findet Agent-Runtime.
+Keine neue native Gruppe, keine Änderung der Geometrie; Plattform-/Debug-Filter
+bleiben. Watch/CLI/Web besitzen diese lokalen Desktop-/nativen Einstellungswege
+nicht und erhalten keine erfundenen Ersatzflächen.
+
+Nachweis: 1.125 Desktop-Tests bestanden, drei übersprungen; Produktionsbuild,
+Typechecks und Preload-Prüfung grün. Fünf isolierte native XCTest-Fälle sowie
+iOS-SDK-Typecheck bestanden. 17 gerenderte Desktop-Fälle bei 1024×640/375×812,
+normal/Reduced Motion bestanden, inklusive bestätigtem Löschabbruch ohne Schreib-
+aufruf; synthetische Quellen und externe Dienste gestubbt.
+Keine vollständige native App-/Geräteabnahme, Installation oder neue Auslieferung;
+Build 146 enthält diese Änderungen nicht. Kein neues öffentliches HEUTE-Label.
+Quelle: Desktop `Settings.tsx`, `DataTab.tsx`, `MaintenanceTab.tsx`,
+`settingsNavigation.ts`; nativ `SettingsSearchIndex.swift`, `SettingsView.swift`.
+
 ### Hub — HEUTE
 Der aktuelle Hub hält dieselben **11 Routen** in vier ruhigen Gruppen: **Jetzt** —
 Freigaben, Fäden, Intention; **Verstehen** — Brain, Bildschirm; **Verbinden** —
