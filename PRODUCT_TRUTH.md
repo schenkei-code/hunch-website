@@ -701,3 +701,21 @@ allgemeiner Sicherheitsnachweis. Ablauf und Grenzen: PROGRESS/PARITAET R65.
 Keine neue App-Funktion, Auslieferung oder öffentliche Store-Einreichung in
 dieser Runde. Aktuelle Storebilder, neuer signierter Kandidat und gemeinsame
 Endabnahme bleiben offen. Grunddesign unverändert; kein HEUTE-Upgrade.
+
+## Browser-Menüs — QUELLSTAND, NICHT AUSGELIEFERT (06.09.2026, Runde 66)
+
+Runtime `b412c93`: feste Kopfaktionen mit mindestens 44px Trefferfläche,
+einzeilige Namen, Ink/Ivory und lowercase hunch. Auf schmalen Displays bekommen
+die bestehenden Aktionen eine eigene Zeile. Vorhaben, Geräteverbindung und
+Nachweise teilen einen Zusatzbereich; Chat und bearbeitete Vorhabenfelder
+bleiben beim Menüwechsel erhalten. Fokus und Verbindung sind benannt. Zugang,
+Browser-Chrome und Vorhaben-Feldnamen sind Deutsch/Englisch; eigene Inhalte
+werden nicht übersetzt. Der Token bleibt nur im Arbeitsspeicher des Tabs.
+
+460 isolierte Runtime-Tests und 64 anonyme Browserfälle bestanden. Dies belegt
+die genannten Rahmen-/Navigationsänderungen und die Receipt-Regressionsfälle,
+keine echte Authentifizierung, Geräteverbindung oder Speicherung von Vorhaben.
+Details und Grenzen: PROGRESS/PARITAET/MENUE_AUDIT R66. Siegel-/Motion- und
+vollständige Materialabnahme, Vorhaben-Schreibfehler und allgemeine Live-/
+Geräte-/Release-Gates bleiben offen. Native/Mac/Watch-Grunddesign unverändert;
+keine neue App-Store-Einreichung, Auslieferung oder HEUTE-Anhebung.
