@@ -581,3 +581,23 @@ gegen ein bestehendes ChatGPT/Claude-Abo als Alternative zum API-Key, keine App-
 Identität, Audit, Budget). Runtime-abhängige Screens (Fäden/Nodes/Skills/Sitzung/Kanäle) brauchen
 einen Fixture-Pfad im `IntentionalAgentClient` — siehe Delivery, welche Screens echt gefüllt sind
 und welche als gekennzeichnetes Konzept dargestellt werden.
+
+### Aufgaben- und Zieländerungen — QUELLSTAND, NOCH NICHT AUSGELIEFERT (06.09.)
+
+Native Source `712469b`: Anlegen, Ändern und Löschen lokaler Aufgaben sowie
+Ändern/Löschen von Zielen bestätigen den Datenbankeintrag. Fehler erhalten
+Entwürfe und zeigen keine falsche Erledigung; dasselbe gilt für die native
+MCP-Aufgabenerledigung. Kalender merkt bestätigte Teilimporte. Fehlgeschlagene
+Aufgaben aus Aufnahmen sind nur während der geöffneten Brain-Ansicht erneut
+speicherbar, nicht dauerhaft über Neustarts gepuffert.
+
+Desktop `17589b3`: Tasks/Goals zeigen bestätigte Einzeländerungen statt optimistischer
+Listen. Fehler bei einem Eintrag rollen keine bereits gespeicherte andere
+Änderung zurück; ältere Ladeantworten überschreiben keine neuen Bestätigungen.
+Eingaben bleiben bei Fehlern erhalten. Keine zusätzliche Maschinenarbeit,
+allgemeine bidirektionale Brain-Synchronisierung oder neue Fäden-Fähigkeit.
+
+Isolierte Fehler-/Retry-/Importprüfungen und vollständige Builds: PROGRESS und
+MENUE_AUDIT Runde 61. Native Gesprächs-/Memory-Speicherung und Sync-Upserts sind
+separate offene Prüfwege. Kein Geräte-/Live-Nachweis oder neues HEUTE-Label;
+diese Änderungen sind nicht im App-Store-/TestFlight-Kandidaten 146 enthalten.
