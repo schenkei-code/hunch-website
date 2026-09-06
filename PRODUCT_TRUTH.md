@@ -690,3 +690,14 @@ echte Geräte-/Push-/Watch-/Runtime-Endabnahme oder allgemeine Sicherheitsfreiga
 Build 146 enthält diese Änderungen nicht. Öffentlicher Release, neuer signierter
 Kandidat und passende Storebilder bleiben getrennte Gates; StoreKit/IAP bleibt
 ungebaut. Kein HEUTE-Label wird durch diese Quellarbeit angehoben.
+
+## Nachweisgrenze, 06.09.2026 — Runde 65
+
+Die Runtime-Gesamtsuite besteht im vorhandenen Arbeitsstand 453 von 453 Fällen
+unter einem versionierten anonymen Testläufer. Kein Fall abgewählt, keine
+Verletzung der Test-I/O-Grenzen. Eigene lokale Protokollpartner ersetzen echte
+Anbieter und Besitzerprofile; die Prüfung ist kein Live-, Hardware- oder
+allgemeiner Sicherheitsnachweis. Ablauf und Grenzen: PROGRESS/PARITAET R65.
+Keine neue App-Funktion, Auslieferung oder öffentliche Store-Einreichung in
+dieser Runde. Aktuelle Storebilder, neuer signierter Kandidat und gemeinsame
+Endabnahme bleiben offen. Grunddesign unverändert; kein HEUTE-Upgrade.
