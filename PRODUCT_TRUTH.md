@@ -487,6 +487,29 @@ Build 146 enthält diese Änderungen nicht. Kein neues öffentliches HEUTE-Label
 Quelle: Desktop `Settings.tsx`, `DataTab.tsx`, `MaintenanceTab.tsx`,
 `settingsNavigation.ts`; nativ `SettingsSearchIndex.swift`, `SettingsView.swift`.
 
+### Ziele, Aufgaben und Fäden — QUELLSTAND, NOCH NICHT AUSGELIEFERT (06.09.)
+
+Desktop `8fb0de0`: Ziele und Aufgaben bleiben lokale Daten; Fäden gehören zur verbundenen
+Hunch-Runtime. Die vorhandenen Flächen erklären jetzt den Unterschied und
+verlinken einander. Zielvorschläge sind Entwürfe mit getrennt geprüftem Messwert:
+Ein Datum im Titel bestimmt nicht den Fortschrittsmaßstab. Der Einstieg geht
+erst nach bestätigtem Speichern weiter; Fehler behalten den Entwurf. Die
+abschließende Aufgabenliste ist ausdrücklich eine ungespeicherte Beispielvorschau.
+
+Nativ `00f5a29`: Fehler beim Brain-INSERT erzeugen kein scheinbar gespeichertes
+Ziel; im Kennenlernen bleiben Eingabe und Schritt erhalten. KI-Vorschläge werden
+vor dem Speichern bearbeitet. DE/EN unterscheiden Speichern von einem Auftrag an
+die Runtime und erklären mögliche Brain-Synchronisierung statt „bleibt auf diesem
+Gerät“. Die bestehende native Zielwertgrenze ist 1; Desktop akzeptiert positive
+Dezimalwerte. Keine neue allgemeine Synchronisierung oder automatische Ausführung.
+
+Der Abgleich fand außerdem einen falschen Desktop-Claim: Fäden sind auflistbar
+und abbrechbar, aber ein Fortsetzen-Client fehlt; pausierte Fäden stehen bisher
+unter Beendet. Diese Lücke bleibt offen und ist in PARITAET als TEILWEISE geführt.
+Prüfungen und Belege: PROGRESS/MENUE_AUDIT Runde 60. Grunddesign, Ausweis und Voice
+unverändert; kein neues HEUTE-Label, Gerätetest, signiertes Archiv oder Release.
+Build 146 enthält diese Änderungen nicht.
+
 ### Hub — HEUTE
 Der aktuelle Hub hält dieselben **11 Routen** in vier ruhigen Gruppen: **Jetzt** —
 Freigaben, Fäden, Intention; **Verstehen** — Brain, Bildschirm; **Verbinden** —
