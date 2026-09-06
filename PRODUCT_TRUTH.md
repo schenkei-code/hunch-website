@@ -800,3 +800,20 @@ Diese Änderungen sind nicht Teil des bereits hochgeladenen iOS 1.6 (147).
 Keine neue Buildnummer, kein Upload, keine Store-Einreichung und kein
 öffentlicher Funktionsstatus geändert. Bestehende Geräte-/Release-Gates und
 StoreKit/IAP-Status bleiben unverändert. Nachweise und Grenzen: PROGRESS R73.
+
+## Desktop-Start und Eingaben — LOKAL GEPRÜFT, NICHT AUSGELIEFERT (06.09., Runde 74)
+
+Desktop-Quellen `bf05d27`/`3048966`: Bereiche werden erst beim Besuch aufgebaut;
+Entwürfe bleiben bei Rückwegen erhalten. Reine Anzeigeabfragen pausieren in
+den geprüften verborgenen Bereichen, erlaubte Hintergrunddienste besitzen
+einen getrennten Lebenszyklus. Die schmale Gesprächssuche bleibt nutzbar,
+Eingaben verschieben nicht mehr den gesamten Einstellungsrahmen. Grunddesign
+unverändert. Ersetzt den offenen Quellstatus des Startpakets aus Runde 70.
+
+1562 Tests und 88 anonyme gerenderte Prüfungen bestanden, Produktionsbundle
+grün. Weniger vorzeitige Arbeit im 60-s-Vergleich belegt; kein Nachweis eines
+schnelleren ersten Bildes, echter Geräte-Bildrate oder allgemeiner Fehlerfreiheit.
+Kein Live-/Geräte-/Security-Gesamt-PASS und keine Installation oder Auslieferung.
+Native Einführung/Haptik aus Runde 73 weiterhin nicht Teil von iOS 1.6 (147).
+Keine neue Buildnummer, kein Upload, Submit, Deploy oder HEUTE-Upgrade;
+StoreKit/IAP und gemeinsame Abnahme bleiben unverändert. PROGRESS R74.
