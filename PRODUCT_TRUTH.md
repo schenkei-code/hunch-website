@@ -738,3 +738,22 @@ Geräte-/Sicherheits-/Release-PASS. Native/Mac/Watch unverändert; Storebilder,
 neuer signierter Kandidat und gemeinsame Endabnahme bleiben erforderlich.
 Details und Grenzen: PROGRESS/PARITAET/MENUE_AUDIT R67. Keine Auslieferung,
 neue Store-Einreichung oder HEUTE-Anhebung; StoreKit/IAP weiterhin ungebaut.
+
+## Startoptimierung — IN ARBEIT, NICHT AUSGELIEFERT (06.09.2026, Runde 70)
+
+Der Desktop-Arbeitsstand lädt besuchte Bereiche bei Bedarf und trennt deren
+Sichtbarkeit von bereits erlaubten Hintergrunddiensten. Entwürfe sollen beim
+Bereichswechsel bestehen bleiben. Finale Interaktions-/Performanceprüfung und
+Produktionsbuild fehlen noch; kein neues HEUTE-Label oder fertiger Leistungsclaim.
+Grunddesign unverändert. Der aktuelle Apple-Abgleich bestätigt weiterhin
+iOS 1.5.1 mit Build 146 in Vorbereitung, keine neue öffentliche Einreichung.
+Die neueren Quelländerungen sind nicht in diesem Build enthalten. Passender
+signierter Kandidat, Storebilder und Endabnahme bleiben erforderlich.
+
+## Nächster iOS-Kandidat — GEPLANT: 1.6 (147) (06.09.2026, Runde 71)
+
+Dominik hat Version 1.6, Build 147 als öffentliches Release-Ziel festgelegt.
+Die nativen Versionsangaben für iPhone, Watch und Widgets sind gesetzt und
+gegen Xcode geprüft. 147 ist noch nicht archiviert, hochgeladen oder eingereicht;
+dies ist keine Veröffentlichung oder neue Funktionszusage. Letzter belegter
+Apple-Stand bleibt R70. Grunddesign und offene Endabnahmen unverändert.
