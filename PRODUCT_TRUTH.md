@@ -817,3 +817,20 @@ Kein Live-/Geräte-/Security-Gesamt-PASS und keine Installation oder Auslieferun
 Native Einführung/Haptik aus Runde 73 weiterhin nicht Teil von iOS 1.6 (147).
 Keine neue Buildnummer, kein Upload, Submit, Deploy oder HEUTE-Upgrade;
 StoreKit/IAP und gemeinsame Abnahme bleiben unverändert. PROGRESS R74.
+
+## Hilfe und verständlicher Einstieg — LOKAL GEPRÜFT, NICHT AUSGELIEFERT (06.09., Runde 75)
+
+Desktop-Quelle `032855f`, native Quelle `729f919`: Einführung und lokaler Kurzfilm
+sind über Hilfe/Einstellungen wiederholbar, am Desktop auch vor der Anmeldung.
+Dokumentation und Feedback nutzen feste öffentliche Ziele; der Mailentwurf enthält
+keine automatisch angehängten Nutzerdaten. Native Über-Copy beschreibt das heutige
+Produkt statt des früheren Terminals und enthält keinen unbelegten Storepreis.
+Systemmenü und Einstellungen-Rückweg sind im Desktop verbunden; Grunddesign bleibt.
+
+1647 Desktoptests, 237 anonyme gerenderte Prüfungen und lokaler Build erfolgreich;
+native Such-/Guide-/SDK-Prüfungen und iOS-Compiler grün. Das belegt weder echte
+OS-Menü-/Hardwarebedienung noch vollständig verständliche Nutzung für jedermann.
+Native Haptik/VoiceOver/Geräteabnahme, allgemeine Desktop-Sprachparität und die
+gemeinsamen Release-Gates bleiben offen. Änderungen nicht im iOS-Upload 1.6/147;
+keine neue Buildnummer, Installation, Einreichung oder öffentliche Auslieferung.
+Keine Änderung an StoreKit/IAP oder öffentlicher Statusmatrix. PROGRESS R75.
