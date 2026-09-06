@@ -503,9 +503,9 @@ die Runtime und erklären mögliche Brain-Synchronisierung statt „bleibt auf d
 Gerät“. Die bestehende native Zielwertgrenze ist 1; Desktop akzeptiert positive
 Dezimalwerte. Keine neue allgemeine Synchronisierung oder automatische Ausführung.
 
-Der Abgleich fand außerdem einen falschen Desktop-Claim: Fäden sind auflistbar
-und abbrechbar, aber ein Fortsetzen-Client fehlt; pausierte Fäden stehen bisher
-unter Beendet. Diese Lücke bleibt offen und ist in PARITAET als TEILWEISE geführt.
+Der Abgleich fand außerdem einen falschen Desktop-Claim: Zum Stand dieser Runde
+fehlte der Fortsetzen-Client, pausierte Fäden standen unter Beendet. Runde 62
+korrigiert dies im Quellstand; Auslieferung und Live-Nachweis bleiben offen.
 Prüfungen und Belege: PROGRESS/MENUE_AUDIT Runde 60. Grunddesign, Ausweis und Voice
 unverändert; kein neues HEUTE-Label, Gerätetest, signiertes Archiv oder Release.
 Build 146 enthält diese Änderungen nicht.
@@ -601,3 +601,29 @@ Isolierte Fehler-/Retry-/Importprüfungen und vollständige Builds: PROGRESS und
 MENUE_AUDIT Runde 61. Native Gesprächs-/Memory-Speicherung und Sync-Upserts sind
 separate offene Prüfwege. Kein Geräte-/Live-Nachweis oder neues HEUTE-Label;
 diese Änderungen sind nicht im App-Store-/TestFlight-Kandidaten 146 enthalten.
+
+### Fäden-Zustände und Aktionen — QUELLSTAND, NOCH NICHT AUSGELIEFERT (06.09., Runde 62)
+
+Desktop `07e2074`: Aktive, unterbrochene, beendete und unbekannte Fäden sind
+getrennt. Pausierte, gescheiterte und abgebrochene Fäden lassen sich ausdrücklich
+fortsetzen; wartende Freigaben führen ins Authority Gate. Ladefehler sind keine
+leere Liste. Aktionen bleiben an die gelesene Runtime-Verbindung gebunden und
+zeigen nur geprüfte Bestätigungen. Rückmeldungen stehen am betroffenen Faden;
+spätere Hintergrundabgleiche verändern die Scrollposition nicht.
+
+Nativ `06225bb` behalten Detail, Abbruch, Fortsetzen und neuer Auftrag ihre Maschine und
+Verbindung. Ladefehler erhalten den letzten bestätigten Stand. Fehler verlieren
+keinen Auftragsentwurf; unklare Antworten lösen keinen automatischen Schreib-
+Retry aus. Ein neuer Auftrag schließt erst nach einer gültigen Bestätigung mit
+Kennung und Titel. Die bestehende Grenze von 2000 Zeichen wird erklärt statt
+still gekürzt. DE/EN nachgeführt. Abbruch ist kein Undo bereits erfolgter Arbeit.
+
+Nachweise: 1256 Desktop-Tests bestanden / 3 übersprungen, 25 native Zustands-
+und Modelltests plus 25 injizierte HTTP-Prüfungen, vollständiger Pocket-Compile-
+only-Build und Desktop-Produktionsbuild. Gerendert: 56 Hauptfälle bei 375/1024 px,
+normal/reduzierter Bewegung; zusätzlich 8 Rückmeldungsfälle. Details, Commit
+und Grenzen: PROGRESS/MENUE_AUDIT Runde 62. Diese UI-Prüfungen verwenden
+synthetische Daten, keine echte Runtime oder installierte App. Kein neues
+HEUTE-Label, Gerätetest, Store-Submit, Archiv, Runtime- oder Website-Deploy.
+Build 146 enthält diese Änderungen nicht; das gemeinsame Authority-/Security-
+und Live-Gate bleibt offen. Watch/Web/CLI erhalten keine erfundenen Fäden-Editoren.
