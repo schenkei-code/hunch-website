@@ -834,3 +834,23 @@ Native Haptik/VoiceOver/Geräteabnahme, allgemeine Desktop-Sprachparität und di
 gemeinsamen Release-Gates bleiben offen. Änderungen nicht im iOS-Upload 1.6/147;
 keine neue Buildnummer, Installation, Einreichung oder öffentliche Auslieferung.
 Keine Änderung an StoreKit/IAP oder öffentlicher Statusmatrix. PROGRESS R75.
+
+## Verständlicher Einstieg / App-Sprache — LOKAL GEPRÜFT, NICHT AUSGELIEFERT (06.09., Runde 76)
+
+Desktop `424731c`/`8e17898` trennt die Sprache der Oberfläche von der Sprache
+für Aufnahmen. Einführung, Film, Login, Sidebar, Settings-Navigation, Allgemein
+und Konto folgen System/Deutsch/English, ohne bestehende Entwürfe oder Rechte
+zu ändern. Einige ältere Bereiche sind noch nicht übersetzt; das wird in der
+Auswahl ausdrücklich erklärt. Kein Claim vollständiger Sprachparität.
+
+Native Quelle `4c43db3`: präzisere DE/EN-Einrichtung und Abbruchprüfung. Nach
+Verlassen folgen keine weiteren Berechtigungsfragen oder Abschlussmeldungen;
+ein bereits offener Systemdialog bleibt außerhalb der Kontrolle der App.
+Grunddesign, vorhandene Kurzfilme und abschaltbare Start-Haptik bleiben erhalten.
+
+1731 Desktoptests, 188 anonyme Rendererchecks, lokale Builds und 139 native
+isolierte Prüfungen erfolgreich. Das ersetzt weder fühlbare Haptik noch
+VoiceOver-, Nutzerverständnis- oder gemeinsame Live-Abnahme. Nicht im
+hochgeladenen iOS 1.6/147; keine neue Buildnummer oder öffentliche Auslieferung.
+Keine Änderung an IAP/StoreKit, öffentlichen Statuslabels oder Laufzeitdiensten.
+Nachweise und Grenzen: PROGRESS R76.
