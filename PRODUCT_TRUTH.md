@@ -719,3 +719,22 @@ Details und Grenzen: PROGRESS/PARITAET/MENUE_AUDIT R66. Siegel-/Motion- und
 vollständige Materialabnahme, Vorhaben-Schreibfehler und allgemeine Live-/
 Geräte-/Release-Gates bleiben offen. Native/Mac/Watch-Grunddesign unverändert;
 keine neue App-Store-Einreichung, Auslieferung oder HEUTE-Anhebung.
+
+## Browser-Vorhaben — QUELLSTAND, NICHT AUSGELIEFERT (06.09.2026, Runde 67)
+
+Runtime `bee1f12`: Abgelehnte oder unbestätigte Änderungen verlieren keine
+Eingabe mehr. Nur passende positive Antworten bestätigen das Speichern oder
+Anlegen. Bei einer unklaren Antwort erst nachlesen; kein automatischer zweiter
+Schreibversuch. Nachgelesene Übereinstimmung bestätigt den Stand, nicht die
+Ausführung einer bestimmten Anfrage. Lokales Abbrechen ist kein behaupteter
+Server-Rollback. Alte Antworten ersetzen keine neuen Entwürfe; Rückmeldung,
+Handlungen und Fokus bleiben verständlich zusammen. Grunddesign unverändert.
+
+463 isolierte Runtime-Tests einschließlich echter eigener API-/SQLite-
+Schreibfälle und 328 anonyme Browserfälle bestanden. Deutsch/Englisch,
+schmale/breite Ansicht und reduzierte Bewegung geprüft. Dies ist kein Nachweis
+gegen die laufende Runtime, keine neue gemeinsame Synchronisierung und kein
+Geräte-/Sicherheits-/Release-PASS. Native/Mac/Watch unverändert; Storebilder,
+neuer signierter Kandidat und gemeinsame Endabnahme bleiben erforderlich.
+Details und Grenzen: PROGRESS/PARITAET/MENUE_AUDIT R67. Keine Auslieferung,
+neue Store-Einreichung oder HEUTE-Anhebung; StoreKit/IAP weiterhin ungebaut.
