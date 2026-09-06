@@ -305,6 +305,12 @@ Kein gehosteter Relay-Dienst. Erreichbarkeit von unterwegs = Tailscale-Adresse +
 ## App / iOS — verifiziert (branch health-sync)
 
 ### Öffentlicher App-Store-Stand — Update vorbereitet, noch nicht veröffentlicht (06.09.2026)
+**Aktueller Nachtrag R72:** Der öffentliche Entwurf ist jetzt **1.6 mit Build 147**,
+`PREPARE_FOR_SUBMISSION` und `AFTER_APPROVAL`. Apple hat 147 als `VALID` verarbeitet;
+intern ist er in beiden TestFlight-Gruppen verfügbar. Noch kein Produktions-Submit
+und keine öffentliche Veröffentlichung. Aktuelle anonyme Storebilder und gemeinsame
+Endabnahme bleiben offen. Der folgende 1.5.1/146-Stand ist der vorherige Nachweis.
+
 App Store Connect bestätigt iOS 1.5 als `READY_FOR_SALE`. Der bestehende Update-Entwurf
 1.5.1 verwendet jetzt Build 146 statt Build 125; sein Status wechselte von
 `INVALID_BINARY` zu `PREPARE_FOR_SUBMISSION`. Aktuelle DE/EN-Versionshinweise,
@@ -757,3 +763,18 @@ Die nativen Versionsangaben für iPhone, Watch und Widgets sind gesetzt und
 gegen Xcode geprüft. 147 ist noch nicht archiviert, hochgeladen oder eingereicht;
 dies ist keine Veröffentlichung oder neue Funktionszusage. Letzter belegter
 Apple-Stand bleibt R70. Grunddesign und offene Endabnahmen unverändert.
+
+## iOS 1.6 (147) — INTERN VERFÜGBAR, ÖFFENTLICH VORBEREITET (06.09., Runde 72)
+
+Der tatsächliche signierte Store-Build enthält 1.6/147 auf iPhone, Widgets,
+Watch und Complication; produktive iPhone-Push-Berechtigung geprüft. Apple
+bestätigt `VALID` und interne TestFlight-Verfügbarkeit in beiden Gruppen.
+Der öffentliche Entwurf verwendet jetzt 1.6/147, bleibt in Vorbereitung;
+für 147 keine externe Beta-Review oder Produktionseinreichung ausgelöst.
+
+92 native XCTest-Fälle und 105 weitere isolierte Prüfungen bestanden. Das
+belegt den Quell-/Buildstand, nicht neue Hardware-, gemeinsame Runtime- oder
+vollständige UI-Abnahme. Grunddesign unverändert. Aktuelle vollständige anonyme
+Storebilder nach Brand, gemeinsame Endabnahme und alte Apple-Review-Probleme
+bleiben offen. Kein öffentliches HEUTE-Upgrade oder Runtime-/Website-Deploy;
+der unfertige Desktop-Startstand bleibt außerhalb der Auslieferung. PROGRESS R72.
