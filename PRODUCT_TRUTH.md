@@ -896,3 +896,24 @@ und einige native englische Texte fehlen noch. Gerätetests, Haptik/VoiceOver,
 Verständlichkeit für neue Nutzer, gemeinsame Live-Abnahme und Store-/IAP-Gates
 bleiben offen. Keine Änderung an öffentlicher Statusmatrix oder Sicherheits-
 und Zahlungszusagen. Nachweise und Prüfgrenzen: PROGRESS/PARITAET R78.
+
+## Inhalte und Sprache — LOKAL GEPRÜFT (07.09., Runde 79)
+
+Startseite/Chat, Vorschauen, Erinnerungen und Gespräche folgen der gewählten
+App-Sprache. Eigene Texte, Suchbegriffe und Entwürfe bleiben unverändert;
+Sprachwechsel wiederholt keine laufenden Speichervorgänge. Ein unverändert
+bestätigter Platzhaltertitel wird nicht versehentlich als eigener Titel
+gespeichert. Nativ89 fehlende englische Texte in Voice-/Memory-Einstellungen
+und zugehörigen Importanzeigen ergänzt. Das Grunddesign bleibt erhalten.
+
+1974 Desktoptests,68 anonyme gerenderte Prüfungen, lokale Builds und519 native
+Katalogprüfungen erfolgreich. Neuer lokaler Mac-Kandidat, nicht installiert,
+nicht Developer-ID-signiert oder notarisiert. Die nativen Änderungen dieser
+Runde sind noch nicht im vorhandenen TestFlight1.6(148); keine neue
+Veröffentlichung. Globale drei bestehende Codeprüfungsfehler weiterhin offen.
+
+Vollständige Sprachparität, Gerätebedienung, Haptik/VoiceOver, Verständlichkeit
+und gemeinsame Live-Abnahme sind damit nicht nachgewiesen. Voice-Hauptseite
+und weitere Inhaltsbereiche bleiben Teil des Sprachplans. Keine Änderung an
+öffentlichen Statuslabels, Sicherheitszusagen oder IAP/StoreKit.
+Nachweise und Grenzen: PROGRESS/PARITAET R79.
