@@ -854,3 +854,25 @@ VoiceOver-, Nutzerverständnis- oder gemeinsame Live-Abnahme. Nicht im
 hochgeladenen iOS 1.6/147; keine neue Buildnummer oder öffentliche Auslieferung.
 Keine Änderung an IAP/StoreKit, öffentlichen Statuslabels oder Laufzeitdiensten.
 Nachweise und Grenzen: PROGRESS R76.
+
+## Einführung — INTERN IN TESTFLIGHT 1.6 (148) (07.09., Runde 77)
+
+Die geführte Einführung, lokalen DE/EN-Kurzfilme, wiederholbare Hilfe und
+abschaltbare Start-Haptik sind im neuen iOS-Build 1.6 (148) enthalten.
+Signiertes Archiv und Export geprüft; Apple bestätigt gültigen Build und
+Verfügbarkeit in beiden internen TestFlight-Gruppen. Die Einführung liegt
+unter Einstellungen → Hunch kennenlernen → Einführung & Kurzfilm.
+Das bestehende Grunddesign bleibt erhalten. Kein öffentlicher Release;
+der öffentliche 1.6-Entwurf verwendet weiterhin 147 und wurde nicht eingereicht.
+
+Desktop: derselbe Einführungsstand als lokales arm64-Paket gebaut, Filmspulen
+im lokalen Medientransport korrigiert und unnötige Dependency-Debugdaten aus
+dem Paket entfernt. 1794 Tests, Produktionsbundle und Paketprüfung erfolgreich;
+36 isolierte gerenderte Medienchecks. Das Mac-Paket ist nicht installiert,
+nicht Developer-ID-signiert oder notarisiert. Keine öffentliche Mac-Auslieferung.
+
+Native Gerätebedienung, fühlbare Haptik, VoiceOver, Watch und Verständlichkeit
+für neue Nutzer bleiben zu prüfen; lokale Tests sind kein Ersatz dafür.
+Keine neue Zusage vollständiger Sprachparität, Sicherheitsfreigabe, IAP/StoreKit
+oder gemeinsamer Live-Abnahme. Öffentliche Statusmatrix unverändert.
+Details und Prüfgrenzen: PROGRESS/PARITAET R77.
