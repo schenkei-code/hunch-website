@@ -917,3 +917,23 @@ und gemeinsame Live-Abnahme sind damit nicht nachgewiesen. Voice-Hauptseite
 und weitere Inhaltsbereiche bleiben Teil des Sprachplans. Keine Änderung an
 öffentlichen Statuslabels, Sicherheitszusagen oder IAP/StoreKit.
 Nachweise und Grenzen: PROGRESS/PARITAET R79.
+
+## Voice und Arbeit — LOKAL GEPRÜFT (07.09., Runde 80)
+
+Voice, Aufgaben, Ziele und zugehörige Rückmeldungen folgen der gewählten
+App-Sprache. Laufende Gespräche, Originaltexte und Entwürfe bleiben erhalten.
+Die Leertaste bedient fokussierte Menüknöpfe, ohne versehentlich Voice zu
+starten. Drei zu kleine oder überlappende Desktop-Treffflächen korrigiert;
+sichtbares Grunddesign und Schriftgrößen bleiben. Nativ47 englische Texte
+ergänzt; vorhandene Einträge unverändert.
+
+2061 Desktoptests,76 gerenderte Bedienprüfungen und zusätzliche Layout-/
+Treffproben erfolgreich; native Katalogprüfung und vollständiger SDK-Build
+ebenfalls. Neuer lokaler Mac-Kandidat, nicht installiert, nicht Developer-ID-
+signiert oder notarisiert. Native R79/R80-Änderungen noch nicht im vorhandenen
+TestFlight1.6(148), keine neue Veröffentlichung und kein Apple-Statusabgleich.
+
+Vollständige Sprachparität, echte Gerätebedienung/Haptik/VoiceOver, Watch,
+Verständlichkeit und gemeinsame Live-Abnahme bleiben offen. Drei bestehende
+globale Lint-Fehler unverändert; keine Sicherheits-Gesamtfreigabe oder Änderung
+an IAP/StoreKit und öffentlichen Statuslabels. Nachweise PROGRESS/PARITAET R80.
