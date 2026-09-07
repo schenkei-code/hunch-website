@@ -876,3 +876,23 @@ für neue Nutzer bleiben zu prüfen; lokale Tests sind kein Ersatz dafür.
 Keine neue Zusage vollständiger Sprachparität, Sicherheitsfreigabe, IAP/StoreKit
 oder gemeinsamer Live-Abnahme. Öffentliche Statusmatrix unverändert.
 Details und Prüfgrenzen: PROGRESS/PARITAET R77.
+
+## Desktop-Einstellungen — LOKAL GEPRÜFT, NICHT INSTALLIERT (07.09., Runde 78)
+
+Erweiterte Einstellungen und app-eigene Rückmeldungen folgen nun Deutsch/English
+als App-Sprache, unabhängig von der Sprache für Aufnahmen. Entwürfe, Suchtext
+und laufende Arbeit bleiben erhalten; ein teilweise bestätigter Import wird
+nicht als vollständig gespeichert dargestellt. Grunddesign und sichtbare
+Controlgrößen bleiben erhalten; transparente Bedienziele wurden real geprüft.
+
+1904 Tests, 216 anonyme gerenderte Prüfungen, Produktionsbuild und neuer lokaler
+Mac-Kandidat erfolgreich geprüft. Kein Installations-, Signierungs-/Notarisierungs-
+oder öffentlicher Auslieferungsnachweis. Die globale Codeprüfung bleibt wegen
+drei bestehenden Fehlern in unveränderten Dateien offen; geänderte Dateien
+bestehen ihre Prüfung. Native TestFlight-Version 1.6 (148) aus R77 unverändert.
+
+Vollständige Sprachparität ist weiterhin nicht erreicht: ältere Desktop-Inhalte
+und einige native englische Texte fehlen noch. Gerätetests, Haptik/VoiceOver,
+Verständlichkeit für neue Nutzer, gemeinsame Live-Abnahme und Store-/IAP-Gates
+bleiben offen. Keine Änderung an öffentlicher Statusmatrix oder Sicherheits-
+und Zahlungszusagen. Nachweise und Prüfgrenzen: PROGRESS/PARITAET R78.
