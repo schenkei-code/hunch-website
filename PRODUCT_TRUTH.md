@@ -937,3 +937,24 @@ Vollständige Sprachparität, echte Gerätebedienung/Haptik/VoiceOver, Watch,
 Verständlichkeit und gemeinsame Live-Abnahme bleiben offen. Drei bestehende
 globale Lint-Fehler unverändert; keine Sicherheits-Gesamtfreigabe oder Änderung
 an IAP/StoreKit und öffentlichen Statuslabels. Nachweise PROGRESS/PARITAET R80.
+
+## Intention und Fäden — LOKAL GEPRÜFT (07.09., Runde 81)
+
+Intention, Fäden und app-eigene Rückmeldungen folgen der App-Sprache;
+Originaltexte und laufende Aktionen bleiben erhalten. Nach Trennung oder
+Maschinenwechsel zeigt Intention keine Ergebnisse der alten Verbindung mehr.
+Der entsprechende Anzeigezustand ist auch auf dem iPhone an die Verbindung
+gebunden; Frage und Format bleiben als Entwurf erhalten. Nativ 15 fehlende
+englische Einträge ergänzt. Grunddesign und sichtbare Größen bleiben.
+
+2171 Desktoptests,112 gerenderte Bedienprüfungen sowie zusätzliche Layout-
+und Treffproben erfolgreich. Native Sprach-/Zustandsprüfungen und vollständiger
+SDK-Build ebenfalls. Die drei bisherigen Lint-Fehler sind geschlossen;
+88 bestehende Warnungen bleiben. Kein Sicherheits-Gesamtnachweis.
+
+Neuer Mac-Kandidat nur lokal; nicht installiert, Developer-ID-signiert oder
+notarisiert. Native R79–R81-Änderungen sind nicht im vorhandenen TestFlight
+1.6(148). Kein neuer Apple-Abgleich und keine Veröffentlichung. Vollständige
+Sprach-/Funktionsparität, native Designabnahme, Nutzerverständnis, echte
+Haptik/VoiceOver/Watch und gemeinsame Live-Abnahme bleiben offen. Öffentliche
+Statuslabels sowie IAP/StoreKit unverändert. Nachweise PROGRESS/PARITAET R81.
