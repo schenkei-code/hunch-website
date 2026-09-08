@@ -958,3 +958,28 @@ notarisiert. Native R79–R81-Änderungen sind nicht im vorhandenen TestFlight
 Sprach-/Funktionsparität, native Designabnahme, Nutzerverständnis, echte
 Haptik/VoiceOver/Watch und gemeinsame Live-Abnahme bleiben offen. Öffentliche
 Statuslabels sowie IAP/StoreKit unverändert. Nachweise PROGRESS/PARITAET R81.
+
+## Intention und Runtime-Einstieg — LOKAL GEPRÜFT (08.09., Runden 82–83)
+
+Intention auf beiden Apps: Lage, Tagesstart und Entscheidung mit eigener
+Frage; gesendeter Auftrag und später veränderter Entwurf bleiben getrennt.
+Vorhersagen unterscheiden Laden, Fehler und unbekannte Sicherheit.
+
+Desktop führt jetzt zu einer bereits laufenden privaten Runtime: Verbindung
+prüfen, auf einem bereits verbundenen Besitzer-iPhone freigeben, Siegel-Namen
+vergleichen und den Gerätezugang bewusst übernehmen. Manuelles Verbinden
+bleibt verfügbar. Vorhandene Einrichtungen werden nicht automatisch ersetzt.
+Auf dem iPhone bleibt ein eingelöster Einlass-Zugang beim Verbinden erhalten;
+veraltete Antworten überschreiben keine zwischenzeitlich geänderte Maschine.
+
+**Noch nicht enthalten:** vollständige Ein-Klick-Installation der Runtime,
+Erstbesitzer-Einrichtung und neuer QR-/Siegel-Scan. Die Offline-Paketprüfung
+ist eine technische Grundlage, kein fertiger Installer oder Betriebsnachweis.
+
+2515 Desktoptests und376 anonyme gerenderte Bedienprüfungen erfolgreich;
+native Zustands-/Sprachprüfungen und vollständiger SDK-Build ebenfalls.
+Grunddesign bleibt. Nur lokale Quellen/Builds, keine neue Veröffentlichung,
+kein neuer App-Store-Statusabgleich und keine Änderungen an laufenden Diensten.
+Gerätebedienung, Nutzerverständnis und gemeinsame Live-Abnahme bleiben offen.
+Öffentliche Statusmatrix und IAP/StoreKit unverändert; kein HEUTE- oder
+Sicherheits-Gesamtnachweis. Einzelheiten PROGRESS/PARITAET R82/R83.
