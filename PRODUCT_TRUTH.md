@@ -983,3 +983,20 @@ kein neuer App-Store-Statusabgleich und keine Änderungen an laufenden Diensten.
 Gerätebedienung, Nutzerverständnis und gemeinsame Live-Abnahme bleiben offen.
 Öffentliche Statusmatrix und IAP/StoreKit unverändert; kein HEUTE- oder
 Sicherheits-Gesamtnachweis. Einzelheiten PROGRESS/PARITAET R82/R83.
+
+## Rundungsabgleich — LOKAL GEPRÜFT (13.09., Runde 84)
+
+Die Innenkonturen des Ausweisfotos in den aktuellen nativen und Desktop-
+Quellen sind an ihre Umgebung angepasst. Material, Außenformat und Maße
+bleiben. Die vorhandenen Produktrahmen der deutschen und englischen Website
+leiten ihre Bildschirmrundung aus dem tatsächlichen Abstand ab.
+
+Quell-Builds, gezielte Geometriechecks und anonyme Desktop-Komponentenprüfungen
+sind erfolgreich. Keine neue Auslieferung oder Apple-Statusprüfung; Claudes
+neueste Pass-Änderungen bleiben erhalten. Keine vollständige UI-Freigabe:
+Die Unterschrift der Desktop-Ausweiskarte ist bei sehr schmalem Fenster
+nicht sichtbar; native Geräteabnahme und ältere Nebenstände bleiben offen.
+Öffentliche Statuslabels unverändert. Details PROGRESS/PARITAET R84.
+Zusätzlicher Quellbefund: Die Watch-Targets fehlen im aktuellen Xcode-
+Buildgraph. Ein erfolgreicher iPhone-Build belegt derzeit keinen Watch-Build;
+dieser Release-Abgleich ist offen.
