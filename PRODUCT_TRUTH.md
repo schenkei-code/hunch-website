@@ -1057,3 +1057,15 @@ echte Mobilfunkabnahme behauptet. SDK-/Logik-/Desktoptests und isolierte
 Rendererprüfung grün, noch nicht in151/öffentlich. Kein HEUTE-Label geändert.
 Dieses interne lokale Journal nicht mit der öffentlichen Website pushen.
 Nachweise/Grenzen PROGRESS R88, native2fd9152 / Desktop7050f64.
+
+## Interner TestFlight-Build 1.6 (152) — 15.09.2026, Runde 89
+
+Die gleichen Ausweisseiten und die Verbindungshilfe unterwegs sind jetzt
+im internen iPhone-Testbuild152 enthalten. Native Quelle2fd9152, signiertes
+Archiv/Export geprüft, Upload erfolgreich und Apple VALID/IN_BETA_TESTING
+in beiden internen Gruppen bestätigt. Grunddesign und Hunch Pass erhalten.
+Keine öffentliche App-Store-Veröffentlichung, keine neue Desktop-Auslieferung.
+Watch fehlt weiterhin; tatsächliche Mobilfunk-/Einladungs-/Geräteabnahme und
+Runtime-Ein-Klick-Einrichtung offen. Keine automatische Freigabe und kein
+privates Mehrnutzerprofil behauptet. Keine HEUTE-Labels geändert. PROGRESS R89.
+Dieses interne Journal bleibt lokal, keine Veröffentlichung seiner Historie.
