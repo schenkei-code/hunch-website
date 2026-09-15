@@ -523,6 +523,8 @@ def main() -> int:
         if css.count("{") != css.count("}") or css.count("(") != css.count(")"):
             errors.append(f"{source}: CSS-Klammern sind nicht ausgeglichen")
         check_radii(css, source, errors)
+        require_css(css, source, ".phone", ("--frame-radius:28px", "--frame-inner-radius:18px", "--frame-inset:.5rem"), errors)
+        require_css(css, source, ".phone .screen", ("border-radius:var(--frame-inner-radius)",), errors)
         for contract in (
             "--card:var(--ivory-50)",
             "--on-gold:#4a3410",

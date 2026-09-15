@@ -212,10 +212,12 @@ h2{font-size:clamp(2rem,4.8vw,3.5rem);font-weight:800;line-height:1.02;margin-to
 
 /* phones — Produktframe: vollständige Bildfläche, kein Crop, keine künstliche Island */
 .stage{display:flex;align-items:center;justify-content:center;gap:1.5rem;margin-top:3rem;flex-wrap:nowrap}
-.phone{--frame-radius:28px;--frame-inset:.5rem;position:relative;width:var(--pw,15rem);flex:0 0 auto;border-radius:var(--frame-radius);padding:var(--frame-inset);
+/* 28px minus 8px inset gives 20px geometrically; 18px is the nearest permitted
+   inner contour. This is a brand-constrained approximation, not exact concentricity. */
+.phone{--frame-radius:28px;--frame-inner-radius:18px;--frame-inset:.5rem;position:relative;width:var(--pw,15rem);flex:0 0 auto;border-radius:var(--frame-radius);padding:var(--frame-inset);
   background:linear-gradient(155deg,#eae5d7,#d0c8b3 42%,#b7ac90);
   box-shadow:0 2px 4px rgba(29,29,31,.08),0 26px 56px rgba(110,84,36,.18),inset 0 1px 2px rgba(255,255,255,.6)}
-.phone .screen{width:100%;border-radius:max(0px,calc(var(--frame-radius) - var(--frame-inset)));overflow:hidden;background:#F6F5F2;box-shadow:inset 0 0 0 1px rgba(0,0,0,.05)}
+.phone .screen{width:100%;border-radius:var(--frame-inner-radius);overflow:hidden;background:#F6F5F2;box-shadow:inset 0 0 0 1px rgba(0,0,0,.05)}
 .phone .screen img,.phone .screen video{width:100%;height:auto;object-fit:contain;object-position:center top}
 .stage .side{--pw:12rem;opacity:.92}
 .stage .side.left{transform:rotate(-5deg) translateY(.8rem)}
@@ -1274,7 +1276,7 @@ section[data-serial] > .wrap{position:relative;z-index:1}
         <li>Gemeinsamer Verlauf + Presence: App, Runtime, CLI, Web und Telegram spiegeln Gespräche; fremde Gespräche im Brain sehen und mit den letzten 30 Zeilen fortsetzen; Zustellung an die aktive oder erreichbare Oberfläche</li>
       </ul></div>
       <div class="col reveal"><h3><span class="tag exp">Experimentell</span></h3><ul>
-        <li>Apple-Watch-Target: Freigaben, Arbeitsschritt, Sprache und Complication sind gebaut; der Test auf der echten Uhr steht aus</li>
+        <li>Apple Watch: Quellen für Freigaben, Arbeitsschritt, Sprache und Complication sind vorhanden; im aktuellen TestFlight-Build 151 ist keine Watch-App enthalten. Wiederanbindung und Gerätetest stehen aus</li>
         <li>Freigeben/Ablehnen aus einer Push-Mitteilung: Code und APNs-Annahme sind belegt; der korrigierte Button auf Build ≥118 wartet auf E2E-Bestätigung</li>
         <li>Vorhersage-Push im Alltag: Erzeugung und Presence-Routing laufen, die tatsächliche Push-Zustellung ist noch nicht bestätigt</li>
       </ul></div>
