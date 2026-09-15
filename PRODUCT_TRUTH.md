@@ -1145,3 +1145,27 @@ Datenschutzerklärung/Storeangaben und physische Abnahmen bleiben Release-Gates.
 Keine Gesamt-Sicherheits-/Datenschutz-/Paritätsfreigabe, kein neuer TestFlight-
 oder öffentlicher Storebuild, keine Website-Veröffentlichung. Keine HEUTE-
 Labels geändert. Dieses interne Journal bleibt lokal. Nachweise: PROGRESS R95.
+
+## Datenempfänger und Widerruf — lokaler Teilstand, 16.09.2026, Runde 96
+
+Native App: Brain-Abgleich und Health-Weitergabe benötigen getrennte
+Freigaben für den tatsächlichen Rechner. Datenumfang und Folgen werden
+erklärt; Widerruf stoppt weitere Abgleiche, löscht aber keine Kopien beim
+Empfänger. Speicherfehler werden nicht als dauerhafter Erfolg dargestellt.
+Health-Daten sind auf sieben Kalendertage begrenzt. Desktop: eigener
+Chat-Freigabedialog vor Kontext/Versand mit Widerruf und erhaltenem Entwurf.
+Diese Quelländerungen sind gezielt getestet, noch nicht neu ausgeliefert.
+
+Offen bleiben der separate Desktop-Google-Brain-Abgleich, Overlay-Audio,
+Runtime-Planungsanbindung, ältere native Chat-Speichergrenzen, komplette
+App-/Geräteabnahmen, Runtime-Ersteinrichtung und funktionierender Mac-Einstieg.
+Kein globaler Datenschutz-/Sicherheits-/Paritäts-PASS, keine neue interne
+Beta oder öffentliche Veröffentlichung. HEUTE-Labels unverändert; dieses
+Journal bleibt lokal. Nachweise und genaue Grenzen: PROGRESS R96.
+
+Desktop-Chat zusätzlich in acht isolierten DE/EN-Rendererfällen mit aktueller
+Quelle geprüft; das englische Overlay-Sendelabel ist korrigiert. Das ersetzt
+keine installierte App-/Hardwareabnahme. Lokaler Mac-Start ohne Google ist
+ausdrücklich freigegeben und in Umsetzung, noch nicht ausgeliefert. Bestehende
+Einwilligungen und Aktionsgrenzen gelten auch im lokalen Modus; weder ein
+privates Zweitprofil noch automatische Runtime-Einrichtung daraus ableiten.
