@@ -1013,3 +1013,25 @@ Die Watch-App fehlt weiterhin im aktuellen Projekt/Paket. Geräteabnahme,
 Runtime-Ein-Klick-Installation und vollständige UI-/Paritätsfreigabe bleiben
 offen. Der Codex-Chatverlaufsfehler ist separat und nicht durch diesen Build
 behoben. Keine öffentlichen HEUTE-Labels geändert. Nachweise PROGRESS R85.
+
+## Website veröffentlicht, Apps noch gesperrt — 15.09.2026, Runde 86
+
+Öffentliches Go liegt jetzt vor. Website DE/EN, Dokumentation, Navigation und
+öffentliche App-Medien ausgeliefert:27 Dateien, Release-Commit208049a,
+GitHub Pages built und alle Live-Dateien per SHA256 bestätigt. Grunddesign
+unverändert; Rahmen-Innenradius auf erlaubte18px korrigiert (28px außen),
+Brand-konforme Annäherung, nicht exakt konzentrisch. Watch-Texte benennen
+die fehlende Watch-App im aktuellen151-Paket. Kein HEUTE-Flip.
+
+14 statische Seitenprüfungen und12 Rendererfälle bestanden; keine JS-Fehler,
+4 mobile WebGL-Treiberwarnungen bei Screenshots. Kein Gesamt-UI-/Security-
+oder Hardware-PASS. Hunch1.6(151) bleibt internes TestFlight. Öffentliche
+App-Store-Version weiterhin1.5(95);1.6-Entwurf147 mit Watch-Screenshots passt
+nicht zum Watch-losen151-Kandidaten. Desktop ohne Developer-ID-Signatur/
+Notarisierung und mit offenem schmalen Ausweis-Layout. Keine öffentliche
+App-Einreichung, kein Desktop-Paket, kein Runtime-Deploy. Details PROGRESS R86.
+
+Publikation ausschließlich mit öffentlichen Dateien und eigenem Commit auf
+vorherigem Remote-main, ohne interne lokale Journal-Historie. Dieses lokale
+Dokument und interne Prüfskripte wurden nicht veröffentlicht. Lokales main
+und Remote-main deshalb divergent; nicht blind pushen oder force-pushen.
