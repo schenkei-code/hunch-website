@@ -1126,3 +1126,22 @@ und technische Größen-/Kreisableitungen belegt. Kein echter Watch-/Mac-Dock-
 Gerätenachweis, kein Watch-Paket (Target fehlt weiterhin), keine Storefreigabe.
 Noch nicht in TestFlight/öffentlichem Store; auch Website nicht deployed.
 Keine HEUTE-Labels geändert. Dieses interne Journal bleibt lokal. PROGRESS R94.
+
+## Einrichtung und Datenfreigaben — lokaler Teilstand, 16.09.2026, Runde 95
+
+Native App: verständlicherer Einrichtungsweg, Entwürfe bei fehlender
+Konfiguration erhalten, explizite Chat-Empfängerfreigabe und Widerruf,
+Voice-Freigabe vor Mikrofon/Netz, Kalenderrechte vor Import. Rechnerverbindung
+allein macht den nativen Chat nicht antwortbereit; kein neuer automatischer
+Runtime-Installer oder eigenes privates Mehrnutzerprofil behauptet.
+Electron: Einrichtung/Voice/Datenauskunft nachgezogen; Login-Ausgaben ohne
+Konfiguration sollen vor dem Verpacken stoppen und verständliche Hilfe
+zeigen. Ein funktionsfähiger Login benötigt weiterhin die Projektkonfiguration.
+
+Gezielte Produktions-/Quelltests vorhanden, aber finaler App-Start und
+frischer Bediennachweis wegen Simulator-Timeout und Speicherblock offen.
+Desktop-Chat-Empfängerfreigabe, globaler Brain-/Health-Datenweg, veröffentlichte
+Datenschutzerklärung/Storeangaben und physische Abnahmen bleiben Release-Gates.
+Keine Gesamt-Sicherheits-/Datenschutz-/Paritätsfreigabe, kein neuer TestFlight-
+oder öffentlicher Storebuild, keine Website-Veröffentlichung. Keine HEUTE-
+Labels geändert. Dieses interne Journal bleibt lokal. Nachweise: PROGRESS R95.
