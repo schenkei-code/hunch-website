@@ -1045,3 +1045,15 @@ Electron hatte bereits identische Seiten; zusätzliche Regression und vier
 gerenderte Flipfälle bestätigen das. Native Rahmen-Geometrie und SDK-Build
 geprüft, keine vollständige iPhone-/Hardwareabnahme. Noch nicht in151 oder
 öffentlich ausgeliefert; Store-/Desktop-Gates unverändert. PROGRESS R87.
+
+## Verbindungshilfe unterwegs — lokal geprüft, 15.09.2026, Runde 88
+
+Native App und Electron erklären in DE/EN getrennt eigenen Rechner und
+Einladung; die Offline-Ansicht behauptet nicht mehr, bereits zu beobachten.
+Lesende Verbindungsprüfung statt rohem Timeout, offizielle Tailscale-Hilfe.
+Netzwerkzugang bleibt Voraussetzung und ist keine Hunch-Berechtigung oder
+separates privates Profil. Kein Relay, keine automatische Einrichtung oder
+echte Mobilfunkabnahme behauptet. SDK-/Logik-/Desktoptests und isolierte
+Rendererprüfung grün, noch nicht in151/öffentlich. Kein HEUTE-Label geändert.
+Dieses interne lokale Journal nicht mit der öffentlichen Website pushen.
+Nachweise/Grenzen PROGRESS R88, native2fd9152 / Desktop7050f64.
