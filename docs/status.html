@@ -7,17 +7,24 @@
 <meta name="description" content="Hunch-Dokumentation: Status, Sensoren &amp; Datenschutz">
 <link rel="icon" type="image/png" href="../favicon.png">
 <link rel="stylesheet" href="docs.css">
+<script src="../site-nav.js" defer></script>
 </head>
 <body>
-<nav id="nav">
+<nav id="nav" aria-label="Hauptnavigation">
   <div class="container nav-inner">
     <a class="logo" href="../"><img src="../owl-mark.png" alt="">hunch</a>
     <div class="nav-links"><a href="../#apps">Apps</a><a href="index.html" class="current">Doku</a></div>
     <a class="nav-cta" href="mailto:schenkei@hunchagent.io">Early Access</a>
+    <button class="menu-toggle" type="button" data-mobile-menu-toggle aria-expanded="false" aria-controls="mobile-menu">Menü</button>
   </div>
 </nav>
+<div class="mobile-menu" id="mobile-menu" role="navigation" aria-label="Mobile Hauptnavigation" hidden>
+  <a href="../">Startseite</a><a href="../#apps">Apps</a><a href="index.html">Dokumentation</a>
+  <a class="mobile-menu-meta" href="../en/" hreflang="en" lang="en">English</a>
+  <a class="mobile-menu-cta" href="mailto:schenkei@hunchagent.io">Early Access</a>
+</div>
 <div class="container layout">
-  <aside class="side"><div class="side-label">Dokumentation</div><nav class="side-nav"><a href="index.html">Loslegen</a><a href="architektur.html">Architektur</a><a href="werkzeuge.html">Werkzeuge &amp; Skills</a><a href="gedaechtnis.html">Gedächtnis &amp; Brain</a><a href="arbeitsweise.html">Arbeitsweise &amp; Memory-Scopes</a><a href="faeden.html">Fäden</a><a href="selbstverbesserung.html">Selbstverbesserung</a><a href="session.html">Globale Session</a><a href="sicherheit.html">Sicherheit &amp; Authority</a><a href="konfiguration.html">Konfiguration &amp; Provider</a><a href="api.html">HTTP-API</a><a href="status.html" class="active">Status, Sensoren &amp; Datenschutz</a></nav></aside>
+  <aside class="side"><div class="side-label">Dokumentation</div><nav class="side-nav" aria-label="Dokumentationsbereiche"><a href="index.html">Loslegen</a><a href="architektur.html">Architektur</a><a href="werkzeuge.html">Werkzeuge &amp; Skills</a><a href="gedaechtnis.html">Gedächtnis &amp; Brain</a><a href="arbeitsweise.html">Arbeitsweise &amp; Memory-Scopes</a><a href="faeden.html">Fäden</a><a href="selbstverbesserung.html">Selbstverbesserung</a><a href="session.html">Verlauf + Presence</a><a href="sicherheit.html">Sicherheit &amp; Authority</a><a href="konfiguration.html">Konfiguration &amp; Provider</a><a href="api.html">HTTP-API</a><a href="status.html" class="active" aria-current="page">Status, Sensoren &amp; Datenschutz</a></nav></aside>
   <main class="doc">
     <span class="engraved">Dokumentation</span>
     <h1>Status, Sensoren &amp; Datenschutz</h1>
@@ -29,23 +36,29 @@ was 2.0-Vision bleibt. Nichts hier ist als ausgeliefert dargestellt, was es nich
 <p>Persistentes persönliches Gedächtnis · Observer &amp; Executive · Fäden · Providerwahl (lokal &amp;
 Cloud) · SKILL.md, Python-Skills, MCP, REST, Harnesses · Approvals, Risikoklassen, Budgets, Audit ·
 Secure-Enclave-Identität, Gastisolation · Runtime, App, CLI, HTTP &amp; WebSocket · Brain-Sync,
-Maschinen, Nodes, Kanäle · Work Live Activity · Telegram/WhatsApp · Vorhaben mit Stand &amp; nächstem Schritt (Runtime, App, Agent-Werkzeuge, Abgleich).</p>
+Maschinen, Nodes, Kanäle · Work Live Activity · Telegram/WhatsApp · Vorhaben mit Stand &amp; nächstem
+Schritt · gemeinsamer Verlauf und Presence-Routing · Fahrtenbuch und Rückweg · Memory-Scopes ·
+Pattern of Life und Wissensgraph · Maschinen-Sensoren (Fenstertitel nur mit Bedienungshilfen-Recht;
+Bildschirm-OCR nur mit Bildschirmaufnahme-Recht), Bildschirm-Fernansicht und Transcript-Import ·
+automatische Verdichtung · gelernte Skills · proaktive Predictions und Nudges auf der aktiven
+Oberfläche · Vorhaben-Ausführer über Tage und Neustarts mit Neuplanung oder Pause bei Fehlschlag.</p>
 
 <h2><span class="tag exp">Experimentell</span> Experimentell / pro Surface</h2>
-<p>Pattern of Life · Wissensgraph · App-/Browser-/Datei-/Screen-Kontext · Rewind &amp;
-Transcript-Import · automatische Verdichtung · gelernte Skills aus Abläufen · breitere
-Harness-Provider · proaktive Predictions &amp; Nudges · strukturierte Präferenzen mit Scopes.</p>
+<p>Quellen für die Apple-Watch-App samt Complication sind vorhanden. Im aktuellen
+TestFlight-Build 151 fehlt die Watch-App; Wiederanbindung der Targets und Gerätetest stehen aus.
+APNs nahm einen Freigabe-Push
+an; der korrigierte Mitteilungs-Button auf Build ≥118 und ein Vorhersage-Push im Alltag warten noch
+auf Ende-zu-Ende-Bestätigung.</p>
 
 <h2><span class="tag next">Als Nächstes</span> Als Nächstes</h2>
-<p>Vollständig globale Live-Konversation · Presence-Routing ·
-vollständiger Action-Log · umfassendes Undo für jede Aktion (Rückweg für Erinnerungen/Aufgaben/Vorhaben: heute) · feinere Geräte-/Aktionsgrenzen · globale/projekt/faden
-Memory-Verwaltung · Vorhaben auch auf Desktop-Surfaces.</p>
+<p>Pro-Version im App Store als Einmalkauf, sobald das Paid-Apps-Agreement aktiv ist. Der Kern
+bleibt frei.</p>
 
 <h2><span class="tag vision">Vision</span> Vision 2.0</h2>
-<p>Mehrtägige Vorhaben · selbstständige Wahl des Wegs bei gesetztem Ziel · Reaktion auf Pausen,
-Fehlschläge, veränderte Bedingungen · Rückfragen nur für Entscheidungen, die dir gehören · ein
-dauerhaftes Gegenüber über Modelle, Geräte und Jahre. Ein gehosteter Relay-Dienst ist bewusst nicht geplant
-(Entscheidung 2026-08-21) — Erreichbarkeit von unterwegs läuft über ein privates Netz deiner Wahl (VPN/Mesh) plus TLS.</p>
+<p>Offen bleibt die Richtung: ein Gegenüber, das über Modelle, Geräte und Jahre mit dir mitwächst.
+Ein gehosteter Relay-Dienst ist bewusst nicht geplant
+(Entscheidung 2026-08-21) — Erreichbarkeit von unterwegs läuft über ein privates Netz deiner Wahl
+(VPN/Mesh) plus TLS.</p>
 
 <h2>Local-first &amp; Datenschutz</h2>
 <p>Persönliches Gedächtnis liegt standardmäßig lokal; die Runtime läuft auf deiner Hardware. Sensoren
@@ -56,7 +69,7 @@ Authority, externe Agenten erhalten nur begrenzte Interfaces, fremde Inhalte gel
 nicht vertrauenswürdig. Erinnerungen, Präferenzen und gelernte Skills sind sichtbar, kontrollierbar
 und löschbar.</p>
 
-    <footer class="doc-foot">© 2026 Hunch — <a href="../">hunchagent.io</a> · Stand 2026-08-21, gegen aktuellen Code geprüft.</footer>
+    <footer class="doc-foot">© 2026 Hunch — <a href="../">hunchagent.io</a> · Stand 2026-09-03, gegen PRODUCT_TRUTH geprüft.</footer>
   </main>
 </div>
 <script>

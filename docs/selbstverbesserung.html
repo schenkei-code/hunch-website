@@ -7,17 +7,24 @@
 <meta name="description" content="Hunch-Dokumentation: Selbstverbesserung">
 <link rel="icon" type="image/png" href="../favicon.png">
 <link rel="stylesheet" href="docs.css">
+<script src="../site-nav.js" defer></script>
 </head>
 <body>
-<nav id="nav">
+<nav id="nav" aria-label="Hauptnavigation">
   <div class="container nav-inner">
     <a class="logo" href="../"><img src="../owl-mark.png" alt="">hunch</a>
     <div class="nav-links"><a href="../#apps">Apps</a><a href="index.html" class="current">Doku</a></div>
     <a class="nav-cta" href="mailto:schenkei@hunchagent.io">Early Access</a>
+    <button class="menu-toggle" type="button" data-mobile-menu-toggle aria-expanded="false" aria-controls="mobile-menu">Menü</button>
   </div>
 </nav>
+<div class="mobile-menu" id="mobile-menu" role="navigation" aria-label="Mobile Hauptnavigation" hidden>
+  <a href="../">Startseite</a><a href="../#apps">Apps</a><a href="index.html">Dokumentation</a>
+  <a class="mobile-menu-meta" href="../en/" hreflang="en" lang="en">English</a>
+  <a class="mobile-menu-cta" href="mailto:schenkei@hunchagent.io">Early Access</a>
+</div>
 <div class="container layout">
-  <aside class="side"><div class="side-label">Dokumentation</div><nav class="side-nav"><a href="index.html">Loslegen</a><a href="architektur.html">Architektur</a><a href="werkzeuge.html">Werkzeuge &amp; Skills</a><a href="gedaechtnis.html">Gedächtnis &amp; Brain</a><a href="arbeitsweise.html">Arbeitsweise &amp; Memory-Scopes</a><a href="faeden.html">Fäden</a><a href="selbstverbesserung.html" class="active">Selbstverbesserung</a><a href="session.html">Globale Session</a><a href="sicherheit.html">Sicherheit &amp; Authority</a><a href="konfiguration.html">Konfiguration &amp; Provider</a><a href="api.html">HTTP-API</a><a href="status.html">Status, Sensoren &amp; Datenschutz</a></nav></aside>
+  <aside class="side"><div class="side-label">Dokumentation</div><nav class="side-nav" aria-label="Dokumentationsbereiche"><a href="index.html">Loslegen</a><a href="architektur.html">Architektur</a><a href="werkzeuge.html">Werkzeuge &amp; Skills</a><a href="gedaechtnis.html">Gedächtnis &amp; Brain</a><a href="arbeitsweise.html">Arbeitsweise &amp; Memory-Scopes</a><a href="faeden.html">Fäden</a><a href="selbstverbesserung.html" class="active" aria-current="page">Selbstverbesserung</a><a href="session.html">Verlauf + Presence</a><a href="sicherheit.html">Sicherheit &amp; Authority</a><a href="konfiguration.html">Konfiguration &amp; Provider</a><a href="api.html">HTTP-API</a><a href="status.html">Status, Sensoren &amp; Datenschutz</a></nav></aside>
   <main class="doc">
     <span class="engraved">Dokumentation</span>
     <h1>Selbstverbesserung</h1>
@@ -39,10 +46,11 @@ und editierbaren Skill machen (<code>auto_&lt;tool&gt;.SKILL.md</code>) — beim
 verfügbar, jederzeit entfernbar.</p>
 
 <div class="rule"><b>Nicht behauptet:</b> kein autonomes Training eines eigenen Foundation-Models,
-keine unkontrollierte Selbstprogrammierung, kein Umschreiben des gesamten Source-Codes. Teile des
-Pattern-of-Life-Systems sind heute Prototyp und noch nicht in einer einzigen Runtime vereinigt. <span class="tag exp">Experimentell</span></div>
+keine unkontrollierte Selbstprogrammierung, kein Umschreiben des gesamten Source-Codes. Das
+Pattern-of-Life-System und der Wissensgraph laufen heute gemeinsam in der Runtime: inkrementell,
+lokal und ohne eigenen Modellaufruf. <span class="tag heute">Heute</span></div>
 
-    <footer class="doc-foot">© 2026 Hunch — <a href="../">hunchagent.io</a> · Stand 2026-08-21, gegen aktuellen Code geprüft.</footer>
+    <footer class="doc-foot">© 2026 Hunch — <a href="../">hunchagent.io</a> · Stand 2026-08-31, gegen aktuellen Code geprüft.</footer>
   </main>
 </div>
 <script>

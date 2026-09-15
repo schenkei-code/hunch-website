@@ -7,17 +7,24 @@
 <meta name="description" content="Hunch-Dokumentation: Sicherheit &amp; Authority">
 <link rel="icon" type="image/png" href="../favicon.png">
 <link rel="stylesheet" href="docs.css">
+<script src="../site-nav.js" defer></script>
 </head>
 <body>
-<nav id="nav">
+<nav id="nav" aria-label="Hauptnavigation">
   <div class="container nav-inner">
     <a class="logo" href="../"><img src="../owl-mark.png" alt="">hunch</a>
     <div class="nav-links"><a href="../#apps">Apps</a><a href="index.html" class="current">Doku</a></div>
     <a class="nav-cta" href="mailto:schenkei@hunchagent.io">Early Access</a>
+    <button class="menu-toggle" type="button" data-mobile-menu-toggle aria-expanded="false" aria-controls="mobile-menu">Menü</button>
   </div>
 </nav>
+<div class="mobile-menu" id="mobile-menu" role="navigation" aria-label="Mobile Hauptnavigation" hidden>
+  <a href="../">Startseite</a><a href="../#apps">Apps</a><a href="index.html">Dokumentation</a>
+  <a class="mobile-menu-meta" href="../en/" hreflang="en" lang="en">English</a>
+  <a class="mobile-menu-cta" href="mailto:schenkei@hunchagent.io">Early Access</a>
+</div>
 <div class="container layout">
-  <aside class="side"><div class="side-label">Dokumentation</div><nav class="side-nav"><a href="index.html">Loslegen</a><a href="architektur.html">Architektur</a><a href="werkzeuge.html">Werkzeuge &amp; Skills</a><a href="gedaechtnis.html">Gedächtnis &amp; Brain</a><a href="arbeitsweise.html">Arbeitsweise &amp; Memory-Scopes</a><a href="faeden.html">Fäden</a><a href="selbstverbesserung.html">Selbstverbesserung</a><a href="session.html">Globale Session</a><a href="sicherheit.html" class="active">Sicherheit &amp; Authority</a><a href="konfiguration.html">Konfiguration &amp; Provider</a><a href="api.html">HTTP-API</a><a href="status.html">Status, Sensoren &amp; Datenschutz</a></nav></aside>
+  <aside class="side"><div class="side-label">Dokumentation</div><nav class="side-nav" aria-label="Dokumentationsbereiche"><a href="index.html">Loslegen</a><a href="architektur.html">Architektur</a><a href="werkzeuge.html">Werkzeuge &amp; Skills</a><a href="gedaechtnis.html">Gedächtnis &amp; Brain</a><a href="arbeitsweise.html">Arbeitsweise &amp; Memory-Scopes</a><a href="faeden.html">Fäden</a><a href="selbstverbesserung.html">Selbstverbesserung</a><a href="session.html">Verlauf + Presence</a><a href="sicherheit.html" class="active" aria-current="page">Sicherheit &amp; Authority</a><a href="konfiguration.html">Konfiguration &amp; Provider</a><a href="api.html">HTTP-API</a><a href="status.html">Status, Sensoren &amp; Datenschutz</a></nav></aside>
   <main class="doc">
     <span class="engraved">Dokumentation</span>
     <h1>Sicherheit &amp; Authority</h1>
@@ -26,29 +33,33 @@
 einzelner Schalter, sondern das Zusammenspiel mehrerer Schutzebenen.</p>
 
 <h2>Die Kette <span class="tag heute">Heute</span></h2>
-<ol>
-<li><strong>Identität</strong> — das Besitzergerät erzeugt einen P-256-Schlüssel in der Secure Enclave,
+<dl class="authority-ledger-doc">
+<div><dt>Identität</dt><dd>Das Besitzergerät erzeugt einen P-256-Schlüssel in der Secure Enclave,
 biometrisch geschützt, nicht exportierbar, nicht im Backup. Die Runtime hält nur den Public-Key; daraus
-entsteht die HID. Challenge/Verify per ECDSA-Signatur.</li>
-<li><strong>Befugnis &amp; Risiko</strong> — der Governor unterscheidet Risikoklassen, Budgets, Limits,
-Always-Ask-Regeln und Circuit-Breaker.</li>
-<li><strong>Zweitprüfung</strong> — ein getrenntes Prüfmodell darf nur konkrete, nicht kritische
-Schritte als unbedenklich bewerten. Kritische Aktionen werden nie automatisch freigegeben.</li>
-<li><strong>Vorschau &amp; Zustimmung</strong> — vor geschützten Aktionen siehst du Werkzeug,
-Argumente, Ziel, Risiko und Begründung. Du genehmigst oder lehnst ab; ein wartender Faden wird danach
-fortgesetzt oder sucht einen anderen Weg.</li>
-<li><strong>Ausführung &amp; Audit</strong> — Aktion, Entscheidung, Ergebnis und Kosten bleiben im
-append-only-Protokoll nachvollziehbar.</li>
-<li><strong>Isolation</strong> — Gäste erhalten einen getrennten Kontext, sehen weder dein Gedächtnis
-noch deine Werkzeuge.</li>
-</ol>
+entsteht die HID. Challenge/Verify per ECDSA-Signatur.</dd></div>
+<div><dt>Befugnis &amp; Risiko</dt><dd>Der Governor unterscheidet Risikoklassen, Budgets, Limits,
+Always-Ask-Regeln und Circuit-Breaker.</dd></div>
+<div><dt>Zweitprüfung</dt><dd>Ein getrenntes Prüfmodell darf nur konkrete, lokale und rückholbare
+Hunch-Schreibschritte als unbedenklich bewerten. Kritische Hunch-Werkzeuge werden nie automatisch
+freigegeben. Codex ist getrennt: Standard ist nur lesen; Schreibzugriff im gewählten Arbeitsordner
+muss bewusst gewählt werden und läuft danach ohne Einzelrückfrage. Hunch bietet dafür keinen
+Vollzugriff an.</dd></div>
+<div><dt>Vorschau &amp; Zustimmung</dt><dd>Vor geschützten Aktionen siehst du Werkzeug, Argumente,
+Ziel, Risiko und Begründung. Du genehmigst oder lehnst ab; ein wartender Faden wird danach fortgesetzt
+oder sucht einen anderen Weg.</dd></div>
+<div><dt>Ausführung &amp; Audit</dt><dd>Aktion, Entscheidung, Ergebnis und Kosten bleiben im
+append-only-Protokoll nachvollziehbar.</dd></div>
+<div><dt>Isolation</dt><dd>Gäste erhalten einen getrennten Kontext, sehen weder dein Gedächtnis
+noch deine Werkzeuge.</dd></div>
+</dl>
 
 <h2>Rückweg (Undo) <span class="tag heute">Heute</span></h2>
-<p>Umkehrbare Handlungen — gemerkte Fakten, angelegte Aufgaben — hinterlassen einen Rückweg.
+<p>Umkehrbare Handlungen an Erinnerungen, Aufgaben, Vorhaben, Memory-Scopes, gelernten Skills und
+Dateien hinterlassen einen Rückweg.
 <code>GET /rueckweg</code> zeigt, was sich zurücknehmen lässt, <code>POST /rueckweg/{id}</code> nimmt
 zurück; append-only, feste Liste erlaubter Umkehrungen, doppeltes Zurücknehmen ist ein No-op.
-In der App unter Einstellungen → Agent-Runtime → „Rückweg“. Ein vollständiges Undo für jede
-Aktion (Shell, externe Agenten) ist noch Ausbau. <span class="tag next">Als Nächstes</span></p>
+In der App steht der Rückweg unter Einstellungen → Agent-Runtime. Shell-Kommandos, externe Agenten
+und <code>web_ansehen</code> sind ausdrücklich nicht umkehrbar und werden so protokolliert.</p>
 
 <h2>Die Grenze — einsehbar <span class="tag heute">Heute</span></h2>
 <p><code>GET /grenze</code> zeigt an einer Stelle, was Hunch nie ohne Rückfrage tut: Löschen, Überschreiben,
@@ -60,16 +71,21 @@ weniger strengen Modus vor der Besitzer-Einrichtung. In der App unter „Die Gre
 formulieren und vorschlagen — aber nur mit entsprechender Autorität handeln.</p>
 
 <h2>Gerätevertrauen / Einlass <span class="tag heute">Heute</span></h2>
-<p>Eigene Geräte kommen ohne Passwort rein, fremde einmalig mit Code: der Besitzer erzeugt einen
-Einmal-Code (15 min gültig, als Hash gespeichert), das fremde Gerät löst ihn ein und wird zu einer
-stehenden Freigabe.</p>
+<p>Jedes Gerät und jeder Kanal hat eine eigene Aktionsgrenze: <code>read_only</code>,
+<code>write_low_risk</code> oder <code>critical_action</code>. Der Besitzer kann diese Grenze in
+Profil → Nachweise → Maschinen → Vertrauen setzen oder entziehen. Ein Einlass-Code ist einmalig,
+15 Minuten gültig und nur als Hash gespeichert; ein damit aufgenommenes Gerät beginnt mit
+<code>write_low_risk</code>. Die Runtime übernimmt die Quelle nicht aus Nutzdaten: sie leitet sie aus
+dem authentifizierten Draht ab, hält unabhängige Geräte in getrennten Observer-Bündeln und prüft die
+Grenze vor dem Vollzug erneut. Entzug oder Senkung beendet offene WebSocket-, SSE- und Voice-Drähte.</p>
 
 <div class="rule"><b>Ehrlich:</b> Vor der Einrichtung einer Besitzeridentität existiert aus
 Kompatibilitätsgründen ein weniger strenger Modus — die kryptografische Sperre ist nicht automatisch
-aktiv, bevor die Einrichtung abgeschlossen ist. Noch im Ausbau: fein abgestuftes Vertrauen pro
-Gerät/Aktion, vollständiges Undo, geräteübergreifende Authority-Oberfläche. <span class="tag next">Als Nächstes</span></div>
+aktiv, bevor die Einrichtung abgeschlossen ist. Presence-Routing ist vorhanden; die
+Freigabe-Aktion auf einem echten iPhone und einer echten Apple Watch ist noch nicht Ende zu Ende
+bestätigt. <span class="tag exp">Experimentell</span></div>
 
-    <footer class="doc-foot">© 2026 Hunch — <a href="../">hunchagent.io</a> · Stand 2026-08-21, gegen aktuellen Code geprüft.</footer>
+    <footer class="doc-foot">© 2026 Hunch — <a href="../">hunchagent.io</a> · Stand 2026-09-03, gegen aktuellen Code geprüft.</footer>
   </main>
 </div>
 <script>

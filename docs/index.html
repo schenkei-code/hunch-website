@@ -7,17 +7,24 @@
 <meta name="description" content="Hunch-Dokumentation: Loslegen">
 <link rel="icon" type="image/png" href="../favicon.png">
 <link rel="stylesheet" href="docs.css">
+<script src="../site-nav.js" defer></script>
 </head>
 <body>
-<nav id="nav">
+<nav id="nav" aria-label="Hauptnavigation">
   <div class="container nav-inner">
     <a class="logo" href="../"><img src="../owl-mark.png" alt="">hunch</a>
     <div class="nav-links"><a href="../#apps">Apps</a><a href="index.html" class="current">Doku</a></div>
     <a class="nav-cta" href="mailto:schenkei@hunchagent.io">Early Access</a>
+    <button class="menu-toggle" type="button" data-mobile-menu-toggle aria-expanded="false" aria-controls="mobile-menu">Menü</button>
   </div>
 </nav>
+<div class="mobile-menu" id="mobile-menu" role="navigation" aria-label="Mobile Hauptnavigation" hidden>
+  <a href="../">Startseite</a><a href="../#apps">Apps</a><a href="index.html">Dokumentation</a>
+  <a class="mobile-menu-meta" href="../en/" hreflang="en" lang="en">English</a>
+  <a class="mobile-menu-cta" href="mailto:schenkei@hunchagent.io">Early Access</a>
+</div>
 <div class="container layout">
-  <aside class="side"><div class="side-label">Dokumentation</div><nav class="side-nav"><a href="index.html" class="active">Loslegen</a><a href="architektur.html">Architektur</a><a href="werkzeuge.html">Werkzeuge &amp; Skills</a><a href="gedaechtnis.html">Gedächtnis &amp; Brain</a><a href="arbeitsweise.html">Arbeitsweise &amp; Memory-Scopes</a><a href="faeden.html">Fäden</a><a href="selbstverbesserung.html">Selbstverbesserung</a><a href="session.html">Globale Session</a><a href="sicherheit.html">Sicherheit &amp; Authority</a><a href="konfiguration.html">Konfiguration &amp; Provider</a><a href="api.html">HTTP-API</a><a href="status.html">Status, Sensoren &amp; Datenschutz</a></nav></aside>
+  <aside class="side"><div class="side-label">Dokumentation</div><nav class="side-nav" aria-label="Dokumentationsbereiche"><a href="index.html" class="active" aria-current="page">Loslegen</a><a href="architektur.html">Architektur</a><a href="werkzeuge.html">Werkzeuge &amp; Skills</a><a href="gedaechtnis.html">Gedächtnis &amp; Brain</a><a href="arbeitsweise.html">Arbeitsweise &amp; Memory-Scopes</a><a href="faeden.html">Fäden</a><a href="selbstverbesserung.html">Selbstverbesserung</a><a href="session.html">Verlauf + Presence</a><a href="sicherheit.html">Sicherheit &amp; Authority</a><a href="konfiguration.html">Konfiguration &amp; Provider</a><a href="api.html">HTTP-API</a><a href="status.html">Status, Sensoren &amp; Datenschutz</a></nav></aside>
   <main class="doc">
     <span class="engraved">Dokumentation</span>
     <h1>Loslegen</h1>
@@ -36,11 +43,19 @@ hunch run               # läuft, auf 127.0.0.1:8000</code></pre>
 Startskript oder eine Überwachung.</p>
 
 <h2>Auf dem Server (systemd)</h2>
-<pre><code>sudo cp deploy/hunch.service /etc/systemd/system/
+<p>Vor dem Start stehen Bindung, Token und TLS-Pfade in <code>~/.hunch/env</code> (0600). Die
+Runtime bindet ausschließlich an eine konkrete Adresse im eigenen Tailnet — nie an eine
+Wildcard-Adresse:</p>
+<pre><code>HUNCH_HOST=&lt;tailscale-ip&gt;
+HUNCH_AUTH_TOKEN=…
+HUNCH_TLS_CERT=~/.hunch/tls/hunch.crt
+HUNCH_TLS_KEY=~/.hunch/tls/hunch.key
+
+sudo cp deploy/hunch.service /etc/systemd/system/
 sudo systemctl enable --now hunch
 journalctl -u hunch -f</code></pre>
-<p>Die Unit bindet auf <code>0.0.0.0</code> und braucht deshalb ein <code>HUNCH_AUTH_TOKEN</code>
-in <code>~/.hunch/env</code> (0600). Ohne Token auf öffentlicher Adresse startet die Runtime nicht.</p>
+<p>Die Unit läuft als eigener Nutzer. Wildcard- und LAN-Bindungen werden abgewiesen; eine
+Tailnet-Adresse ohne Token und TLS startet ebenfalls nicht.</p>
 
 <h2>Von unterwegs erreichen (privates Netz + TLS)</h2>
 <p>Hunch braucht keinen Dienst in der Mitte: Runtime und Telefon treffen sich in einem privaten
@@ -48,7 +63,7 @@ Netz deiner Wahl (VPN oder Mesh-Netz zwischen deinen Geräten). iOS verlangt dab
 Zertifikat für den Hostnamen der Runtime im privaten Netz ausstellen (viele Mesh-VPNs bringen dafür
 ein eigenes Werkzeug mit), an die Adresse aus diesem Netz binden, Token setzen:</p>
 <pre><code># Zertifikat für den privaten Hostnamen → ~/.hunch/tls/hunch.crt + hunch.key
-HUNCH_HOST=&lt;adresse-im-privaten-netz&gt; HUNCH_AUTH_TOKEN=… \
+HUNCH_HOST=&lt;tailscale-ip&gt; HUNCH_AUTH_TOKEN=… \
 HUNCH_TLS_CERT=~/.hunch/tls/hunch.crt HUNCH_TLS_KEY=~/.hunch/tls/hunch.key hunch run</code></pre>
 <p>In der App den <strong>Namen</strong> eintragen, nicht die IP — das Zertifikat gilt für den Namen.</p>
 
@@ -56,9 +71,11 @@ HUNCH_TLS_CERT=~/.hunch/tls/hunch.crt HUNCH_TLS_KEY=~/.hunch/tls/hunch.key hunch
 <pre><code>hunch remember "Studio-Website bis Ende des Monats live"
 hunch search Studio
 hunch tasks</code></pre>
-<p>Dasselbe Gedächtnis, das App und Claude Code sehen — kein Export, kein Abgleich.</p>
+<p>Diese Befehle arbeiten direkt in der lokalen Datenbank der Runtime. Die App führt eine
+getrennte lokale Datenbank; Brain-Sync gleicht Erinnerungen, Aufgaben, Vorhaben, Gespräche und
+Nachrichten beidseitig ab. Es gibt keine gemeinsam geöffnete Datenbankdatei.</p>
 
-    <footer class="doc-foot">© 2026 Hunch — <a href="../">hunchagent.io</a> · Stand 2026-08-21, gegen aktuellen Code geprüft.</footer>
+    <footer class="doc-foot">© 2026 Hunch — <a href="../">hunchagent.io</a> · Stand 2026-08-31, gegen aktuellen Code geprüft.</footer>
   </main>
 </div>
 <script>

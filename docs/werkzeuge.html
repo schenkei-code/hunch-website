@@ -7,37 +7,50 @@
 <meta name="description" content="Hunch-Dokumentation: Werkzeuge &amp; Skills">
 <link rel="icon" type="image/png" href="../favicon.png">
 <link rel="stylesheet" href="docs.css">
+<script src="../site-nav.js" defer></script>
 </head>
 <body>
-<nav id="nav">
+<nav id="nav" aria-label="Hauptnavigation">
   <div class="container nav-inner">
     <a class="logo" href="../"><img src="../owl-mark.png" alt="">hunch</a>
     <div class="nav-links"><a href="../#apps">Apps</a><a href="index.html" class="current">Doku</a></div>
     <a class="nav-cta" href="mailto:schenkei@hunchagent.io">Early Access</a>
+    <button class="menu-toggle" type="button" data-mobile-menu-toggle aria-expanded="false" aria-controls="mobile-menu">Menü</button>
   </div>
 </nav>
+<div class="mobile-menu" id="mobile-menu" role="navigation" aria-label="Mobile Hauptnavigation" hidden>
+  <a href="../">Startseite</a><a href="../#apps">Apps</a><a href="index.html">Dokumentation</a>
+  <a class="mobile-menu-meta" href="../en/" hreflang="en" lang="en">English</a>
+  <a class="mobile-menu-cta" href="mailto:schenkei@hunchagent.io">Early Access</a>
+</div>
 <div class="container layout">
-  <aside class="side"><div class="side-label">Dokumentation</div><nav class="side-nav"><a href="index.html">Loslegen</a><a href="architektur.html">Architektur</a><a href="werkzeuge.html" class="active">Werkzeuge &amp; Skills</a><a href="gedaechtnis.html">Gedächtnis &amp; Brain</a><a href="arbeitsweise.html">Arbeitsweise &amp; Memory-Scopes</a><a href="faeden.html">Fäden</a><a href="selbstverbesserung.html">Selbstverbesserung</a><a href="session.html">Globale Session</a><a href="sicherheit.html">Sicherheit &amp; Authority</a><a href="konfiguration.html">Konfiguration &amp; Provider</a><a href="api.html">HTTP-API</a><a href="status.html">Status, Sensoren &amp; Datenschutz</a></nav></aside>
+  <aside class="side"><div class="side-label">Dokumentation</div><nav class="side-nav" aria-label="Dokumentationsbereiche"><a href="index.html">Loslegen</a><a href="architektur.html">Architektur</a><a href="werkzeuge.html" class="active" aria-current="page">Werkzeuge &amp; Skills</a><a href="gedaechtnis.html">Gedächtnis &amp; Brain</a><a href="arbeitsweise.html">Arbeitsweise &amp; Memory-Scopes</a><a href="faeden.html">Fäden</a><a href="selbstverbesserung.html">Selbstverbesserung</a><a href="session.html">Verlauf + Presence</a><a href="sicherheit.html">Sicherheit &amp; Authority</a><a href="konfiguration.html">Konfiguration &amp; Provider</a><a href="api.html">HTTP-API</a><a href="status.html">Status, Sensoren &amp; Datenschutz</a></nav></aside>
   <main class="doc">
     <span class="engraved">Dokumentation</span>
     <h1>Werkzeuge &amp; Skills</h1>
     
-<p class="lead">Vier Herkünfte, ein Verzeichnis — die Executive sieht keinen Unterschied, woher ein
+<p class="lead">Fünf Herkünfte, ein Verzeichnis — die Executive sieht keinen Unterschied, woher ein
 Werkzeug kommt. Skills und Werkzeuge sind nicht an den Modellprovider gebunden.</p>
 
 <h2>Eingebaut <span class="tag heute">Heute</span></h2>
-<p><code>search_memory</code>, <code>remember</code>, <code>list_tasks</code>, <code>add_task</code>,
-<code>run_command</code> (kritisch), <code>http_get</code>. Dazu bedingte Bündel: Chat-Tools (wenn ein
-Kanal verbunden ist), Reach-Tools (<code>youtube_lesen</code>, <code>github_lesen</code>,
-<code>reddit_lesen</code>, <code>rss_lesen</code>, <code>netz_suchen</code>) und der Browser
-(<code>web_ansehen</code>).</p>
+<p><strong>Eingebaut, u. a.:</strong> <code>search_memory</code>, <code>remember</code>,
+<code>list_tasks</code>, <code>add_task</code>, <code>list_goals</code>, <code>add_goal</code>,
+<code>update_goal</code>, <code>run_command</code> (kritisch), <code>http_get</code> und
+<code>vault_use</code>. Dazu bedingte Bündel: Chat-Tools (wenn ein Kanal verbunden ist), Reach-Tools
+(<code>youtube_lesen</code>, <code>github_lesen</code>, <code>reddit_lesen</code>,
+<code>rss_lesen</code>, <code>netz_suchen</code>) und der Browser (<code>web_ansehen</code>).</p>
 
 <h2>Skills <span class="tag heute">Heute</span></h2>
 <ul>
-<li><strong>SKILL.md</strong> — eine Anleitung für das Modell (Prosa)</li>
-<li><strong>Python-Dateien</strong> mit <code>run(arguments)</code> — werden ausgeführt</li>
+<li><strong>SKILL.md</strong> — eine Anleitung für das Modell, aber nur mit getrennter Freigabe
+für exakten Pfad, Namen, Byteumfang und SHA-256.</li>
+<li><strong>Python-Dateien</strong> mit <code>run(arguments)</code> — benötigen
+<code>HUNCH_ALLOW_PYTHON_SKILLS=true</code>, ein getrenntes hashgebundenes Vertrauensmanifest und
+werden als <code>write_low_risk</code> geführt; bei aktivem Gate fragt die Runtime vor jedem Aufruf.</li>
 </ul>
-<p>Ort: <code>HUNCH_SKILLS_DIR</code> (Vorgabe <code>./skills</code>).</p>
+<p>Fremde GitHub-, App- und Übernahme-Texte bleiben zunächst in Quarantäne. Kein späterer Loader
+darf einen vorhandenen Werkzeugnamen ersetzen. Ort: <code>HUNCH_SKILLS_DIR</code> (Vorgabe
+<code>./skills</code>).</p>
 
 <h2>MCP <span class="tag heute">Heute</span></h2>
 <p>Werkzeuge fremder Server aus <code>mcp_config.json</code>, dynamisch geladen. Umgekehrt bietet
@@ -53,13 +66,17 @@ immer als kritisch eingestuft — ein fremder Agent bringt seine eigene Loop mit
 Governor dieser Runtime; die Freigabe vor dem Start ist die Kontrolle. Positivliste für
 Umgebungsvariablen, Zeitgrenze und gekappte Ausgabe schützen zusätzlich.</p>
 
-<h2>Kompatibilität — ehrlich <span class="tag next">Als Nächstes</span></h2>
+<p>Der lokale Codex-Anbieter in der App ist davon getrennt: Standard ist nur lesen. Schreibzugriff
+im gewählten Arbeitsordner muss bewusst ausgewählt werden und läuft anschließend ohne
+Einzelrückfrage; Vollzugriff bietet Hunch nicht an.</p>
+
+<h2>Kompatibilität — aktuelle Grenze <span class="tag heute">Heute</span></h2>
 <p>Jeder Anbieter kann angebunden werden, wenn Modell oder Werkzeug über einen unterstützten
 Standard oder Adapter erreichbar ist (MCP, Function-Schemas, Markdown/Python-Skills, REST,
 Harnesses). Ein proprietäres Plugin-Paket kann einen Adapter benötigen. Nicht jedes Plugin jedes
 Anbieters funktioniert automatisch.</p>
 
-    <footer class="doc-foot">© 2026 Hunch — <a href="../">hunchagent.io</a> · Stand 2026-08-21, gegen aktuellen Code geprüft.</footer>
+    <footer class="doc-foot">© 2026 Hunch — <a href="../">hunchagent.io</a> · Stand 2026-09-03, gegen aktuellen Code geprüft.</footer>
   </main>
 </div>
 <script>

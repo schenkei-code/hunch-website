@@ -7,23 +7,39 @@
 <meta name="description" content="Hunch-Dokumentation: HTTP-API">
 <link rel="icon" type="image/png" href="../favicon.png">
 <link rel="stylesheet" href="docs.css">
+<script src="../site-nav.js" defer></script>
 </head>
 <body>
-<nav id="nav">
+<nav id="nav" aria-label="Hauptnavigation">
   <div class="container nav-inner">
     <a class="logo" href="../"><img src="../owl-mark.png" alt="">hunch</a>
     <div class="nav-links"><a href="../#apps">Apps</a><a href="index.html" class="current">Doku</a></div>
     <a class="nav-cta" href="mailto:schenkei@hunchagent.io">Early Access</a>
+    <button class="menu-toggle" type="button" data-mobile-menu-toggle aria-expanded="false" aria-controls="mobile-menu">Menü</button>
   </div>
 </nav>
+<div class="mobile-menu" id="mobile-menu" role="navigation" aria-label="Mobile Hauptnavigation" hidden>
+  <a href="../">Startseite</a><a href="../#apps">Apps</a><a href="index.html">Dokumentation</a>
+  <a class="mobile-menu-meta" href="../en/" hreflang="en" lang="en">English</a>
+  <a class="mobile-menu-cta" href="mailto:schenkei@hunchagent.io">Early Access</a>
+</div>
 <div class="container layout">
-  <aside class="side"><div class="side-label">Dokumentation</div><nav class="side-nav"><a href="index.html">Loslegen</a><a href="architektur.html">Architektur</a><a href="werkzeuge.html">Werkzeuge &amp; Skills</a><a href="gedaechtnis.html">Gedächtnis &amp; Brain</a><a href="arbeitsweise.html">Arbeitsweise &amp; Memory-Scopes</a><a href="faeden.html">Fäden</a><a href="selbstverbesserung.html">Selbstverbesserung</a><a href="session.html">Globale Session</a><a href="sicherheit.html">Sicherheit &amp; Authority</a><a href="konfiguration.html">Konfiguration &amp; Provider</a><a href="api.html" class="active">HTTP-API</a><a href="status.html">Status, Sensoren &amp; Datenschutz</a></nav></aside>
+  <aside class="side"><div class="side-label">Dokumentation</div><nav class="side-nav" aria-label="Dokumentationsbereiche"><a href="index.html">Loslegen</a><a href="architektur.html">Architektur</a><a href="werkzeuge.html">Werkzeuge &amp; Skills</a><a href="gedaechtnis.html">Gedächtnis &amp; Brain</a><a href="arbeitsweise.html">Arbeitsweise &amp; Memory-Scopes</a><a href="faeden.html">Fäden</a><a href="selbstverbesserung.html">Selbstverbesserung</a><a href="session.html">Verlauf + Presence</a><a href="sicherheit.html">Sicherheit &amp; Authority</a><a href="konfiguration.html">Konfiguration &amp; Provider</a><a href="api.html" class="active" aria-current="page">HTTP-API</a><a href="status.html">Status, Sensoren &amp; Datenschutz</a></nav></aside>
   <main class="doc">
     <span class="engraved">Dokumentation</span>
     <h1>HTTP-API</h1>
     
-<p class="lead">HTTP und WebSocket auf <code>127.0.0.1:8000</code>. Alles hinter dem Token, sobald nicht
-auf localhost. Dokumentiert sind nur real existierende Routes.</p>
+<p class="lead">Im Betrieb lauscht die Runtime über HTTPS in deinem privaten Tailnet;
+<code>127.0.0.1:8000</code> ist nur die lokale Entwicklungs-Vorgabe. Authentifizierung ist
+absichtlich pro Route abgestuft: geschützte Maschinenzugriffe können den Bearer-Token nutzen,
+personenbezogene Besitzerflächen werden über den Ausweis-Nachweis freigegeben — der Master-Token
+ist dafür kein Ersatz. <code>POST /v1/einlass</code>
+ist bewusst tokenfrei — der einmalige Code ist die Berechtigung, begrenzt auf fünf Versuche
+pro 15 Minuten.</p>
+
+<p>Diese Seite zeigt ausgewählte reale Routen, kein Live-Inventar. Lokale Introspektion des
+aktuellen Source erzeugt 108 OpenAPI-Pfade; hinzu kommen interne Web-/Doku-Flächen und drei
+WebSockets. Das Schema der laufenden Runtime war bei der Prüfung nicht abrufbar.</p>
 
 <h2>Identität &amp; Einlass</h2>
 <pre><code>GET  /v1/identity                 POST /v1/identity/enroll
@@ -33,6 +49,7 @@ POST /v1/einlass/erzeugen         POST /v1/einlass</code></pre>
 
 <h2>Fäden &amp; Approvals</h2>
 <pre><code>GET /faeden      GET /faeden/{id}      POST /faeden      DELETE /faeden/{id}
+POST /faeden/{id}/fortsetzen
 GET /approvals   POST /approvals/{id}   GET /proposals    POST /approve  POST /deny</code></pre>
 
 <h2>Konsole &amp; Ausführung</h2>
@@ -45,14 +62,16 @@ POST /v1/channels/{id}/test      DELETE /v1/channels/{id}</code></pre>
 
 <h2>Gedächtnis, Aufgaben, Vorhersage</h2>
 <pre><code>POST /brain/sync   GET /brain/search?q=   GET /v1/intents
-POST /sitzung      GET /vorhersage</code></pre>
+GET /brain/memories   GET /brain/scopes   POST /sitzung   GET /vorhersage
+GET/POST /vorhaben   PATCH /vorhaben/{id}
+GET /vorhaben/{id}/plan   POST /vorhaben/{id}/ausfuehren   POST /vorhaben/{id}/pausieren</code></pre>
 
 <h2>Rechenschaft: Rückweg &amp; Grenze</h2>
 <pre><code>GET /rueckweg            POST /rueckweg/{id}      (Undo: Erinnerung/Aufgabe zurücknehmen)
 GET /grenze              (was Hunch nie ohne Rückfrage tut)</code></pre>
 
 <h2>Werkzeuge, Audit, Status</h2>
-<pre><code>GET /tools   GET /audit   GET /status
+<pre><code>GET /tools   GET /audit   GET /status   GET /doctor
 GET /providers   GET /runtimes   GET /v1/machine</code></pre>
 
 <h2>Vault, Wallet</h2>
@@ -63,14 +82,18 @@ GET /v1/wallet   POST /v1/wallet-pass</code></pre>
 <h2>Ereignisse, Push, Stream</h2>
 <pre><code>POST /events   POST /v1/events   GET /nudges?since=
 POST /v1/push-token   GET /v1/push
-WS /ws   WS /v1/ws   GET /v1/stream   (SSE-Fallback)</code></pre>
+WS /ws   WS /v1/ws   WS /v1/voice/ws   GET /v1/stream   (SSE-Fallback)</code></pre>
 <p>MCP hat keinen HTTP-Endpoint — der Server läuft über stdio
-(<code>python -m hunch_runtime.mcp_server</code>). Ein Ereignis von Hand:</p>
-<pre><code>curl -X POST localhost:8000/events -H 'Content-Type: application/json' \
+(<code>python -m hunch_runtime.mcp_server</code>). Ein Ereignis von Hand, nur in einer lokalen
+Entwicklungs-Konfiguration ohne Auth:</p>
+<pre><code>curl -X POST http://127.0.0.1:8000/events -H 'Content-Type: application/json' \
   -d '{"source":"cli","kind":"user_message","payload":{"text":"was steht an?"}}'
-curl localhost:8000/nudges</code></pre>
+curl http://127.0.0.1:8000/nudges</code></pre>
+<p>Für die private Runtime dieselben Routen über ihre HTTPS-Adresse aufrufen und bei
+token-geschützten Routen <code>Authorization: Bearer &lt;TOKEN&gt;</code> mitsenden. Besitzerflächen wie
+<code>/graph</code> und <code>/muster</code> bleiben hinter dem Ausweis; der Master-Token ersetzt ihn nicht.</p>
 
-    <footer class="doc-foot">© 2026 Hunch — <a href="../">hunchagent.io</a> · Stand 2026-08-21, gegen aktuellen Code geprüft.</footer>
+    <footer class="doc-foot">© 2026 Hunch — <a href="../">hunchagent.io</a> · Stand 2026-08-31, gegen aktuellen Code geprüft.</footer>
   </main>
 </div>
 <script>

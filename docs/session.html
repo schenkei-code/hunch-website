@@ -3,47 +3,58 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>Globale Session — Hunch Doku</title>
-<meta name="description" content="Hunch-Dokumentation: Globale Session">
+<title>Verlauf + Presence — Hunch Doku</title>
+<meta name="description" content="Hunch-Dokumentation: gemeinsamer Verlauf und Presence-Routing">
 <link rel="icon" type="image/png" href="../favicon.png">
 <link rel="stylesheet" href="docs.css">
+<script src="../site-nav.js" defer></script>
 </head>
 <body>
-<nav id="nav">
+<nav id="nav" aria-label="Hauptnavigation">
   <div class="container nav-inner">
     <a class="logo" href="../"><img src="../owl-mark.png" alt="">hunch</a>
     <div class="nav-links"><a href="../#apps">Apps</a><a href="index.html" class="current">Doku</a></div>
     <a class="nav-cta" href="mailto:schenkei@hunchagent.io">Early Access</a>
+    <button class="menu-toggle" type="button" data-mobile-menu-toggle aria-expanded="false" aria-controls="mobile-menu">Menü</button>
   </div>
 </nav>
+<div class="mobile-menu" id="mobile-menu" role="navigation" aria-label="Mobile Hauptnavigation" hidden>
+  <a href="../">Startseite</a><a href="../#apps">Apps</a><a href="index.html">Dokumentation</a>
+  <a class="mobile-menu-meta" href="../en/" hreflang="en" lang="en">English</a>
+  <a class="mobile-menu-cta" href="mailto:schenkei@hunchagent.io">Early Access</a>
+</div>
 <div class="container layout">
-  <aside class="side"><div class="side-label">Dokumentation</div><nav class="side-nav"><a href="index.html">Loslegen</a><a href="architektur.html">Architektur</a><a href="werkzeuge.html">Werkzeuge &amp; Skills</a><a href="gedaechtnis.html">Gedächtnis &amp; Brain</a><a href="arbeitsweise.html">Arbeitsweise &amp; Memory-Scopes</a><a href="faeden.html">Fäden</a><a href="selbstverbesserung.html">Selbstverbesserung</a><a href="session.html" class="active">Globale Session</a><a href="sicherheit.html">Sicherheit &amp; Authority</a><a href="konfiguration.html">Konfiguration &amp; Provider</a><a href="api.html">HTTP-API</a><a href="status.html">Status, Sensoren &amp; Datenschutz</a></nav></aside>
+  <aside class="side"><div class="side-label">Dokumentation</div><nav class="side-nav" aria-label="Dokumentationsbereiche"><a href="index.html">Loslegen</a><a href="architektur.html">Architektur</a><a href="werkzeuge.html">Werkzeuge &amp; Skills</a><a href="gedaechtnis.html">Gedächtnis &amp; Brain</a><a href="arbeitsweise.html">Arbeitsweise &amp; Memory-Scopes</a><a href="faeden.html">Fäden</a><a href="selbstverbesserung.html">Selbstverbesserung</a><a href="session.html" class="active" aria-current="page">Verlauf + Presence</a><a href="sicherheit.html">Sicherheit &amp; Authority</a><a href="konfiguration.html">Konfiguration &amp; Provider</a><a href="api.html">HTTP-API</a><a href="status.html">Status, Sensoren &amp; Datenschutz</a></nav></aside>
   <main class="doc">
     <span class="engraved">Dokumentation</span>
-    <h1>Globale Session</h1>
+    <h1>Verlauf + Presence</h1>
     
-<p class="lead">Ein Hunch, eine Beziehung — überall. Du wechselst die Oberfläche, nicht das Gegenüber.</p>
+<p class="lead">Belegte Oberflächen spiegeln Gespräche in einen gemeinsamen Verlauf. Presence steuert,
+wo neue Zustellungen ankommen.</p>
 
-<h2>Zielbild</h2>
-<p>Dieselbe Identität, Beziehung, dasselbe Gedächtnis, dieselben Arbeitspräferenzen, dieselben
-Vorhaben und offenen Schleifen — unabhängig von Gerät, Kanal oder Modell. Wechsel von iPhone zu
-Computer, Terminal oder Telegram ohne mentalen Neustart; Presence-Routing liefert das Ergebnis
-bevorzugt auf das aktive Gerät und vermeidet doppelte Benachrichtigungen.</p>
+<h2>Gemeinsamer Verlauf <span class="tag heute">Heute</span></h2>
+<p>Konsole, Telegram-Chat und Web-Chat spiegeln in denselben Verlauf. Die App archiviert jede
+Chat-Sitzung als Brain-Gespräch und zeigt Gespräche aus CLI, Web und Telegram mit ihrem Surface-Label.
+„Hier fortsetzen“ übernimmt die letzten 30 Zeilen in die aktuelle App-Session; die Antwort wandert
+zurück in den Verlauf. Das ist Fortsetzung aus einem gemeinsamen Verlauf, keine gleichzeitige
+Kopplung aller Oberflächen.</p>
 
-<h2>Aktueller Status</h2>
-<p>Gemeinsame Identität und gemeinsames Gedächtnis sind vorhanden <span class="tag heute">Heute</span>; App, Runtime und MCP
-können bereits Kontext teilen <span class="tag heute">Heute</span>; persistente Sessions und Fäden existieren in Teilen des
-Systems <span class="tag heute">Heute</span>.</p>
-<div class="rule"><b>Ehrlich:</b> Eine einzige, nahtlose Live-Konversation mit vollständigem Verlauf
-und Presence-Routing über jede Surface ist noch im Ausbau. Es wird heute nicht jedes Wort eines Chats
-auf jedem Gerät nahtlos fortgesetzt. <span class="tag next">Als Nächstes</span></div>
+<h2>Presence-Routing <span class="tag heute">Heute</span></h2>
+<p>Impulse und Freigaben gehen zuerst an die aktive Surface mit offener Verbindung, sonst an alle
+offenen Surfaces und erst danach als Push. Das Routing ist im Runtime-Code und in Tests belegt; die
+tatsächliche Push-Zustellung und Freigabe-Aktion auf echten Geräten bleiben getrennt markiert.</p>
 
-<h2>Fäden vs. Session</h2>
-<p>Die <strong>globale Session</strong> ist das durchgehende Gegenüber über Geräte hinweg. <strong>Fäden</strong>
-sind gezielte Arbeitszweige, die davon abgehen und mit Ergebnissen zurückkehren — siehe
-<a href="faeden.html">Fäden</a>.</p>
+<div class="rule"><b>Grenze:</b> App, Runtime, CLI, Web und Telegram teilen gespeicherten Verlauf und
+Presence-Zustand, aber keine einzelne durchgehend geöffnete Unterhaltung. Die Freigabe-Aktion aus einer
+Mitteilung auf einem echten iPhone und auf einer echten Apple Watch ist noch nicht Ende zu Ende
+bestätigt. <span class="tag exp">Experimentell</span></div>
 
-    <footer class="doc-foot">© 2026 Hunch — <a href="../">hunchagent.io</a> · Stand 2026-08-21, gegen aktuellen Code geprüft.</footer>
+<h2>Fäden vs. Verlauf</h2>
+<p><strong>Fäden</strong> sind persistente Arbeitsstränge in der Runtime, jeweils mit eigenem Auftrag und
+Kontext. Der gemeinsame Verlauf macht Gespräche auffindbar und fortsetzbar; er koppelt diese
+Arbeitskontexte nicht live — siehe <a href="faeden.html">Fäden</a>.</p>
+
+    <footer class="doc-foot">© 2026 Hunch — <a href="../">hunchagent.io</a> · Stand 2026-09-03, gegen PRODUCT_TRUTH geprüft.</footer>
   </main>
 </div>
 <script>

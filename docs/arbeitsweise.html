@@ -7,17 +7,24 @@
 <meta name="description" content="Hunch-Dokumentation: Arbeitsweise &amp; Memory-Scopes">
 <link rel="icon" type="image/png" href="../favicon.png">
 <link rel="stylesheet" href="docs.css">
+<script src="../site-nav.js" defer></script>
 </head>
 <body>
-<nav id="nav">
+<nav id="nav" aria-label="Hauptnavigation">
   <div class="container nav-inner">
     <a class="logo" href="../"><img src="../owl-mark.png" alt="">hunch</a>
     <div class="nav-links"><a href="../#apps">Apps</a><a href="index.html" class="current">Doku</a></div>
     <a class="nav-cta" href="mailto:schenkei@hunchagent.io">Early Access</a>
+    <button class="menu-toggle" type="button" data-mobile-menu-toggle aria-expanded="false" aria-controls="mobile-menu">Menü</button>
   </div>
 </nav>
+<div class="mobile-menu" id="mobile-menu" role="navigation" aria-label="Mobile Hauptnavigation" hidden>
+  <a href="../">Startseite</a><a href="../#apps">Apps</a><a href="index.html">Dokumentation</a>
+  <a class="mobile-menu-meta" href="../en/" hreflang="en" lang="en">English</a>
+  <a class="mobile-menu-cta" href="mailto:schenkei@hunchagent.io">Early Access</a>
+</div>
 <div class="container layout">
-  <aside class="side"><div class="side-label">Dokumentation</div><nav class="side-nav"><a href="index.html">Loslegen</a><a href="architektur.html">Architektur</a><a href="werkzeuge.html">Werkzeuge &amp; Skills</a><a href="gedaechtnis.html">Gedächtnis &amp; Brain</a><a href="arbeitsweise.html" class="active">Arbeitsweise &amp; Memory-Scopes</a><a href="faeden.html">Fäden</a><a href="selbstverbesserung.html">Selbstverbesserung</a><a href="session.html">Globale Session</a><a href="sicherheit.html">Sicherheit &amp; Authority</a><a href="konfiguration.html">Konfiguration &amp; Provider</a><a href="api.html">HTTP-API</a><a href="status.html">Status, Sensoren &amp; Datenschutz</a></nav></aside>
+  <aside class="side"><div class="side-label">Dokumentation</div><nav class="side-nav" aria-label="Dokumentationsbereiche"><a href="index.html">Loslegen</a><a href="architektur.html">Architektur</a><a href="werkzeuge.html">Werkzeuge &amp; Skills</a><a href="gedaechtnis.html">Gedächtnis &amp; Brain</a><a href="arbeitsweise.html" class="active" aria-current="page">Arbeitsweise &amp; Memory-Scopes</a><a href="faeden.html">Fäden</a><a href="selbstverbesserung.html">Selbstverbesserung</a><a href="session.html">Verlauf + Presence</a><a href="sicherheit.html">Sicherheit &amp; Authority</a><a href="konfiguration.html">Konfiguration &amp; Provider</a><a href="api.html">HTTP-API</a><a href="status.html">Status, Sensoren &amp; Datenschutz</a></nav></aside>
   <main class="doc">
     <span class="engraved">Dokumentation</span>
     <h1>Arbeitsweise &amp; Memory-Scopes</h1>
@@ -34,13 +41,14 @@ Handlungen nie automatisch passieren dürfen; bevorzugte Kanäle für bestimmte 
 <table>
 <tr><th>Ebene</th><th>Inhalt</th><th>Status</th></tr>
 <tr><td>Global</td><td>Identität, langfristige Ziele, Arbeitspräferenzen, Kommunikationsstil, dauerhafte Grenzen</td><td><span class="tag heute">Heute</span></td></tr>
-<tr><td>Projekt</td><td>Projektspezifisches Wissen &amp; Regeln, Rollen, Dateien, Entscheidungen, Stand</td><td><span class="tag next">Als Nächstes</span></td></tr>
+<tr><td>Projekt</td><td>Projektspezifisches Wissen &amp; Regeln, Rollen, Dateien, Entscheidungen, Stand</td><td><span class="tag heute">Heute</span></td></tr>
 <tr><td>Faden</td><td>Konkreter Auftrag, Arbeitskontext, Fortschritt, Werkzeuge, Approvals, Ergebnis</td><td><span class="tag heute">Heute</span></td></tr>
 <tr><td>Sitzung</td><td>Momentaner Dialog, kurzfristige Infos, noch nicht bestätigte Annahmen</td><td><span class="tag heute">Heute</span></td></tr>
 </table>
-<p><strong>Ehrlich:</strong> Strukturierte Präferenzen mit getrennten global/projekt/faden-Scopes sind
-teils Zielbild. Heute existiert eine flache Präferenzliste und die Faden-/Sitzungs-Trennung — die
-vollständige Scope-Verwaltung ist im Ausbau. <span class="tag next">Als Nächstes</span></p>
+<p><strong>Ehrlich:</strong> Erinnerungen können heute global, projekt- oder fadenbezogen abgelegt,
+gesucht, verschoben und zwischen App und Runtime abgeglichen werden. Die ältere
+<code>UserIdentity.preferences</code>-Liste bleibt flach; strukturierte Präferenzen sind Erinnerungen
+der Kategorie „Präferenz“ in einer dieser Ebenen. <span class="tag heute">Heute</span></p>
 
 <h2>Herkunft &amp; Vorrang</h2>
 <p>Jede Erinnerung zeigt möglichst Quelle, Gültigkeitsbereich und Zeitpunkt — ob von dir oder von
@@ -50,7 +58,7 @@ von dir haben Vorrang vor abgeleiteten Präferenzen.</strong></p>
 Freigaben, Besitzerrechte, irreversible Aktionen oder Sicherheitsgrenzen überschreiben. Das
 Authority Gate bleibt immer aktiv.</div>
 
-    <footer class="doc-foot">© 2026 Hunch — <a href="../">hunchagent.io</a> · Stand 2026-08-21, gegen aktuellen Code geprüft.</footer>
+    <footer class="doc-foot">© 2026 Hunch — <a href="../">hunchagent.io</a> · Stand 2026-08-31, gegen aktuellen Code geprüft.</footer>
   </main>
 </div>
 <script>

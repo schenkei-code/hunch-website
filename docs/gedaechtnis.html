@@ -7,29 +7,38 @@
 <meta name="description" content="Hunch-Dokumentation: Gedächtnis &amp; Brain">
 <link rel="icon" type="image/png" href="../favicon.png">
 <link rel="stylesheet" href="docs.css">
+<script src="../site-nav.js" defer></script>
 </head>
 <body>
-<nav id="nav">
+<nav id="nav" aria-label="Hauptnavigation">
   <div class="container nav-inner">
     <a class="logo" href="../"><img src="../owl-mark.png" alt="">hunch</a>
     <div class="nav-links"><a href="../#apps">Apps</a><a href="index.html" class="current">Doku</a></div>
     <a class="nav-cta" href="mailto:schenkei@hunchagent.io">Early Access</a>
+    <button class="menu-toggle" type="button" data-mobile-menu-toggle aria-expanded="false" aria-controls="mobile-menu">Menü</button>
   </div>
 </nav>
+<div class="mobile-menu" id="mobile-menu" role="navigation" aria-label="Mobile Hauptnavigation" hidden>
+  <a href="../">Startseite</a><a href="../#apps">Apps</a><a href="index.html">Dokumentation</a>
+  <a class="mobile-menu-meta" href="../en/" hreflang="en" lang="en">English</a>
+  <a class="mobile-menu-cta" href="mailto:schenkei@hunchagent.io">Early Access</a>
+</div>
 <div class="container layout">
-  <aside class="side"><div class="side-label">Dokumentation</div><nav class="side-nav"><a href="index.html">Loslegen</a><a href="architektur.html">Architektur</a><a href="werkzeuge.html">Werkzeuge &amp; Skills</a><a href="gedaechtnis.html" class="active">Gedächtnis &amp; Brain</a><a href="arbeitsweise.html">Arbeitsweise &amp; Memory-Scopes</a><a href="faeden.html">Fäden</a><a href="selbstverbesserung.html">Selbstverbesserung</a><a href="session.html">Globale Session</a><a href="sicherheit.html">Sicherheit &amp; Authority</a><a href="konfiguration.html">Konfiguration &amp; Provider</a><a href="api.html">HTTP-API</a><a href="status.html">Status, Sensoren &amp; Datenschutz</a></nav></aside>
+  <aside class="side"><div class="side-label">Dokumentation</div><nav class="side-nav" aria-label="Dokumentationsbereiche"><a href="index.html">Loslegen</a><a href="architektur.html">Architektur</a><a href="werkzeuge.html">Werkzeuge &amp; Skills</a><a href="gedaechtnis.html" class="active" aria-current="page">Gedächtnis &amp; Brain</a><a href="arbeitsweise.html">Arbeitsweise &amp; Memory-Scopes</a><a href="faeden.html">Fäden</a><a href="selbstverbesserung.html">Selbstverbesserung</a><a href="session.html">Verlauf + Presence</a><a href="sicherheit.html">Sicherheit &amp; Authority</a><a href="konfiguration.html">Konfiguration &amp; Provider</a><a href="api.html">HTTP-API</a><a href="status.html">Status, Sensoren &amp; Datenschutz</a></nav></aside>
   <main class="doc">
     <span class="engraved">Dokumentation</span>
     <h1>Gedächtnis &amp; Brain</h1>
     
-<p class="lead">Ein lebendes persönliches Gedächtnis — dieselbe Datenbank für Runtime, iOS-App und
-jeden MCP-fähigen Agenten. Es liegt standardmäßig lokal.</p>
+<p class="lead">Ein lebendes persönliches Gedächtnis mit getrennten lokalen Datenbanken in Runtime
+und iOS-App. Die gemeinsamen Daten werden über Brain-Sync abgeglichen; der stdio-MCP-Server arbeitet
+direkt mit der Runtime-Datenbank.</p>
 
 <h2>Abgleich mit der App <span class="tag heute">Heute</span></h2>
-<p>Schema identisch zum Brain der App (<code>memories</code>, <code>action_items</code>).
-<code>POST /brain/sync</code> gleicht beidseitig in einem Aufruf ab; Erinnerungen wachsen nur
-(Dublette per ID oder Inhalt verworfen), bei Aufgaben gewinnt der jüngere Stand. Der <code>cursor</code>
-führt Zeitstempel <em>und</em> ID.</p>
+<p>Die gemeinsamen Sync-Formen umfassen <code>memories</code>, <code>action_items</code>,
+<code>goals</code>, <code>conversations</code> und <code>messages</code>.
+<code>POST /brain/sync</code> gleicht sie beidseitig in einem Aufruf ab; Erinnerungen wachsen nur
+(Dublette per ID oder Inhalt verworfen), bei veränderlichen Einträgen gewinnt der jüngere Stand.
+Der <code>cursor</code> führt Zeitstempel <em>und</em> ID.</p>
 
 <h2>Suche <span class="tag heute">Heute</span></h2>
 <p>FTS5 (<code>unicode61</code>, Diakritika entfernt), mit LIKE-Fallback. Verschlüsselte Erinnerungen
@@ -38,15 +47,17 @@ sind nicht im Suchindex. <code>GET /brain/search?q=</code>.</p>
 <h2>Für andere Agenten (MCP-Server) <span class="tag heute">Heute</span></h2>
 <pre><code>claude mcp add hunch -- python -m hunch_runtime.mcp_server</code></pre>
 <p>Angeboten: <code>search_memory</code>, <code>remember</code>, <code>list_tasks</code>,
-<code>add_task</code>, <code>recent_context</code> — bewusst kein <code>run_command</code>/<code>run_agent</code>.
+<code>add_task</code>, <code>recent_context</code>, <code>search_screen</code> und
+<code>get_screen_activity</code> — bewusst kein <code>run_command</code>/<code>run_agent</code>.
 Der MCP-Server läuft über stdio, nicht als HTTP-Endpoint.</p>
 
 <h2>Aufgabe ≠ Vorhaben</h2>
 <p>Eine Aufgabe ist ein einzelner Schritt, ein Vorhaben etwas, das du erreichen möchtest. Der Mensch
-bestimmt Zweck und Ziel — Hunch entscheidet den Weg innerhalb seiner Authority. Mehrtägige autonome
-Vorhaben sind Teil der 2.0-Vision. <span class="tag vision">Vision</span></p>
+bestimmt Zweck und Ziel — Hunch entscheidet den Weg innerhalb seiner Authority. Mehrtägige Vorhaben
+laufen heute als persistenter Plan: Schritte werden zu Fäden, überstehen Neustarts und werden bei
+Fehlschlag einmal neu geplant; danach pausiert Hunch und fragt. <span class="tag heute">Heute</span></p>
 
-    <footer class="doc-foot">© 2026 Hunch — <a href="../">hunchagent.io</a> · Stand 2026-08-21, gegen aktuellen Code geprüft.</footer>
+    <footer class="doc-foot">© 2026 Hunch — <a href="../">hunchagent.io</a> · Stand 2026-08-31, gegen aktuellen Code geprüft.</footer>
   </main>
 </div>
 <script>
