@@ -1084,3 +1084,16 @@ lauffähig; kein Suite-PASS. Voice-, Accessibility-, Remote-Einstiegs- und
 Reviewer-Lücken bleiben offen. Electron besitzt bereits den gemeinsamen
 Kartenrahmen, keine neue Desktop-Auslieferung. Keine HEUTE-Labels geändert,
 kein neuer TestFlight-/App-Store-Build. Dieses Journal bleibt lokal.
+
+## Originalmarken — lokaler Prüfstand, 15.09.2026, Runde 92
+
+Anbieter und Integrationen verwenden in nativer App und Electron lokal
+gebündelte Originalmarken statt selbstgezeichneter Andeutungen. Proportionen,
+Originalfarben und Hunch-Signet bleiben erhalten; allgemeine Aktionen tragen
+weiterhin System-Icons. Kimi/Groq vorerst Klartext bis zur Klärung der Logo-
+Nutzung. Dateiquellen und Hashes dokumentiert, keine pauschale Markenlizenz.
+App-Build, gezielte Asset-/Source-/Layoutprüfungen, echte iPhone-Simulator-
+Bedienung sowie Desktoptests und isolierte Rendereransichten belegt. Keine
+neue native Mac-/Hardware-/Accessibility-Vollabnahme. Noch nicht in TestFlight
+oder im öffentlichen Store; R90/R91-Release-Gates bleiben offen. Keine HEUTE-
+Labels geändert. Dieses Journal und seine Historie bleiben lokal. PROGRESS R92.
