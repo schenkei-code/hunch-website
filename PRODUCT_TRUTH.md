@@ -1035,3 +1035,13 @@ Publikation ausschließlich mit öffentlichen Dateien und eigenem Commit auf
 vorherigem Remote-main, ohne interne lokale Journal-Historie. Dieses lokale
 Dokument und interne Prüfskripte wurden nicht veröffentlicht. Lokales main
 und Remote-main deshalb divergent; nicht blind pushen oder force-pushen.
+
+## Gleiche Kartenseiten — lokal geprüft, 15.09.2026, Runde 87
+
+Die native Profilkarte verwendet vorn und hinten denselben Größenrahmen.
+Auf Dominiks Wunsch übernimmt die Vorderseite die Rückseitenbreite statt
+einer eigenen340pt-Begrenzung. Grunddesign, Material und Radius bleiben.
+Electron hatte bereits identische Seiten; zusätzliche Regression und vier
+gerenderte Flipfälle bestätigen das. Native Rahmen-Geometrie und SDK-Build
+geprüft, keine vollständige iPhone-/Hardwareabnahme. Noch nicht in151 oder
+öffentlich ausgeliefert; Store-/Desktop-Gates unverändert. PROGRESS R87.
