@@ -1000,3 +1000,16 @@ nicht sichtbar; native Geräteabnahme und ältere Nebenstände bleiben offen.
 Zusätzlicher Quellbefund: Die Watch-Targets fehlen im aktuellen Xcode-
 Buildgraph. Ein erfolgreicher iPhone-Build belegt derzeit keinen Watch-Build;
 dieser Release-Abgleich ist offen.
+
+## Interner TestFlight-Kandidat — 15.09.2026, Runde 85
+
+Hunch1.6(151), native Quelle550ac4f: signiertes Archiv und Store-Export
+geprüft, Upload erfolgreich, Apple bestätigt VALID und IN_BETA_TESTING in
+beiden internen Gruppen. Enthält iPhone-App, Widgets und Hunch Pass sowie
+den Rundungsabgleich; Grunddesign unverändert. Keine öffentliche Einreichung
+oder Veröffentlichung, keine neue Desktop-/Website-Auslieferung.
+
+Die Watch-App fehlt weiterhin im aktuellen Projekt/Paket. Geräteabnahme,
+Runtime-Ein-Klick-Installation und vollständige UI-/Paritätsfreigabe bleiben
+offen. Der Codex-Chatverlaufsfehler ist separat und nicht durch diesen Build
+behoben. Keine öffentlichen HEUTE-Labels geändert. Nachweise PROGRESS R85.
