@@ -1097,3 +1097,17 @@ Bedienung sowie Desktoptests und isolierte Rendereransichten belegt. Keine
 neue native Mac-/Hardware-/Accessibility-Vollabnahme. Noch nicht in TestFlight
 oder im öffentlichen Store; R90/R91-Release-Gates bleiben offen. Keine HEUTE-
 Labels geändert. Dieses Journal und seine Historie bleiben lokal. PROGRESS R92.
+
+## Reaktive Navigation — lokaler Prüfstand, 15.09.2026, Runde 93
+
+iOS/iPad: Auswahl folgt beim Ziehen dem Finger, Druck reagiert sofort,
+Loslassen innerhalb übernimmt den Tab, Wegziehen bricht ab. Bestehende
+abschaltbare Haptik, feste Proportionen und Originalsignet erhalten.
+Electron Mac/Windows: unmittelbarer Druck/Hover/Tastaturfokus und bewegliche
+Auswahlspur. Reduzierte Bewegung berücksichtigt, keine Daueranimation.
+App-Build, gezielte Produktionsgeometrie-/Sourcechecks, echte iPhone-
+Simulatorbedienung inkl. AX5 und Desktoptests/isolierte Rendererfälle belegt.
+Kein neuer physischer Haptik-/nativer Mac-/vollständiger Accessibility-PASS.
+Nur lokal, nicht in TestFlight oder öffentlichem Store; übrige Release-Gates
+bleiben offen. Keine HEUTE-Labels geändert. Dieses Journal bleibt lokal.
+Nachweise und Grenzen: PROGRESS R93, nativ ab4d0b3/Electron 0c5efdb.
