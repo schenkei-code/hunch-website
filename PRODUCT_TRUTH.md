@@ -1069,3 +1069,18 @@ Watch fehlt weiterhin; tatsächliche Mobilfunk-/Einladungs-/Geräteabnahme und
 Runtime-Ein-Klick-Einrichtung offen. Keine automatische Freigabe und kein
 privates Mehrnutzerprofil behauptet. Keine HEUTE-Labels geändert. PROGRESS R89.
 Dieses interne Journal bleibt lokal, keine Veröffentlichung seiner Historie.
+
+## Lokaler Design-Prüfstand — 15.09.2026, Runde 91
+
+Nach dem Rest-Audit und ausdrücklicher Designfreigabe: native Ausweisrückseite
+mit vollständig innenliegenden Aktionen und einzeiligen Gravuren, gleiche
+Außenmaße beider Seiten. Apples ConcentricRectangle wird ab OS26 für die
+Foto-Innenkontur verwendet; ältere Systeme behalten die Radiusnäherung.
+Englische Ausweisaktion und Singulartexte korrigiert. Doppelte iPad-Navigation
+entfernt. App-Build, isolierte Geometrie-/Textprüfungen und frische SE375-/
+iPad-Ansichten belegen diesen lokalen Stand, nicht eine Veröffentlichung.
+Das vorhandene XCTest-Target ist wegen fehlender Modellzuordnung nicht
+lauffähig; kein Suite-PASS. Voice-, Accessibility-, Remote-Einstiegs- und
+Reviewer-Lücken bleiben offen. Electron besitzt bereits den gemeinsamen
+Kartenrahmen, keine neue Desktop-Auslieferung. Keine HEUTE-Labels geändert,
+kein neuer TestFlight-/App-Store-Build. Dieses Journal bleibt lokal.
