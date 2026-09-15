@@ -1111,3 +1111,18 @@ Kein neuer physischer Haptik-/nativer Mac-/vollständiger Accessibility-PASS.
 Nur lokal, nicht in TestFlight oder öffentlichem Store; übrige Release-Gates
 bleiben offen. Keine HEUTE-Labels geändert. Dieses Journal bleibt lokal.
 Nachweise und Grenzen: PROGRESS R93, nativ ab4d0b3/Electron 0c5efdb.
+
+## Bronze-Eule als App-Icon — lokaler Prüfstand, 15.09.2026, Runde 94
+
+Vom Nutzer geliefertes Eulenmotiv für kleine Launchergrößen bereinigt:
+ruhiger Hintergrund, klare Augen/Bronzeflächen, vollständige Silhouette.
+Nativ iOS-/Mac-/Watch-Assets und Electron-Launcher aktualisiert; Watch mit
+hellerem Hintergrund. Apple-Touch-Icon180px und DE/EN-Link lokal nachgezogen.
+Nur Launcher-Ausnahme zur bisherigen Brandregel, In-App-Signet/Favicon und
+Originalanbieterzeichen unverändert. Automatische Erscheinungsvarianten
+vorgesehen, nicht vollständig visuell abgenommen; kein Icon Composer neu.
+Appbuild/Home-Screen-Sichtprüfung, Asset-/Katalogchecks, Desktoptests/Build
+und technische Größen-/Kreisableitungen belegt. Kein echter Watch-/Mac-Dock-
+Gerätenachweis, kein Watch-Paket (Target fehlt weiterhin), keine Storefreigabe.
+Noch nicht in TestFlight/öffentlichem Store; auch Website nicht deployed.
+Keine HEUTE-Labels geändert. Dieses interne Journal bleibt lokal. PROGRESS R94.
