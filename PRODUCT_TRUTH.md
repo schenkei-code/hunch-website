@@ -1332,3 +1332,25 @@ geprüft; neuer nativer Mac-Development-Build erfolgreich. Das ist kein
 Nachweis eines tatsächlichen Remoteprozessstopps bei Netzausfall oder einer
 Wiederaufnahme nach App-Neustart. Keine neue Store-/TestFlight-Auslieferung;
 die bestätigte iOS154-Beta enthält diese späteren Änderungen noch nicht.
+
+## Interne TestFlight-Auslieferung — 16.09.2026, Runde 105
+
+iPhone 1.6 (155) ist intern verfügbar: Apple bestätigt am 16.09. um 06:28 CEST
+VALID/IN_BETA_TESTING und beide internen Gruppen; deutsche und englische
+Testhinweise sind nachgelesen. Enthält die späteren gemeinsamen nativen
+Verbesserungen zu Ursprungs-/Freigabebindung und Runtimehilfe bis ce01675.
+Archiv und exportiertes Paket geprüft; noch keine neue physische Geräte-,
+Voice- oder Haptikabnahme. 155 ist keine native Mac-Beta, Watch-Ausgabe oder
+öffentliche App-Store-Veröffentlichung. Für MAC_OS 1.0 liegt weiterhin kein
+Build vor. Mac-Funktionsgrenze, Sandbox, Distribution und tatsächliche
+Bedienung bleiben eigene offene Nachweise.
+
+Im bestehenden Desktop-Quellstand werden fehlgeschlagene Zugangsdatenlöschungen
+ehrlich gemeldet; Warnung und erneutes Entfernen bleiben nach Fenster-Neuladen
+erreichbar. 2784 Tests grün/3 bestehende Skip, Produktionsbuild und Typprüfung
+erfolgreich. Noch keine neue installierte Desktop-Ausgabe und kein echter
+Google-/Windows-Dateilock-Nachweis. Bei vollständiger Schreib-/Löschsperre
+keine dauerhafte Entfernung zugesichert. Das Releasewerkzeug prüft interne
+Gruppen vollständig gegen die jeweilige App: 132 Offlineprüfungen und echter
+nur-lesender Gruppencheck erfolgreich. Keine HEUTE-Umstellung; dieses Journal
+wurde nicht veröffentlicht.
