@@ -1354,3 +1354,31 @@ keine dauerhafte Entfernung zugesichert. Das Releasewerkzeug prüft interne
 Gruppen vollständig gegen die jeweilige App: 132 Offlineprüfungen und echter
 nur-lesender Gruppencheck erfolgreich. Keine HEUTE-Umstellung; dieses Journal
 wurde nicht veröffentlicht.
+
+## Native lokale Delegation und Aufnahmegrenzen — 16.09.2026, Runde 106
+
+Im nativen Mac-Quellstand gibt es jetzt einen separat freigegebenen lokalen
+Codex-Weg. Programm, Ordner, Modell und Rechte werden bewusst ausgewählt;
+Chat-Datenfreigabe bleibt getrennt erforderlich. Lokal ist keine Offline-
+Garantie: Dienste des ausgewählten Programms werden nicht verifiziert.
+Eigene Abbruch-/Timeoutgrenzen sind gezielt und unabhängig geprüft, der
+vollständige Mac-Development-Build samt Signatur erfolgreich. Das ist kein
+Mac-App-Store-Paket oder Nachweis tatsächlicher CLI-/Gerätebedienung.
+
+Bestehende Desktop-Aufnahmen brauchen jetzt eine eigene Audio-/Empfänger-
+freigabe; gespeicherte Einstellungen starten keine Aufnahme. Stop, Abmelden,
+Verbindungswechsel und verspätete Starts sind abgesichert.2823Tests bestanden,
+3bestehendeSkip, Typprüfung und Build erfolgreich. Automatische Titel-/
+Graphauswertung wartet auf separate Textfreigabe. Noch keine echte Aufnahme-
+oder vollständige Datenschutzabnahme und keine neue installierte Ausgabe.
+
+Ein Offline-Paketproduzent prüft explizite Eingaben gegen den vorhandenen
+Desktop-Paketvertrag:58Tests und3Consumerprüfungen mit synthetischen Daten.
+Er lädt, installiert und startet nichts. Ein echter signierter Runtime-
+Lieferumfang, Ein-Klick-Installation und Erstbesitzereinrichtung bleiben offen.
+
+iPhone1.6(155) ist weiterhin die bestätigte interne TestFlight-Beta; spätere
+R106-Änderungen sind nicht enthalten. Native Mac-TestFlight fehlt weiterhin:
+Store-Signierung, Sandbox-/Funktionsvertrag und Bedienabnahme sind offen.
+Keine Funktion still entfernt, keine öffentliche Veröffentlichung und keine
+HEUTE-Umstellung. Dieses Journal bleibt lokal.
