@@ -1288,3 +1288,26 @@ erteilt weder Chat noch anderen Geräten Zugriff. Kein App-Store-/TestFlight-
 Mac-Paket daraus abgeleitet. Sicht-/Geräte-/echte Modellprüfung und vollständige
 Runtime-Einrichtung bleiben offen; mobile Beta154 enthält diese späteren
 R102-Änderungen noch nicht. Keine Behauptung einer vollständigen Abnahme.
+
+## Releaseprüfung — 16.09.2026, Runde 103
+
+Die Releasewege unterscheiden Plattform, Version und Buildnummer jetzt
+durchgängig.96Offlineprüfungen grün; vorhandenes iOS154-Archiv bestätigt,
+Mac-Entwicklungsausgabe korrekt nicht als Store-Paket akzeptiert. Frischer
+Apple-Abgleich: iOS1.6(154) intern verfügbar, MAC_OS1.0 weiterhin ohne Build.
+Keine Mac-Funktion dafür entfernt oder eingeschränkt. Eigener Sandbox-/
+Funktionsnachweis und Store-Vertrieb stehen aus; native Sichtprüfung am
+gesperrten Mac nicht möglich. Keine neue Auslieferung oder HEUTE-Umstellung.
+Nachweise/Grenzen: PROGRESS R103. Dieses Journal bleibt lokal.
+
+R103-Datenfreigaben: Im bestehenden Desktop-Quellstand benötigen Google-
+Auswertung und globale Runtime-Spiegelung getrennte Empfängerfreigaben.
+Push-to-Talk erhält eine eigene Audiofreigabe; Loslassen ergänzt einen Entwurf
+und sendet ihn nicht automatisch. Konto-/Verbindungswechsel, Widerruf und
+Fenster-Crash sind gezielt abgesichert. Gesamtprüfung2765Tests grün/3Skip,
+Produktionsbuild und Typprüfung erfolgreich. Noch keine neue installierte
+Ausgabe, keine echte Geräte-/Google-/Mikrofonabnahme. Ein Transportabbruch
+beweist keinen Stopp bereits laufender Serveraktionen. Kein vollständiger
+Datenschutz-/Performance-PASS und keine HEUTE-Umstellung. Native Mac-TestFlight
+fehlt weiterhin; iOS154 bleibt die bestätigte interne Beta. Dieses Journal
+wurde nicht veröffentlicht.
