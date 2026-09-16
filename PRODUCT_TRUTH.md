@@ -1311,3 +1311,24 @@ beweist keinen Stopp bereits laufender Serveraktionen. Kein vollständiger
 Datenschutz-/Performance-PASS und keine HEUTE-Umstellung. Native Mac-TestFlight
 fehlt weiterhin; iOS154 bleibt die bestätigte interne Beta. Dieses Journal
 wurde nicht veröffentlicht.
+
+## Native Einrichtung und Mac-Vertrieb — 16.09.2026, Runde 104
+
+Die gemeinsame iPhone-/Mac-Hilfe erklärt jetzt die tatsächlich erforderliche
+private Verbindung und trennt vorhandene Einladung, manuelles Terminal und
+noch fehlenden Ein-Klick-Runtime-Installer. Quell-/Katalogprüfung sowie
+Typprüfung gegen beide Apple-SDKs erfolgreich; keine neue echte Geräteabnahme.
+Ein zusätzlicher Mac-Paket-/TestFlight-Helfer prüft App, Installer, Plattform,
+Version und Ziel sowie unklare Uploadversuche;117Releaseprüfungen grün. Das ist
+noch kein signiertes Mac-Store-Paket. Apple bestätigt weiterhin iOS1.6(154)
+intern, aber keine native Mac-Beta. Mac-Distribution, Sandbox-/Funktionsgrenze
+und tatsächliche Bedienung bleiben offen; keine Funktionen still entfernt.
+Keine neue Auslieferung, HEUTE-Umstellung oder Veröffentlichung dieses Journals.
+
+R104Codex-Nachprüfung: Native Aufträge bleiben an ihre ursprüngliche Verbindung
+und Freigabe gebunden; wartende Befehle prüfen sie erneut vor dem Versand.
+Eigene Abbruchbehandlung und Registrierungen sind gezielt sowie unabhängig
+geprüft; neuer nativer Mac-Development-Build erfolgreich. Das ist kein
+Nachweis eines tatsächlichen Remoteprozessstopps bei Netzausfall oder einer
+Wiederaufnahme nach App-Neustart. Keine neue Store-/TestFlight-Auslieferung;
+die bestätigte iOS154-Beta enthält diese späteren Änderungen noch nicht.
