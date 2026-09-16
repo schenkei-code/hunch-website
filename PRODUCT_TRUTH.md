@@ -1211,3 +1211,22 @@ auf. Dafür ist ein weiterer Kandidat gebaut, dessen Sichtprüfung am gesperrten
 Mac noch aussteht. Kein Gesamt-Abnahme- oder Auslieferungsnachweis. Die
 Terminalfarbvorschau ist nun ausdrücklich als Vorschau bezeichnet; sie stellt
 keine aktive Verbindung dar. Bestehende Release- und Datenschutzgrenzen gelten.
+
+## Mobile interne Beta — 16.09.2026, Runde 99
+
+Native iOS-Ausgabe1.6(153) aus geprüftem Quellstand signiert archiviert und zu
+Apple hochgeladen. Enthalten sind neues Bronze-Eulen-App-Icon, Original-Logos,
+direkter reagierende Navigation, verständlichere Einrichtung sowie getrennte
+Empfängerfreigaben für Chat, Brain und Health. Chat-Freigaben werden erst nach
+bestätigtem Speichern wirksam; ältere Freigaben sind nach Update erneut zu
+bestätigen. Reale Geräteabnahme und vollständiger Abbruch laufender Anfragen/
+Verwerfen verspäteter Hilfsergebnisse bleiben offen.
+
+Upload ist nicht Verfügbarkeit: Apples Verarbeitung und interne TestFlight-
+Zuordnung werden separat bestätigt. Keine öffentliche App-Store-Veröffentlichung,
+native Mac-Auslieferung, Watch-App oder automatische Runtime-Installation.
+HEUTE-Labels unverändert; dieses Journal bleibt lokal. Nachweise: PROGRESS R99.
+
+Nachprüfung03:29CEST: Apple bestätigt1.6(153) als VALID/IN_BETA_TESTING in
+beiden internen TestFlight-Gruppen. Die mobile interne Beta ist verfügbar;
+das ist weiterhin keine öffentliche Veröffentlichung oder Geräteabnahme.
