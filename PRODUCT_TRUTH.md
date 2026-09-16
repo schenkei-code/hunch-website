@@ -1188,3 +1188,26 @@ fertige native lokale CLI-Oberfläche. Bestehende Installation/Daten nicht
 ersetzt; automatische Datenübernahme und Ein-Klick-Runtime fehlen weiterhin.
 Kein Gesamtparitäts-/Datenschutz-PASS, kein neuer TestFlight-/öffentlicher
 Release. HEUTE-Labels unverändert; dieses Journal bleibt lokal. PROGRESS R97.
+
+## Native Mac-Fortsetzung — lokaler Teilstand, 16.09.2026, Runde 98
+
+Chat-Empfängerfreigaben auf iOS/Mac werden jetzt erst nach bestätigtem
+Speichern wirksam. Speicherfehler bleiben sichtbar; Widerruf entwertet alte
+Bestätigungen, auch nach erneutem Freigeben. Gezielt mit157 ausführbaren
+Checks und34 Quellprüfungen belegt. Vollständiger Abbruch bereits laufender
+Hilfsanfragen und Verwerfen verspäteter Antworten bleiben offen.
+
+Ein eigener manueller Mac-Terminalsitzungskern ist mit100 Checks getestet,
+aber noch nicht als Oberfläche oder Chat-Anbindung verfügbar. Der Computer-
+Leerzustand verspricht keine Antwort ohne eingerichteten KI-Anbieter mehr.
+Weitere echte Bedienung hat eine Hub-Navigationslücke gefunden; Korrektur,
+Neubau und erneuter Bediennachweis stehen aus. Bestehende Mac-Installation
+unverändert; kein neuer TestFlight-/öffentlicher Release, keine HEUTE-Labels.
+Dieses interne Journal bleibt lokal. Nachweise und Grenzen: PROGRESS R98.
+
+R98-Nachprüfung: Der Computer-Klickweg ist im nativen Neubau tatsächlich
+bedient und korrigiert; anschließend fiel eine separate Fensterleisten-Lücke
+auf. Dafür ist ein weiterer Kandidat gebaut, dessen Sichtprüfung am gesperrten
+Mac noch aussteht. Kein Gesamt-Abnahme- oder Auslieferungsnachweis. Die
+Terminalfarbvorschau ist nun ausdrücklich als Vorschau bezeichnet; sie stellt
+keine aktive Verbindung dar. Bestehende Release- und Datenschutzgrenzen gelten.
