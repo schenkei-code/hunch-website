@@ -1240,3 +1240,28 @@ ersetzt diesen Auslieferungsnachweis nicht. Store-Rechte, Runtime-/Terminalweg
 und echte Mac-Bedienabnahme sind weiterhin offen. Laufende zusätzliche
 Abbruchkorrekturen sind noch nicht in153 enthalten. Keine öffentliche
 Veröffentlichung oder HEUTE-Umstellung; Nachweise in PROGRESS R100.
+
+## Abbruch und interne Beta — 16.09.2026, Runde 101
+
+Native Chat-Anfragen werden einzeln abgebrochen; alte Antworten und
+Freigabefortsetzungen dürfen keine neuere Unterhaltung verändern. Brain-
+Hilfsaufträge bleiben an ihre Datenfreigabe gebunden. Bereits akzeptierte
+lokale Ergebnisse gehen bei einem bloßen Anbieterwechsel nicht als Speicher-
+Retry verloren. Diese Grenzen sind gezielt getestet, nicht als vollständige
+Datenschutz-/Geräteabnahme behauptet. Einzelne Apple-Local-,Voice- und
+Runtimepfade bleiben offen; ausgeführte Wirkungen sind nicht rückholbar.
+
+Desktop-Parität für Einzel-HTTP-Abbruch und Chat-Abschluss ist implementiert;
+erste Zustimmung und Widerruf sind getrennt geprüft. Gesamttests und Build
+grün, keine neue Desktop-Ausgabe installiert. Der alte globale Modellstream-
+Stop ist damit nicht vollständig gelöst. Native Mac-App erneut gebaut, aber
+noch kein Mac-TestFlight-/Store-Paket und kein automatischer Runtime-Installer.
+
+Die mobile interne Beta1.6(154) ist signiert archiviert und exportiert;
+Upload und Apple-Verfügbarkeit werden separat bestätigt. Kein öffentlicher
+Release, keine HEUTE-Umstellung. Nachweise/Grenzen: PROGRESS R101; dieses
+interne Journal bleibt lokal.
+
+R101-Auslieferungsnachprüfung: Apple bestätigt1.6(154) als VALID und intern
+IN_BETA_TESTING in beiden TestFlight-Gruppen. Die neue mobile Beta ist
+verfügbar; keine öffentliche Veröffentlichung oder neue Mac-/Watch-Ausgabe.
