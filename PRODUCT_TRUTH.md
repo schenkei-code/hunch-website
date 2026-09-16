@@ -1265,3 +1265,26 @@ interne Journal bleibt lokal.
 R101-Auslieferungsnachprüfung: Apple bestätigt1.6(154) als VALID und intern
 IN_BETA_TESTING in beiden TestFlight-Gruppen. Die neue mobile Beta ist
 verfügbar; keine öffentliche Veröffentlichung oder neue Mac-/Watch-Ausgabe.
+
+## Native Mac-Beta — 16.09.2026, Runde 102
+
+Frischer vollständiger Apple-Abgleich bestätigt: iPhone-Beta1.6(154) intern
+verfügbar, noch keine native Mac-TestFlight-Beta. Der Mac-Store-Entwurf ist
+kein ausgeliefertes Paket. Native Mac-Beta wird priorisiert; Store-Sandbox,
+lokale Funktionsgrenze und Distribution müssen vorher geprüft werden.
+Lokale Terminal-/Runtimefunktionen werden dafür nicht stillschweigend entfernt.
+
+Desktop-Modellstreams sind im Code je Anfrage/Fenster isoliert und gezielt
+sowie in der Vollsuite geprüft. Das ist kein Nachweis eines serverseitigen
+Jobstopps oder Rückgängigmachens bereits ausgeführter Wirkungen. Noch keine
+neue Desktop-Ausgabe installiert. Native weitere Änderungen bleiben Kandidaten
+bis zu eigenem Test-/Buildnachweis. Keine HEUTE-Umstellung oder öffentliche
+Veröffentlichung. Interner Nachweis: PROGRESS R102; dieses Journal bleibt lokal.
+
+R102-Code-/Buildnachprüfung: native manuelle Terminaloberfläche und eng
+abgegrenzte Apple-Local-Toolbindung implementiert und getestet; nativer
+Mac-Gesamtbuild mit Development-Signatur erfolgreich. Die lokale Oberfläche
+erteilt weder Chat noch anderen Geräten Zugriff. Kein App-Store-/TestFlight-
+Mac-Paket daraus abgeleitet. Sicht-/Geräte-/echte Modellprüfung und vollständige
+Runtime-Einrichtung bleiben offen; mobile Beta154 enthält diese späteren
+R102-Änderungen noch nicht. Keine Behauptung einer vollständigen Abnahme.
