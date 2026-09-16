@@ -1382,3 +1382,23 @@ R106-Änderungen sind nicht enthalten. Native Mac-TestFlight fehlt weiterhin:
 Store-Signierung, Sandbox-/Funktionsvertrag und Bedienabnahme sind offen.
 Keine Funktion still entfernt, keine öffentliche Veröffentlichung und keine
 HEUTE-Umstellung. Dieses Journal bleibt lokal.
+
+## Native Mac-Store-Liefergrenze — 16.09.2026, Runde 107
+
+Erneute nur-lesende Apple-Prüfung um07:31CEST: iPhone1.6(155) VALID/intern;
+für Mac1.0 weiterhin kein TestFlight-Build. Die vorhandene native SwiftUI-
+Ausgabe ist nicht automatisch Store-fähig. Persönliches Terminal, lokale CLI-
+Anbindung und der native Terminal-Host sind vorhanden; eine integrierte volle
+Runtime ist noch nicht geliefert. Der vollständige Sandbox-/Funktionsvertrag
+und Store-Signierung bleiben offen. Kein pauschales Terminal-/CLI-Verbot.
+
+Eine volle native Direktverteilung und eine Store-Oberfläche mit getrenntem
+Host sind verschiedene Liefer-/Einrichtungsmodelle. Dominiks Entscheidung
+ist offen; keine Funktionen still entfernt und keine Storezulässigkeit einer
+Variante versprochen. Keine neue App-Auslieferung, öffentliche Veröffentlichung
+oder HEUTE-Umstellung. Dieses Journal bleibt lokal.
+
+Der Offline-Paketproduzent unterstützt jetzt die tatsächlich verwendeten
+Core-Metadata2.5-Paketbeschreibungen;76synthetische Tests bestehen. Das ist
+kein signiertes Runtimepaket oder fertiger Installer. Python-, native Helfer-,
+Audio-/Modell- und plattformspezifische Liefernachweise bleiben offen.
