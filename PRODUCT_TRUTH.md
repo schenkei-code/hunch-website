@@ -1230,3 +1230,13 @@ HEUTE-Labels unverändert; dieses Journal bleibt lokal. Nachweise: PROGRESS R99.
 Nachprüfung03:29CEST: Apple bestätigt1.6(153) als VALID/IN_BETA_TESTING in
 beiden internen TestFlight-Gruppen. Die mobile interne Beta ist verfügbar;
 das ist weiterhin keine öffentliche Veröffentlichung oder Geräteabnahme.
+
+## TestFlight-Plattformen — 16.09.2026, Runde 100
+
+Erneuter Apple-Abgleich: Die iPhone-Beta1.6(153) ist intern verfügbar und
+nicht abgelaufen. Für die native Mac-App gibt es noch keinen TestFlight-Build,
+sondern lediglich einen Store-Versionsentwurf. Die lokale native Debug-App
+ersetzt diesen Auslieferungsnachweis nicht. Store-Rechte, Runtime-/Terminalweg
+und echte Mac-Bedienabnahme sind weiterhin offen. Laufende zusätzliche
+Abbruchkorrekturen sind noch nicht in153 enthalten. Keine öffentliche
+Veröffentlichung oder HEUTE-Umstellung; Nachweise in PROGRESS R100.
