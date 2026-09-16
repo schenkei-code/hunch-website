@@ -1169,3 +1169,22 @@ keine installierte App-/Hardwareabnahme. Lokaler Mac-Start ohne Google ist
 ausdrücklich freigegeben und in Umsetzung, noch nicht ausgeliefert. Bestehende
 Einwilligungen und Aktionsgrenzen gelten auch im lokalen Modus; weder ein
 privates Zweitprofil noch automatische Runtime-Einrichtung daraus ableiten.
+
+## Native Mac-Ausgabe — lokaler Entwicklungsstand, 16.09.2026, Runde 97
+
+Auf ausdrücklichen Wunsch wird die vorhandene echte SwiftUI-macOS-Ausgabe
+vervollständigt, nicht Electron als native App bezeichnet. Windows behält
+seine bestehende Desktop-Basis. Der native Mac-Einstieg benötigt kein Google-
+Konto; vorhandene Mac-Schlüssel werden beim Erststart nicht gelöscht.
+Ausgeschaltetes MCP bleibt ohne Schlüsselbundzugriff. Korrekte lokale
+Entwicklungssignierung und isolierte echte Schlüsselbundoperationen belegt;
+kein daraus abgeleiteter Store-/Notarisierungs-/Altcredentialnachweis.
+
+Native App gebaut/geöffnet und Einstieg, Chat sowie Einstellungen begrenzt
+bedient. Der dabei entdeckte Seitenleisten-/Signetfehler ist korrigiert;
+172 isolierte Checks und echter Entwurfserhalt bei Maus-/Tastaturwechseln
+belegt. Das ist keine vollständige App-Abnahme. Terminalkern getestet, aber noch keine
+fertige native lokale CLI-Oberfläche. Bestehende Installation/Daten nicht
+ersetzt; automatische Datenübernahme und Ein-Klick-Runtime fehlen weiterhin.
+Kein Gesamtparitäts-/Datenschutz-PASS, kein neuer TestFlight-/öffentlicher
+Release. HEUTE-Labels unverändert; dieses Journal bleibt lokal. PROGRESS R97.
