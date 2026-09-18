@@ -686,6 +686,28 @@ section[data-serial] > .wrap{position:relative;z-index:1}
   nav.over-ink{background:var(--ink-1000)}
 }
 </style>
+<style id="motion-2026">
+/* Ambient motion — Dominik 18.09.2026 „gut so" (Motion-Vorschau bestätigt):
+   durchgehende, ruhige Bewegung ohne Scroll/Maus, reduced-motion-sicher. */
+.hero .hero-grid{position:relative;z-index:2}
+.hero::before{content:"";position:absolute;z-index:0;width:78vw;height:78vw;max-width:880px;max-height:880px;left:40%;top:-14%;
+  border-radius:50%;pointer-events:none;filter:blur(10px);
+  background:radial-gradient(circle at 50% 50%,rgba(213,173,77,.24),rgba(213,173,77,.06) 42%,transparent 66%);
+  animation:heroBlob 16s ease-in-out infinite alternate}
+.owl-3d{animation:owlFloat 8s ease-in-out infinite}
+.owl-rosette{transform-origin:50% 50%;animation:owlSpin 60s linear infinite}
+.owl-stage::before{content:"";position:absolute;inset:8% 10%;z-index:1;border-radius:50%;pointer-events:none;filter:blur(6px);
+  background:radial-gradient(circle at 50% 44%,rgba(213,173,77,.20),transparent 62%);animation:heroPulse 6s ease-in-out infinite}
+.gate-card::before{background-size:280% 100%;animation:foilShift 6.5s linear infinite}
+@keyframes heroBlob{0%{transform:translate(0,0) scale(1)}50%{transform:translate(-7%,6%) scale(1.12)}100%{transform:translate(6%,-4%) scale(1.05)}}
+@keyframes owlFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
+@keyframes owlSpin{to{transform:rotate(360deg)}}
+@keyframes heroPulse{0%,100%{opacity:.7;transform:scale(1)}50%{opacity:1;transform:scale(1.06)}}
+@keyframes foilShift{to{background-position:280% 0}}
+@media (prefers-reduced-motion: reduce){
+  .hero::before,.owl-3d,.owl-rosette,.owl-stage::before,.gate-card::before{animation:none!important}
+}
+</style>
 </head>
 <body>
 

@@ -491,8 +491,12 @@ def main() -> int:
         if "Stand 2026-09-01" in source:
             errors.append(f"{label}: veralteter Prüfstand 2026-09-01")
 
-    if " infinite" in joined or "autoplay" in joined:
-        errors.append("Landingpage enthält verbotene Dauerbewegung")
+    # Dominik 18.09.2026 „gut so": ambient Motion im freigegebenen
+    # motion-2026-Block ist erlaubt (bewusste Übersteuerung der No-Loop-Regel);
+    # überall sonst bleibt Dauerbewegung verboten.
+    sanctioned = re.sub(r'<style id="motion-2026">.*?</style>', "", joined, flags=re.S)
+    if " infinite" in sanctioned or "autoplay" in sanctioned:
+        errors.append("Landingpage enthält verbotene Dauerbewegung (außerhalb des motion-2026-Blocks)")
     for stale_ui in (
         'class="steps"',
         'class="pill"',
