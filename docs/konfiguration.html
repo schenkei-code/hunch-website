@@ -53,13 +53,17 @@ Observer und Executive sind unabhängig wählbar.</p>
 <p>Ohne Schlüssel: die CLI-Provider nutzen die Kommandozeilenwerkzeuge, die schon angemeldet auf dem
 Rechner liegen — kein zweites Bezahlen desselben Abos. Als Observer sind sie zu langsam; dafür ein
 kleines Modell über HTTP.</p>
+<p><strong>OpenAI hat zwei ausdrücklich getrennte Zugänge:</strong> <code>openai</code> verwendet
+einen eigenen API-Key und wird von OpenAI nach Nutzung berechnet. <code>codex-cli</code> verwendet
+die bestehende ChatGPT-Anmeldung der lokalen Codex-CLI. Hunch gibt dabei keinen API-Key an Codex
+weiter. Beide Wege verwenden eine bekannte Modellauswahl; ein Wechsel geschieht nie still.</p>
 
 <h2>Modellwahl (auto)</h2>
 <p>Executive: erst ein Schlüssel in der Umgebung, dann eine CLI, dann ein lokaler Server. Observer:
 erst ein wirklich am Port erreichbarer lokaler Server, dann ein Anbieter mit kleinem Modell — sonst
 läuft die Runtime ohne Observer (Regelmodus). <code>hunch init</code> erklärt die Entscheidung.</p>
 
-    <footer class="doc-foot">© 2026 Hunch — <a href="../">hunchagent.io</a> · Stand 2026-08-21, gegen aktuellen Code geprüft.</footer>
+    <footer class="doc-foot">© 2026 Hunch — <a href="../">hunchagent.io</a> · Stand 2026-09-19, gegen aktuellen Code geprüft.</footer>
   </main>
 </div>
 <script>
