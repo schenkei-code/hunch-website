@@ -179,8 +179,13 @@ verwenden dafür denselben festen Modell-Picker; der frühere nicht offizielle
 OpenAI-OAuth-Weg und die zusätzliche API-Key-Auswahl sind nicht mehr
 auswählbar. Eine alte explizite Runtime-Konfiguration `openai` bleibt zur
 Bestandsverträglichkeit auflösbar, wird aber nicht mehr in `/providers`
-angeboten. Nachweis: `ProviderRegistry.swift`, `AIProvider.swift`,
-`codexCli.ts`, `geminiClient.ts`, `providers.py`.
+angeboten. Die Runtime trennt dabei ebenfalls Programm und Sprachmodell:
+`codex-cli` startet das feste Programm `codex`, übergibt die gewählte Modell-ID
+mit `-m`, den Prompt über stdin und lässt keinen `OPENAI_API_KEY` in den
+Kindprozess. Der reale Abo-Smoke vom 19.09.2026 antwortete über
+`gpt-5.6-sol` mit dem erwarteten Prüfwort. Nachweis: `ProviderRegistry.swift`,
+`AIProvider.swift`, `codexCli.ts`, `geminiClient.ts`, `providers.py`,
+`llm.py`, `test_codex_policy.py`.
 Breitere Provider — HEUTE (2026-08-22, G6): `openrouter`, `together`, `fireworks`, `cerebras`,
 `perplexity`, `bedrock` (OpenAI-kompatibler Bedrock-Endpunkt, Bearer-API-Key, Region via
 `HUNCH_*_BASE_URL`) in `providers.py` **und** `ProviderRegistry.swift` (Build 103); `test_providers`
