@@ -1420,7 +1420,8 @@ Audio-/Modell- und plattformspezifische Liefernachweise bleiben offen.
 ## Native Mac-Runtime — lokaler Entwicklungsstand, 19.09.2026, Runde 113
 
 Auf Dominiks Mac ist nur noch die native SwiftUI-Ausgabe von Hunch installiert;
-die frühere Electron-App liegt wiederherstellbar im Papierkorb. Dieser lokale
+die frühere Electron-App und zwei native Zwischenkopien wurden endgültig
+gelöscht. Dieser lokale
 arm64-Build enthält Python 3.12 und die Hunch Runtime direkt im signierten
 App-Bundle. Hunch richtet den privaten Benutzer-LaunchAgent ein und startet die
 Runtime im Hintergrund; bestehende Daten, Schlüssel und Verbindungen unter
