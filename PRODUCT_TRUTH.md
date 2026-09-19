@@ -1416,3 +1416,19 @@ Der Offline-Paketproduzent unterstützt jetzt die tatsächlich verwendeten
 Core-Metadata2.5-Paketbeschreibungen;76synthetische Tests bestehen. Das ist
 kein signiertes Runtimepaket oder fertiger Installer. Python-, native Helfer-,
 Audio-/Modell- und plattformspezifische Liefernachweise bleiben offen.
+
+## Native Mac-Runtime — lokaler Entwicklungsstand, 19.09.2026, Runde 113
+
+Auf Dominiks Mac ist nur noch die native SwiftUI-Ausgabe von Hunch installiert;
+die frühere Electron-App liegt wiederherstellbar im Papierkorb. Dieser lokale
+arm64-Build enthält Python 3.12 und die Hunch Runtime direkt im signierten
+App-Bundle. Hunch richtet den privaten Benutzer-LaunchAgent ein und startet die
+Runtime im Hintergrund; bestehende Daten, Schlüssel und Verbindungen unter
+`~/.hunch` werden übernommen und nicht überschrieben. Der echte Dienststart,
+der authentifizierte Status und die tiefe Signatur nach dem Start sind geprüft.
+
+Das ist kein öffentlicher Produktstatus und ändert keine HEUTE-Kennzeichnung:
+installiert ist ein Apple-Development-signierter Debug-Build, kein notarisiertes
+DMG und kein Mac-App-Store-/TestFlight-Paket. Die Runtime ist in diesem lokalen
+Build geliefert; Store-Sandbox, Distribution, Intel-Unterstützung und externe
+Bedienabnahme bleiben getrennte offene Nachweise.
