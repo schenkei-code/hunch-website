@@ -172,15 +172,15 @@ Cloud: `claude, openai, gemini, kimi, deepseek, qwen, mistral, grok, groq`.
 Gerät: `appleLocal` (nur On-Device). Lokal: `ollama, lmstudio, llamacpp`.
 CLI: `claude-cli, codex-cli, gemini-cli`. Fallbacks: `cli:<cmd>`, `custom:<name>` +
 `HUNCH_*_BASE_URL` (jeder OpenAI-kompatible Endpoint). `providers.py`, `test_providers.py`.
-OpenAI-Zugang ist seit 19.09.2026 sichtbar getrennt: **API** bedeutet eigener
-Key und nutzungsabhängige Abrechnung; **ChatGPT-Abo** bedeutet die lokal bzw.
-auf dem verbundenen Computer angemeldete Codex-CLI, ohne Weitergabe eines
-OpenAI-API-Keys. Native App und Desktop verwenden dafür denselben festen
-Modell-Picker; der frühere nicht offizielle OpenAI-OAuth-Weg der nativen App
-ist nicht mehr auswählbar. Runtime-Status und `/providers` weisen die Zugangsart
-als `api`, `subscription`, `local` oder `device` aus. Nachweis:
-`ProviderRegistry.swift`, `OAuthManager.swift`, `codexCli.ts`,
-`geminiClient.ts`, `providers.py`; Runtime 539 Tests und Desktop 2828 Tests grün.
+OpenAI hat seit 19.09.2026 in den Hunch-Oberflächen genau **einen** Weg:
+**ChatGPT-Abo über die lokal bzw. auf dem verbundenen Computer angemeldete
+Codex-CLI**, ohne Weitergabe eines OpenAI-API-Keys. Native App und Desktop
+verwenden dafür denselben festen Modell-Picker; der frühere nicht offizielle
+OpenAI-OAuth-Weg und die zusätzliche API-Key-Auswahl sind nicht mehr
+auswählbar. Eine alte explizite Runtime-Konfiguration `openai` bleibt zur
+Bestandsverträglichkeit auflösbar, wird aber nicht mehr in `/providers`
+angeboten. Nachweis: `ProviderRegistry.swift`, `AIProvider.swift`,
+`codexCli.ts`, `geminiClient.ts`, `providers.py`.
 Breitere Provider — HEUTE (2026-08-22, G6): `openrouter`, `together`, `fireworks`, `cerebras`,
 `perplexity`, `bedrock` (OpenAI-kompatibler Bedrock-Endpunkt, Bearer-API-Key, Region via
 `HUNCH_*_BASE_URL`) in `providers.py` **und** `ProviderRegistry.swift` (Build 103); `test_providers`
