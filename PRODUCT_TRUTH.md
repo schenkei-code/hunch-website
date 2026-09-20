@@ -1433,3 +1433,20 @@ installiert ist ein Apple-Development-signierter Debug-Build, kein notarisiertes
 DMG und kein Mac-App-Store-/TestFlight-Paket. Die Runtime ist in diesem lokalen
 Build geliefert; Store-Sandbox, Distribution, Intel-Unterstützung und externe
 Bedienabnahme bleiben getrennte offene Nachweise.
+
+## Native Mac-Zentrale — lokal installiert, Erstverbindung offen (20.09.2026, Runde 115)
+
+Der lokal installierte native Mac-Development-Build startet jetzt in einer
+eigenen Hunch-Zentrale. Er bündelt Maschinen, laufende Arbeit, Brain, Kanäle
+und Skills in einer Master-/Detail-Navigation. Offene, bereits autorisiert
+lesbare Authority-Gate-Anfragen können dort als interne Inbox und als lokale
+macOS-Mitteilung erscheinen; Entscheidungen bleiben an den Besitzer-Ausweis
+gebunden, und die Systemmitteilung enthält keine Tokens oder Siegel.
+
+Das ist noch kein öffentlicher oder vollständig abgenommener Zustand. Auf dem
+Mac ist noch kein eigener Besitzer-gebundener Maschineneintrag gespeichert.
+Ein bereits verbundenes Besitzer-Gerät muss diesen Mac einmal über das
+angezeigte Siegel freigeben. Erst danach kann ein echter End-to-End-Nachweis
+für Mac-Mitteilung und Freigabe erfolgen. Der installierte Build ist weder
+notarisiertes DMG noch Mac-App-Store-/TestFlight-Paket; keine HEUTE-
+Kennzeichnung wurde daraus abgeleitet.
