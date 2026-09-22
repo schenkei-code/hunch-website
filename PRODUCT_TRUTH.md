@@ -22,7 +22,20 @@ Bei iOS gilt: aktueller Swift-Code > HANDOFF.md > PLAN-INTENTIONAL.md > MEILENST
 „gebaut und getestet" — im Pocket-Target gibt es **null** StoreKit-Referenzen (HANDOFF.md §0).
 Daher: **kein Kauf-/Paywall-Feature auf der Website.**
 
-### Lokaler Arbeitsstand R158 — EXPERIMENTELL, nicht ausgeliefert (22.09.2026)
+### TestFlight-Nachtrag R159 — EXPERIMENTELL (22.09.2026)
+
+iOS 1.6 (166) mit den folgenden R158-Änderungen ist signiert zu Apple
+hochgeladen, Apple VALID und Beta-Review APPROVED. Extern IN_BETA_TESTING
+in „Freunde & Familie“ und „Sofort-Tester“ per API bestätigt; DE/EN-Testhinweise
+und automatische Benachrichtigung aktiv. Kein Nachweis einer Geräteinstallation.
+Kein öffentlicher App-Store-/Website-Release. Mac bleibt installiert auf 165,
+Windows bisher Quellstand. CLI-Chat und Gedächtnisimport benötigen zusätzlich
+die aktualisierte laufende Runtime auf dem Computer; diese ist lokal noch
+nicht neu gestartet. CarPlay ist in diesem Beta-Paket nicht aktiviert.
+Signatur-/Push-/Upload-Nachweise: PROGRESS R159, 172 Release-Tests bestanden.
+Keine HEUTE-Anhebung und kein neuer Mikrofon-/Fahrzeug-Nachweis.
+
+### Lokaler Arbeitsstand R158 — EXPERIMENTELL, damaliger Nicht-Auslieferungsstand (22.09.2026)
 
 Die öffentliche Veröffentlichung ist auf Nutzerwunsch pausiert. Die folgenden
 Änderungen sind neuer Quellstand, nicht Bestandteil der zuletzt ausgelieferten
