@@ -22,6 +22,49 @@ Bei iOS gilt: aktueller Swift-Code > HANDOFF.md > PLAN-INTENTIONAL.md > MEILENST
 „gebaut und getestet" — im Pocket-Target gibt es **null** StoreKit-Referenzen (HANDOFF.md §0).
 Daher: **kein Kauf-/Paywall-Feature auf der Website.**
 
+### Lokaler Arbeitsstand R158 — EXPERIMENTELL, nicht ausgeliefert (22.09.2026)
+
+Die öffentliche Veröffentlichung ist auf Nutzerwunsch pausiert. Die folgenden
+Änderungen sind neuer Quellstand, nicht Bestandteil der zuletzt ausgelieferten
+nativen Testausgabe 1.6 (165):
+
+- Bewusste Modellauswahl wird beim automatischen Wiederherstellen nicht mehr
+  überschrieben; Fallback bei eigener Anbieterwahl ist standardmäßig aus.
+  ChatGPT-Abo und Claude CLI benutzen die bestehende Computerverbindung;
+  Claude-API bleibt separat. CLI-Zugänge wurden mit synthetischen Antworten
+  geprüft, nicht mit privaten Chatdaten oder ausgeführten Werkzeugen.
+- Realtime-Voice: reproduzierten WebKit-Promise-Startfehler korrigiert und mit
+  synthetischem Audio/SDP geprüft. Ein echter bidirektionaler Mikrofonlauf
+  aus der neuen App ist noch nicht bestätigt.
+- Anbieter-Gedächtnis: Quelle und Inhalte (Erinnerungen, eigene Nachrichten,
+  optional Anbieterantworten) wählen, Exportdatei prüfen, ausdrücklich
+  übernehmen. ChatGPT-/Claude-/Gemini-Formate und generisches JSON/JSONL,
+  TXT/Markdown; kein Versprechen, jedes proprietäre Anbieterformat zu lesen.
+  ZIP vorher entpacken, maximal 2 MB/2.000 Einträge. Ergänzt mit Dubletten-
+  Schutz, keine automatische Tatsachenbestätigung oder Ausführung importierter
+  Texte. Oberfläche in iOS, nativem Mac, Windows und Runtime-Web/CLI.
+- Freiwilliger Datei-Abgleich in iOS/macOS/Windows: nur ausgewählte lokale Exportdateien,
+  bei aktiver/entsperrter App und demselben Computerzugang. Quellen einzeln
+  widerrufbar; kein direkter Cloud-Kontozugriff, kein Betrieb bei geschlossener
+  App. Maximal zehn Quellen; unveränderte Dateien erzeugen keine Importanfragen.
+- Wallet: Apple-/Google-Passwort-CSV sowie generische API-Schlüssel importieren;
+  einzelne Einträge auswählen. Lokale Keychain auf Apple-Geräten bzw.
+  verschlüsselter Systemtresor auf Windows, nie KI-Gedächtnis oder automatische
+  Runtime-Übertragung. Keine Passkeys, TOTP oder Notizen; bestehende Logins
+  werden nicht überschrieben. Native Hunch-Pass-/AutoFill-Freigabe bleibt pro
+  Login gesondert. Maximal 2 MB/500 Einträge, Original-CSV bleibt beim Nutzer.
+- Voice-Freigabe freiwillig merken und widerrufen, eng an Anbieter, Computer,
+  Zugang und Datenumfang gebunden. Start bleibt ausdrücklich; keine Umgehung
+  der Betriebssystem-Mikrofonfreigabe. CarPlay ohne Chat-Verlauf mit separatem
+  Grant; Apples Berechtigung/Profil und echter Fahrzeugtest fehlen weiterhin.
+
+Quellen: `AgentSession.swift`, `AppStand.swift`, `RealtimeVoiceTransport.swift`,
+`MemoryTransferSection.swift`, `WalletCSV.swift`, `WalletView.swift`,
+`VoiceScreen.swift`, `CarPlayVoice.swift`, Runtime `provider_import.py` /
+`chat.py`, Windows `ProviderMemoryImport.tsx` / `WalletImport.tsx` /
+`voiceSavedPermission.ts`; Prüfbelege und Liefergrenzen PROGRESS R158.
+Keine HEUTE-Anhebung, keine neuen Marketing-/Store-Leistungsversprechen.
+
 ---
 
 ## Runtime — verifizierte Fähigkeiten
@@ -588,7 +631,9 @@ Memory-Scopes `global`, `projekt:<id>` und `faden:<id>` sind in App, Runtime
 und Brain-Sync vorhanden. `UserIdentity.preferences` bleibt flach; strukturierte
 Präferenzen werden als Erinnerungen der Kategorie „Präferenz“ in einem Scope abgelegt.
 Externe Transkripte importiert heute die Runtime-CLI (txt/md, ChatGPT, Claude);
-die native iOS-Dateiauswahl akzeptiert derzeit nur Hunch-Memory-JSON.
+die ausgelieferte native iOS-Dateiauswahl in 165 akzeptiert nur Hunch-Memory-JSON.
+Der noch nicht ausgelieferte R158-Quellstand ergänzt die oben beschriebene
+Anbieter-/Inhaltsauswahl; kein bereits verfügbares Cloud-Sync versprechen.
 Grenze: Das iPhone selbst sendet als Szenensensor weiterhin nur `app_state`
 und den aktuellen App-Screen; Bildschirm-OCR entsteht auf der Maschine.
 
