@@ -22,6 +22,20 @@ Bei iOS gilt: aktueller Swift-Code > HANDOFF.md > PLAN-INTENTIONAL.md > MEILENST
 „gebaut und getestet" — im Pocket-Target gibt es **null** StoreKit-Referenzen (HANDOFF.md §0).
 Daher: **kein Kauf-/Paywall-Feature auf der Website.**
 
+### Liefernachtrag R161 — EXPERIMENTELL (23.09.2026)
+
+iOS und native Mac-App 1.6 (167) teilen den Chatverlauf über Modelle hinweg.
+Migration unter `gemeinsam`, alte Anbieter-Einträge bleiben erhalten; ein
+geleerter Chat wird nicht erneut migriert. iOS signiert hochgeladen, Apple
+VALID/APPROVED und extern IN_BETA_TESTING in beiden bestehenden Gruppen,
+DE/EN-Testhinweise bestätigt. Mac mit integrierter Runtime signiert installiert
+und gestartet; die laufende Checkout-Runtime bleibt bei gleicher PID,
+LaunchAgent-Konfiguration und gleichem Code. 109 App-Unit-Tests, 172 Release-
+Tests und 23 Verlaufstests grün. Keine neue Windows-/Watch-Ausgabe, keine
+Geräte-/Audio-Endabnahme, CarPlay deaktiviert, kein öffentlicher Release.
+Die zusätzliche native WebKit-Audioprobe bleibt ohne Erfolgsnachweis;
+Transport identisch zu 166. Details und Liefergrenzen: PROGRESS R161.
+
 ### Runtime-Aktivierung R160 — EXPERIMENTELL (23.09.2026)
 
 Die für TestFlight 166 benötigte R158-Runtime ist lokal aktiviert. Drei neue
