@@ -22,6 +22,17 @@ Bei iOS gilt: aktueller Swift-Code > HANDOFF.md > PLAN-INTENTIONAL.md > MEILENST
 „gebaut und getestet" — im Pocket-Target gibt es **null** StoreKit-Referenzen (HANDOFF.md §0).
 Daher: **kein Kauf-/Paywall-Feature auf der Website.**
 
+### Runtime-Aktivierung R160 — EXPERIMENTELL (23.09.2026)
+
+Die für TestFlight 166 benötigte R158-Runtime ist lokal aktiviert. Drei neue
+CLI-Chat-/Gedächtnisimport-Schnittstellen und ihre Besitzergrenzen wurden am
+laufenden Dienst bestätigt; 661 Runtime-Tests bestanden. TLS, Gzip und private
+No-Store-Antworten ebenfalls live geprüft. Das ist kein Nachweis eines neuen
+Telefon-Chats, echten Datenimports oder Voice-/Fahrzeugtests. Mac-Binärbuild
+weiterhin 165, kein öffentlicher Store-/Website-Release und keine allgemeine
+HEUTE-Anhebung. Dieser Nachtrag aktualisiert die Runtime-Liefergrenze aus R159.
+Quellen und verbleibende Grenzen: PROGRESS R160.
+
 ### TestFlight-Nachtrag R159 — EXPERIMENTELL (22.09.2026)
 
 iOS 1.6 (166) mit den folgenden R158-Änderungen ist signiert zu Apple
