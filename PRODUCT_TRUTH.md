@@ -227,12 +227,20 @@ Audit schwärzt auch verschachtelte Geheimnisfelder und dupliziert keine Klartex
 geben" + Abschnitt „Auf der Maschine" (Build 105). `tests/test_agent_tresor.py`,
 `tests/test_tresor_ablauf.py`.
 
-### Apple Watch — EXPERIMENTELL (Target gebaut; physischer Gerätetest offen)
-Der aktuelle Source enthält das watchOS-Target `HunchWatch`: Freigaben über WatchConnectivity ↔ iPhone,
-Arbeitsschritt der Work-Live-Activity als Zeile, HUNCH_APPROVAL-Aktionen, Diktat → Maschine → vorgelesene
-Antwort sowie die WidgetKit-Complication (accessoryCircular/Rectangular/Inline, App Group
-`group.com.hunchagent.hunch`). Target und Build sind belegt. Ob Freigabe, Sprache und Complication auf
-Dominiks echter Uhr Ende zu Ende funktionieren, ist noch nicht bestätigt; deshalb kein vollständiges HEUTE.
+### Apple Watch — EXPERIMENTELL (Targets rekonstruiert; aktueller Build und Gerätetest offen)
+Seit `a54152b` vom 12.09.2026 fehlten die Watch-Targets im Xcode-Projekt; der
+Quellcode blieb erhalten. Am 23.09.2026 wurden `HunchWatch` und
+`HunchWatchComplication` aus dem Vorgängerstand rekonstruiert, einschließlich
+Projektvorlage, iOS-Einbettung und Watch-Scheme. Der unsignierte Build stoppt
+in der aktuellen Build-Umgebung bereits bei SwiftPM mit
+`sandbox-exec: sandbox_apply: Operation not permitted`; auch die direkte
+Swift-Typprüfung scheitert an der Makro-Sandbox. Ein aktueller Build-PASS
+ist deshalb nicht belegt. Die früheren Builds 105/107 sind historische Belege.
+
+Der vorhandene Code beschreibt Freigaben über WatchConnectivity zum iPhone,
+Arbeitszustände, Diktat über den verbundenen Computer und die WidgetKit-
+Complication. Es gibt keine neue Watch-Auslieferung und keinen bestätigten
+Ende-zu-Ende-Test auf einer echten Uhr. Kein vollständiges HEUTE.
 
 ### Werkzeuge — HEUTE (fünf Herkünfte, ein Verzeichnis)
 - **Eingebaut, u. a.:** `search_memory`, `remember`, `list_tasks`, `add_task`, `list_goals`,
