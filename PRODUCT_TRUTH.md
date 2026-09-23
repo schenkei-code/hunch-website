@@ -22,6 +22,16 @@ Bei iOS gilt: aktueller Swift-Code > HANDOFF.md > PLAN-INTENTIONAL.md > MEILENST
 „gebaut und getestet" — im Pocket-Target gibt es **null** StoreKit-Referenzen (HANDOFF.md §0).
 Daher: **kein Kauf-/Paywall-Feature auf der Website.**
 
+### Mediennachtrag R162 — lokale Entwürfe, nicht veröffentlicht (23.09.2026)
+
+Sieben deutsche iPhone-/iPad-Screenshots, 20-s-App-Rundgang, Socialfilm,
+sechs Anzeigenmotive und DE/EN-Beschreibungen aus dem 167-Quellstand erstellt.
+Reale App-Aufnahmen mit Beispieldaten; kein Live-Chat-/Voice-/CarPlay- oder
+Freigabenachweis. Englische Rohbilder wegen gemischter UI-Sprache nicht
+zur Store-Serie freigegeben. Keine neue Mac-/Watch-Serie und kein Medien-
+Upload, öffentlicher Store-Release oder Anzeigenstart. Produktstatus bleibt
+unverändert; keine HEUTE-Anhebung. Nachweise und Grenzen: PROGRESS R162.
+
 ### Liefernachtrag R161 — EXPERIMENTELL (23.09.2026)
 
 iOS und native Mac-App 1.6 (167) teilen den Chatverlauf über Modelle hinweg.
