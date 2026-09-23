@@ -22,6 +22,19 @@ Bei iOS gilt: aktueller Swift-Code > HANDOFF.md > PLAN-INTENTIONAL.md > MEILENST
 „gebaut und getestet" — im Pocket-Target gibt es **null** StoreKit-Referenzen (HANDOFF.md §0).
 Daher: **kein Kauf-/Paywall-Feature auf der Website.**
 
+### Computer-Vorschau R163 — EXPERIMENTELL (23.09.2026)
+
+Die lesende Computer-Vorschau blockiert nicht mehr den Runtime-Eventloop:
+begrenzter einzelner Hintergrund-Worker und zeitbegrenzte HTTP-Antwort.
+Trefferzahlen bleiben mit App-Build 167 kompatibel. 672 Runtime-Tests grün;
+Fix am bestehenden privaten Dienst aktiviert, TLS/Gzip/private No-Store-
+Antworten und Besitzergrenzen live bestätigt. Kein neuer iOS-Build nötig
+für diese Serverkorrektur. Native Abbruch-/Fehlerkorrekturen für iOS/macOS
+liegen separat geprüft vor, sind noch nicht ausgeliefert. Keine allgemeine
+automatische Updateverteilung aktiviert; native Änderungen brauchen weiter
+signierte App-Versionen. Echte Besitzer-Vorschau-/Import-Abnahme offen,
+kein öffentlicher Release oder HEUTE-Labelwechsel. Nachweise: PROGRESS R163.
+
 ### Mediennachtrag R162 — lokale Entwürfe, nicht veröffentlicht (23.09.2026)
 
 Sieben deutsche iPhone-/iPad-Screenshots, 20-s-App-Rundgang, Socialfilm,
