@@ -5,7 +5,8 @@ Jede Website-Behauptung muss hier mit **Quelle** und **Status** belegt sein. Bei
 Widerspruch zwischen Roadmap und Code **gewinnt der Code**.
 
 Status-Legende:
-- **HEUTE** — im aktuellen Code vorhanden und getestet
+- **HEUTE** — im aktuellen Code vorhanden und getestet; runtime-abhängige Aussagen zusätzlich
+  gegen die laufende Runtime nachgewiesen
 - **EXPERIMENTELL** — teilweise, nur auf einer Surface, oder Prototyp
 - **ALS NÄCHSTES** — in Arbeit / nahe Roadmap
 - **VISION** — 2.0-Zielbild, nicht ausgeliefert
@@ -19,6 +20,25 @@ Bei iOS gilt: aktueller Swift-Code > HANDOFF.md > PLAN-INTENTIONAL.md > MEILENST
 Ältere Roadmaps sind nur historisch. Beispiel: `MONETIZATION.md` behauptet StoreKit/Paywall
 „gebaut und getestet" — im Pocket-Target gibt es **null** StoreKit-Referenzen (HANDOFF.md §0).
 Daher: **kein Kauf-/Paywall-Feature auf der Website.**
+
+### Downloads auf der Website — EXPERIMENTELL (23.09.2026)
+
+Der iPhone-/iPad-Link führt zu Apples öffentlicher TestFlight-Einladung
+`https://testflight.apple.com/join/xEn2bN4v`. Am 23.09. antwortete die
+Einladungsseite mit HTTP 200; App Store Connect zeigte iOS 1.6 (167) als
+VALID, Beta-Review APPROVED und in der aktivierten öffentlichen Gruppe
+„Sofort-Tester“. Das beweist eine erreichbare Beta-Einladung, nicht eine
+Installation auf jedem Gerät und nicht die jüngsten Quelländerungen. Die
+deutsche und englische TestFlight-App-Beschreibung wurde vom alten Pocket-
+Terminaltext auf Hunch korrigiert und per API erneut gelesen.
+
+Die native Mac-App ist zurzeit lokal mit Development-Signatur installiert;
+es gibt keinen Developer-ID-signierten/notarisierten öffentlichen Download.
+Für Windows gibt es ebenfalls noch keinen geprüften öffentlichen Installer.
+Die Website zeigt daher auf beiden Plattformen ausdrücklich „kein öffentlicher
+Download“ und verspricht keinen App-Store-Release. Quelle: App Store Connect
+Build-/Gruppen-API, öffentliche TestFlight-Einladung, lokale Signaturprüfung,
+Website-Check vom 23.09.2026.
 
 ---
 

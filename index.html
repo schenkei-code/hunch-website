@@ -114,6 +114,13 @@ nav.over-ink .lang:hover{color:var(--ivory-50)}
 .btn-quiet{color:var(--ink-1000);padding:.8rem 1.2rem;min-height:48px;border:1px solid rgba(13,13,11,.4);border-radius:var(--r-action);background:transparent}
 .btn-quiet:hover{border-color:var(--ink-1000)}
 .btn-quiet:focus-visible,.btn-primary:focus-visible,a:focus-visible,button:focus-visible{outline:2px solid var(--gold-500);outline-offset:3px;border-radius:var(--r-action)}
+.download-list{margin:2rem auto 2.5rem;max-width:52rem;border-top:1px solid var(--security-line)}
+.download-row{display:flex;align-items:center;justify-content:space-between;gap:1.5rem;padding:1.25rem 0;border-bottom:1px solid var(--security-line)}
+.download-row strong{display:block;margin:.55rem 0 .2rem;font:700 1.1rem/1.2 var(--display)}
+.download-row p{font-size:.9rem;color:var(--dim);max-width:34rem}
+.download-row .btn{flex:0 0 auto;min-width:12rem}
+.download-unavailable{font:600 .7rem/1.4 var(--mono);letter-spacing:.04em;color:var(--stone-600);text-align:right}
+@media(max-width:600px){.download-row{align-items:flex-start;flex-direction:column;gap:.75rem}.download-row .btn{width:100%}.download-unavailable{text-align:left}}
 
 .menu-toggle{display:none;min-width:58px;min-height:44px;align-items:center;justify-content:center;border:1px solid currentColor;border-radius:var(--r-action);background:transparent;color:inherit;font:700 .68rem/1 var(--mono);letter-spacing:.08em}
 .mobile-menu{display:none;position:fixed;inset:calc(3.75rem + env(safe-area-inset-top)) 0 0;z-index:59;overflow-y:auto;overscroll-behavior:contain;background:var(--ivory-100);color:var(--ink);padding:1rem clamp(1rem,4vw,1.5rem) calc(2rem + env(safe-area-inset-bottom));border-top:1px solid var(--security-line)}
@@ -702,14 +709,14 @@ section[data-serial] > .wrap{position:relative;z-index:1}
     </div>
     <a class="lang" href="en/" hreflang="en" lang="en">EN</a>
     <span class="nav-serial">intentional agent · owner bound · 2026</span>
-    <a class="nav-cta" href="mailto:schenkei@hunchagent.io?subject=Hunch%20Early%20Access">Early Access</a>
+    <a class="nav-cta" href="#apps">Beta testen</a>
     <button class="menu-toggle" type="button" data-mobile-menu-toggle aria-expanded="false" aria-controls="mobile-menu">Menü</button>
   </div>
 </nav>
 <div class="mobile-menu" id="mobile-menu" role="navigation" aria-label="Mobile Hauptnavigation" hidden>
   <a href="#moment">Warum Hunch</a><a href="#faeden">So handelt Hunch</a><a href="#autoritaet">Sicherheit</a><a href="#apps">Apps</a><a href="#status">Status</a><a href="docs/index.html">Dokumentation</a>
   <a class="mobile-menu-meta" href="en/" hreflang="en" lang="en">English</a>
-  <a class="mobile-menu-cta" href="mailto:schenkei@hunchagent.io?subject=Hunch%20Early%20Access">Early Access</a>
+  <a class="mobile-menu-cta" href="#apps">Beta testen</a>
 </div>
 
 <main id="main-content">
@@ -729,7 +736,7 @@ section[data-serial] > .wrap{position:relative;z-index:1}
         Erinnerungen, Vorhaben, Entscheidungen und deinem aktuellen Kontext ein persönliches Modell,
         erkennt den nächsten sinnvollen Schritt — und handelt nur innerhalb der Grenzen, die du festlegst.</p>
         <div class="hero-actions">
-          <a class="btn btn-primary" href="mailto:schenkei@hunchagent.io?subject=Hunch%20Early%20Access">Early Access anfragen</a>
+          <a class="btn btn-primary" href="#apps">Beta testen</a>
           <a class="btn btn-quiet" href="#moment">Wie das aussieht</a>
         </div>
         <div class="hero-meta">
@@ -1141,16 +1148,21 @@ section[data-serial] > .wrap{position:relative;z-index:1}
       <span class="eyebrow reveal" data-no="12">Ein Hunch, mehrere Zugänge</span>
       <h2 class="reveal">Nicht nur eine iPhone-App.</h2>
       <p class="lead reveal">Die Runtime auf Mac, PC, Linux oder VPS beobachtet, erinnert und führt aus.
-      Die iPhone-App ist dein Begleiter für Brain, Fäden, Maschinen, Nodes, Kanäle, Skills und Freigaben.
+      Die iPhone-App ist dein Begleiter für Brain, Fäden, Computer, Nodes, Kanäle, Skills und Freigaben.
       Terminal, Telegram, WhatsApp, MCP, HTTP und WebSocket sind weitere Zugänge — nicht jede Surface hat
       dieselbe Feature-Parität.</p>
+    </div>
+    <div class="download-list reveal" aria-label="Hunch herunterladen">
+      <div class="download-row"><div><span class="tag exp">TestFlight-Beta</span><strong>iPhone &amp; iPad</strong><p>Über Apples TestFlight installieren. Du erhältst die jeweils für externe Tester freigegebene Version; neue Quelländerungen sind nicht automatisch darin enthalten.</p></div><a class="btn btn-primary" href="https://testflight.apple.com/join/xEn2bN4v" rel="noopener noreferrer">In TestFlight öffnen</a></div>
+      <div class="download-row"><div><span class="tag next">In Vorbereitung</span><strong>Mac</strong><p>Die native App mit integrierter Runtime wird derzeit lokal getestet. Eine öffentlich installierbare, signierte und geprüfte Mac-Ausgabe gibt es noch nicht.</p></div><span class="download-unavailable">Kein öffentlicher Download</span></div>
+      <div class="download-row"><div><span class="tag next">In Vorbereitung</span><strong>Windows</strong><p>Die Desktop-App ist im Test. Ein öffentlich geprüfter Installer steht noch nicht bereit.</p></div><span class="download-unavailable">Kein öffentlicher Download</span></div>
     </div>
 
         <div class="specimen reveal" data-label="hub · capability register · specimen" style="max-width:32rem;margin-left:auto;margin-right:auto">
       <div class="hub-spec">
         <section class="hub-group" data-hub-group="jetzt"><h3 class="hub-group-title">Jetzt</h3><div class="hub-row" data-hub-route="freigaben"><div><strong>Freigaben</strong><span>Was auf deinen Ausweis wartet</span></div></div><div class="hub-row" data-hub-route="faeden"><div><strong>Fäden</strong><span>Was gerade nebenher läuft</span></div></div><div class="hub-row" data-hub-route="sitzung"><div><strong>Intention</strong><span>Was jetzt ansteht</span></div></div></section>
         <section class="hub-group" data-hub-group="verstehen"><h3 class="hub-group-title">Verstehen</h3><div class="hub-row" data-hub-route="brain"><div><strong>Brain</strong><span>Gedächtnis, Identität, Gespräche</span></div></div><div class="hub-row" data-hub-route="bildschirm"><div><strong>Bildschirm</strong><span>Was auf dem Rechner zu lesen war</span></div></div></section>
-        <section class="hub-group" data-hub-group="verbinden"><h3 class="hub-group-title">Verbinden</h3><div class="hub-row" data-hub-route="maschinen"><div><strong>Maschinen</strong><span>Computer verbinden und steuern</span></div></div><div class="hub-row" data-hub-route="kanaele"><div><strong>Kanäle</strong><span>Telegram, WhatsApp — Hunch erreichen</span></div></div><div class="hub-row" data-hub-route="nodes"><div><strong>Nodes</strong><span>Geräte im Hunch-Verbund</span></div></div></section>
+        <section class="hub-group" data-hub-group="verbinden"><h3 class="hub-group-title">Verbinden</h3><div class="hub-row" data-hub-route="maschinen"><div><strong>Computer</strong><span>Computer verbinden und steuern</span></div></div><div class="hub-row" data-hub-route="kanaele"><div><strong>Kanäle</strong><span>Telegram, WhatsApp — Hunch erreichen</span></div></div><div class="hub-row" data-hub-route="nodes"><div><strong>Nodes</strong><span>Geräte im Hunch-Verbund</span></div></div></section>
         <section class="hub-group" data-hub-group="werkzeuge"><h3 class="hub-group-title">Werkzeuge</h3><div class="hub-row" data-hub-route="skills"><div><strong>Skills &amp; MCPs</strong><span>Was die Runtime kann und darf</span></div></div><div class="hub-row" data-hub-route="apps"><div><strong>Apps</strong><span>Was Hunch an Apps kennt</span></div></div><div class="hub-row" data-hub-route="github"><div><strong>GitHub</strong><span>Agent-Repos suchen und installieren</span></div></div></section>
       </div>
     </div>
@@ -1255,7 +1267,7 @@ section[data-serial] > .wrap{position:relative;z-index:1}
         <li>Persistentes persönliches Gedächtnis</li><li>Observer &amp; Executive</li><li>Fäden</li>
         <li>Providerwahl, lokale &amp; Cloud-Modelle</li><li>SKILL.md, Python-Skills, MCP, REST, Harnesses</li>
         <li>Approvals, Risikoklassen, Budgets, Audit</li><li>Secure-Enclave-Identität, Gastisolation</li>
-        <li>Runtime, App, CLI, HTTP &amp; WebSocket</li><li>Brain-Sync, Maschinen, Nodes, Kanäle</li>
+        <li>Runtime, App, CLI, HTTP &amp; WebSocket</li><li>Brain-Sync, Computer, Nodes, Kanäle</li>
         <li>Work Live Activity, Telegram/WhatsApp</li>
         <li>Vorhaben mit Stand &amp; nächstem Schritt (Runtime, App, Agent-Werkzeuge, Abgleich)</li>
         <li>Automatische Verdichtung (alle 6 h, protokolliert)</li><li>Gelernte Skills aus Abläufen</li>
@@ -1276,7 +1288,7 @@ section[data-serial] > .wrap{position:relative;z-index:1}
         <li>Gemeinsamer Verlauf + Presence: App, Runtime, CLI, Web und Telegram spiegeln Gespräche; fremde Gespräche im Brain sehen und mit den letzten 30 Zeilen fortsetzen; Zustellung an die aktive oder erreichbare Oberfläche</li>
       </ul></div>
       <div class="col reveal"><h3><span class="tag exp">Experimentell</span></h3><ul>
-        <li>Apple Watch: Quellen für Freigaben, Arbeitsschritt, Sprache und Complication sind vorhanden; im aktuellen TestFlight-Build 151 ist keine Watch-App enthalten. Wiederanbindung und Gerätetest stehen aus</li>
+        <li>Apple Watch: Quellen für Freigaben, Arbeitsschritt, Sprache und Complication sind vorhanden; im extern freigegebenen TestFlight-Build 167 ist keine Watch-App enthalten. Wiederanbindung und Gerätetest stehen aus</li>
         <li>Freigeben/Ablehnen aus einer Push-Mitteilung: Code und APNs-Annahme sind belegt; der korrigierte Button auf Build ≥118 wartet auf E2E-Bestätigung</li>
         <li>Vorhersage-Push im Alltag: Erzeugung und Presence-Routing laufen, die tatsächliche Push-Zustellung ist noch nicht bestätigt</li>
       </ul></div>

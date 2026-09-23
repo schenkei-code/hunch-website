@@ -114,6 +114,13 @@ nav.over-ink .lang:hover{color:var(--ivory-50)}
 .btn-quiet{color:var(--ink-1000);padding:.8rem 1.2rem;min-height:48px;border:1px solid rgba(13,13,11,.4);border-radius:var(--r-action);background:transparent}
 .btn-quiet:hover{border-color:var(--ink-1000)}
 .btn-quiet:focus-visible,.btn-primary:focus-visible,a:focus-visible,button:focus-visible{outline:2px solid var(--gold-500);outline-offset:3px;border-radius:var(--r-action)}
+.download-list{margin:2rem auto 2.5rem;max-width:52rem;border-top:1px solid var(--security-line)}
+.download-row{display:flex;align-items:center;justify-content:space-between;gap:1.5rem;padding:1.25rem 0;border-bottom:1px solid var(--security-line)}
+.download-row strong{display:block;margin:.55rem 0 .2rem;font:700 1.1rem/1.2 var(--display)}
+.download-row p{font-size:.9rem;color:var(--dim);max-width:34rem}
+.download-row .btn{flex:0 0 auto;min-width:12rem}
+.download-unavailable{font:600 .7rem/1.4 var(--mono);letter-spacing:.04em;color:var(--stone-600);text-align:right}
+@media(max-width:600px){.download-row{align-items:flex-start;flex-direction:column;gap:.75rem}.download-row .btn{width:100%}.download-unavailable{text-align:left}}
 
 .menu-toggle{display:none;min-width:58px;min-height:44px;align-items:center;justify-content:center;border:1px solid currentColor;border-radius:var(--r-action);background:transparent;color:inherit;font:700 .68rem/1 var(--mono);letter-spacing:.08em}
 .mobile-menu{display:none;position:fixed;inset:calc(3.75rem + env(safe-area-inset-top)) 0 0;z-index:59;overflow-y:auto;overscroll-behavior:contain;background:var(--ivory-100);color:var(--ink);padding:1rem clamp(1rem,4vw,1.5rem) calc(2rem + env(safe-area-inset-bottom));border-top:1px solid var(--security-line)}
@@ -702,14 +709,14 @@ section[data-serial] > .wrap{position:relative;z-index:1}
     </div>
     <a class="lang" href="../" hreflang="de" lang="de">DE</a>
     <span class="nav-serial">intentional agent · owner bound · 2026</span>
-    <a class="nav-cta" href="mailto:schenkei@hunchagent.io?subject=Hunch%20Early%20Access">Early Access</a>
+    <a class="nav-cta" href="#apps">Try the beta</a>
     <button class="menu-toggle" type="button" data-mobile-menu-toggle aria-expanded="false" aria-controls="mobile-menu">Menu</button>
   </div>
 </nav>
 <div class="mobile-menu" id="mobile-menu" role="navigation" aria-label="Mobile primary navigation" hidden>
   <a href="#moment">Why Hunch</a><a href="#faeden">How Hunch acts</a><a href="#autoritaet">Safety</a><a href="#apps">Apps</a><a href="#status">Status</a><a href="../docs/index.html">Documentation</a>
   <a class="mobile-menu-meta" href="../" hreflang="de" lang="de">Deutsch</a>
-  <a class="mobile-menu-cta" href="mailto:schenkei@hunchagent.io?subject=Hunch%20Early%20Access">Early Access</a>
+  <a class="mobile-menu-cta" href="#apps">Try the beta</a>
 </div>
 
 <main id="main-content">
@@ -727,7 +734,7 @@ section[data-serial] > .wrap{position:relative;z-index:1}
         </div>
         <p class="lead">The agent that understands where your thinking goes next. Hunch builds a personal model from your memories, intentions, decisions and current context, recognises the next meaningful step — and acts only within the boundaries you set.</p>
         <div class="hero-actions">
-          <a class="btn btn-primary" href="mailto:schenkei@hunchagent.io?subject=Hunch%20Early%20Access">Request early access</a>
+          <a class="btn btn-primary" href="#apps">Try the beta</a>
           <a class="btn btn-quiet" href="#moment">See how it looks</a>
         </div>
         <div class="hero-meta">
@@ -1077,14 +1084,19 @@ section[data-serial] > .wrap{position:relative;z-index:1}
     <div class="head center">
       <span class="eyebrow reveal" data-no="12">One Hunch, several entry points</span>
       <h2 class="reveal">Not just an iPhone app.</h2>
-      <p class="lead reveal">The runtime on Mac, PC, Linux or VPS observes, remembers and executes. The iPhone app is your companion for Brain, threads, machines, nodes, channels, skills and approvals. Terminal, Telegram, WhatsApp, MCP, HTTP and WebSocket are further entry points — not every surface has the same feature parity.</p>
+      <p class="lead reveal">The runtime on Mac, PC, Linux or VPS observes, remembers and executes. The iPhone app is your companion for Brain, threads, computers, nodes, channels, skills and approvals. Terminal, Telegram, WhatsApp, MCP, HTTP and WebSocket are further entry points — not every surface has the same feature parity.</p>
+    </div>
+    <div class="download-list reveal" aria-label="Get Hunch">
+      <div class="download-row"><div><span class="tag exp">TestFlight beta</span><strong>iPhone &amp; iPad</strong><p>Install through Apple TestFlight. This provides the version approved for external testers; newer source changes are not included automatically.</p></div><a class="btn btn-primary" href="https://testflight.apple.com/join/xEn2bN4v" rel="noopener noreferrer">Open in TestFlight</a></div>
+      <div class="download-row"><div><span class="tag next">In preparation</span><strong>Mac</strong><p>The native app with bundled runtime is in local testing. A publicly installable, signed and verified Mac release is not available yet.</p></div><span class="download-unavailable">No public download yet</span></div>
+      <div class="download-row"><div><span class="tag next">In preparation</span><strong>Windows</strong><p>The desktop app is in testing. A publicly verified installer is not available yet.</p></div><span class="download-unavailable">No public download yet</span></div>
     </div>
 
         <div class="specimen reveal" data-label="hub · capability register · specimen" style="max-width:32rem;margin-left:auto;margin-right:auto">
       <div class="hub-spec">
         <section class="hub-group" data-hub-group="jetzt"><h3 class="hub-group-title">Now</h3><div class="hub-row" data-hub-route="freigaben"><div><strong>Approvals</strong><span>What waits for your credential</span></div></div><div class="hub-row" data-hub-route="faeden"><div><strong>Threads</strong><span>What runs alongside</span></div></div><div class="hub-row" data-hub-route="sitzung"><div><strong>Intention</strong><span>What's up next</span></div></div></section>
         <section class="hub-group" data-hub-group="verstehen"><h3 class="hub-group-title">Understand</h3><div class="hub-row" data-hub-route="brain"><div><strong>Brain</strong><span>Memory, identity, conversations</span></div></div><div class="hub-row" data-hub-route="bildschirm"><div><strong>Screen</strong><span>What could be read on the machine</span></div></div></section>
-        <section class="hub-group" data-hub-group="verbinden"><h3 class="hub-group-title">Connect</h3><div class="hub-row" data-hub-route="maschinen"><div><strong>Machines</strong><span>Connect and control computers</span></div></div><div class="hub-row" data-hub-route="kanaele"><div><strong>Channels</strong><span>Telegram, WhatsApp — reach Hunch</span></div></div><div class="hub-row" data-hub-route="nodes"><div><strong>Nodes</strong><span>Devices in the Hunch network</span></div></div></section>
+        <section class="hub-group" data-hub-group="verbinden"><h3 class="hub-group-title">Connect</h3><div class="hub-row" data-hub-route="maschinen"><div><strong>Computers</strong><span>Connect and control computers</span></div></div><div class="hub-row" data-hub-route="kanaele"><div><strong>Channels</strong><span>Telegram, WhatsApp — reach Hunch</span></div></div><div class="hub-row" data-hub-route="nodes"><div><strong>Nodes</strong><span>Devices in the Hunch network</span></div></div></section>
         <section class="hub-group" data-hub-group="werkzeuge"><h3 class="hub-group-title">Tools</h3><div class="hub-row" data-hub-route="skills"><div><strong>Skills &amp; MCPs</strong><span>What the runtime can and may do</span></div></div><div class="hub-row" data-hub-route="apps"><div><strong>Apps</strong><span>What Hunch knows about apps</span></div></div><div class="hub-row" data-hub-route="github"><div><strong>GitHub</strong><span>Find and install agent repositories</span></div></div></section>
       </div>
     </div>
@@ -1187,7 +1199,7 @@ section[data-serial] > .wrap{position:relative;z-index:1}
         <li>Persistent personal memory</li><li>Observer &amp; Executive</li><li>Threads</li>
         <li>Provider choice, local &amp; cloud models</li><li>SKILL.md, Python skills, MCP, REST, harnesses</li>
         <li>Approvals, risk classes, budgets, audit</li><li>Secure Enclave identity, guest isolation</li>
-        <li>Runtime, app, CLI, HTTP &amp; WebSocket</li><li>Brain sync, machines, nodes, channels</li>
+        <li>Runtime, app, CLI, HTTP &amp; WebSocket</li><li>Brain sync, computers, nodes, channels</li>
         <li>Work Live Activity, Telegram/WhatsApp</li>
         <li>Intentions with state &amp; next step (runtime, app, agent tools, sync)</li>
         <li>Automatic condensation (every 6 h, logged)</li><li>Skills learned from routines</li>
@@ -1208,7 +1220,7 @@ section[data-serial] > .wrap{position:relative;z-index:1}
         <li>Shared history + presence: app, runtime, CLI, web and Telegram mirror conversations; see external conversations in the Brain and continue with their last 30 lines; delivery goes to the active or reachable surface</li>
       </ul></div>
       <div class="col reveal"><h3><span class="tag exp">Experimental</span></h3><ul>
-        <li>Apple Watch: source code for approvals, work steps, voice and complications exists; current TestFlight build 151 does not include a Watch app. Reconnecting the targets and physical-device testing remain open</li>
+        <li>Apple Watch: source code for approvals, work steps, voice and complications exists; externally approved TestFlight build 167 does not include a Watch app. Reconnecting the targets and physical-device testing remain open</li>
         <li>Approve/decline from a push notification: code and APNs acceptance are proven; the corrected button on build ≥118 awaits end-to-end confirmation</li>
         <li>Prediction push in daily use: generation and presence routing run, but actual push delivery has not yet been confirmed</li>
       </ul></div>
