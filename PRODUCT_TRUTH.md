@@ -22,6 +22,267 @@ Bei iOS gilt: aktueller Swift-Code > HANDOFF.md > PLAN-INTENTIONAL.md > MEILENST
 „gebaut und getestet" — im Pocket-Target gibt es **null** StoreKit-Referenzen (HANDOFF.md §0).
 Daher: **kein Kauf-/Paywall-Feature auf der Website.**
 
+### Native Apps — lokales Update R178 (24.09.2026)
+
+**R191-Quellnachtrag, nicht ausgeliefert:** Direkte Voice-Aktionsbitten benötigen
+keine zusätzliche AUFGABE-Zeile des Textmodells mehr, um den ausführenden
+Agenten zu erreichen.103 fokussierte Tests grün; Live-/Audio-Endabnahme offen.
+25.09.-Quellkorrektur: Befehle mit Themenwörtern wie „Aufgaben“ werden nicht
+mehr als bloße Statusfragen eingeordnet. 868 Runtime-Tests grün; darunter
+ein authentifizierter Voice-Turn bis zum lokalen Werkzeugergebnis mit
+synthetischem Modell/Audio. Nicht live aktiviert, kein Geräte-Audio-PASS.
+Hintergrundgespräch: iOS-Opt-in im Quellstand experimentell implementiert,
+145 Lifecycle-Prüfungen und iOS-Debug-Build grün; kein Geräte-, WebRTC-
+Hintergrund- oder Auslieferungsnachweis. Nur bereits laufende, ausdrücklich
+freigegebene Gespräche bleiben beim App-Wechsel bestehen; kein automatischer
+Neustart nach Abbruch und kein ganztägiger Hörmodus. Neue rückfragefreie
+Besitzeraufträge bleiben offen. Kein neuer HEUTE-Claim und keine zusätzliche
+öffentliche Freigabe.
+
+**Liefernachtrag24.09.:** iOS1.6(179) mit diesem Hintergrund-Opt-in direkt
+als signiertes Development-Update auf dem Besitzer-iPhone installiert;
+Geräterückmeldung bestätigt179. Kein TestFlight-/Store-Upload dieser Version,
+keine physische Hintergrund-WebRTC-Abnahme und kein HEUTE-Claim.
+Folgenachtrag: iOS180 direkt installiert, Settings-Navigation repariert und
+Hintergrundgespräch am Besitzer-iPhone per UI aktiviert/ausgelesen. Das belegt
+den Schalter, weiterhin keine unterbrechungsfreie Hintergrund-Audiositzung.
+
+**R190-Zwischenstand:** Vorab-Freigabe-API auf der Checkout-Runtime aktiviert,
+Live-Revision und Besitzergrenzen geprüft,852 Tests grün. Vollständiges Mac178
+im privaten lokalen Updatekanal, nicht installiert; signiertes iOS1.6(178)
+erfolgreich hochgeladen und als interne/externe TestFlight-Beta bestätigt
+(VALID, APPROVED, IN_BETA_TESTING). Keine physische Geräteabnahme daraus ableiten.
+Tagesanalyse hat nur eine getestete interne Evidenzkomposition,
+keine Aufnahme oder automatische Abendzustellung. Kein öffentlicher Release.
+
+**Freigaben-Verwaltung R187 — EXPERIMENTELL, nicht ausgeliefert:** Im Quellstand
+können Besitzer bereits unterstützte Dauerfreigaben je Computer vor einer
+Anfrage verwalten und widerrufen. Native iOS/Mac- und Windows-Oberflächen gebaut;
+842 Runtime- und3021 Windows-Tests grün. Keine Live-Aktivierung/Installation oder
+physische UI-Abnahme. Kein uneingeschränkter Autonomiemodus, keine Tagesaufnahme,
+keine neue Telefon-/Bildschirmfreigabe. Vollständige Surface-Parität noch offen;
+keine öffentliche HEUTE-Anhebung oder Änderung der Website-Matrix.
+
+**Voice-Router R185:** Direkte natürliche Aufträge, Uhrzeit- und Statusfragen
+werden auf der laufenden Checkout-Runtime ohne zusätzlichen Modellhinweis
+übernommen.838 Tests grün und Live-Revision geprüft; tatsächlicher hörbarer
+Auftrag mit Computerergebnis noch nicht abgenommen. Voice bleibt EXPERIMENTELL,
+öffentliche Einreichung zurückgestellt; keine neuen Website-Claims.
+
+**Neuerer Teil-Lieferstand R184:** iPhone1.6(177) installiert, zurückgelesen und
+gestartet. Begrenzter Brain-Sync in Runtime/nativen/Windows-Quellen umgesetzt;
+829 Runtime-Tests und3012 Windows-Tests grün. Passender Checkout-Dienst aktiv,
+Mac-Bundle weiter175 und Windows nicht neu paketiert. Signiertes Archiv177 zu
+Apple hochgeladen; Verarbeitung und öffentliche Review-Freigabe nicht belegt.
+DE/EN-Store-Entwürfe aktualisiert, keine neuen öffentlichen HEUTE-Claims.
+Offene frühere Binärdatei-Ablehnung und Geräte-/Voice-Endabnahme bleiben offen.
+
+**Neuerer Teil-Lieferstand R183:** iPhone1.6(176) als Update installiert,
+zurückgelesen und gestartet; passende laufende Runtime aktiviert,825 Tests
+und Live-Schutzgrenzen bestätigt. Mac-Bundle bleibt175, Windows nicht neu
+paketiert. Signiertes iOS176-Archiv vorhanden, kein Upload oder öffentlicher
+Release wegen offenem P3-Brain-Sync-Gate; keine neue Voice-Endabnahme.
+
+Mac 1.6 (175) mit vollständiger integrierter Runtime lokal signiert über den
+Updatekanal installiert und gestartet. iPhone175 als direkte Development-
+Aktualisierung derselben App erfolgreich installiert; Startprüfung durch
+Gerätesperre blockiert, nachträgliches Versions-Readback nicht gelungen.
+Keine Deinstallation oder Datenresets. Gebündelter und laufender Runtime-
+Fingerprint stimmen überein. Kein öffentlicher Download-/Store-/TestFlight-
+Release und keine vollständige Voice-Abnahme. Transkript-Reihenfolge,
+Einzel-Drafts und Dubletten nativ/Windows korrigiert und isoliert getestet;
+native Orb-Bewegung respektiert Reduce Motion. Präzise Quicksilver-Audio-
+Signale, Hörtest und ein sichtbar kollabierender Mac-Orb bei kleiner Sheet-
+Höhe bleiben offen. Voice weiter EXPERIMENTELL, keine HEUTE-Anhebung.
+Der R174-Kontextfehler wurde in R177 korrigiert. Quellen: PROGRESS R177/R178.
+
+### Health-Dashboard mit Scoring — AKTIV IM GOAL (P3), Umsetzung nicht begonnen (Stand 26.09.2026)
+
+Aktives Arbeitspaket des laufenden Goals (P3 Tagesbegleitung), Umsetzung
+nicht begonnen. Datenquellen, Score-Arten und
+Berechnung sind noch festzulegen. Bestehende Health-Anbindungen belegen
+kein fertiges Dashboard oder validiertes Scoring. Kein aktuelles Feature-
+oder medizinisches Wirkversprechen, keine Veröffentlichung aus diesem
+Eintrag; kein Website-Claim über EXPERIMENTELL hinaus.
+Quelle: GOAL.md (P3); PROGRESS R175; GOAL-CHECKLISTE 26.09.2026.
+
+### Chat-/Voice-Kontext R174 → R177 — Korrektur geprüft (24.09.2026)
+
+Der belegte Fehler bei der Verlaufsauswahl ist behoben: aktueller begrenzter
+Kontext, an die auslösende Nutzerfrage gebunden, mit gültiger Antwortreferenz.
+Überlappende/leere/verspätete Anfragen und große Verläufe getestet; korrigierte
+Runtime aktiviert und Kontext/Index am echten Datenbestand rein lesend
+geprüft. Voice-Statusmeldungen folgen realen Ereignissen, bleiben geordnet,
+ersetzen überholte Zwischenstände und prüfen Freigaben beim Versand erneut.
+816 Runtime-Tests grün. Das belegt weder eine hörbare Endabnahme noch das
+vollständige Ende aller Provider-Wartesätze. Importiertes Gedächtnis/R172
+bleibt separat offen; Voice-Status weiter EXPERIMENTELL. Windows-Anzeige-
+parität ist im geprüften Quellstand nachgezogen, kein neuer Installer.
+Quelle: PROGRESS R177. Keine pauschale HEUTE-Anhebung.
+
+### Voice-Nachtrag R173 — EXPERIMENTELL (23.09.2026)
+
+Ein weiterer Übergabefehler wurde behoben: natürlich formulierte Nutzer-
+bitten außerhalb des engen Befehlsmusters können über eine exakt passende
+Delegation zum Agenten gelangen. Nur authentifizierter Originaltext wird
+übernommen; Stopp, Widerruf, Ablauf und neuere Äußerungen verhindern
+verspätete Ausführung. 761 Runtime-Tests bestanden, korrigierter privater
+Dienst mit passendem Quell-Fingerprint und unveränderter Besitzergrenze
+aktiviert. Kein neuer App-Build. Eigenständige Voice-Vorspänne sind dadurch
+nicht technisch ausgeschlossen; keine hörbare Besitzer-Endabnahme und
+keine Behauptung „Wartesätze vollständig behoben“. Quelle: PROGRESS R173.
+
+### Gedächtnis-Audit R172 — Aussagegrenze (23.09.2026)
+
+Vorhandener Brain-Sync ist kein Nachweis eines vollständigen importierten
+Gedächtnisses. Alte Computerimporte liegen in einem Ereignisarchiv, das
+der Brain-Abgleich und die normale Gedächtnissuche nicht direkt lesen.
+Daneben bestehen getrennte lokale Brain-/Identitätsspeicher; ein neuer
+Anbieter-Dateiimport löst nicht unmittelbar den App-Abgleich aus. Keine
+Behauptung, alle importierten Erinnerungen seien bereits auf allen Geräten
+oder in Voice verfügbar. Der bestehende unpaginierte Sync ist für große
+Importe ein offener Performanceblocker. Quelle: PROGRESS R172 und Menüaudit;
+keine neue Auslieferung oder Anhebung öffentlicher Statuslabels.
+
+### Voice-Nachtrag R171 — EXPERIMENTELL (23.09.2026)
+
+Voice-Fäden melden jetzt nur tatsächliche Erstellung, echten Tool-Start,
+eine wirklich offene Freigabe und ein persistiertes Ergebnis/Fehler; Stopp
+widerruft zugehörige Arbeit. Die vollständige Runtime-Suite hat 749 Tests
+bestanden; die private laufende Revision `source-67a1a11b47523545`
+entspricht dem Quellstand. Authentifizierter `/status` lieferte 200/gzip und
+private No-Store-Header, unbefugte Voice-Turns 401, Master-Token 403.
+Ein signiertes Development-Update 1.6 (173) derselben iPhone-App ist direkt
+installiert und vom Gerät zurückgelesen, **nicht** in TestFlight. Die App
+ließ sich vom Computer wegen gesperrtem iPhone nicht starten; hörbares Voice
+und Aktivierungswort auf echter Hardware bleiben unbestätigt. `Mithören`
+gilt nur für die bewusst gestartete sichtbare Sitzung, das lokale
+Aktivierungswort nur im Vordergrund. Kein Hintergrund-Dauermikro, kein
+OS-weites Lauschen, keine echten tätigkeitsabhängigen Tastatur-/Seufz-
+Geräusche als ausgeliefert behaupten. Mac-Quellstand kompiliert, installierte
+App weiter 167; Windows-Quellstand getestet/gebaut, kein Installer.
+Öffentliche Produktlabels unverändert. Quelle: PROGRESS R171.
+
+### Voice-Nachtrag R170 — EXPERIMENTELL (23.09.2026)
+
+Nach erneuter Nutzerbeobachtung von Wartesätzen wurde die GPT-Live-
+Sitzungsanweisung geändert: Hunch-bezogene Arbeit delegiert still und
+höchstens einmal, wartet auf ein echtes Agentenergebnis, allgemeine Fragen
+werden direkt beantwortet. 48 Voice-Tests und die vollständige Runtime-
+Suite (747 bestanden, Exit 0) sind grün. Der private laufende Dienst hat den
+passenden Fingerprint `source-addd658ee3a3e628`; `/status` antwortet 200
+mit gzip und privatem No-Store, Voice ohne Besitzercredential 401 und mit
+Master-Token 403. Eine hörbare neue Besitzer-Sprachsitzung ist noch nicht
+bestätigt, deshalb weder „Wartesätze endgültig behoben“ noch erfolgreiche
+Mac-Handlungen als öffentliche Tatsache darstellen. iPhone 1.6 (172) bleibt
+direkt installiert; kein neuer TestFlight-/Mac-/Windows-Release aus R170.
+Aktivierungswort, verlässliches Hintergrundgespräch und OS-weites
+„Mithören“ sind **nicht ausgeliefert**. Quelle: PROGRESS R170.
+
+### Voice-Nachtrag R169 — EXPERIMENTELL (23.09.2026)
+
+Ein Screenshot zeigte eine Modell-Delegations-Sprechschleife. In der privaten
+Runtime bleibt `delegation.created` nun stumm; nur ein authentifizierter,
+finaler Nutzerturn darf den Hunch-Agenten starten. 48 fokussierte Voice-Tests
+und die nach dem Fix erneut ausgeführte Runtime-Gesamtsuite (747 bestanden,
+Exit 0) sind grün. Der laufende Dienst hat den passenden Quell-Fingerprint
+`source-9c5faf0c225cff12`; `/status` liefert 200 mit gzip und privaten
+No-Store-Headern, Voice ohne Token 401 und mit Master-Token 403. Der
+notwendige Neustart unterbrach eine bereits laufende Voice-Sitzung; deren
+sichtbare Fehlermeldung ist kein Nachweis eines erfolgreichen Wiederanlaufs.
+
+iPhone 1.6 (172) ist signaturgültig als Development-Update derselben App
+direkt installiert, zurückgelesen und gestartet. Charon-/Sharon-Ausgabefilter
+sind im nativen Build angepasst; ein hörbarer Gerätetest fehlt. Die rohe
+Mac-Xcode-Debug-Ausgabe 172 enthielt keine gebündelte `HunchRuntime`;
+ein separat vervollständigtes lokales Development-Paket mit funktionierendem
+Runtime-Import, passendem Quell-Fingerprint und strenger Signaturprüfung
+liegt jetzt bereit, wurde aber weder installiert noch öffentlich oder über
+den lokalen Updatekanal verteilt. Auf diesem Mac bleibt 167. Der Windows-
+Quellstand besteht Tests,
+Typecheck und Build, aber kein neuer Installer wurde verteilt. Kein
+TestFlight-Upload von 172, kein öffentlicher App-Store-/Mac-Release,
+kein bestätigter Voice-Retry oder Voice-zu-Mac-Endtest. Öffentliche
+Produktlabels bleiben unverändert; Quelle und genaue Grenzen: PROGRESS R169.
+
+### Voice-/App-Abgleich R168 — EXPERIMENTELL (23.09.2026)
+
+Hunch 1.6 (171) wurde als signiertes Development-Update derselben Bundle-ID
+direkt auf Dominiks verbundenem iPhone installiert, gestartet und dort mit
+zugänglichem bestehendem App-Container zurückgelesen. Es ist **kein
+TestFlight-Upload**;
+die öffentlich verlinkte Beta wird dadurch nicht aktualisiert. Native
+iOS-/Mac-App und Windows haben im geprüften Quellstand die Voice-Turn- und
+Stimmen-/Stilsteuerung. Die laufende private Runtime hat den passenden
+Quell-Fingerprint und `api_contract: 1`; Client-Verbindung und Voice-Start
+prüfen ihren jeweiligen Vertrag. Live geprüft: privater Listener,
+`/status` 200 mit gzip/No-Store, unbefugte Voice-/Graph-Zugriffe 401 und
+Master-Token bei Voice 403. Der nach Neustart sichtbar gewordene MCP-
+Reader-Startfehler ist korrigiert und gezielt getestet. Die vollständige
+Runtime-Suite wurde danach erneut ausgeführt: 745 bestanden, Exit 0; auch
+der gezielte Reader-Test ist grün. `hunch doctor` bleibt bei `ausloeser` rot,
+ohne automatische Besitzerfreigabe.
+
+Ein echtes hörbares GPT-Live-Gespräch auf dem iPhone, die Stimme/Filter,
+Hunch-Erinnerungen im Gespräch und Voice-zu-Mac-Handlungen sind **nicht**
+Ende-zu-Ende bestätigt. Native Mac- und Windows-Binaries wurden aus diesem
+Stand nicht neu verteilt; eine öffentliche native Mac-Ausgabe bleibt an
+Distribution-Signing und Sandbox-Prüfung gesperrt. Kein neues HEUTE-Label,
+keine öffentliche App-Store-Einreichung oder Mac-Download-Behauptung.
+Nachweis und Grenzen: PROGRESS R168; frühere Abschnitte unten sind datierte
+Zwischenstände, nicht die aktuelle Auslieferungsbehauptung.
+
+### Website-Downloads R167 — EXPERIMENTELL (23.09.2026)
+
+Die öffentliche iPhone-/iPad-TestFlight-Einladung antwortet mit HTTP 200;
+iOS 1.6 (167) ist bei Apple VALID, Beta-Review APPROVED und in der aktivierten
+öffentlichen Gruppe „Sofort-Tester“. Die DE/EN-Beta-Beschreibung ist vom alten
+Pocket-Text auf Hunch korrigiert und per API erneut gelesen. Der Website-
+Quellstand verlinkt diese Beta, markiert Mac und Windows aber ausdrücklich
+ohne öffentlichen Download: für Mac fehlt Developer-ID-Signatur/Notarisierung,
+für Windows ein geprüfter Installer. Kein öffentlicher App-Store-Release und
+kein Nachweis einer Geräteinstallation durch den Link. Nachweis: App Store
+Connect Build-/Gruppen-API, Apple-Einladungsseite und Website-Check 23.09.
+
+### Wallet-CSV R166 — EXPERIMENTELL (23.09.2026, nur Quellstand)
+
+Die bisherige Grenze von 2 MB/500 Einträgen entfällt für lokale Apple-/
+Google-Passwort- und generische API-Schlüssel-CSV in iOS, nativem Mac und
+Windows. Streaming statt vollständigem Einlesen, begrenzte Vorschau und
+paginierte Wallet-Liste; Geheimnisse bleiben auf dem Gerät. Native Keychain
+und indizierte SQLite-Metadaten mit sicherer Migration/Importsitzung,
+Windows verschlüsselte Zeilen mit HMAC-Dublettenindex und Abbruch-Rollback.
+Native 25.000 synthetische Zeilen über 2 MB, Windows 1.000 über 2 MB sowie
+Builds/Tests grün. Einzelne Felder und Spalten haben Schutzgrenzen; Windows
+kann über die ersten 100 Vorschauzeilen hinaus derzeit nur alle Einträge
+zusammen übernehmen. Passkeys, TOTP und freie Notizen werden durch CSV nicht
+importiert. Keine echte Besitzerdatei, Installation oder neue TestFlight-
+Ausgabe als Nachweis; keine öffentliche HEUTE-Anhebung. Historische R158-
+Zeilen weiter unten nennen den damaligen 2-MB-/500-Stand. Quelle und
+Restgrenzen: PROGRESS R166.
+
+### Chat/Voice R165 — EXPERIMENTELL (23.09.2026, nur Quellstand)
+
+Die native iPhone-/Mac-App bietet im neuen Quellstand GPT-Live-1-Stimmen,
+Sprechweisen, Modell- und Denkstufenwahl sowie Ziele, Planmodus und Freigaben
+vom Chat aus. Der Runtime-Agentendraht für GPT-Live wird besitzergebunden
+geführt; Web/CLI und Windows haben getrennte, werkzeuglose Abo-Modellwege.
+Web-Freigaben sind nur lesend. Auch Windows hat jetzt einen echten, nur lokal
+gebauten GPT-Live-WebRTC-Client mit neun Stimmen und drei Stilen; Audio-/Abo-
+Endtests fehlen. Der Agent akzeptiert nur bestätigte Nutzertranskripte,
+Widerruf beendet den Zugang auch nach einem langen Verbindungsaufbau. Der
+native Planmodus führt keine Hunch-Werkzeuge/Erinnerungen aus und schreibt
+nicht in die gemeinsame Session. 705 Runtime-Tests, 2.946 Windows-Tests,
+666 Lokalisierungschecks und native Debug-Builds grün. Der neue Code läuft
+noch nicht nachweislich auf der privaten Runtime oder auf Testgeräten;
+kein echter Voice-/Geräte-Endtest, kein TestFlight-/Mac-Update und kein
+öffentlicher Release.
+Custom-Voice-Erzeugung über einen zusätzlichen API-Key wurde nicht eingebaut.
+Produktstatus und öffentliche Labels bleiben unverändert. Quellen:
+`voice.py`, `chat.py`, `llm.py`, `weboberflaeche.py`, `cli.py`, native
+`VoiceEngine.swift`/`ChatView.swift`, Windows `Home.tsx`/`geminiClient.ts`;
+Grenzen und Prüfungen: PROGRESS R165.
+
 ### Computer-Vorschau R163 — EXPERIMENTELL (23.09.2026)
 
 Die lesende Computer-Vorschau blockiert nicht mehr den Runtime-Eventloop:
@@ -360,12 +621,22 @@ Das öffentliche Update bleibt davon getrennt und ist nicht freigegeben.
   HUNCH_APPROVAL mit Freigeben (Face ID)/Ablehnen ist im App-Code vorhanden; APNs nahm den Server-Push
   mit 200 an. Der Action-Handler wurde ab Build 118 korrigiert, aber ein echter Button-Tipp auf Build ≥118
   wurde noch nicht bestätigt. Spiegelung und Aktion auf einer echten Apple Watch sind ebenfalls offen.
-- **Profil = Credential-Hub — HEUTE (Build 99):** Ausweis, Nachweise (HID/Secure Enclave, World ID, vertrauende Maschinen), Wallet, Profile.
-- **World ID Human in the Loop — HEUTE (2026-08-22):** Runtime `world_id.py` + Sidecar (offizielles IDKit): `GET /world`,
+- **Profil = Credential-Hub — HEUTE (Build 99):** Ausweis, Nachweise (HID/Secure Enclave, Hunch ID, vertrauende Maschinen), Wallet, Profile.
+- **AUFGEHOBEN 2026-09-26: World ID komplett verworfen.** Dominik hat World ID
+  durch **Hunch ID** ersetzt (Face ID/Touch ID + Secure Enclave, vollständig in
+  der App; „Erlauben" am Authority Gate verlangt den Gerätebesitzer-Nachweis).
+  Alle World-UI ist entfernt, die Runtime-Umgebung world-frei; die folgenden
+  World-Absätze sind Historie.
+- **World ID Human in the Loop — HISTORIE (2026-08-22):** Runtime `world_id.py` + Sidecar (offizielles IDKit): `GET /world`,
   `POST/GET /approvals/{id}/world`; Proof an Action `authority-approve` + RP-signierte Nonce gebunden, Verify gegen
   `developer.world.org/api/v4/verify/{rp_id}`, Replay-Schutz, Audit mit bestätigtem Credential-Typ,
   aber ohne Proof-/Nonce-/Nullifier-Rohdaten. Live bestätigt 2026-08-22 13:06 (proof_of_human).
-  App: Button „Mit World ID bestätigen" seit Build 98 in TestFlight (Freigaben-Kachel). World ist optional — Ausweis/App bleiben Standard.
+  App: Button „Mit World ID bestätigen" seit Build 98 in TestFlight (Freigaben-Kachel).
+  **Historischer Stand:** World als Zweitweg, Ausweis/App als Standard.
+  **Neuer Hauptweg R132, 20.09.2026 — EXPERIMENTELL:** World primär,
+  Gerätebestätigung bewusst alternativ. Quellumbau umgesetzt, Mac 163 lokal
+  ausgeliefert; iOS 162 nur signiert kompiliert. Der neue World-App-/
+  Mehrgeräteablauf ist noch nicht physisch end-to-end bestätigt.
 - **Vorhaben (1.8) — HEUTE (2026-08-21):** Runtime `goals` mit `stand`/`next_step`, Tools list_goals/add_goal/update_goal,
   `add_task(goal=…)` verknüpft Schritt ↔ Vorhaben, `/vorhaben` (Ausweis-gated), Abgleich über `/brain/sync`
   (jüngerer Stand gewinnt); App: BrainGoal.stand/nextStep (Schema v2), Bearbeiten in der Zielzeile, MCP get_goals.
@@ -424,9 +695,13 @@ Keine erfundenen Endpoints auf der Website oder in der Doku.
 
 ---
 
-### Relay (1.6) — NICHT GEPLANT (Entscheidung Dominik 2026-08-21: kein Hosting)
-Kein gehosteter Relay-Dienst. Erreichbarkeit von unterwegs = Tailscale-Adresse + TLS + Token
-(siehe Loslegen). Auf der Website nicht als „Als Nächstes" führen.
+### Relay (1.6) — NICHT GEPLANT (bestätigt 20.09.2026, Runde 127)
+Kein von Hunch gehosteter Relay-Dienst. Der bisher dokumentierte private
+Zugang nutzt Tailscale-Adresse + TLS + Token (siehe Loslegen), ist aber keine
+Pflichtarchitektur für alle Nutzer. Zielbild: denselben einfachen Ablauf
+auch für andere sicher eingerichtete eigene Zugänge anbieten. Neue Wege
+erst nach Implementierung und Abnahme als verfügbar bezeichnen. Einen
+Hunch-Relay auf der Website nicht als „Als Nächstes" führen.
 
 ## App / iOS — verifiziert (branch health-sync)
 
@@ -436,6 +711,14 @@ Kein gehosteter Relay-Dienst. Erreichbarkeit von unterwegs = Tailscale-Adresse +
 intern ist er in beiden TestFlight-Gruppen verfügbar. Noch kein Produktions-Submit
 und keine öffentliche Veröffentlichung. Aktuelle anonyme Storebilder und gemeinsame
 Endabnahme bleiben offen. Der folgende 1.5.1/146-Stand ist der vorherige Nachweis.
+
+**Nachtrag Stand 26.09.2026 (R184):** Die bestehende Review-Einreichung steht
+auf `UNRESOLVED_ISSUES`, ihr Element auf `REJECTED` (ungültige Binärdatei des
+alten Kandidaten; Apples Detailbegründung nicht ausgelesen). Der öffentliche
+1.6-Entwurf trägt weiterhin Build 147 und bleibt `PREPARE_FOR_SUBMISSION`
+mit `AFTER_APPROVAL`; die zwischenzeitlich hochgeladenen TestFlight-Builds
+(bis 182) sind ihm nicht zugeordnet. Kein Produktions-Submit, keine
+öffentliche Veröffentlichung. Quelle: PROGRESS R184.
 
 App Store Connect bestätigt iOS 1.5 als `READY_FOR_SALE`. Der bestehende Update-Entwurf
 1.5.1 verwendet jetzt Build 146 statt Build 125; sein Status wechselte von
@@ -657,14 +940,43 @@ separater freigabe-Case). Zeigt Fortschrittsbalken, selbstlaufende Laufzeituhr (
 Deep-Link `pocket://chat`. Zweite (Voice) Live Activity existiert ebenfalls.
 Quelle: `HunchWidgets/WorkLiveActivity.swift`, `AI/WorkLiveActivityController.swift`.
 
-### Voice — HEUTE (ehrlich)
-Voice nimmt Audio auf dem Gerät auf; die Gesprächsverarbeitung läuft wahlweise
-über Gemini Live mit Nutzer-Key oder über die verbundene Runtime-/S2S-Brücke.
-`UIBackgroundModes` enthält `audio`; die Audio-Session unterstützt Bluetooth,
-A2DP und AirPlay. Siri/CarPlay kann die App über „Sprich mit Hunch“ öffnen und
-Voice sofort starten. Hunch startet weiterhin kein Gespräch autonom aus dem
-Hintergrund; proaktive Signale kommen per APNs.
-Quelle: `VoiceSettingsView.swift`, `VoiceEngine.swift`, `VoiceIntents.swift`, `Info.plist`.
+### Voice — implementiert, Realtime-Audio-Abnahme offen (22.09.2026)
+TestFlight 1.6 (165) enthält ChatGPT Realtime über WebRTC/Opus und die
+vorhandene Computerverbindung; Codex-OAuth bleibt auf dem Computer. Daneben
+bestehen die ausdrücklich gewählten Gemini-/Runtime-Brückenwege. Kein
+stiller Anbieterwechsel bei einem Fehler. Vor Audio/Netzwerk steht die
+Gesprächsfreigabe; Siri öffnet diesen Einstieg, nicht eine sofortige Aufnahme.
+Im signierten Build 165 fehlen `UIBackgroundModes=audio`, CarPlay-Scene und
+CarPlay-Entitlement; der Telefon-Screen beendet Voice beim Verlassen/Hintergrund.
+Der frühere Text versprach deshalb zu viel. Ein Siri-Shortcut oder Bluetooth-
+Routing ist kein Nachweis einer CarPlay-App. Bidirektionales Realtime-Audio
+und Geräteunterbrechungen bleiben physisch abzunehmen.
+Quelle: signiertes 165-Paket, `VoiceScreen.swift`, `VoiceEngine.swift`,
+`RealtimeVoiceTransport.swift`, `VoiceIntents.swift`; PROGRESS R155/R156.
+
+**Korrektur Stand 26.09.2026:** Die Aussage zu `UIBackgroundModes=audio` oben
+beschreibt nur den damaligen Build 165. Im aktuellen Quellstand ist der
+Hintergrund-Modus `audio` vorhanden (PROGRESS R191), und seit Build 180 gibt
+es ein ausdrückliches Hintergrund-Opt-in in den Voice-Einstellungen, am
+Besitzer-iPhone per UI aktiviert und zurückgelesen. Eine unterbrechungsfreie
+Hintergrund-/Sperrbildschirm-Audiositzung ist weiterhin nicht physisch
+abgenommen; CarPlay-Entitlement fehlt unverändert. Voice bleibt
+EXPERIMENTELL, keine HEUTE-Anhebung.
+
+### CarPlay Voice — EXPERIMENTELL, Quellstand, nicht ausgeliefert (22.09., R157)
+Apples Sprachvorlage für iOS 26.4+ mit Start/Freigeben/Sprechen/Beenden,
+gemeinsamem Session-Besitzer und begrenzten Statuswechseln implementiert.
+Keine Chattexte auf dem Autodisplay, kein Chatverlauf an das CarPlay-Gespräch,
+kein automatisches Mikrofon. Eigene CarPlay-Sitzung bleibt vom Verlassen des
+Telefon-Screens unabhängig; Stop/Trennen/Unterbrechung beendet die Aufnahme.
+Neue Signierungsprüfung verlangt echte CarPlay-Berechtigung in App und Profil.
+Die aktuelle App-ID hat diese Fähigkeit noch nicht aktiviert. Antrag/Addendum
+nicht eingereicht/angenommen; Apple-Freischaltung, neues Profil und echte
+Kaltstart-/Audio-Abnahme mit gesperrtem iPhone bleiben offen. Insbesondere
+WebKit-Aufnahme ohne offenen Telefon-Screen ist noch kein belegter Erfolg.
+Kein neuer TestFlight-/App-Store-Upload; 165 bleibt der ausgelieferte Stand.
+Quelle: `Voice/CarPlayVoice.swift`, `Voice/VoiceSession.swift`,
+`scripts/carplay_preflight.py`, `docs/CARPLAY.md`; PROGRESS R157.
 
 ### Identität / Secure Enclave — HEUTE
 EC-P-256-Schlüssel in der Secure Enclave (`kSecAttrTokenIDSecureEnclave`), biometrisch
@@ -1564,3 +1876,262 @@ angezeigte Siegel freigeben. Erst danach kann ein echter End-to-End-Nachweis
 für Mac-Mitteilung und Freigabe erfolgen. Der installierte Build ist weder
 notarisiertes DMG noch Mac-App-Store-/TestFlight-Paket; keine HEUTE-
 Kennzeichnung wurde daraus abgeleitet.
+
+## Wiederverbindung und Nähe-Suche — lokal geprüft, nicht ausgeliefert (20.09.2026, Runde 116)
+
+Die native iOS-/Mac-App deklariert den für Geräte in der Nähe verwendeten
+Bonjour-Dienst jetzt auch in den App-Metadaten und der Projektvorlage. Ein
+Suchfehler wird nicht mehr pauschal als verweigerte Berechtigung ausgegeben.
+Der Anmeldedialog startet keine unbeantwortbare Anfrage automatisch: Besitzer
+können ihren bereits vorhandenen Ausweis direkt nachweisen, auch wenn auf
+keinem Gerät mehr eine Maschine gespeichert ist. Neue Geräte bleiben beim
+gesonderten Freigabeweg.
+
+Dieser Wiederverbindungsweg prüft den bereits hinterlegten Besitzer-Schlüssel;
+er ersetzt keine verlorene Identität und setzt nichts zurück. Nachweise sind
+kurzlebig, einmalig, mengenbegrenzt und nicht cachebar. Sieben neue Krypto-/
+HTTP-Tests und die Runtime-Suite (551 Tests) bestanden; native Mac-/iOS-SDK-
+Builds und der Bonjour-Eintrag in beiden gebauten Paketen geprüft. Noch kein
+TestFlight-Upload oder Runtime-Deploy dieser Korrektur, kein physischer
+Nachweis für Face ID oder den iOS-Netzwerkdialog. Kein HEUTE-Status.
+
+## Wiederverbindung — internes TestFlight geliefert, Runtime-Deploy offen (20.09.2026, Runde 117)
+
+iOS 1.6 (157) enthält die Korrekturen aus Runde 116 und ist in beiden internen
+TestFlight-Gruppen verfügbar (`VALID`/`IN_BETA_TESTING`, signiertes Archiv mit
+produktiver Push-Berechtigung, DE/EN-Testhinweise nachgelesen). Kein öffentlicher
+Store-Release und keine neue externe Beta-Review.
+
+Das native Mac-Development-Paket einschließlich der aktualisierten Runtime
+ist gebaut und geprüft, aber noch nicht installiert: Der App-Austausch wurde
+vor jeder Veränderung gestoppt, weil das normale Beenden der bisherigen App
+abgebrochen wurde. Deshalb ist die neue Wiederverbindungsroute noch nicht in
+der laufenden Runtime vorhanden. Pakettests sind kein Live-Nachweis; Face ID,
+iOS-Netzwerkdialog und vollständige Geräteverbindung bleiben offen. Kein
+HEUTE-Label und kein allgemeines Versprechen einer fertigen Ersteinrichtung.
+
+## Native Mac-Auslieferung lokal erfolgt (20.09.2026, Runde 119)
+
+Das geprüfte native Mac-Development-Paket 1.6 (157) einschließlich aktualisierter
+Runtime ist jetzt lokal installiert und gestartet. Signatur und Live-Erreichbarkeit
+sind geprüft; der Wiederverbindungs-Endpunkt verweigert beim noch leeren
+Besitzerstand wie vorgesehen mit 409. Das ist kein Nachweis einer abgeschlossenen
+Ersteinrichtung oder erfolgreichen Geräteverbindung. Face ID und echte
+Mitteilungsfreigabe bleiben offen. Fehlende explizite No-Store-Header bei
+Identity-Zustand und dem 409-Fehlerpfad sind als offene Prüfung dokumentiert.
+Kein öffentliches Mac-App-Store-/DMG-Paket, kein neuer iOS-Upload, kein HEUTE-Label.
+
+## Erste Maschine vor Ausweis — Teststand (20.09.2026, Runde 121)
+
+Die native Profilansicht erstellt keinen Ausweis mehr allein beim Öffnen.
+Zuerst wird eine authentifizierte Maschinenverbindung geprüft. Die lokale
+Mac-Ersteinrichtung benötigt kein bereits verbundenes zweites Gerät und
+verwendet ausschließlich die private Konfiguration dieses Macs. Eine schon
+vorhandene Besitzeridentität kann sie nicht ersetzen. Neue iPhone-Verbindungen
+werden anschließend in der Mac-Zentrale freigegeben; Verbindungsfehler erscheinen
+nicht mehr fälschlich als Erfolg. Die Texte sind deutsch und englisch vorhanden.
+
+Mac 1.6 (158) lokal als signierte Development-Ausgabe installiert, Oberfläche
+und private Runtime geprüft. iOS 158 signiert mit Push-Berechtigung intern
+in TestFlight verfügbar: VALID/IN_BETA_TESTING, interne Gruppen und DE/EN-
+Testhinweise bestätigt. Ausführbare Regressionstests
+bestanden, vollständige physische Erstkopplung einschließlich Touch ID bleibt
+offen. Kein öffentlicher Store-Release und kein neues HEUTE-Label.
+
+## Lokale Zentrale und entfernte Computer — Teststand (20.09.2026, Runde 123)
+
+Die native Mac-Ausgabe trennt „Hunch auf diesem Mac einrichten“ von anderen
+Computern. Der eigene Runtime-Endpunkt wird im iCloud-Fernvorschlag anhand
+lokaler Adressen erkannt; das erteilt keine Berechtigung und ersetzt keine
+authentifizierte Verbindung. Nach abgebrochener Ausweisbestätigung bleibt die
+Einrichtung erreichbar. Ein vorhandener Schlüssel allein gilt nicht als
+fertige Einrichtung. Das iPhone behält den Mac als Verbindungsziel; beide
+nativen Ausgaben enthalten abgestimmte deutsche und englische Hinweise.
+
+Mac 1.6 (159) lokal signiert installiert; Einrichtungseinstiege visuell und
+mit ausführbaren Regressionen geprüft, private Runtime unverändert und live
+geprüft. iOS 159 signiert mit Push-Berechtigung intern in TestFlight verfügbar:
+VALID, beide internen Gruppen und DE/EN-Testhinweise bestätigt. Tatsächliche
+Touch-ID-/Gerätekopplung bleibt offen.
+Kein öffentlicher Store-Release und keine neue HEUTE-Aussage.
+
+## Verbindungs-Neuentwurf — als Nächstes (20.09.2026, Runde 126)
+
+Geplant ist eine gemeinsame Verbindungsverwaltung nach dem Bedienmodell von
+Codex/ChatGPT: Zugriff am Computer einrichten, QR am Telefon scannen, den
+Zugriff bewusst bestätigen und anschließend den Computer auswählen. Lokale
+App-Nutzung erscheint nicht als Selbstkopplung. Gekoppelt, erreichbar und
+zugriffsberechtigt werden als unterschiedliche Zustände behandelt; eine
+fehlende Freigabe wird nicht pauschal als Netzwerkproblem ausgegeben.
+
+Die bisherige starre Zentrale-UI-Regel ist aufgehoben. Gestaltung bleibt
+Hunch; bestehende Zugänge werden nicht automatisch erhöht oder zurückgesetzt.
+Dies ist ein Entwurf, noch kein neuer App-/Runtime-Build. **Klarstellung
+Runde 127:** Nur die Einfachheit des Verbindens ist Vorbild. Der Betriebsort
+und sichere Zugang bleiben frei wählbar: lokal, Heimnetz, Tailscale/anderes
+privates Netz oder eigener Server. QR, Einladung und eigene Adresse führen
+zum selben verständlichen Ablauf; ein Server benötigt keinen Mac als
+Einrichtungsvoraussetzung. Kein verpflichtendes Hunch-Konto, kein eigener
+Hunch-Relay und keine neuen Hosting-/Dienstkosten beauftragt. Ein QR ersetzt
+keine fehlende Netzwerkerreichbarkeit. Keine Nutzung von ChatGPTs Geräte-
+Relay oder vollständige Funktionsparität zugesichert. Keine bestehende
+HEUTE-Kennzeichnung aus diesem Plan geändert, kein öffentlicher Deploy.
+
+## Vereinfachte Verbindungen — Teststand (20.09.2026, Runde 129)
+
+Ein erster neuer Verbindungsweg ist implementiert. iPhone und native Mac-App
+bieten einen gemeinsamen Einstieg, Adresse oder Adress-QR und eine bewusste
+Freigabe am ausgewählten Computer. Der Code enthält keinen Zugangsschlüssel;
+ein Scan allein erlaubt nichts. Die Mac-App unterscheidet ihren lokalen Dienst
+von anderen Computern. Gespeichert, erreichbar und für die Live-Verbindung
+freigegeben sind getrennte Zustände. Fehlende Berechtigung wird nicht mehr
+pauschal als Netzproblem behandelt; bestehende Zugänge bleiben erhalten.
+
+Tailscale bleibt eine Möglichkeit, keine Pflicht. Vorhandener Netzwerkzugang
+und eigene sichere HTTPS-Serveradressen bleiben nutzbar. Kein neues Hunch-Konto,
+kein Relay und keine zusätzlichen Dienstkosten. Windows übernimmt den Vertrag
+im bestehenden Einzel-Runtime-Client; Tests/Build geprüft, kein neuer Installer
+verteilt. Watch bleibt an den iPhone-Zugang gebunden.
+
+Native Mac-Ausgabe 1.6 (160) lokal als signierte Development-Ausgabe installiert
+und gestartet; Runtime-Pakettests und private Live-Netzwerkprüfung bestanden.
+iOS 1.6 (160) signiert mit Push-Berechtigung intern in TestFlight verfügbar:
+Apple VALID und beide internen Gruppen bestätigt. Keine öffentliche App-Store-,
+Mac-Store- oder Website-Veröffentlichung aus diesem Teststand abgeleitet.
+Echte Geräte-, Neustart- und Netzwechsel-Abnahme fehlt. Die direkte Mac-
+Sichtprüfung war in diesem Lauf technisch nicht verfügbar.
+
+R126 ist damit nicht vollständig umgesetzt. Feingranulare Rollen, das neue
+kryptografische Einladungsprotokoll mit wiederaufnehmbarer Aktivierung und
+Windows-Mehrhost-Verwaltung bleiben geplant. Der jetzige Adress-QR ist keine
+solche Einladung. Bisher begrenzte Geräte erhalten Vollzugriff nur durch eine
+neue, ausdrücklich bestätigte Anfrage; alte Kopplungsverfahren werden nicht
+automatisch aufgewertet. Kein HEUTE-Label.
+
+## Persönlicher Ausweis und Gerätezugriff — EXPERIMENTELL (20.09.2026, R132)
+
+Im Quellstand umgesetzt: World ID ist Hauptweg für
+Freigaben. Secure Enclave mit Face ID/Touch ID bleibt bewusst wählbare
+Alternative, kein zusätzlicher Pflichtschritt. Der persönliche Ausweis
+entsteht automatisch erst nach bestätigter Verbindung mit einem Computer;
+weitere eigene Geräte übernehmen dieselbe Identität, nicht dessen private
+Schlüssel. Nutzerbegriffe „Geräte“, „Computer“, „Server“ statt „Maschinen“.
+
+Die Runtime liefert eine persönliche HID mit Siegel an berechtigte eigene
+Geräte; Geräteschlüssel und entziehbare Zugänge bleiben getrennt. Gäste erhalten
+nicht die Identität des Computerbesitzers. World-Ersteinrichtung, Bindung und
+weitere eigene Verbindung sind implementiert, mit kurzlebigen, zweckgebundenen
+Anfragen und Prüfung der World-Session. Ein Master-Token wird dadurch nicht
+zum Besitzer-Nachweis. Bestehende Identitäten werden nicht zurückgesetzt.
+
+Nachweis: 596 Runtime-Tests, 2863 Desktop-Tests; native Mac-App 1.6 (163) mit
+integrierter Runtime lokal installiert. iOS 1.6 (162) signiert kompiliert, aber
+nicht neu in TestFlight hochgeladen. Windows/Web/CLI und Watch-Handoff sind im
+Quellstand nachgezogen. Der echte World-App-/Mehrgeräteablauf, RP-Einrichtung
+für neue selbst betriebene Runtimes und vollständiges Recovery sind offen.
+Keine garantierte World-Ein-Klick-Einrichtung auf beliebigen neuen Servern,
+kein Relay/Pflichtkonto/neuer Dienstkauf und keine öffentliche Matrix-Anhebung.
+
+### Mac-Updates — EXPERIMENTELL, lokaler Testkanal
+
+„Nach Updates suchen“ steht im App-Menü und in den Einstellungen. Auf diesem
+Mac bereitgestellte, passend signierte neuere Test-Builds ersetzen die
+vorhandene Installation nach Bestätigung. Aktive Arbeit/Freigaben blockieren
+den Wechsel; die lokale Runtime wird mitgeprüft und neu gestartet. Daten und
+Keychain werden nicht gelöscht. Der vollständige UI-Wechsel 162 → 163 ist
+belegt. Das ist noch kein öffentlicher Online-Updatekanal und kein Nachweis
+einer Mac-App-Store-Veröffentlichung; Apple-Ausgaben nutzen Apples Updateweg.
+
+### Lokale Mac-Einrichtung — EXPERIMENTELL (20.09.2026, R138)
+
+Mac 1.6 (164) trennt die Einrichtung dieses Macs von einer Verbindung zu
+anderen Computern. Ein vorhandener berechtigter Zugang wird geprüft und
+wiederverwendet; fehlt nur die World-Bindung, wird ihre Verknüpfung direkt
+dort angeboten. Die lokale Ansicht verweist nicht mehr auf ein anderes
+bereits verbundenes Gerät. Bestehende Besitzer und Ausweise bleiben erhalten.
+Auf dem Mac erklärt die Ansicht einen QR für die World App auf dem Smartphone;
+iOS behält den eigenen World-App-Einstieg.
+
+Nachweis: 602 Runtime-Tests, 34 ausführbare Mac-Ablaufprüfungen, signierte
+Mac-Ausgabe installiert, echter UI-Updatewechsel 163 → 164. Im Sichttest wurde
+der vorhandene lokale Zugang erkannt und ohne neue Anmeldung weitergenutzt.
+iOS 164 war in R138 signiert mit Push kompiliert; TestFlight-Auslieferung siehe R151 unten.
+World-App-Proof und vollständige Mehrgeräte-/Recovery-Abnahme weiterhin offen;
+keine garantierte Ein-Klick-World-Einrichtung neuer selbst betriebener Runtimes.
+
+### iOS 1.6 (164) — externe Beta eingereicht (21.09.2026, R151)
+
+Signiert mit Produktions-Push hochgeladen, von Apple als `VALID` verarbeitet.
+Den vorhandenen externen Testgruppen zugeordnet; deutsche und englische
+Testhinweise sowie automatische Benachrichtigung nach Freigabe bestätigt.
+Apples Status ist `WAITING_FOR_REVIEW` / `WAITING_FOR_BETA_REVIEW`: die externe
+Beta ist noch nicht freigegeben. Eine interne Verfügbarkeit bedeutet nicht,
+dass externe Tester den Build bereits installieren können.
+
+96 Offline-Releaseprüfungen und erneut 602 Runtime-Tests bestanden. Die neue
+Beta enthält den vorhandenen nativen Stand; keine öffentliche App-Store-
+Veröffentlichung und kein Website-Deploy. World-App-, Mehrgeräte- und Recovery-
+Abnahme bleiben offen, Status weiterhin EXPERIMENTELL.
+
+### Vereinfachte Verbindung, native Realtime-Voice und Zartbitter — EXPERIMENTELL (22.09.2026, R153)
+
+Im Quellstand verbinden kurzlebige Einmal-QRs Adresse und Zugang für genau
+ein neues Gerät. Der bestätigte Besitzer wählt eigenes Gerät oder Gast;
+ein Gast übernimmt die persönliche Besitzeridentität nicht. Native Apps,
+Windows und Runtime-Web verstehen Token, Einlass-Code und Pairing-Geheimnis
+im selben Feld und zeigen Wiederherstellungswege. Aktive Besitzerzugänge
+erneuern ihre Ausweissitzung. World wird als QR für die Proof-of-Human-App
+angezeigt. Ein QR schafft keine Netzwerkverbindung und ersetzt keinen
+bestätigten Besitzerzugang.
+
+Das Mac-Terminal wird intern für die bestehende Computerverbindung gestartet;
+die native App nutzt dafür dasselbe Geräte-Credential. Die Mac-App muss laufen,
+die bisherigen Terminal-Transportgrenzen bleiben erhalten. Native VoiceEngine
+bietet ChatGPT Realtime über WebRTC/Opus und die vorhandene Codex-Anmeldung
+auf dem verbundenen Computer. Audio geht nach ausdrücklicher Zustimmung an
+OpenAI, die Anmeldung bleibt auf dem Computer. Keine neue API-Anmeldung oder
+kostenpflichtige Bridge. Werkzeugdelegation wird von diesem Client nicht
+ausgeführt; dafür wird auf den Hunch-Chat verwiesen.
+
+Zartbitter-Goldgravuren und Terminal nativ sowie Windows-/Runtime-Web-Farbrollen
+sind adaptiv nachgezogen; der persönliche Ausweis bleibt Perlmutt. Quellen:
+Runtime `personal_identity.py`, `companion.py`, `terminal.py`, `voice.py`,
+`weboberflaeche.py`; native `RealtimeVoiceTransport.swift`, `VoiceEngine.swift`,
+`MacHostServer.swift`, `Theme.swift`; Windows `credential.ts`,
+`WorldIdentitySetup.tsx`, `globals.css` und `tailwind.config.ts`.
+
+Nachweis: 564 ausgewählte Runtime-Tests und 93 abschließende gezielte Tests,
+2869 Windows-Tests, Windows-Produktionsbuild und native Typprüfung für
+iOS/macOS. Kein neues signiertes App-Paket, keine Installation oder
+TestFlight-Auslieferung. World-Proof, Mehrgeräte-/PTY-/Audio- und visuelle
+Abnahme fehlen; GUI und echte TCP-Prüfungen waren in dieser Arbeitsumgebung
+blockiert. Keine öffentliche Statusmatrix angehoben, keine Website ausgerollt.
+
+## Interner Auslieferungsnachtrag — 22.09.2026, Runde 155
+
+R153-Produktstand als Testausgabe ausgeliefert: native Quelle `145d4a0`,
+Runtime `cdc8544`, Windows `3651e56` normal gepusht. Native Mac-App 1.6
+(165) mit integrierter Runtime lokal signiert installiert und gestartet;
+Live-TLS, gzip, private No-Store-Header und Besitzergrenzen bestätigt.
+iOS 1.6 (165) mit Produktions-Push signiert archiviert/hochgeladen, Apple
+VALID; externe Gruppen „Freunde & Familie“ und „Sofort-Tester“ bestätigt,
+Beta-Review APPROVED und extern IN_BETA_TESTING. Keine Aussage über die
+Installation auf einem bestimmten Testgerät oder öffentliche Store-Freigabe.
+
+630 vollständige Runtime-Tests, 2869 Windows-Tests, Produktionsbuild und
+149 Release-Werkzeugtests bestanden. Ein älterer, uncommitteter Mac-
+Navigationsumbau wurde wegen sieben Titel-/Toolbar-Regressionen nicht
+mitgeliefert. Windows hat keinen neuen Installer. Mac bleibt eine lokale
+Development-Testausgabe, nicht notarierte öffentliche Store-Distribution.
+World-/Mehrgeräte-/PTY-/Audio-/Sichtabnahme offen; Status EXPERIMENTELL bleibt.
+Dieser interne Nachtrag ist kein Website-Deployment oder HEUTE-Labelwechsel.
+
+## Entwicklungsnachtrag — 24.09.2026, Runde 182
+
+EXPERIMENTELL, noch nicht ausgeliefert: Chat-Verlaufsspiegelung löst bei
+passender neuer Runtime keine zweite Antwort aus; bestehende antwortende
+Watch-/Web-/CLI-Anfragen bleiben erhalten. Chat-Werkzeuge liegen in iOS,
+nativem Mac und Windows innerhalb der Eingabe. Original-Signet als bewegte
+Denk-Anzeige mit statischer Accessibility-Alternative. Gezielte Tests und
+native Builds176 grün; Geräte-/Live-Abnahme und gemeinsame Auslieferung
+offen. Keine neue öffentliche Funktionszusage oder Website-Veröffentlichung.
