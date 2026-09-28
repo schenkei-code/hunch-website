@@ -61,8 +61,14 @@ verletzt sieht, antwortet mit **BLOCK** und nennt die Regel.
     harten Schlagschatten, kein Glow.
 16. **Authority Gate:** Handlung in einem Satz, Konsequenz statt Prozess,
     Risiko mit Wort+Form+Farbe, Ablehnen und Freigeben gleichwertig, Undo wo
-    möglich, jede Entscheidung auditierbar. Drei Entscheidungen: Ablehnen ·
-    Annehmen (Ausweis) · Immer annehmen; optional Proof of Human (World ID).
+    möglich, jede Entscheidung auditierbar. Stand 26.09.2026 (hebt R131 auf):
+    World ID ist verworfen; **Hunch ID** (Secure-Enclave-Geräteschlüssel +
+    Face ID/Touch ID direkt in der App) ist der Freigabeweg. Kein World-Branding
+    auf der Website.
+    Ablehnen bleibt gleichwertig; „Immer annehmen“ nur innerhalb erlaubter Grenzen.
+    Der persönliche Ausweis entsteht automatisch erst nach bestätigter Verbindung
+    mit einem Computer; weitere eigene Geräte übernehmen dieselbe Identität.
+    Diese Vorgabe ist kein Nachweis einer bereits ausgelieferten Implementierung.
 17. **Identity Card:** 1.586:1, max 340 pt, Radius 28, Tilt max 7°, Finger
     drückt die Karte weg (kein Magnet), lässt man los → Standardposition.
     Reduced Motion blendet statt kippt.
@@ -83,8 +89,8 @@ verletzt sieht, antwortet mit **BLOCK** und nennt die Regel.
 21. **Modelle pro Anbieter sind eine Auswahl** (Picker aus bekannten
     Modellen), nie Freitext als Standard.
 22. **Geheimnisse nur Keychain** (`SecretStore`), nie UserDefaults, nie Log.
-    Maschinen heißen in der UI kurz („Lokal · MacBook"), nie mit voller
-    Tailscale-Adresse.
+    Nutzer sehen „Geräte“, „Computer“ oder „Server“, nicht „Maschinen“.
+    Kurze Namen („MacBook“), nie volle Tailscale-Adressen im Titel.
 23. Release: signierte Archive (manuelles Release-Signing je Target), Push
     braucht `aps-environment`; `UNUserNotificationCenterDelegate` nutzt die
     Completion-Handler-Variante (die `async`-Form stürzt beim Tipp ab).

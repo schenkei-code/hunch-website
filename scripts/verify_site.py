@@ -361,7 +361,7 @@ def main() -> int:
         (docs_session, "letzten 30 Zeilen", "Doku-Fortsetzungsgrenze"),
         (docs_session, "App, Runtime, CLI, Web und Telegram", "Doku-belegter Surface-Scope"),
         (docs_session, "Stand 2026-09-03, gegen PRODUCT_TRUTH geprüft", "Doku-Session-Prüfstand"),
-        (docs_status, "Stand 2026-09-03, gegen PRODUCT_TRUTH geprüft", "Doku-Status-Prüfstand"),
+        (docs_status, "Lieferstand 28.09.2026", "Doku-Status-Prüfstand"),
         (
             docs_status,
             "Fenstertitel nur mit Bedienungshilfen-Recht",
@@ -383,6 +383,37 @@ def main() -> int:
     for source, claim, label in required_claims:
         if claim not in source:
             errors.append(f"Website: {label} fehlt: {claim}")
+
+    # Dated delivery facts are distinct from code availability and product plans.
+    # Update these together only after a new independent release readback.
+    for source, label in ((landing, "de"), (landing_en, "en"), (docs_status, "Status-Doku")):
+        for stale in (
+            "World ID", "Pro-Version im App Store", "Pro version in the App Store",
+            "Paid-Apps-Agreement", "paid-apps agreement", "TestFlight-Build 151",
+            "TestFlight-Build 167", "TestFlight build 167",
+        ):
+            if stale.casefold() in source.casefold():
+                errors.append(f"{label}: überholter öffentlicher Claim: {stale}")
+        delivery = re.search(r'<p\b[^>]*\bid="delivery-status"[^>]*>(.*?)</p>', source, re.S)
+        for fact in (
+            'data-checked="2026-09-28T01:58:00+02:00"',
+            'data-public-ios="1.5"', 'data-testflight-build="200"',
+            'data-local-ios-build="201"',
+        ):
+            if delivery is None or fact not in delivery.group(0):
+                errors.append(f"{label}: datierter Liefernachweis fehlt: {fact}")
+        for visible_fact in ("iOS 1.5", "TestFlight 1.6 (200)", "Build 201"):
+            if delivery is None or visible_fact not in delivery.group(1):
+                errors.append(f"{label}: sichtbarer Liefernachweis fehlt: {visible_fact}")
+        if "Hunch ID" not in source:
+            errors.append(f"{label}: aktuelle Besitzerbestätigung Hunch ID fehlt")
+        if not re.search(r'Providerkosten|provider costs', source, re.I):
+            errors.append(f"{label}: eigene Providerkosten müssen getrennt benannt sein")
+
+    for source, label in ((landing, "de"), (landing_en, "en")):
+        for selector in (".session-strip", ".thread", ".session-map li"):
+            require_css(source, label, selector, ("border:0", "border-bottom:1px solid var(--security-line)", "background:transparent"), errors)
+        require_css(source, label, ".cred .seal", ("border:0", "background:none"), errors)
 
     for source, language in ((landing, "de"), (landing_en, "en")):
         section = re.search(
@@ -411,7 +442,7 @@ def main() -> int:
             "de",
             ["Jetzt", "Verstehen", "Verbinden", "Werkzeuge"],
             [
-                "Freigaben", "Fäden", "Intention", "Brain", "Bildschirm", "Maschinen",
+                "Freigaben", "Fäden", "Intention", "Brain", "Bildschirm", "Computer",
                 "Kanäle", "Nodes", "Skills &amp; MCPs", "Apps", "GitHub",
             ],
             "Vier ruhige Gruppen, dieselben 11 Wege",
@@ -421,7 +452,7 @@ def main() -> int:
             "en",
             ["Now", "Understand", "Connect", "Tools"],
             [
-                "Approvals", "Threads", "Intention", "Brain", "Screen", "Machines",
+                "Approvals", "Threads", "Intention", "Brain", "Screen", "Computers",
                 "Channels", "Nodes", "Skills &amp; MCPs", "Apps", "GitHub",
             ],
             "Four quiet groups, the same 11 routes",

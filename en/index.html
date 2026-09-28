@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Hunch — your personal intentional agent</title>
-<!-- world-id: human in the loop, 2026-08-22 -->
+<!-- Hunch ID: in-app owner confirmation, product status 2026-09-28 -->
 <meta name="description" content="Hunch is not another chat interface. It builds a continuous personal model, recognises the next meaningful step and acts only within your rules. Bring your model, keep your hunch.">
 <meta property="og:title" content="Hunch — your personal intentional agent">
 <meta property="og:description" content="It knows you. It understands the moment. It acts on your behalf — within your boundaries.">
@@ -114,6 +114,13 @@ nav.over-ink .lang:hover{color:var(--ivory-50)}
 .btn-quiet{color:var(--ink-1000);padding:.8rem 1.2rem;min-height:48px;border:1px solid rgba(13,13,11,.4);border-radius:var(--r-action);background:transparent}
 .btn-quiet:hover{border-color:var(--ink-1000)}
 .btn-quiet:focus-visible,.btn-primary:focus-visible,a:focus-visible,button:focus-visible{outline:2px solid var(--gold-500);outline-offset:3px;border-radius:var(--r-action)}
+.download-list{margin:2rem auto 2.5rem;max-width:52rem;border-top:1px solid var(--security-line)}
+.download-row{display:flex;align-items:center;justify-content:space-between;gap:1.5rem;padding:1.25rem 0;border-bottom:1px solid var(--security-line)}
+.download-row strong{display:block;margin:.55rem 0 .2rem;font:700 1.1rem/1.2 var(--display)}
+.download-row p{font-size:.9rem;color:var(--dim);max-width:34rem}
+.download-row .btn{flex:0 0 auto;min-width:12rem}
+.download-unavailable{font:600 .7rem/1.4 var(--mono);letter-spacing:.04em;color:var(--stone-600);text-align:right}
+@media(max-width:600px){.download-row{align-items:flex-start;flex-direction:column;gap:.75rem}.download-row .btn{width:100%}.download-unavailable{text-align:left}}
 
 .menu-toggle{display:none;min-width:58px;min-height:44px;align-items:center;justify-content:center;border:1px solid currentColor;border-radius:var(--r-action);background:transparent;color:inherit;font:700 .68rem/1 var(--mono);letter-spacing:.08em}
 .mobile-menu{display:none;position:fixed;inset:calc(3.75rem + env(safe-area-inset-top)) 0 0;z-index:59;overflow-y:auto;overscroll-behavior:contain;background:var(--ivory-100);color:var(--ink);padding:1rem clamp(1rem,4vw,1.5rem) calc(2rem + env(safe-area-inset-bottom));border-top:1px solid var(--security-line)}
@@ -249,11 +256,8 @@ h2{font-size:clamp(2rem,4.8vw,3.5rem);font-weight:800;line-height:1.02;margin-to
 
 /* cta — Siegel + Receipt */
 .cta{text-align:center;position:relative;overflow:hidden;border-top:1px solid var(--security-line)}
-.cta::before{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 44rem 24rem at 50% 118%,rgba(213,173,77,.16),transparent 62%)}
 .cta .seal{width:5.6rem;height:5.6rem;margin:0 auto 1.4rem;border-radius:50%;display:grid;place-items:center;position:relative;
-  color:var(--gold-700);font:800 .95rem/1 var(--display);letter-spacing:-.02em;text-transform:lowercase;border:1px solid var(--security-gold);
-  background:repeating-radial-gradient(circle,rgba(178,140,51,.5) 0 1px,transparent 1px 4px),var(--paper-pearl);box-shadow:var(--shadow-s)}
-.cta .seal::before{content:"";position:absolute;inset:8%;border:1px solid rgba(174,134,46,.45);border-radius:50%}
+  color:var(--ink);font:800 1.4rem/1 var(--display);letter-spacing:-.02em;text-transform:lowercase;border:0;background:none;box-shadow:none}
 .cta .seal::after{content:"owner bound · 2026";position:absolute;bottom:-1.4rem;left:50%;transform:translateX(-50%);font:600 .52rem/1 var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--security-gold);white-space:nowrap}
 .cta .btn{margin-top:1.8rem}
 .cta .fine{margin-top:1rem;font-size:.8rem;color:var(--dim)}
@@ -327,21 +331,21 @@ footer{border-top:1px solid var(--security-line);padding:2.2rem 0 calc(2.2rem + 
 .ledger-row p{font-size:.92rem;color:var(--ink)}
 .ledger-row span{font:600 .58rem/1.5 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--stone-500);text-align:right;white-space:nowrap}
 /* threads */
-.session-strip{display:grid;grid-template-columns:auto 1fr;gap:1rem;align-items:center;padding:.8rem 1rem;border:1px solid var(--security-line);border-radius:12px;background:rgba(255,255,255,.6);margin-bottom:.8rem}
+.session-strip{display:grid;grid-template-columns:auto 1fr;gap:1rem;align-items:center;padding:.8rem 0;border:0;border-bottom:1px solid var(--security-line);background:transparent;margin-bottom:.8rem}
 .session-strip b{font:700 .62rem/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--gold-700)}
 .session-strip span{font-size:.86rem;color:var(--dim)}
 .thread-list{display:grid;gap:.7rem}
-.thread{display:grid;grid-template-columns:12px 1fr auto;gap:.9rem;padding:1rem 1.1rem;border:1px solid var(--security-line);border-radius:16px;background:rgba(255,255,255,.7);position:relative}
+.thread{display:grid;grid-template-columns:12px 1fr auto;gap:.9rem;padding:1rem 1.1rem;border:0;border-bottom:1px solid var(--security-line);background:transparent;position:relative}
 .thread::after{content:attr(data-scope);position:absolute;right:1.1rem;bottom:.6rem;font:600 .52rem/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--stone-500)}
-.thread i{width:8px;height:8px;margin-top:6px;border-radius:50%;background:var(--gold-400);box-shadow:0 0 0 4px rgba(213,173,77,.14)}
-.thread.wait i{background:var(--stone-500);box-shadow:0 0 0 4px rgba(113,107,94,.14)}
+.thread i{width:8px;height:8px;margin-top:6px;border-radius:50%;background:var(--gold-400)}
+.thread.wait i{background:var(--stone-500)}
 .thread strong{display:block;font-size:.98rem}
 .thread p{margin-top:.25rem;font-size:.84rem;color:var(--dim)}
 .thread time{font:650 .6rem/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--gold-700);padding-top:.25rem}
 /* lanes — observer / executive */
 .lanes{display:grid;gap:.8rem}
-.lane{display:grid;grid-template-columns:9rem 1fr;gap:1rem;align-items:start;padding:.9rem 1rem;border:1px solid var(--security-line);border-radius:16px;background:rgba(255,255,255,.7)}
-.lane.exec{background:linear-gradient(135deg,#151410,#25241f);color:var(--ivory-50);border-color:rgba(231,207,130,.28)}
+.lane{display:grid;grid-template-columns:9rem 1fr;gap:1rem;align-items:start;padding:.9rem 0;border:0;border-bottom:1px solid var(--security-line);background:transparent}
+.lane.exec{background:var(--ink-1000);color:var(--ivory-50);border-radius:12px;padding:.9rem 1rem;border-bottom:0}
 .lane header{min-width:0}
 .lane header b{display:block;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font:700 1rem/1.1 var(--display);letter-spacing:-.01em}
 .lane header span{display:block;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;margin-top:.25rem;font:600 .56rem/1.4 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--stone-500)}
@@ -357,11 +361,11 @@ footer{border-top:1px solid var(--security-line);padding:2.2rem 0 calc(2.2rem + 
 /* session map */
 .session-map{display:grid;grid-template-columns:1fr auto 1fr;gap:1rem;align-items:center}
 .session-map .owner{justify-self:center;width:10.5rem;aspect-ratio:1;border-radius:50%;display:grid;place-content:center;text-align:center;gap:.25rem;
-  border:1px solid var(--security-gold);outline:1px solid var(--security-line);outline-offset:-8px;background:radial-gradient(circle,rgba(255,255,255,.9),rgba(255,255,255,.4) 70%);box-shadow:var(--shadow-s)}
+  border:1px solid var(--security-gold);background:transparent}
 .session-map .owner b{font:800 1.05rem/1 var(--display);text-transform:lowercase}
 .session-map .owner span{font:650 .54rem/1.5 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--gold-700)}
 .session-map ul{list-style:none;display:grid;gap:.5rem}
-.session-map li{display:grid;grid-template-columns:1fr auto;gap:.8rem;align-items:center;padding:.6rem .9rem;border:1px solid var(--security-line);border-radius:12px;background:rgba(255,255,255,.7);font-size:.9rem}
+.session-map li{display:grid;grid-template-columns:1fr auto;gap:.8rem;align-items:center;padding:.6rem 0;border:0;border-bottom:1px solid var(--security-line);background:transparent;font-size:.9rem}
 .session-map li span{font:600 .54rem/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--stone-500)}
 .session-map .left li{grid-template-columns:auto 1fr;text-align:left}
 /* scope rings */
@@ -374,13 +378,13 @@ footer{border-top:1px solid var(--security-line);padding:2.2rem 0 calc(2.2rem + 
 .scope-legend span{font:600 .56rem/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--stone-500);margin-left:.4rem}
 /* engine register */
 .engines{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
-.socket{padding:1rem 1.1rem;border:1px solid var(--security-line);border-radius:16px;background:rgba(255,255,255,.7)}
+.socket{padding:1rem 0;border:0;border-bottom:1px solid var(--security-line);background:transparent}
 .socket b{display:block;font:650 .58rem/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--stone-500)}
 .socket strong{display:block;margin-top:.5rem;font:800 1.15rem/1.1 var(--display);letter-spacing:-.01em}
 .socket span{display:block;margin-top:.3rem;font:600 .62rem/1.4 var(--mono);color:var(--gold-700)}
 .rack{grid-column:1 / -1;display:flex;flex-wrap:wrap;gap:.4rem;padding-top:.9rem;border-top:1px solid var(--security-line)}
 .rack span{font:600 .68rem/1.4 var(--mono);padding:.45rem 0;border-bottom:1px solid var(--security-line);color:var(--ink-2)}
-.rack span.on{border-color:var(--gold-400);color:var(--gold-700);background:rgba(213,173,77,.12)}
+.rack span.on{border-color:var(--gold-400);color:var(--gold-700)}
 /* local map */
 .local-map{display:grid;grid-template-columns:1fr auto 1fr;gap:.8rem;align-items:center;text-align:center}
 .local-map .node{padding:1rem;border:1px solid var(--security-line);border-radius:16px;background:rgba(255,255,255,.7)}
@@ -434,8 +438,7 @@ footer{border-top:1px solid var(--security-line);padding:2.2rem 0 calc(2.2rem + 
 .cred .fields div span{font:650 .52rem/1.3 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--stone-500)}
 .cred .fields div b{font:600 .74rem/1.35 var(--mono);color:var(--ink);overflow-wrap:anywhere}
 .cred.ghost .fields div b{color:var(--stone-500);font-weight:500}
-.cred .seal{width:2.8rem;height:2.8rem;border-radius:50%;border:1px solid var(--security-gold);display:grid;place-items:center;font:800 .52rem/1 var(--display);color:var(--gold-700);
-  background:repeating-radial-gradient(circle,rgba(178,140,51,.45) 0 1px,transparent 1px 4px)}
+.cred .seal{width:2.8rem;height:2.8rem;border:0;display:grid;place-items:center;font:600 .62rem/1 var(--mono);color:var(--stone-600);background:none}
 .cred .noseal{font:600 .52rem/1.3 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--stone-500);text-align:right;max-width:6rem}
 /* pattern register */
 .pattern{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:1.4rem;align-items:end}
@@ -456,7 +459,7 @@ footer{border-top:1px solid var(--security-line);padding:2.2rem 0 calc(2.2rem + 
 .condense-arrow{display:grid;justify-items:center;gap:.3rem;font:650 .54rem/1.4 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--gold-700);text-align:center}
 .condense-arrow i{display:block;width:3rem;height:1px;background:var(--gold-500);position:relative}
 .condense-arrow i::after{content:"";position:absolute;right:-1px;top:-3px;border:3.5px solid transparent;border-left-color:var(--gold-500)}
-.skill{padding:1rem 1.1rem;border:1px solid rgba(174,134,46,.45);border-radius:16px;background:var(--paper-pearl);box-shadow:var(--shadow-s)}
+.skill{padding:1rem 0;border:0;border-top:1px solid var(--security-gold);border-bottom:1px solid var(--security-line);background:transparent}
 .skill b{display:block;font:650 .56rem/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--security-gold)}
 .skill strong{display:block;margin:.5rem 0 .3rem;font:800 1.05rem/1.1 var(--display)}
 .skill p{font-size:.82rem;color:var(--dim)}
@@ -478,7 +481,7 @@ footer{border-top:1px solid var(--security-line);padding:2.2rem 0 calc(2.2rem + 
 .hub-row span{display:block;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:.76rem;color:var(--dim)}
 /* status legend */
 .legend{display:grid;grid-template-columns:repeat(4,1fr);gap:.8rem;margin-top:2.2rem}
-.legend div{padding:.8rem 1rem;border:1px solid var(--security-line);border-radius:12px;background:rgba(255,255,255,.6);display:grid;gap:.25rem}
+.legend div{padding:.8rem 0;border:0;border-top:1px solid var(--security-line);background:transparent;display:grid;gap:.25rem}
 .legend .tag{justify-self:start}
 .legend p{font-size:.82rem;color:var(--dim)}
 .legend strong{font:800 1.4rem/1 var(--display);letter-spacing:-.02em}
@@ -642,7 +645,7 @@ section[data-serial] > .wrap{position:relative;z-index:1}
 .card,.stat,.thread,.hub-row,.socket,.rack span,.ledger-row,.session-map li,.matrix .col,.legend div,.pattern-kinds div,.scope .items span{transition:transform var(--t-micro) var(--ease),box-shadow var(--t-micro) var(--ease),border-color var(--t-micro) var(--ease),background-color var(--t-micro) var(--ease)}
 .card:hover,.matrix .col:hover{transform:translateY(-2px);box-shadow:0 1px 1.5px rgba(0,0,0,.08),0 8px 18px rgba(0,0,0,.08),0 24px 40px rgba(0,0,0,.07)}
 .stat:hover,.thread:hover,.hub-row:hover,.socket:hover,.session-map li:hover,.legend div:hover,.pattern-kinds div:hover{border-color:rgba(174,134,46,.5);transform:translateY(-1px)}
-.rack span:hover{border-color:var(--gold-400);color:var(--gold-700);background:rgba(213,173,77,.12)}
+.rack span:hover{border-color:var(--gold-400);color:var(--gold-700)}
 .ledger-row:hover{background:linear-gradient(90deg,var(--gold-400) 0 2px,rgba(213,173,77,.08) 2px) left center / 100% 100% no-repeat}
 .fig-3d{transition:transform var(--t-shift) var(--ease)}
 .fig:hover .fig-3d{transform:translateY(-4px)}
@@ -724,14 +727,14 @@ section[data-serial] > .wrap{position:relative;z-index:1}
     </div>
     <a class="lang" href="../" hreflang="de" lang="de">DE</a>
     <span class="nav-serial">intentional agent · owner bound · 2026</span>
-    <a class="nav-cta" href="mailto:schenkei@hunchagent.io?subject=Hunch%20Early%20Access">Early Access</a>
+    <a class="nav-cta" href="#apps">Try the beta</a>
     <button class="menu-toggle" type="button" data-mobile-menu-toggle aria-expanded="false" aria-controls="mobile-menu">Menu</button>
   </div>
 </nav>
 <div class="mobile-menu" id="mobile-menu" role="navigation" aria-label="Mobile primary navigation" hidden>
   <a href="#moment">Why Hunch</a><a href="#faeden">How Hunch acts</a><a href="#autoritaet">Safety</a><a href="#apps">Apps</a><a href="#status">Status</a><a href="../docs/index.html">Documentation</a>
   <a class="mobile-menu-meta" href="../" hreflang="de" lang="de">Deutsch</a>
-  <a class="mobile-menu-cta" href="mailto:schenkei@hunchagent.io?subject=Hunch%20Early%20Access">Early Access</a>
+  <a class="mobile-menu-cta" href="#apps">Try the beta</a>
 </div>
 
 <main id="main-content">
@@ -747,9 +750,9 @@ section[data-serial] > .wrap{position:relative;z-index:1}
           <span>it understands the moment.</span>
           <span>it acts on your behalf.</span>
         </div>
-        <p class="lead">The agent that understands where your thinking goes next. Hunch builds a personal model from your memories, intentions, decisions and current context, recognises the next meaningful step — and acts only within the boundaries you set.</p>
+        <p class="lead">Hunch builds a personal model from your memories, intentions, decisions and current context, recognises the next meaningful step — and acts only within the boundaries you set.</p>
         <div class="hero-actions">
-          <a class="btn btn-primary" href="mailto:schenkei@hunchagent.io?subject=Hunch%20Early%20Access">Request early access</a>
+          <a class="btn btn-primary" href="#apps">Try the beta</a>
           <a class="btn btn-quiet" href="#moment">See how it looks</a>
         </div>
         <div class="hero-meta">
@@ -1038,7 +1041,7 @@ section[data-serial] > .wrap{position:relative;z-index:1}
 <div class="head">
       <span class="eyebrow reveal" data-no="10">Authority Gate</span>
       <h2 class="reveal">Hunch may recognise intentions. It does not invent authority.</h2>
-      <p class="lead reveal">The Authority Gate is not a single magic switch but the visible interplay of several layers of protection. Anticipating, but never acting on its own authority.</p>
+      <p class="lead reveal">The Authority Gate consists of several layers of protection you can inspect one by one. Hunch proposes; anything with an effect is yours to approve.</p>
     </div>
     <div class="gate-card reveal" role="group" aria-label="Authority Gate — interactive example of an approval with anonymised data" data-ok-title="Approved" data-ok-text="Booking sent · receipt R-0421 · audit written · way back available for 24 h" data-no-title="Declined" data-no-text="Nothing sent · thread “Berlin” paused · Hunch proposes an alternative" data-receipt-label="Receipt">
       <div class="gate-top"><span class="gate-risk">Elevated Risk</span><span class="gate-serial">Authority Gate</span></div>
@@ -1061,7 +1064,7 @@ section[data-serial] > .wrap{position:relative;z-index:1}
       <div class="card reveal"><h3>Isolation<span class="tag heute">Today</span></h3><p>Guests get a separate context — neither your personal memory nor your tools.</p></div>
       <div class="card reveal"><h3>Impulse brake <span class="tag heute">Today</span></h3><p>Minimum spacing plus a daily limit for impulses; three failures of one tool lead to a pause.</p></div>
       <div class="card reveal"><h3>Undo &amp; boundary<span class="tag heute">Today</span></h3><p>Remembered facts and created tasks can be taken back; the boundary — what Hunch never does without asking — is visible in one place. Every action sits in the logbook with its reasoning; the way back covers everything recoverable, shell and agent runs are honestly marked as not reversible; every device has its action boundary.<span class="tag heute">Today</span></p></div>
-      <div class="card reveal"><h3>World ID <span class="tag heute">Today</span></h3><p>A second path for the same approval: you confirm in the World App with your Proof of Human. The proof is bound to the action and a one-time nonce signed by Hunch, then verified against the World API. The audit keeps only the confirmed credential type — never the raw proof, nonce, or nullifier. ID card and in-app approval always remain the default and fallback path.</p></div>
+      <div class="card reveal"><h3>Hunch ID <span class="tag exp">Beta</span></h3><p>You confirm an approval directly in Hunch with Face ID or Touch ID. Hunch ID uses the device key in the Secure Enclave. Declining remains possible without biometric confirmation. This confirms the device owner; it is not an independent proof of a globally unique person. Full physical-device acceptance testing remains open.</p></div>
     </div>
     <div class="rule reveal">Hunch may perceive, formulate an intent and propose something — but act only with matching authority. Deleting, buying, sending externally and publishing are specially protected.<div class="note">Before an owner identity is set up, a less strict mode can exist for compatibility. The cryptographic lock is not automatically active before setup is complete.</div>
     </div>
@@ -1099,14 +1102,20 @@ section[data-serial] > .wrap{position:relative;z-index:1}
     <div class="head center">
       <span class="eyebrow reveal" data-no="12">One Hunch, several entry points</span>
       <h2 class="reveal">Not just an iPhone app.</h2>
-      <p class="lead reveal">The runtime on Mac, PC, Linux or VPS observes, remembers and executes. The iPhone app is your companion for Brain, threads, machines, nodes, channels, skills and approvals. Terminal, Telegram, WhatsApp, MCP, HTTP and WebSocket are further entry points — not every surface has the same feature parity.</p>
+      <p class="lead reveal">The runtime on Mac, PC, Linux or VPS observes, remembers and executes. The iPhone app is your companion for Brain, threads, computers, nodes, channels, skills and approvals. Terminal, Telegram, WhatsApp, MCP, HTTP and WebSocket are further entry points — not every surface has the same feature parity.</p>
+    </div>
+    <p id="delivery-status" class="lead reveal" data-checked="2026-09-28T01:58:00+02:00" data-public-ios="1.5" data-testflight-build="200" data-local-ios-build="201">Delivery status · 28 September 2026, 01:58 CEST: iOS 1.5 is public on the App Store. TestFlight 1.6 (200) is approved for external testing. Build 201 is installed locally as a development update on one iPhone, not publicly released. New source changes are not a release.</p>
+    <div class="download-list reveal" aria-label="Get Hunch">
+      <div class="download-row"><div><span class="tag exp">TestFlight beta</span><strong>iPhone &amp; iPad</strong><p>Install through Apple TestFlight. This provides the version approved for external testers; newer source changes are not included automatically.</p></div><a class="btn btn-primary" href="https://testflight.apple.com/join/xEn2bN4v" rel="noopener noreferrer">Open in TestFlight</a></div>
+      <div class="download-row"><div><span class="tag next">In preparation</span><strong>Mac</strong><p>The native app with bundled runtime is in local testing. A publicly installable, signed and verified Mac release is not available yet.</p></div><span class="download-unavailable">No public download yet</span></div>
+      <div class="download-row"><div><span class="tag next">In preparation</span><strong>Windows</strong><p>The desktop app is in testing. A publicly verified installer is not available yet.</p></div><span class="download-unavailable">No public download yet</span></div>
     </div>
 
         <div class="specimen reveal" data-label="hub · capability register · specimen" style="max-width:32rem;margin-left:auto;margin-right:auto">
       <div class="hub-spec">
         <section class="hub-group" data-hub-group="jetzt"><h3 class="hub-group-title">Now</h3><div class="hub-row" data-hub-route="freigaben"><div><strong>Approvals</strong><span>What waits for your credential</span></div></div><div class="hub-row" data-hub-route="faeden"><div><strong>Threads</strong><span>What runs alongside</span></div></div><div class="hub-row" data-hub-route="sitzung"><div><strong>Intention</strong><span>What's up next</span></div></div></section>
-        <section class="hub-group" data-hub-group="verstehen"><h3 class="hub-group-title">Understand</h3><div class="hub-row" data-hub-route="brain"><div><strong>Brain</strong><span>Memory, identity, conversations</span></div></div><div class="hub-row" data-hub-route="bildschirm"><div><strong>Screen</strong><span>What could be read on the machine</span></div></div></section>
-        <section class="hub-group" data-hub-group="verbinden"><h3 class="hub-group-title">Connect</h3><div class="hub-row" data-hub-route="maschinen"><div><strong>Machines</strong><span>Connect and control computers</span></div></div><div class="hub-row" data-hub-route="kanaele"><div><strong>Channels</strong><span>Telegram, WhatsApp — reach Hunch</span></div></div><div class="hub-row" data-hub-route="nodes"><div><strong>Nodes</strong><span>Devices in the Hunch network</span></div></div></section>
+        <section class="hub-group" data-hub-group="verstehen"><h3 class="hub-group-title">Understand</h3><div class="hub-row" data-hub-route="brain"><div><strong>Brain</strong><span>Memory, identity, conversations</span></div></div><div class="hub-row" data-hub-route="bildschirm"><div><strong>Screen</strong><span>What could be read on the computer</span></div></div></section>
+        <section class="hub-group" data-hub-group="verbinden"><h3 class="hub-group-title">Connect</h3><div class="hub-row" data-hub-route="maschinen"><div><strong>Computers</strong><span>Connect and control computers</span></div></div><div class="hub-row" data-hub-route="kanaele"><div><strong>Channels</strong><span>Telegram, WhatsApp — reach Hunch</span></div></div><div class="hub-row" data-hub-route="nodes"><div><strong>Nodes</strong><span>Devices in the Hunch network</span></div></div></section>
         <section class="hub-group" data-hub-group="werkzeuge"><h3 class="hub-group-title">Tools</h3><div class="hub-row" data-hub-route="skills"><div><strong>Skills &amp; MCPs</strong><span>What the runtime can and may do</span></div></div><div class="hub-row" data-hub-route="apps"><div><strong>Apps</strong><span>What Hunch knows about apps</span></div></div><div class="hub-row" data-hub-route="github"><div><strong>GitHub</strong><span>Find and install agent repositories</span></div></div></section>
       </div>
     </div>
@@ -1134,7 +1143,7 @@ section[data-serial] > .wrap{position:relative;z-index:1}
         <div class="phone"><div class="screen"><img src="../app-shots/fx-03-ausweis.png" alt="ID card" loading="lazy" width="1206" height="2622"></div></div>
       </figure>
       <figure class="shot reveal">
-        <figcaption class="cap"><b>Voice</b><span>On-device speech in the foreground — talk instead of type.</span></figcaption>
+        <figcaption class="cap"><b>Voice</b><span>Talk to Hunch in a visible session. Experimental, no always-on microphone.</span></figcaption>
         <div class="phone"><div class="screen"><img src="../app-shots/fx-06-voice.png" alt="Voice mode" loading="lazy" width="1206" height="2622"></div></div>
       </figure>
       <figure class="shot reveal">
@@ -1199,43 +1208,49 @@ section[data-serial] > .wrap{position:relative;z-index:1}
 <div class="head center">
       <span class="eyebrow reveal" data-no="14">Honest status</span>
       <h2 class="reveal">What runs today, what is experimental, what is coming.</h2>
-      <p class="lead reveal">The vision stays strong — but nothing here is presented as shipped that isn't.</p>
+      <p class="lead reveal">Nothing here is presented as shipped that isn't. “Today” means: present and tested in the code. Which version you can install is listed in the delivery status under Apps.</p>
     </div>
     <div class="stamp reveal" aria-hidden="true"><span>product truth</span><b>checked</b><span>2026 · specimen</span></div>
     </div>
-        <div class="legend reveal"><div><span class="tag heute">today</span><p>Present and tested in current code; runtime-dependent claims are additionally proven against the running runtime.</p></div><div><span class="tag exp">experimental</span><p>Prototype or on one surface only — marked visibly.</p></div><div><span class="tag next">next</span><p>Concretely planned, target with date.</p></div><div><span class="tag vision">vision</span><p>Towards 2.0 — explicitly not shipped.</p></div></div>
+        <div class="legend reveal"><div><span class="tag heute">today</span><p>Present and tested in current code; runtime-dependent claims are additionally proven against the running runtime.</p></div><div><span class="tag exp">experimental</span><p>Prototype or on one surface only — marked visibly.</p></div><div><span class="tag next">next</span><p>Planned, not yet built or not yet shipped.</p></div><div><span class="tag vision">vision</span><p>Towards 2.0 — explicitly not shipped.</p></div></div>
 <div class="matrix">
       <div class="col reveal"><h3><span class="tag heute">Today</span></h3><ul>
         <li>Persistent personal memory</li><li>Observer &amp; Executive</li><li>Threads</li>
         <li>Provider choice, local &amp; cloud models</li><li>SKILL.md, Python skills, MCP, REST, harnesses</li>
         <li>Approvals, risk classes, budgets, audit</li><li>Secure Enclave identity, guest isolation</li>
-        <li>Runtime, app, CLI, HTTP &amp; WebSocket</li><li>Brain sync, machines, nodes, channels</li>
+        <li>Runtime, app, CLI, HTTP &amp; WebSocket</li><li>Brain sync, computers, nodes, channels</li>
         <li>Work Live Activity, Telegram/WhatsApp</li>
         <li>Intentions with state &amp; next step (runtime, app, agent tools, sync)</li>
         <li>Automatic condensation (every 6 h, logged)</li><li>Skills learned from routines</li>
-        <li>World ID human in the loop in the Authority Gate (runtime &amp; app)</li>
         <li>Memory levels global / intention / thread — store, search, move, sync (runtime, app, MCP, CLI)</li>
         <li>Broader providers: OpenRouter, Together, Fireworks, Cerebras, Perplexity, Amazon Bedrock</li>
         <li>Logbook: every action with reasoning, outcome and way back (runtime &amp; app)</li>
         <li>Way back for everything recoverable — memories, tasks, intentions &amp; their changes, levels, learned skills, files; shell/agent honestly marked as not reversible</li>
         <li>Device &amp; action boundaries: every device, every channel up to its risk class (read only · read and remember · everything)</li>
         <li>Knowledge graph &amp; Pattern of Life: topics, people, places, files, intentions, threads as a graph; hour profile, transitions, cadences (runtime, app → Brain → Graph)</li>
-        <li>App/window/browser/file context as sensors of the machine (switchable, quiet hours; screen OCR via macOS Vision, behind the screen-recording permission), rewind via MCP, transcript import (ChatGPT/Claude export, text)</li>
+        <li>App/window/browser/file context as sensors of the computer (switchable, quiet hours; screen OCR via macOS Vision, behind the screen-recording permission), rewind via MCP, transcript import (ChatGPT/Claude export, text)</li>
         <li>Proactive predictions &amp; nudges: prediction nudges in the heartbeat, delivered to the active surface</li>
-        <li>Presence routing: the machine knows which surface is active right now and delivers there</li>
+        <li>Presence routing: the computer knows which surface is active right now and delivers there</li>
         <li>Intentions on desktop surfaces: <span class="mono">hunch vorhaben</span>, web UI, cockpit</li>
-        <li>Agent vault: logins, payment methods, passkeys from the wallet onto the machine — every use through the Authority Gate, payment only with purpose and amount, the secret never in the log</li>
+        <li>Agent vault: logins, payment methods, passkeys from the wallet onto the computer — every use through the Authority Gate, payment only with purpose and amount, the secret never in the log</li>
         <li>Intention runner: set a goal, plan of steps, steps as threads, across days and restarts; failure → replan once, then pause and ask; questions only where the gate requires them</li>
         <li>Triggers: time, file change, failed build, channel message → job or thread; resume paused threads</li>
         <li>Shared history + presence: app, runtime, CLI, web and Telegram mirror conversations; see external conversations in the Brain and continue with their last 30 lines; delivery goes to the active or reachable surface</li>
       </ul></div>
       <div class="col reveal"><h3><span class="tag exp">Experimental</span></h3><ul>
-        <li>Apple Watch: source code for approvals, work steps, voice and complications exists; current TestFlight build 151 does not include a Watch app. Reconnecting the targets and physical-device testing remain open</li>
+        <li>Hunch ID: in-app owner confirmation with Face ID or Touch ID; full physical-device acceptance testing remains open</li>
+        <li>Apple Watch: the signed iOS archive 200 includes the Watch app and complication. Installation and approvals on a physical Watch have not yet passed acceptance testing</li>
         <li>Approve/decline from a push notification: code and APNs acceptance are proven; the corrected button on build ≥118 awaits end-to-end confirmation</li>
         <li>Prediction push in daily use: generation and presence routing run, but actual push delivery has not yet been confirmed</li>
+        <li>Voice: you talk to Hunch in a session you start visibly; the orb shows listening and answering (iPhone, Mac, Windows). No always-on background microphone; acceptance on real devices is open</li>
+        <li>Approval levels: you decide how much Hunch may do without asking, from Sandbox up to a deliberately chosen Unsafe mode. Present in runtime and apps; the effect per surface has not been fully accepted yet</li>
+        <li>Daily report: you choose sources and purposes, Hunch summarises the day with provenance and data gaps; an evening report at a fixed time runs only after you switch it on. No continuous recording, no diagnosis, no health score</li>
+        <li>Hunch keyboard (iPhone): its own keyboard with local word suggestions. Fast typing has not yet been accepted as error-free</li>
       </ul></div>
       <div class="col reveal"><h3><span class="tag next">Next</span></h3><ul>
-        <li>Pro version in the App Store (one-time purchase, core stays free) — as soon as the paid-apps agreement is active</li>
+        <li>Planned starting model: no Hunch usage fee. Your own provider costs, hardware and energy remain separate. Paid extensions have not been decided; this is not a price or purchase offer</li>
+        <li>Mac and Windows app as a public download once signing and device testing have passed</li>
+        <li>Daily companion that picks the time of the evening report from your day instead of a fixed hour</li>
       </ul></div>
       <div class="col reveal"><h3><span class="tag vision">Vision 2.0</span></h3><ul>
         <li>A lasting counterpart across models, devices and years</li>
@@ -1254,9 +1269,9 @@ section[data-serial] > .wrap{position:relative;z-index:1}
     <div class="seal reveal" aria-hidden="true">hunch</div>
     <h2 class="reveal">Hunch is not the model you talk to today.</h2>
     <p class="lead reveal" style="margin:1rem auto 0">It is the agent that gets to know you over years, understands where you are heading, knows how you want to work with it — and acts at the right moment within your rules.</p>
-    <a class="btn btn-primary reveal" href="mailto:schenkei@hunchagent.io?subject=Hunch%20Early%20Access">Request early access</a>
+    <a class="btn btn-primary reveal" href="https://testflight.apple.com/join/xEn2bN4v" rel="noopener noreferrer">Try the beta in TestFlight</a>
     <div class="receipt reveal"><span>credential</span><b>owner bound · secure enclave</b><span>scope</span><b>global · project · thread</b><span>authority</span><b>approval before effect · undo · audit</b><span>status</span><b>today / experimental / vision — per product truth</b></div>
-    <p class="fine">schenkei@hunchagent.io · no newsletter, no trackers on this page.</p>
+    <p class="fine">Questions: <a href="mailto:schenkei@hunchagent.io">schenkei@hunchagent.io</a> · no newsletter, no trackers on this page.</p>
   </div>
 </section>
 </main>

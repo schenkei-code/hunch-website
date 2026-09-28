@@ -1,5 +1,72 @@
 # PRODUCT_TRUTH.md
 
+**R214 Website-Abgleich, 28.09.2026 (Claude) — veröffentlicht auf hunchagent.io:**
+Öffentliche Seiten (DE/EN/Status-Doku) auf Lieferstand R213 gebracht: App Store
+iOS1.5, TestFlight1.6 (200) extern, 201/202 nur lokal; Mac/Windows ohne
+öffentlichen Download (ALS NÄCHSTES). Hunch ID statt World ID (EXPERIMENTELL).
+Neu als EXPERIMENTELL benannt, nicht HEUTE: Voice mit Orb in sichtbar
+gestarteter Sitzung (kein Dauer-Mikrofon; Geräteabnahme offen), Freigabe-Stufen
+Sandbox…Unsafe (Wirkung je Surface nicht vollständig abgenommen; GOAL-CHECKLISTE),
+Tagesbericht mit Quellen-/Zweckwahl und Abendbericht nur nach Aktivierung
+(keine Dauer-Aufnahme/Diagnose/Health Score), Hunch-Tastatur (schnelles Tippen
+nicht fehlerfrei abgenommen). ALS NÄCHSTES: adaptiver Abendbericht-Zeitpunkt,
+öffentliche Mac/Windows-Ausgabe. Legende „als nächstes“ = geplant, nicht
+gebaut/geliefert (kein Datum behauptet). CTA: TestFlight statt Early-Access-Mail.
+AI-Slop entfernt: Ringmuster-Siegel, Doppelring, Gold-Glow im CTA, Kästen in
+Specimen-Flächen (Lanes/Sockets/Skill/Legende) → Hairlines; Floskeln („Der Agent,
+der versteht, wie dein Denken weitergeht“, „magischer Schalter“, „Die Vision bleibt
+stark“). „Maschine“ → „Computer“ in Fließtext. ID-Card und motion-2026 unverändert.
+
+**R213, 28.09.2026 02:10 — EXPERIMENTELL, lokale Redesign-Lieferung:**
+iPhone1.6/202 als Update installiert, unabhängig zurückgelesen und gestartet.
+190nativeTests einschließlich echter Dark-/AX5-Runde bestanden; vollständige
+HIG-/375pt-/Voice-Geräteabnahme fehlt. Weitere UI-Befunde werden vor203
+behoben,202 ist NICHT TestFlight oder öffentlich. TestFlight zuletzt200;
+öffentlicher App Store1.5,1.6-Rejection mit147 weiter ungeklärt. Mac202 nur
+Kandidat mit kompletter Runtime, installiert181. Website-Claims und dekorative
+Innenrahmen lokal korrigiert/14Seiten geprüft, noch nicht deployt. Meta-Core
+12Tests ist keine Kamera-Anbindung. Health-R210-Anzeige in202, kein berechneter
+Health-Score; ein zusätzlicher Status für fehlende Score-Daten nur Quellstand.
+Positive Tastatur-Rückmeldung des Nutzers zu201 liegt vor, keine allgemeine
+Apple-identische Genauigkeits-/Patentfreiheitsbehauptung daraus.
+
+**R212 Liefernachtrag, 28.09.2026 01:44 — EXPERIMENTELL, lokal installiert:**
+iPhone17Pro trägt nun1.6/201 (unabhängiger Geräte-Readback), App gestartet.
+Dynamische Tastatur-Trefferzonen und Karten-Neigungslicht enthalten, aber
+physische Treffsicherheit/Flüssigkeit/Sensorreaktion noch nicht abgenommen.
+Kein neuer TestFlight-/App-Store-Upload. Keine öffentliche Leistungszusage.
+
+**R212, 28.09.2026 — EXPERIMENTELL, nicht ausgeliefert:** Dynamische
+Trefferzonen in der iOS/iPadOS-Keyboard-Extension nutzen die lokale deutsche
+Wortliste. Wahrscheinliche Folgebuchstaben gewinnen begrenzte Randfläche,
+sichtbare Tasten und ihre Mitten bleiben unverändert.188nativeSimulatorTests
+und App-Build bestanden. Kein Nachweis Apple-identischer Genauigkeit,
+patentrechtlicher Freiheit oder behobener physischer Tipp-Aussetzer; kein
+neuer TestFlight-/Store-Stand. Keine öffentliche Leistungszusage daraus.
+
+**Liefernachtrag R209, 28.09.2026 01:06:** iPhone1.6/200 direkt als Update
+installiert und zurückgelesen, ID Card gemäß neuer Fotoreferenz enthalten.
+Nachtrag01:11:200 ist VALID/APPROVED und extern IN_BETA_TESTING, beide externe
+Gruppen zugeordnet.198 ebenfalls verfügbar. Öffentlicher App Store bleibt1.5.
+Native Mac200 mit vollständiger Runtime im privaten Updatekanal; noch181
+installiert. Neue Windows-Karte im geprüften/pushten Code, kein Installer-
+oder Gerätebeleg. Keine neue öffentliche Funktions-/Health-/Voice-Zusage.
+
+**Liefernachtrag R208, 28.09.2026 00:55:** iPhone198 direkt installiert,
+Runtime source-c0b784ec36c5e5a4 aktiviert und Diagnose/API/HTTP geprüft.
+TestFlight198 wird hochgeladen, Verarbeitung/Freigabe noch nicht belegt;
+öffentliche Apple-Version unverändert1.5. Mac198 nur lokaler Updatekanal.
+Neue ID-Card-Referenz in Umsetzung, noch nicht ausgeliefert. Kein pauschaler
+Voice-/Tastatur-/Tagesbegleitungs-Erfolg und keine HEUTE-Anhebung daraus.
+
+**Aktualitätsnachtrag R208, 28.09.2026:** Öffentliche Apple-Version weiterhin
+1.5;1.6 ist Entwurf mit altem147 und ungelöster Review.198 ist bisher ein
+lokales Archiv, kein TestFlight-/Store-Erfolg. Neuer Tagesbericht mit
+ausdrücklichen Quellen/Zwecken ist EXPERIMENTELL, kein ganztägiges Mithören,
+adaptiver Vollassistent oder diagnostischer Health Score. Native/Windows-UI
+lokal vorhanden, Lieferung separat nachzuweisen. Aktuelles Arbeitsinventar:
+`../hunch-runtime/GOAL-CHECKLISTE.md` R208. Keine Website-HEUTE-Anhebung.
+
 Die einzige Quelle der Wahrheit für die öffentlichen Aussagen auf hunchagent.io.
 Jede Website-Behauptung muss hier mit **Quelle** und **Status** belegt sein. Bei
 Widerspruch zwischen Roadmap und Code **gewinnt der Code**.
@@ -18,9 +85,58 @@ Repos geprüft (Grundabgleich 2026-09-03; App-Menü-/Auslieferungsnachtrag 2026-
 - `hunch-harness`, `hunch` (Brain-Forschung), `website`
 
 Bei iOS gilt: aktueller Swift-Code > HANDOFF.md > PLAN-INTENTIONAL.md > MEILENSTEINE-2.0.md.
-Ältere Roadmaps sind nur historisch. Beispiel: `MONETIZATION.md` behauptet StoreKit/Paywall
-„gebaut und getestet" — im Pocket-Target gibt es **null** StoreKit-Referenzen (HANDOFF.md §0).
-Daher: **kein Kauf-/Paywall-Feature auf der Website.**
+Ältere Roadmaps sind nur historisch. Frühere `MONETIZATION.md`-Aussagen über
+„gebaute und getestete" StoreKit-/Paywall-Funktionen waren nicht belegt.
+R208 hat das Dokument als ausdrücklich unimplementierten Entscheidungsentwurf
+ersetzt. Daher weiterhin: **kein Kauf-/Paywall-Feature auf der Website.**
+
+### iOS-Tastatur — R204, 27.09.2026 (EXPERIMENTELL)
+
+Aktuell auf dem Besitzer-iPhone: **1.6 (197)**, Installation und unabhängiger
+Readback bestätigt. Dieser Stand ergänzt ausschließlich vier statische
+Touch-Phasen-Diagnoseereignisse ohne Eingabeinhalte oder Koordinaten.
+Kein neuer funktionaler Fix: Der kontrollierte Nachtest auf 196 bestätigt
+verlorene Buchstaben bei kurzer Randbewegung. Die Ursache ist noch offen;
+instrumentierter Nachtest wegen erneut gesperrtem iPhone ausstehend.
+Security-Diffscan für 197 abgeschlossen, kein funktionaler Erfolgsnachweis.
+Kein öffentlicher Upload oder neuer Website-Claim.
+
+Historischer Stand R203: **1.6 (196)**, Installation und Geräte-
+Readback am 27.09. um 22:42 bestätigt. Kleine Buchstaben-Randbewegungen werden
+stabilisiert; das Leertasten-Trackpad benötigt bewusstes Halten. 40 fokussierte
+Simulatortests PASS. Physischer Leertasten-Drift vorher FAIL/nachher PASS und
+80 echte Touches vollständig; der Vierer-Gerätelauf bleibt mit 2 PASS/2 FAIL
+unvollständig. Ein Zusatzlauf zeigt nicht vom Test gesendete Zeichen;
+gleichzeitige Bedienung ist angefragt. **Schnelle menschliche Eingabe nicht
+als vollständig behoben abgenommen.** Neuer Acht-Dateien-Security-Diffscan
+abgeschlossen; keine neuen reportablen Befunde, kein Gesamtprodukt-Zertifikat.
+Kein TestFlight-/Store-Upload, keine Änderung öffentlicher Statuslabels.
+
+Historische Diagnose R201/R202 auf 195: Lokale Wortvorschläge rechnen jetzt
+im Hintergrund; 34 fokussierte Simulatortests bestehen nun mit echter Wortliste
+im Testbundle (zwei gemessene Framehitches bis 39,1 ms). Physisch acht von acht
+Funktionstests inklusive Accessibility-Key-Labels sowie eine Serie aus 80 echten
+XCUITest-Touches bestanden. Der Nutzer meldet weiterhin Hängen in jeder App:
+keine Flüssigkeitsabnahme, Ursache noch offen. Kein neuer Produktfix in R202.
+Damals Security-Report-Abschluss technisch fehlgeschlagen; in R203 für den
+alten Digest repariert, nicht als Nachweis für 196 verwendet. Direkte Installation danach ausdrücklich beauftragt,
+kein TestFlight-/Store-Upload und keine Änderung öffentlicher Statuslabels.
+
+Historische Baseline R199/R200:
+
+Development-Update 1.6 (194) auf dem Besitzer-iPhone installiert und aus dem
+Gerät zurückgelesen; bestehende App ersetzt, keine neue Einrichtung angelegt.
+Löschfehler, verspätete Korrekturen und falsche Swipe-Puffer-Ziele behoben,
+29 fokussierte Tests grün, Security-Diffscan der fünf Änderungen abgeschlossen.
+Keine Abnahme flüssigen Tippens auf dem echten Gerät; Simulator protokolliert
+weiter Frame-Hitches. Kein TestFlight-/App-Store-Upload dieser Version,
+keine neue öffentliche HEUTE-Aussage oder Änderung der DE/EN-Statusmatrix.
+Die Extension ist iOS-spezifisch; Runtime/Unsafe/Mac/Windows unverändert.
+R200: Reale iPhone-17-Pro-Prüfung unter iOS 27: sechs von sieben UI-Tests
+bestanden (Tippen, Löschen, Feldwechsel, Swipe, Emoji-Suche und Ansichten).
+Offen: Zeichentasten im Accessibility-Baum ohne zuverlässige Labels/Rahmen;
+der entsprechende siebte Test scheitert. Kein Ruckelfreiheits-/Haptiknachweis.
+Details und lokale Auslieferungsbelege: `hunch-runtime/PROGRESS.md`, R199/R200.
 
 ### Native Apps — lokales Update R178 (24.09.2026)
 
@@ -2135,3 +2251,20 @@ nativem Mac und Windows innerhalb der Eingabe. Original-Signet als bewegte
 Denk-Anzeige mit statischer Accessibility-Alternative. Gezielte Tests und
 native Builds176 grün; Geräte-/Live-Abnahme und gemeinsame Auslieferung
 offen. Keine neue öffentliche Funktionszusage oder Website-Veröffentlichung.
+
+## Entwicklungsnachtrag — 28.09.2026, Runde 206
+
+EXPERIMENTELL / Quellstand: Tagesabschluss mit besitzergebundener Quellen-
+und Zweckauswahl, vorhandenen Brain-/Aufgabenkontexten und Health-Tagesimporten.
+Native iOS/Mac und Windows/Electron haben Einstellungen und Berichtsansicht;
+Builds und gezielte Tests grün. Noch keine neue Auslieferung behauptet.
+Keine kontinuierlichen Mikrofon-/Bildschirm-/Telefonaufnahmen, keine Diagnose,
+kein eigener Health Score. Ein voller adaptiver Tagesbegleiter bleibt geplant.
+Terminal-Abbruch und begrenzter Ausgabepuffer implementiert; final 1.311 Runtime-Tests
+bestanden. Früherer Runtime-Security-Scan ist durch spätere Fixes überholt;
+finale native/Runtime-Security-Freigabe fehlt. Windows-Diffscan abgeschlossen.
+iOS-Distribution-Archiv198 und Mac-Development-Paket198 mit eingebetteter Runtime
+sind signiert geprüft, aber weder hochgeladen noch installiert/veröffentlicht.
+Tastatur-Randkontaktfehler auf dem
+iPhone weiterhin offen. Store/Release-Gates siehe PROGRESS R206; kein HEUTE-
+Labelwechsel und kein Website-Deployment aus dieser Dokumentationsänderung.

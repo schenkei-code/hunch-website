@@ -14,14 +14,14 @@
   <div class="container nav-inner">
     <a class="logo" href="../"><img src="../owl-mark.png" alt="">hunch</a>
     <div class="nav-links"><a href="../#apps">Apps</a><a href="index.html" class="current">Doku</a></div>
-    <a class="nav-cta" href="mailto:schenkei@hunchagent.io">Early Access</a>
+    <a class="nav-cta" href="../index.html#apps">Beta testen</a>
     <button class="menu-toggle" type="button" data-mobile-menu-toggle aria-expanded="false" aria-controls="mobile-menu">Menü</button>
   </div>
 </nav>
 <div class="mobile-menu" id="mobile-menu" role="navigation" aria-label="Mobile Hauptnavigation" hidden>
   <a href="../">Startseite</a><a href="../#apps">Apps</a><a href="index.html">Dokumentation</a>
   <a class="mobile-menu-meta" href="../en/" hreflang="en" lang="en">English</a>
-  <a class="mobile-menu-cta" href="mailto:schenkei@hunchagent.io">Early Access</a>
+  <a class="mobile-menu-cta" href="../index.html#apps">Beta testen</a>
 </div>
 <div class="container layout">
   <aside class="side"><div class="side-label">Dokumentation</div><nav class="side-nav" aria-label="Dokumentationsbereiche"><a href="index.html">Loslegen</a><a href="architektur.html">Architektur</a><a href="werkzeuge.html">Werkzeuge &amp; Skills</a><a href="gedaechtnis.html">Gedächtnis &amp; Brain</a><a href="arbeitsweise.html">Arbeitsweise &amp; Memory-Scopes</a><a href="faeden.html">Fäden</a><a href="selbstverbesserung.html">Selbstverbesserung</a><a href="session.html">Verlauf + Presence</a><a href="sicherheit.html">Sicherheit &amp; Authority</a><a href="konfiguration.html">Konfiguration &amp; Provider</a><a href="api.html">HTTP-API</a><a href="status.html" class="active" aria-current="page">Status, Sensoren &amp; Datenschutz</a></nav></aside>
@@ -31,6 +31,8 @@
     
 <p class="lead">Ehrlich getrennt: was heute läuft, was experimentell ist, was als Nächstes kommt und
 was 2.0-Vision bleibt. Nichts hier ist als ausgeliefert dargestellt, was es nicht ist.</p>
+
+<p id="delivery-status" data-checked="2026-09-28T01:58:00+02:00" data-public-ios="1.5" data-testflight-build="200" data-local-ios-build="201">Lieferstand · 28.09.2026, 01:58 CEST: Öffentlich im App Store ist iOS 1.5. TestFlight 1.6 (200) ist für externe Tests freigegeben. Build 201 ist nur lokal als Entwicklungsupdate auf einem iPhone installiert, nicht öffentlich veröffentlicht. Mac und Windows haben noch keinen öffentlich geprüften Download. Der folgende Funktionsstand ist nicht mit einer vollständigen Auslieferung auf allen Oberflächen gleichzusetzen.</p>
 
 <h2><span class="tag heute">Heute</span> Heute</h2>
 <p>Persistentes persönliches Gedächtnis · Observer &amp; Executive · Fäden · Providerwahl (lokal &amp;
@@ -44,15 +46,25 @@ automatische Verdichtung · gelernte Skills · proaktive Predictions und Nudges 
 Oberfläche · Vorhaben-Ausführer über Tage und Neustarts mit Neuplanung oder Pause bei Fehlschlag.</p>
 
 <h2><span class="tag exp">Experimentell</span> Experimentell / pro Surface</h2>
-<p>Quellen für die Apple-Watch-App samt Complication sind vorhanden. Im aktuellen
-TestFlight-Build 151 fehlt die Watch-App; Wiederanbindung der Targets und Gerätetest stehen aus.
+<p>Hunch ID bestätigt den Gerätebesitzer bei einer Freigabe direkt in der App mit
+Face ID oder Touch ID und dem Secure-Enclave-Geräteschlüssel. Ablehnen bleibt ohne
+biometrische Bestätigung möglich. Die vollständige Geräteabnahme ist offen.
+Das signierte iOS-Archiv 200 enthält die Apple-Watch-App samt Complication;
+Installation und Freigaben auf einer echten Watch sind noch nicht abgenommen.
 APNs nahm einen Freigabe-Push
 an; der korrigierte Mitteilungs-Button auf Build ≥118 und ein Vorhersage-Push im Alltag warten noch
-auf Ende-zu-Ende-Bestätigung.</p>
+auf Ende-zu-Ende-Bestätigung.
+Ebenfalls experimentell: Voice in einer sichtbar gestarteten Sitzung mit Orb (kein Dauer-Mikrofon),
+Freigabe-Stufen von Sandbox bis zu bewusst gewähltem Unsafe (Wirkung je Oberfläche noch nicht
+vollständig abgenommen), der Tagesbericht mit selbst gewählten Quellen und Zwecken samt Abendbericht nach
+Aktivierung (keine Dauer-Aufnahme, keine Diagnose, kein Health Score) und die Hunch-Tastatur fürs
+iPhone (schnelles Tippen noch nicht fehlerfrei abgenommen).</p>
 
 <h2><span class="tag next">Als Nächstes</span> Als Nächstes</h2>
-<p>Pro-Version im App Store als Einmalkauf, sobald das Paid-Apps-Agreement aktiv ist. Der Kern
-bleibt frei.</p>
+<p>Startmodell in Planung: keine eigene Hunch-Nutzungsgebühr. Eigene Providerkosten,
+Hardware und Energie sind davon getrennt. Bezahlte Erweiterungen sind noch nicht
+beschlossen; hier gibt es kein Preis- oder Kaufangebot. Mac- und Windows-App zum
+öffentlichen Download, sobald Signatur und Geräteprüfung bestanden sind.</p>
 
 <h2><span class="tag vision">Vision</span> Vision 2.0</h2>
 <p>Offen bleibt die Richtung: ein Gegenüber, das über Modelle, Geräte und Jahre mit dir mitwächst.
@@ -69,7 +81,7 @@ Authority, externe Agenten erhalten nur begrenzte Interfaces, fremde Inhalte gel
 nicht vertrauenswürdig. Erinnerungen, Präferenzen und gelernte Skills sind sichtbar, kontrollierbar
 und löschbar.</p>
 
-    <footer class="doc-foot">© 2026 Hunch — <a href="../">hunchagent.io</a> · Stand 2026-09-03, gegen PRODUCT_TRUTH geprüft.</footer>
+    <footer class="doc-foot">© 2026 Hunch — <a href="../">hunchagent.io</a> · Lieferstand 28.09.2026; Code, Gerätetest und öffentliche Verfügbarkeit bleiben getrennte Nachweise.</footer>
   </main>
 </div>
 <script>
