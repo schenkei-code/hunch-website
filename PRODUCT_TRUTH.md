@@ -1,5 +1,14 @@
 # PRODUCT_TRUTH.md
 
+> **Was hier gilt (Stand 29.09.2026).** Maßgeblich ist der jeweils jüngste
+> Abschnitt zu einem Thema; Einträge mit „HISTORIE“ oder „ÜBERHOLT“ sind nur
+> Verlauf und beschreiben nicht den heutigen Stand. Identität und Freigabe:
+> **Hunch ID** (Secure Enclave + Face ID/Touch ID) ist der Hauptweg;
+> **World ID ist seit 26.09.2026 verworfen** — alle World-Aussagen weiter unten
+> (R132, Ausweis-Abschnitt ab „Persönlicher Ausweis und Gerätezugriff“) sind
+> überholt. Claim-Status von Hunch ID: EXPERIMENTELL (nicht am Gerät
+> abgenommen).
+
 **R220 Liefernachtrag, 29.09.2026 (Claude) — nur Quellstand, nicht deployt:**
 iPhone 1.6 (209) liegt bei Apple in Prüfung; 211–213 sind Ad-hoc-Builds nur für
 das Besitzer-iPhone, 214 ist ein lokaler Mac-Build (Runtime eingebündelt, 24/24
@@ -693,7 +702,7 @@ Breitere Provider — HEUTE (2026-08-22, G6): `openrouter`, `together`, `firewor
 `perplexity`, `bedrock` (OpenAI-kompatibler Bedrock-Endpunkt, Bearer-API-Key, Region via
 `HUNCH_*_BASE_URL`) in `providers.py` **und** `ProviderRegistry.swift` (Build 103); `test_providers`
 prüft Wire-Format + Swift-Abgleich (17 Zeilen deckungsgleich).
-Provider-, APNs- und World-ID-Diagnosen geben nur feste Fehlerklassen, HTTP-Status und bekannte
+Provider-, APNs- und (historische, verworfene) World-ID-Diagnosen geben nur feste Fehlerklassen, HTTP-Status und bekannte
 Reason-Codes aus; weder Antwortkörper noch Token, Proof, Nonce oder Nullifier landen im Betriebslog.
 CLI und Cockpit entfernen Terminal-, Zwischenablage- und Bidi-Steuerfolgen vor Anzeige und Kürzung.
 `ausgabesicherheit.py`, `push.py`, `world_id.py`, `tests/test_ausgabesicherheit.py`.
@@ -763,7 +772,8 @@ Das öffentliche Update bleibt davon getrennt und ist nicht freigegeben.
   aber ohne Proof-/Nonce-/Nullifier-Rohdaten. Live bestätigt 2026-08-22 13:06 (proof_of_human).
   App: Button „Mit World ID bestätigen" seit Build 98 in TestFlight (Freigaben-Kachel).
   **Historischer Stand:** World als Zweitweg, Ausweis/App als Standard.
-  **Neuer Hauptweg R132, 20.09.2026 — EXPERIMENTELL:** World primär,
+  **ÜBERHOLT am 26.09.2026 (World ID verworfen, Hunch ID Hauptweg) —
+  nur Verlauf:** ~~Neuer Hauptweg R132, 20.09.2026 — EXPERIMENTELL:~~ World primär,
   Gerätebestätigung bewusst alternativ. Quellumbau umgesetzt, Mac 163 lokal
   ausgeliefert; iOS 162 nur signiert kompiliert. Der neue World-App-/
   Mehrgeräteablauf ist noch nicht physisch end-to-end bestätigt.
@@ -2138,10 +2148,18 @@ solche Einladung. Bisher begrenzte Geräte erhalten Vollzugriff nur durch eine
 neue, ausdrücklich bestätigte Anfrage; alte Kopplungsverfahren werden nicht
 automatisch aufgewertet. Kein HEUTE-Label.
 
-## Persönlicher Ausweis und Gerätezugriff — EXPERIMENTELL (20.09.2026, R132)
+## Persönlicher Ausweis und Gerätezugriff — EXPERIMENTELL (20.09.2026, R132; World-Teile ÜBERHOLT 26.09.2026)
 
-Im Quellstand umgesetzt: World ID ist Hauptweg für
-Freigaben. Secure Enclave mit Face ID/Touch ID bleibt bewusst wählbare
+> **Korrektur 26.09.2026:** World ID ist verworfen. Hauptweg für Freigaben ist
+> **Hunch ID** (Secure Enclave mit Face ID/Touch ID), kein zusätzlicher
+> Pflichtschritt; alle World-Sätze in diesem Abschnitt und in den
+> R132-Nachträgen darunter beschreiben den überholten Stand vom 20.09. und
+> sind nur Verlauf. Hunch ID: EXPERIMENTELL, Geräteabnahme offen. Der Rest
+> (Ausweis nach bestätigter Verbindung, Geräte übernehmen dieselbe Identität)
+> gilt unverändert.
+
+Stand 20.09.2026 (überholt): World ID war Hauptweg für
+Freigaben. Secure Enclave mit Face ID/Touch ID war bewusst wählbare
 Alternative, kein zusätzlicher Pflichtschritt. Der persönliche Ausweis
 entsteht automatisch erst nach bestätigter Verbindung mit einem Computer;
 weitere eigene Geräte übernehmen dieselbe Identität, nicht dessen private
@@ -2172,7 +2190,9 @@ Keychain werden nicht gelöscht. Der vollständige UI-Wechsel 162 → 163 ist
 belegt. Das ist noch kein öffentlicher Online-Updatekanal und kein Nachweis
 einer Mac-App-Store-Veröffentlichung; Apple-Ausgaben nutzen Apples Updateweg.
 
-### Lokale Mac-Einrichtung — EXPERIMENTELL (20.09.2026, R138)
+### Lokale Mac-Einrichtung — EXPERIMENTELL (20.09.2026, R138; World-Teile ÜBERHOLT 26.09.2026)
+
+*(World ID ist verworfen; die World-Sätze in diesem Abschnitt sind Verlauf.)*
 
 Mac 1.6 (164) trennt die Einrichtung dieses Macs von einer Verbindung zu
 anderen Computern. Ein vorhandener berechtigter Zugang wird geprüft und
@@ -2210,8 +2230,8 @@ ein neues Gerät. Der bestätigte Besitzer wählt eigenes Gerät oder Gast;
 ein Gast übernimmt die persönliche Besitzeridentität nicht. Native Apps,
 Windows und Runtime-Web verstehen Token, Einlass-Code und Pairing-Geheimnis
 im selben Feld und zeigen Wiederherstellungswege. Aktive Besitzerzugänge
-erneuern ihre Ausweissitzung. World wird als QR für die Proof-of-Human-App
-angezeigt. Ein QR schafft keine Netzwerkverbindung und ersetzt keinen
+erneuern ihre Ausweissitzung. (Historie, überholt seit 26.09.2026: World wurde als QR für die Proof-of-Human-App
+angezeigt.) Ein QR schafft keine Netzwerkverbindung und ersetzt keinen
 bestätigten Besitzerzugang.
 
 Das Mac-Terminal wird intern für die bestehende Computerverbindung gestartet;
