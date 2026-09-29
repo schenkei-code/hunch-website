@@ -1,5 +1,19 @@
 # PRODUCT_TRUTH.md
 
+**R220 Liefernachtrag, 29.09.2026 (Claude) — nur Quellstand, nicht deployt:**
+iPhone 1.6 (209) liegt bei Apple in Prüfung; 211–213 sind Ad-hoc-Builds nur für
+das Besitzer-iPhone, 214 ist ein lokaler Mac-Build (Runtime eingebündelt, 24/24
+Prüfpunkte, Fenster wegen gesperrtem Mac nicht gesehen). EXPERIMENTELL, am Gerät
+nicht abgenommen: Redesign Phase 2 mit Heute-Kachelraster, Provenienzzeile und
+Wochenleiste (Health-Verlauf nur aus vorhandenen Scores, keine erfundenen
+Tageswerte); Gemini-Voice mit Echo-Unterdrückung und adaptivem Puffer (Wirkung
+nur per Geräteprotokoll belegbar). „Erinnern“ für Meta Ray-Ban ist ein
+Prototyp hinter dem Flag hunch.glasses.meta.experimental: sichtbar gestartete
+Aufnahme mit Zustimmungshinweis, Whisper-Transkript in der Runtime, Vorschläge
+nur über das Authority Gate; nicht im Pocket-Target, DAT-Audio nicht auf
+Hardware getestet, kein Dauerrekorder, kein Ersatz für ein Aufnahme-Armband.
+Keine HEUTE-Anhebung, keine Änderung der Website-Matrix.
+
 **R214 Website-Abgleich, 28.09.2026 (Claude) — veröffentlicht auf hunchagent.io:**
 Öffentliche Seiten (DE/EN/Status-Doku) auf Lieferstand R213 gebracht: App Store
 iOS1.5, TestFlight1.6 (200) extern, 201/202 nur lokal; Mac/Windows ohne
