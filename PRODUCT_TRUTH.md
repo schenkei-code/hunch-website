@@ -1,5 +1,31 @@
 # PRODUCT_TRUTH.md
 
+## Maßgeblicher Produktstand · 01.10.2026, 15:24 Europe/Vienna
+
+**TESTFLIGHT / EXPERIMENTELL:** iOS 1.6 / Build 220 ist tatsächlich extern
+verfügbar; Apple bestätigt VALID / IN_BETA_TESTING / BetaReview APPROVED, beide
+externen Gruppen und DE/EN-Neuigkeiten. Begleiter ist die Hauptansicht, Chat
+optional in Einstellungen → Ansicht; dieselbe Unterhaltung, Voice, Identität
+und derselbe Entwurf bleiben erhalten. Neun Originaltiere im Katalog, nur drei
+experimentelle Vogelmodelle auswählbar. Sechs Modelle/Originaltreue-Finish/Mimik/
+LOD noch offen. Study 25 verbessert ausschließlich deren nativen Irisexport.
+
+**LIVE-BACKEND / GEPRÜFTE QUELLE:** Runtime 1349c8d live, Doctor 10/10, echte
+gzip/private-no-store-Header; 1895 volle Tests PASS. Native Quellenanzeige mit
+vorhandener Brain-Freigabe in 220, 347 Units / 102 Offline-Releasefälle PASS.
+Desktop 3d5bc82 mit getrennter default-deny Source-Freigabe und geprüftem
+Widerruf/atomarem Merge/initialem Retry: 3579 PASS / 3 bestehende SKIP, Build
+und enger Review PASS. Quell- und Teststand ist kein installierter Windowsrelease.
+
+**NICHT AUSGELIEFERT / EXTERN OFFEN:** vollständiger Mac-220-Development-Kandidat
+mit 3072 unabhängig geprüften Dateihashes/Signatur, nicht installiert/notarisiert;
+Mac 216 unverändert. Physische iPhones unavailable, Cua-Capture schwarz. Neue
+Begleiter-UI-Prüfung auf eigenem anonymem Simulator vorbereitet, kein neuer UI-/Geräte-/Voice-/Health-/Player-PASS.
+Öffentlich zuletzt bestätigt 1.5; 1.6 abgelehnt, vollständige Reviewnachricht fehlt.
+220 ist nicht öffentlich im App Store. Dieser Dokumentnachtrag ist kein neues
+Website-Deployment und keine erledigte Gesamt-Voice-/Health-/Meta-/CarPlay-Zusage.
+Aktuelle Matrix und Nachweise im Runtime-Goal; alle übrigen vereinbarten Aufgaben aktiv.
+
 **Liefernachtrag01.10.2026,15:06:** neuer Providerquellen-Backendstand1349c8d
 tatsächlich live source-f92ad7c756a4635a, Doctor10/10/echte gzip-private-no-store.
 Native FinalQA347PASS und20DE/ENBundleentries, Produktcommitd298990;220-Archiv
