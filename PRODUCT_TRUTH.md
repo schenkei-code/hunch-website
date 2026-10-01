@@ -1,5 +1,33 @@
 # PRODUCT_TRUTH.md
 
+## Geprüfter Voice-Mitsehen-HTTP-Vertrag · 01.10.2026, 18:45 Europe/Vienna
+
+**EXPERIMENTELLER CODE, KEINE NATIVE KAMERAFUNKTION:** Runtime aea9f72 normal
+gepusht/Remote exakt. Realtime und Gemini haben getrennte persönliche PUT-/DELETE-
+Mitsehen-Freigaben; ein begrenztes RAM-JPEG kann am direkten Originalturn
+denselben Executive/Fadenweg erreichen. Keine Bildqueue, keine Provider- oder
+Bootstrap-Autorität, kein automatisches Memorylernen. Final 2075 volle/291
+gezielte/203 unabhängige Tests PASS; Replay/Status nach Owner-Demotion gesperrt,
+Stop/Gesprächswechsel vor Await invalidiert. Beleg
+`~/.hunch/qa/voice-http-mitsehen.tmeOYJ/EVIDENCE.md`.
+
+**NICHT GELIEFERT:** Native sichtbare Mitsehen-Auswahl, Pocket-/DAT-/Clientlink,
+echter Decoder/zeitgebundene Aufnahme/Brille/Provider/iPhone fehlen. Separate
+Runtime-Aktivierung jetzt separat belegt: RootGET18:48:24/PID37019/
+source-1ae0b231ea828848 exakt, Doctor10/10/Fäden0/Freigaben0, vier Routen und
+gzip/private-no-store/Vary. Voice-Konfigs mit Betriebsauth403, image_scopes nicht
+live gelesen; kein persönlicher Consent/Kamera/Modellcall. Kein neuer Build/Install/Upload und kein
+Mitsehen-Feature in Beta 221. Native GPT-Live-Freshness wird ergänzt; Gemini-
+finaler Eingabeabschluss/alte ungebundene Cleanup-Requests bleiben eigene Gates.
+
+**LIEFERUNG GETRENNT:** Begleiter ist Standard, klassischer Chat optional
+Einstellungen→Ansicht / Settings→View, gleiche Unterhaltung/Voice/Identität in
+externer Beta 221. Öffentliches iOS zuletzt 1.5, 1.6 abgelehnt. Dieser Nachtrag
+ändert nur Produktstatus, keine HTML-/Assetbytes; neues Dokumentdeployment erst
+nach tatsächlichem Nachweis. iPhone 229-Quelle unbekannt/kein Downgrade, Mac216
+unverändert, kein Windowsinstaller/Public1.6. Sechs Originalfiguren/Finish/Mimik/
+LOD und gesamter Restplan active. Keine zusätzlichen Featureclaims aus Tests.
+
 ## Experimenteller Executive-Bildkern · 01.10.2026, 18:13 Europe/Vienna
 
 **EXPERIMENTELLE QUELLE, NICHT GELIEFERT:** Ein flüchtiger Bildauftrag erreicht
