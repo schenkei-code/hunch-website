@@ -1,5 +1,31 @@
 # PRODUCT_TRUTH.md
 
+## Experimenteller Executive-Bildkern · 01.10.2026, 18:13 Europe/Vienna
+
+**EXPERIMENTELLE QUELLE, NICHT GELIEFERT:** Ein flüchtiger Bildauftrag erreicht
+jetzt im Runtime-Code denselben originalgebundenen Haupt-/Executive-/Fadenweg.
+Separate persönliche Freigabe, einmaliges begrenztes RAM-JPEG, isolierter
+ephemeral Codex-Prozess, kein Bildqueue/Textfallback/automatisches Memorylernen.
+72 gezielte und 1967 volle Tests PASS; unabhängiger Nachlauf 72 PASS. Früherer
+Zwischenlauf mit zwei roten Fake-Protokolltests erhalten. Kein Account-/Modell-/
+Kamera-/Decoder-/Gerätebeweis; Bild-HTTP-Vertrag und native sichtbare Mitsehen-
+Anbindung fehlen. Keine aktivierte Kamera, neue Runtime, Appbuild, Installation
+oder TestFlightlieferung. Nicht in Build 221 als Feature bewerben.
+Beleg `~/.hunch/qa/voice-executive-image.oL52iv/EVIDENCE.md`.
+
+**LIEFERUNG GETRENNT:** Begleiter Standard, Chat optional Einstellungen→Ansicht
+/ Settings→View mit derselben Unterhaltung/Voice/Identität in externer Beta 221.
+Öffentliche Website 2bdb1873/Pages36885838395 separat bestätigt; dieser neue
+Quellnachtrag ist noch kein neues Dokumentdeployment und verändert keine
+HTML-/Assetbytes. Öffentliches iOS zuletzt 1.5, 1.6 abgelehnt.
+
+**OFFEN:** iPhone 229-Quelle bleibt nach begrenztem read-only Audit unbekannt,
+kein 221-Downgrade. Medical/UGC/Web des Gesamt-Releasevertrags nicht abschließend
+freigeprüft; keine weitere konkrete Ratingfeldänderung bewiesen, kein Reply/
+Resubmit. Mac 216 unverändert/221 Development nicht installiert, kein Windows-
+Installer. Sechs Originalfiguren/Finish/Mimik/LOD und ganzer Restplan active.
+Belege `device229-provenance.mqhRZb` und `age-rating-rest221.l4PBHa` unter QA.
+
 ## Tatsächlicher Nachlauf · 01.10.2026, 17:34 Europe/Vienna
 
 **TESTFLIGHT / WEBSITE:** Begleiter ist Standard, klassischer Chat optional
