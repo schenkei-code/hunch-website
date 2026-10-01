@@ -396,14 +396,14 @@ def main() -> int:
                 errors.append(f"{label}: überholter öffentlicher Claim: {stale}")
         delivery = re.search(r'<p\b[^>]*\bid="delivery-status"[^>]*>(.*?)</p>', source, re.S)
         for fact in (
-            'data-checked="2026-10-01T15:15:00+02:00"',
-            'data-public-checked="2026-10-01T12:42:00+02:00"',
-            'data-public-ios="1.5"', 'data-testflight-build="220"',
+            'data-checked="2026-10-01T16:42:48+02:00"',
+            'data-public-checked="2026-10-01T16:49:46+02:00"',
+            'data-public-ios="1.5"', 'data-testflight-build="221"',
             'data-device-installation="not-verified"',
         ):
             if delivery is None or fact not in delivery.group(0):
                 errors.append(f"{label}: datierter Liefernachweis fehlt: {fact}")
-        for visible_fact in ("iOS 1.5", "TestFlight 1.6 (220)", "15:15 CEST"):
+        for visible_fact in ("iOS 1.5", "TestFlight 1.6 (221)", "16:42:48 CEST"):
             if delivery is None or visible_fact not in delivery.group(1):
                 errors.append(f"{label}: sichtbarer Liefernachweis fehlt: {visible_fact}")
         if "Hunch ID" not in source:
@@ -415,7 +415,7 @@ def main() -> int:
 
     for source, label, companion, setting, boundary in (
         (landing, "de", "Begleiter", "Einstellungen → Ansicht", "drei experimentelle Vogelmodelle"),
-        (landing_en, "en", "Companion", "Settings → “Ansicht” (view)", "three experimental bird models"),
+        (landing_en, "en", "Companion", "Settings → View", "three experimental bird models"),
         (docs_status, "Status-Doku", "Begleiter", "Einstellungen → Ansicht", "drei experimentelle Vogelmodelle"),
     ):
         for claim in (companion, setting, boundary):

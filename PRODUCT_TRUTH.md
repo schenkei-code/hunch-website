@@ -1,5 +1,39 @@
 # PRODUCT_TRUTH.md
 
+## Liefernachtrag · 01.10.2026, Beta-Prüfstand 16:42:48 Europe/Vienna
+
+**TESTFLIGHT / EXPERIMENTELL:** iOS 1.6 / Build 221 ist tatsächlich extern
+verfügbar. Der Apple-GET vom 01.10.2026, 14:42:48.309734 UTC bestätigt
+VALID, nicht abgelaufen, intern und extern IN_BETA_TESTING, BetaReview APPROVED
+und beide externen Gruppen; DE/EN-Neuigkeiten exakt zurückgelesen.
+Beleg: `~/.hunch/qa/ios221-voice-release.xYyRy4/beta-final-readback.json`
+und `notes-readback.json`. Begleiter bleibt die Hauptansicht, klassischer Chat
+optional unter Einstellungen → Ansicht / Settings → View. Derselbe Entwurf
+und Verlauf; neun Originaltiere im Katalog, nur drei experimentelle Vögel.
+Die übrigen sechs Modelle, Originaltreue-Finish, Mimik und LOD bleiben offen;
+Study 26 Fuchs ist keine freigegebene Appfigur.
+
+**GEPRÜFTER QUELL-/TESTSTAND, KEINE GERÄTEABNAHME:** Native 1d05: 348 Units,
+zwei tatsächliche anonyme Simulator-UI-Fälle bei 375 pt/AX5 ohne FAIL/SKIP,
+acht neue DE/EN-Bundleeinträge und drei unveränderte Vogel-USDZ-Hashes geprüft.
+Voice bindet Computeraufträge an den Runtime-Endstand statt ans Audioende;
+Stop und Widerruf auch in einer minimierten, nur hörenden Sitzung offline
+geprüft. Desktop 531c4ee: 3683 PASS / drei bestehende SKIP und Build; verspätete
+Voice-Antworten bleiben an die gültige Berechtigung gebunden. Kein Windowsinstaller
+und kein physischer Gesamt-Voice-/GPT-Live-1-/Meta-/Health-/CarPlay-Nachweis.
+
+**MAC-KANDIDAT / ÖFFENTLICHER RELEASE GETRENNT:** Mac 221 ist ein vollständiger
+Development-Kandidat aus Native 1d05 und Runtime 1349c8d: 3072 Dateihashes und
+Signatur geprüft, nicht installiert, nicht notarisiert, kein öffentlicher Download.
+Mac 216 bleibt unverändert. Der getrennte öffentliche Apple-GET vom
+01.10.2026, 14:49:46.217880 UTC bestätigt iOS 1.5 READY_FOR_SALE /
+READY_FOR_DISTRIBUTION; Beleg `~/.hunch/qa/ios221-voice-release.xYyRy4/public-final-readback.json`.
+1.6 bleibt REJECTED / UNRESOLVED_ISSUES mit Build 209 VALID, vollständige Reviewnachricht
+offen. Build 221 ist TestFlight, kein öffentlicher App-Store-Release und keine
+neue direkte iPhone-Installation. Dieser Nachtrag ist noch kein Website-Deployment.
+Die übrigen vereinbarten Aufgaben bleiben aktiv; die älteren Nachweise unten
+beschreiben ihre jeweilige Runde und werden nicht rückwirkend umgeschrieben.
+
 ## Maßgeblicher Produktstand · 01.10.2026, 15:43 Europe/Vienna
 
 **TESTFLIGHT / EXPERIMENTELL:** iOS 1.6 / Build 220 ist tatsächlich extern
