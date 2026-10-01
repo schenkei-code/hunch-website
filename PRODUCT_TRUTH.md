@@ -1,5 +1,62 @@
 # PRODUCT_TRUTH.md
 
+**Aktueller Lieferstand 01.10.2026 — TESTFLIGHT / EXPERIMENTELL:** iOS1.6/217
+ist tatsächlich intern und extern verfügbar (Apple: VALID/IN_BETA_TESTING,
+Beta-Review APPROVED; beide externe Gruppen und DE/EN-Neuigkeiten per GET
+bestätigt). Begleiter ist Standard, klassischer Chat in Einstellungen optional;
+gemeinsame Unterhaltung/Voice/Daten, drei Vogelstudien, nicht neun fertige
+Originalfiguren. Nachweis `~/.hunch/qa/ios217-phonevoice.uXsnMk/TESTFLIGHT-NACHWEIS.md`.
+Keine neue physische iPhone-Installation oder erfolgreiche Voice-Operation
+behaupten. Öffentlich weiter1.5;1.6 REJECTED mit209 und Review UNRESOLVED_ISSUES,
+aktuelle Ablehnungsnachricht in geprüften Apple-GETs nicht enthalten.217 ist
+nicht automatisch öffentliche Version. Runtime source-d75f239170aa00b7 live;
+Mac217 vorbereitet/nicht installiert,216 läuft. Kein Windows-/Website-Release.
+Gesamtgoal active; neuester Stand übersteuert die folgenden datierten Angaben.
+
+**Desktop-Schrift-Nachlauf 01.10.2026 — QUELLSTAND / lokal geprüft:**7996449
+gepusht und Remote bestätigt. Große Schrift vergrößert UI-Text um20% und
+erlaubt zweizeilige Zeilentitel.3479 Tests/3bestehende Skips/Build und finale
+Begleiter5/5/Health5/5 Browsermatrix bestehen mit aktuellen Source-Hashes,
+echter Schriftumschaltung/44px/keinOverflow; kein Windows-Installer oder
+allgemeiner VoiceOver-/AX5-Nachweis. Native neue Abend-Score-Ansicht noch ohne
+sicheren Offline-UI-Hook/375-AX5-Abnahme,344 Units prüfen DTO/Code, nicht diese
+sichtbare Fläche. Website wurde dadurch nicht deployt.
+
+**Liefernachtrag 01.10.2026, 11:42 Europe/Vienna — EXPERIMENTELL:** Begleiter
+jetzt Standard, klassischer Chat optional in Einstellungen. Drei echte
+Vogelstudien, nicht neun fertige Originalfiguren. Neuer signierter iOS1.6/217-
+Upload11:38:48 erfolgreich; Apple verarbeitet, keine neue externe TestFlight-
+Verfügbarkeit oder öffentliche Freigabe behaupten. Gemeinsame Runtime
+source-d75f239170aa00b7 tatsächlich geladen, Doctor10/10 und echte gzip/
+private-no-store-Header geprüft; finale1596 isolierte Tests/2Skips/0Guard sind
+kein Voice-/Besitzer-/Hardware-PASS. Mac217 mit vollständiger identischer
+Runtime Development-signiert und hashgeprüft, nicht installiert/notarisiert;
+Mac216 läuft. Electron-Quelle cbf7350 gepusht, kein Windows-Installer.
+Öffentliche iOS1.6 bleibt REJECTED, angehängter öffentlicher Build209 statt
+historischem147. Workflow-Push299d134 extern blockiert; keine Website-
+Deploymentaktion. Jüngster Nachtrag übersteuert unten „in Arbeit/kein Upload/
+kein Live“, nicht offene Grenzen oder historische Nachweise.
+
+**Folgerunde 01.10.2026, 11:31 Europe/Vienna — EXPERIMENTELL, nicht ausgeliefert:**
+Begleiter bleibt Standard, Chat optional. Gemeinsamer Abendbericht zeigt
+tagesbezogene Schlaf-/Erholungs-/Aktivitätswerte aus ausdrücklich freigegebenen
+vorhandenen lokalen Importen, mit eigener Quellen-Baseline, Datenlücken und
+Herkunft. Kein Gesamtscore/Diagnose, kein gesundheitlicher Kausalnachweis nach
+Bildschirm-/Gesprächsereignissen, keine heimlichen Sammler oder neuen Freigaben.
+Native c90b938/344 Tests und Desktop cbf7350/3474 Tests+3 Skips/Build gepusht;
+lokale Desktop-Browsermatrix5/5, keine native Health-Geräteabnahme. Runtime
+02bc282/source-d75f239170aa00b7 gepusht: originale direkte Nutzeraufträge statt
+Modell-AUFGABE, geprüfte genau-einmal-/Stop-/Freigaberaces und lokale Voice-
+Ergebniszustellung.1596 isolierte Tests/2 Skips/0Guard, reine Baseline-Erklärung
+danach52 gezielte Tests. Kein Live-/Anbieter-/Geräte-PASS daraus; volle Owner-
+Policy und Observer-/Fremddaten-Grenzen bleiben offen.
+Release-Hintergrund-Audio korrigiert, Non-CarPlay-Pipeline96 Offline-Tests;
+native299d134 lokal, Push der Workflowänderung mangels GitHub-workflow-Scope
+abgewiesen, Remote bleibt c90b938. Neuer iOS217-Archive-Build und aktuelles
+vollständiges Mac217-Paket in Arbeit. Älterer217-Kandidat source-de226b3463272feb
+stale, installiert216 unverändert. Kein Upload, Installer, öffentlicher Store-
+oder Website-Release; sechs Begleiter/Finish/Mimik und übriger Gesamtplan offen.
+
 > **Was hier gilt (themenbezogene Nachträge bis 01.10.2026).** Maßgeblich ist der jeweils jüngste
 > Abschnitt zu einem Thema; Einträge mit „HISTORIE“ oder „ÜBERHOLT“ sind nur
 > Verlauf und beschreiben nicht den heutigen Stand. Identität und Freigabe:
