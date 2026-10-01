@@ -396,16 +396,26 @@ def main() -> int:
                 errors.append(f"{label}: überholter öffentlicher Claim: {stale}")
         delivery = re.search(r'<p\b[^>]*\bid="delivery-status"[^>]*>(.*?)</p>', source, re.S)
         for fact in (
-            'data-checked="2026-10-01T16:42:48+02:00"',
+            'data-checked="2026-10-01T19:54:10+02:00"',
             'data-public-checked="2026-10-01T16:49:46+02:00"',
-            'data-public-ios="1.5"', 'data-testflight-build="221"',
+            'data-public-ios="1.5"', 'data-testflight-build="230"',
             'data-device-installation="not-verified"',
         ):
             if delivery is None or fact not in delivery.group(0):
                 errors.append(f"{label}: datierter Liefernachweis fehlt: {fact}")
-        for visible_fact in ("iOS 1.5", "TestFlight 1.6 (221)", "16:42:48 CEST"):
+        for visible_fact in ("iOS 1.5", "TestFlight 1.6 (230)", "19:54:10 CEST"):
             if delivery is None or visible_fact not in delivery.group(1):
                 errors.append(f"{label}: sichtbarer Liefernachweis fehlt: {visible_fact}")
+        for boundary in (
+            r"drei experimentelle Vogelmodelle|three experimental bird models",
+            r"sechs (?:sind )?noch nicht fertig|six are not finished",
+            r"Meta-Mitsehen und weitere Voice-Fixes sind nicht Teil von Build 230|"
+            r"Meta live vision and further Voice fixes are not part of build 230",
+            r"Mac 230 liegt nur im privaten Development-Updatekanal|"
+            r"Mac 230 is only in the private development update channel",
+        ):
+            if delivery is None or not re.search(boundary, delivery.group(1)):
+                errors.append(f"{label}: aktuelle Auslieferungsgrenze fehlt: {boundary}")
         if "Hunch ID" not in source:
             errors.append(f"{label}: aktuelle Besitzerbestätigung Hunch ID fehlt")
         if not re.search(r'Providerkosten|provider costs', source, re.I):

@@ -1,5 +1,38 @@
 # PRODUCT_TRUTH.md
 
+## Tatsächlich externes Update 230 · 01.10.2026, 20:02 Europe/Vienna
+
+**EXTERN TESTFLIGHT VERFÜGBAR:** Apple19:54:10 bestätigt iOS1.6(230), VALID,
+IN_BETA_TESTING/APPROVED und beide externen Gruppen; DE/EN-Notizen exakt.
+Begleiter Standard, klassischer Chat optional Einstellungen→Ansicht / Settings→
+View, dieselbe Unterhaltung/Voice/Identität. Begrenzter CLI-Requestkontext ohne
+Verlaufverlust, erreichbare Voice-Taste auch mit Tastatur/Fehlerkarte und
+frische GPT-Live-Zugangsbindung. 348 Units/fünf reale375pt/AX5-Simulatorfälle,
+signiertes Archiv und erfolgreicher Upload getrennt nachgewiesen. Quelle087ca7b,
+veröffentlichter identischer App-/Teststand6e33ef5. Kein bewiesener229-Ursachen-
+oder physischer Voice-/Hintergrund-/Provider-/Keyboard-End-to-End-Nachweis.
+Beleg `~/.hunch/qa/ios230-companion-cli.2ueJtc/EVIDENCE.md`.
+
+**NICHT INSTALLIERT / NICHT ÖFFENTLICH:** iPhone-GET19:54 CoreDevice4016.
+Mac230 samt voller Runtime privat als Development-Update bytegenau geprüft,
+nicht installiert/notarisiert/öffentlich; zuletzt216. Cua braucht lesbares
+entsperrtes Fenster, keine blinde Ersetzung. Öffentliches iOS zuletzt1.5,
+1.6 weiterhin REJECTED, kein neuer Windowsinstaller oder Public1.6.
+
+**NÄCHSTE EXPERIMENTELLE STUFE, NICHT IN230:** Gemini epochgebundener Start/
+Stop/Zugriffsentzug lokal62HTTP/83Engine/415Lifecycle/44Guards und unsigned
+Release-Typbuild PASS. Backend175/2132Tests alter Quelle durch bestätigten
+P2-Cleanup-Nachfund kein Releasegate; Mengenbereinigung und Nachtest laufen.
+Human-ASR-Final, native Mitsehen-/Meta-/Pocket-Verknüpfung und echte Geräte-
+Prüfung fehlen. Drei Vögel experimentell; sechs weitere Originaltiere,
+Originaltreue-Finish/Mimik/LOD und übriger Gesamtplan weiterhin offen.
+
+**APPLE-METADATEN, KEIN RELEASE:** Messaging19:57:13 am exakt abgelehnten1.6-
+AppInfo auftrue korrigiert, begründet durch echten Telegram-Gruppenrelay,
+nicht durch KI-Chat. Andere editierbare Felder unverändert; Medical-Begründung
+offen. Keine Reviewantwort/Neueinreichung/öffentliche Freigabe. HTML-Statuscopy
+zu230 ist eine separate laufende Websiteänderung, Deployment erst mit Nachweis.
+
 ## Geprüfter Voice-Mitsehen-HTTP-Vertrag · 01.10.2026, 18:45 Europe/Vienna
 
 **EXPERIMENTELLER CODE, KEINE NATIVE KAMERAFUNKTION:** Runtime aea9f72 normal
