@@ -1,5 +1,102 @@
 # PRODUCT_TRUTH.md
 
+## Abschließender Quelltest · 01.10.2026, 22:04 Europe/Vienna
+
+Native4de433b und sauberer UI-Stand4be8f04 sind für die18 App-/Test-/PBX-
+Änderungsdateien bytegleich; vier kanonische YAML-Testabhängigkeiten geprüft.
+Finaler tatsächlicher SE3/iOS26.5-Lauf:395Unit-Tests plus ein UI-Test, der
+375pt und AX5 prüft; insgesamt396PASS/0FAIL/0SKIP. Die zwei früheren UI-
+Fehlversuche bleiben belegt. Vollständiger nativer Mac-arm64-Build derselben
+Appquelle ebenfalls Exit0, keine Fehler, vier bestehende Warnungen.
+OS26-Hinweis und sofortiger unsupported-Abbruch vor Mikrofon/Factory geprüft.
+Expliziter lokaler Sprachauftrag bleibt experimentell und Gemini-spezifisch;
+kein realer ASR-/Provider-/Hintergrund-/Gerätenachweis und kein GPT-Live-Claim.
+
+Integrierter Runtime-Freeze:2335PASS/2bekannteHost-SKIP/0FAIL/0Guardverletzungen,
+179.20s. Enge Alt-Pointermigration39Tests, echter SQLite-PK-CAS mit20kZeilen
+auch im gebündelten Mac-Python/SQLite3.53.1 geprüft. P2-Revisionscache:
+1/16 tatsächlicheEmpfänger jeweils1RevisionSELECT/28GesamtSQL. Vierzehn
+Produkt-/Test-/Guarddateien vor/nach unverändert. Der folgende Ultrahuman-
+Range-/Unit-/Sleep-Schemafix wird separat entwickelt und ist nicht durch
+diesen älteren Freeze abgenommen. Kein dauerhafter Cross-Store-Event-Outbox-
+Nachweis; Datenlücken und Lieferung bleiben getrennt.
+
+iOS1.6/234 beim Apple-Inventar als frei bestätigt; signiertes Archiv in Arbeit,
+noch kein Upload/Processing/TestFlight-/Installationsnachweis. ExterneBeta230
+und privater Mac-Kanal231 bleiben die zuletzt belegten Lieferstände; installiert
+Mac zuletzt216, iPhone zuletztCoreDevice4016. Runtime zuletzta95/source-d9cc;
+keine neue Aktivierung. Public zuletzt1.5/1.6REJECTED, keine neue Einreichung.
+Website-Nachträge sind bis eigenem Deploymentbeleg nur Quellstand. Alle übrigen
+Goalpunkte bleiben aktiv; fremde Arbeit, OS-Rechte und Kostenregeln erhalten.
+
+## Anschlussprüfung · 01.10.2026, 21:52 Europe/Vienna
+
+Der Gesamtauftrag bleibt aktiv. Neue Voice-/Health-Quellen sind noch nicht
+ausgeliefert; externe TestFlight-Beta230 und privater Mac-Kanal231 enthalten
+diesen Anschluss nicht.
+
+- Voice: expliziter Gemini-Sprachauftrag mit lokaler bestätigter Finalisierung,
+  PCM-Grenzen, Stop/Widerruf und tatsächlicher Cleanup-Sperre implementiert.
+  Native3211a8d/031e57f/2627737; sauberer UI-Zweig6372fb5 noch lokal.
+  Vollständige App kompiliert;395Unit-Tests bestanden. Der separate reale
+  375pt-/AX5-Paneltest besteht nach korrigiertem Scrollziel und44pt-Debugbutton.
+  Erste zwei UI-Fehlversuche bleiben belegt, kein nachträgliches Gesamt-PASS.
+  OS26-Capabilityhinweis und abschließender gemeinsamer Lauf noch in Arbeit.
+  Kein realer deutscher ASR-/Mikrofon-/Hintergrund-/Provider-/Gerätenachweis.
+- Health: purpose-bound Importbelege und ausschließlich generischer Abendbericht-
+  Inboxhinweis gebaut. Eingefrorener integrierter Stand2270PASS/2Host-SKIP,
+  0FAIL/0Guardverletzungen. Danach neue P2-Revisionscache-Korrektur:
+  tatsächliche1/16Empfänger jeweils1Policy-SELECT/28Gesamt-SQL,230Zieltests.
+  Eng begrenzte Alt-Pointermigration wird zusätzlich auf Herkunft geprüft;
+  beide Änderungen benötigen den neuen vollständigen Lauf vor Aktivierung.
+  Separate Health-/Review-Stores haben noch keinen dauerhaften Event-Outbox-
+  Vertrag; Ultrahuman-Pro-Tag-Providerabruf bleibt P2-offen.
+- Lieferung: Runtime zuletzt a95/source-d9cc27391d21e5b7; kein neuer Neustart.
+  Mac231 privat bereit, installiert zuletzt216. Cua21:47 weiterhin0AX am
+  exakten Hunch-Fenster, keine GUI-/PIN-/Installationsaktion. iPhone zuletzt
+  CoreDevice4016; externe Beta230 ersetzt keinen Installationsnachweis.
+  Public zuletzt1.5,1.6REJECTED; kein neuer Apple-Review/Publicrelease.
+  Neue Statusquelle erst nach eigener Veröffentlichung als live bezeichnen.
+- Restmatrix einschließlich GPT-Live-End-to-End, Windows, Originalfiguren,
+  Meta/CarPlay/Alexa/Sesame, Persona/Proaktivität, Import-/Wallet-Sync und
+  Store-/Motion-Medien bleibt offen; fremde Arbeit und Kostenregeln erhalten.
+
+## Geprüfter Anschlussstand · 01.10.2026, 21:18 Europe/Vienna
+
+Native Originalquelle fca208e, exakt acht Root-Dateien; legitim veröffentlicht
+als6e301334520203d6b922a56fd70452c536549dac, normaler Push/Remote exakt.
+386 tatsächliche App-/Extension-/Link-/Simulator-Units,0FAIL/0SKIP;378vorherige
+plus8Coordinatorfälle. Coordinator172/8Tests/6Negativ, Apple146/21Helper/27CMTime/
+11Tests/7Negativ; unabhängiger ApplePeer22Cleanup+27FakePreflight/3Negativ.
+Echte Drainbarrieren statt Cancel==Cleanup. Noch kein aktiver Engineanschluss,
+SpeechFactory/ASR/Mikrofon/Provider/Gerätenachweis; dieser Anschluss in Arbeit.
+QA voice-coordinator-app.rH19wD/EVIDENCE.md; iOS17/macOS14 erhalten/Apple26.
+
+Mac231/immutable8bd/Runtimea95 ist tatsächlich vollständig paketiert, signiert
+und im privaten Development-Kanal bytegleich geprüft:3075Dateien/211521801B,
+9internallinks/CDHashc09bca6ad618699e0c0bef79eb5ac9ccce459945; Root874Gitblobs/
+23CodeSignaturen geprüft. ZIP74887756B. **Nicht installiert**, weiterhin216;
+kein öffentlicher DeveloperID-/Notarisierungsnachweis. QA mac231-voice-
+development.6yux2F/EVIDENCE.md/root-verification.json/channel-verification.json.
+Cua21:13 Fenster2312/PID44521 weiterhin0AX; kein blindes Replacing/PIN.
+iPhone20:47 weiterhin4016; externe Beta230 unverändert, keine neue Installation.
+
+Health-/schema2-Abendbericht vorhanden; unabhängiger Quellaudit zeigt fehlenden
+purpose-bound Importbeleg-/Live-Inboxanschluss und P2-ProviderGET-proTag beim
+Ultrahuman-Backfill. Erster lokaler Apple-/Inbox-Anschluss jetzt in Arbeit,
+kein neuer Collector/Provideraufruf, keine versteckten Grants oder Diagnosen.
+QA health-day-readonly.ej8kTP/EVIDENCE.md. Offizieller7Tage-Rangevertrag gefunden,
+Antwort-/Batchimplementierung noch offen; bisheriger P2 nicht als behoben führen.
+
+Runtimea95/source-d9cc27391d21e5b7 zuletzt tatsächlicherGET20:25:54;2.149volle/
+254unabhängige Tests, keine neue Aktivierung dieses Anschlusscodes.
+Website69579c0/Pages36910729240 tatsächlichsuccess, Root21:00:36Dokument200/gzip/
+66473Wirebytes/quellgleich; HTML/Assets unverändert144e539. Dieser Nachtrag
+vor seinem eigenen Deployment nur Quelle. Public1.5/1.6REJECTED/Windows-/
+Hardware-/gesamteRestmatrix offen; Gesamtgoal active. Fremde Arbeit erhalten.
+
+
+
 ## Aktueller Code-/Test-/Lieferstand · 01.10.2026, 20:49 Europe/Vienna
 
 **RUNTIME AKTIV:** a95e8ac / source-d9cc27391d21e5b7 wurde am bestehenden
