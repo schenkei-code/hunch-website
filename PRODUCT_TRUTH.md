@@ -1,5 +1,21 @@
 # PRODUCT_TRUTH.md
 
+**Arbeitsnachtrag01.10.2026,12:36 — EXPERIMENTELL / Runtime live, Client nur Quelle:**
+Besitzer-Herkunftsbindung mit Originalturn, Credential-/Grantbasis vor Await,
+privatem Faden-/Freigabeanker und Stop-/Widerrufskontrollen implementiert.
+Das erweitert keine Werkzeug-/Argumentfähigkeiten; volle STANDARD-Regel
+„nur bei Zahlungen fragen“ und verifizierte Kanäle bleiben offen. Native neue
+Abend-Score-Ansicht hat jetzt eine sichere reine Simulator-Fixture ohne
+AppModel/Livezugriff. Nach Accessibility-Quellenlabel-Korrektur finale346 Tests
+hell und1 UI dunkel mit real375pt/Standard/AX5; Mac-Debug baut. Runtime07c360b
+gepusht/live source-a0bd919e9ecb1e9b,1.758PASS/2SKIP/0Guard und Doctor10/10,
+echte gzip/private-no-store-Header. NativeUI34413db separat gepusht,
+Hauptzweig wegen workflow-Scope blockiert. Kein physisches Gerät, Health-Ingest, gesprochener VoiceOver-Nachweis
+oder neue Veröffentlichung. TestFlight217 bleibt der letzte belegte Beta-Stand;
+neue Quelle ist nicht darin. Begleiter Standard, Chat optional bleibt beschlossen.
+Dieser Quellnachtrag übersteuert unten fehlenden Offline-Hook/P1-Index, nicht
+historische Liefernachweise. Keine Website-Deploymentaktion; Gesamtgoal active.
+
 **Aktueller Lieferstand 01.10.2026 — TESTFLIGHT / EXPERIMENTELL:** iOS1.6/217
 ist tatsächlich intern und extern verfügbar (Apple: VALID/IN_BETA_TESTING,
 Beta-Review APPROVED; beide externe Gruppen und DE/EN-Neuigkeiten per GET
