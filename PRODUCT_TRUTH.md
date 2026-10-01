@@ -1,5 +1,35 @@
 # PRODUCT_TRUTH.md
 
+**Maßgeblicher Nachtrag01.10.2026,13:07 — TESTFLIGHT / EXPERIMENTELL:**
+iOS1.6/218 ist tatsächlich extern verfügbar: VALID/IN_BETA_TESTING/
+BetaReviewAPPROVED, beide externe Gruppen und DE/EN-Neuigkeiten per GET.
+Begleiter ist die Hauptansicht, klassischer Chat optional in Einstellungen;
+Gespräch/Voice/Daten/Entwurf bleiben erhalten. Drei experimentelle Vogelmodelle,
+nicht neun fertige Originalfiguren; Fuchs separat in Modellierung. Neue
+Abend-Health-UI jetzt im218-Archiv,346 Light-/1 Dark-Simulatorfälle375pt/AX5,
+Herkunft/Baseline/Datenlücken sichtbar. Keine ungefragte neue Datensammlung,
+physische iPhone-/Health-/VoiceOver-Abnahme oder neue öffentliche Freigabe.
+Beleg `~/.hunch/qa/ios218-companion-health.M4crbf/TESTFLIGHT-NACHWEIS.md`.
+
+Gemeinsame Runtime7c71734/source-0188ccc0e3ae515b/PID70539 ist live,1862PASS/
+2SKIP/0Guard/Doctor10grün und tatsächliche gzip/private-no-store-Header.
+Sieben konkret gebundene Besitzeroperationen funktionieren im geprüften
+Closed-Slice ohne Modell/zusätzliche STANDARD-Freigabe; Aufgaben/Ziele,
+exaktes Literal-Memory, indexierte globale Suche und Computerzeit. Keine
+generische Shell-/GUI-/Harnessautonomie oder vollständige Zusage „nur Zahlungen
+fragen“, keine neue Observer-/Fremdautorität. Verschlüsselte/nicht indexierte
+Erinnerungen werden im neuen schnellen Suchpfad ausdrücklich nicht durchsucht.
+Live-Code/Tests ersetzen keine echte Nutzer-/Voice-/Computeroperation.
+Beleg `~/.hunch/qa/owner-binding.o2vfJq/EVIDENCE-CAPABILITY.md`.
+
+Mac216 installiert;217 vollständig signiert/verifiziert, neuer218-Kandidat mit
+aktueller Runtime in Arbeit, keine Installation/Notarisierung/öffentliche
+Macdistribution. Physisches iPhone unavailable. Öffentlicher Apple-GET12:41–42:
+1.5 veröffentlicht,1.6 mit209 REJECTED/UNRESOLVED_ISSUES; Nachricht vor
+Neueinreichung lesen/Fehler beheben.218 ist nicht automatisch öffentlich.
+Kein Windowsinstaller oder Website-Deployment; Plan/Quellenstatus nachgeführt,
+übriger Gesamtplan active. Die folgenden datierten Zahlen sind Historie.
+
 **Arbeitsnachtrag01.10.2026,12:36 — EXPERIMENTELL / Runtime live, Client nur Quelle:**
 Besitzer-Herkunftsbindung mit Originalturn, Credential-/Grantbasis vor Await,
 privatem Faden-/Freigabeanker und Stop-/Widerrufskontrollen implementiert.
