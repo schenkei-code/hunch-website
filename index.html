@@ -750,9 +750,9 @@ section[data-serial] > .wrap{position:relative;z-index:1}
           <span>es versteht den moment.</span>
           <span>es handelt in deinem auftrag.</span>
         </div>
-        <p class="lead">Hunch baut aus deinen
-        Erinnerungen, Vorhaben, Entscheidungen und deinem aktuellen Kontext ein persönliches Modell,
-        erkennt den nächsten sinnvollen Schritt — und handelt nur innerhalb der Grenzen, die du festlegst.</p>
+        <p class="lead">In der aktuellen TestFlight-Beta sprichst und schreibst du mit deinem
+        Begleiter und gibst Aufträge an deinen verbundenen Computer. Der klassische Chat bleibt
+        optional. Du wählst, welche Erinnerungen Hunch nutzen darf.</p>
         <div class="hero-actions">
           <a class="btn btn-primary" href="#apps">Beta testen</a>
           <a class="btn btn-quiet" href="#moment">Wie das aussieht</a>
@@ -1165,12 +1165,13 @@ section[data-serial] > .wrap{position:relative;z-index:1}
     <div class="head center">
       <span class="eyebrow reveal" data-no="12">Ein Hunch, mehrere Zugänge</span>
       <h2 class="reveal">Nicht nur eine iPhone-App.</h2>
-      <p class="lead reveal">Die Runtime auf Mac, PC, Linux oder VPS beobachtet, erinnert und führt aus.
-      Die iPhone-App ist dein Begleiter für Brain, Fäden, Computer, Nodes, Kanäle, Skills und Freigaben.
+      <p class="lead reveal">Die Runtime verbindet Hunch mit deinem Computer und den freigegebenen Werkzeugen.
+      In der aktuellen iPhone-Beta ist der Begleiter die Hauptansicht; den klassischen Chat kannst du
+      unter Einstellungen → Ansicht zuschalten. Beide zeigen dieselbe Unterhaltung, ohne neue Einrichtung.
       Terminal, Telegram, WhatsApp, MCP, HTTP und WebSocket sind weitere Zugänge — nicht jede Surface hat
       dieselbe Feature-Parität.</p>
     </div>
-    <p id="delivery-status" class="lead reveal" data-checked="2026-09-28T01:58:00+02:00" data-public-ios="1.5" data-testflight-build="200" data-local-ios-build="201">Lieferstand · 28.09.2026, 01:58 CEST: Öffentlich im App Store ist iOS 1.5. TestFlight 1.6 (200) ist für externe Tests freigegeben. Build 201 ist nur lokal als Entwicklungsupdate auf einem iPhone installiert, nicht öffentlich veröffentlicht. Neue Quelländerungen sind kein Release.</p>
+    <p id="delivery-status" class="lead reveal" data-checked="2026-10-01T15:15:00+02:00" data-public-checked="2026-10-01T12:42:00+02:00" data-public-ios="1.5" data-testflight-build="220" data-device-installation="not-verified">Lieferstand · 01.10.2026: Öffentlich zuletzt bestätigt ist iOS 1.5. TestFlight 1.6 (220) ist für externe Tests freigegeben; Apple-Prüfstand 15:15 CEST. Begleiter als Hauptansicht, Chat optional. Neun Tiere im Katalog, drei experimentelle Vogelmodelle wählbar; die übrigen sechs sind noch nicht fertig. Keine neue direkte iPhone-Installation bestätigt. Mac und Windows noch ohne öffentlich geprüften Download.</p>
     <div class="download-list reveal" aria-label="Hunch herunterladen">
       <div class="download-row"><div><span class="tag exp">TestFlight-Beta</span><strong>iPhone &amp; iPad</strong><p>Über Apples TestFlight installieren. Du erhältst die jeweils für externe Tester freigegebene Version; neue Quelländerungen sind nicht automatisch darin enthalten.</p></div><a class="btn btn-primary" href="https://testflight.apple.com/join/xEn2bN4v" rel="noopener noreferrer">In TestFlight öffnen</a></div>
       <div class="download-row"><div><span class="tag next">In Vorbereitung</span><strong>Mac</strong><p>Die native App mit integrierter Runtime wird derzeit lokal getestet. Eine öffentlich installierbare, signierte und geprüfte Mac-Ausgabe gibt es noch nicht.</p></div><span class="download-unavailable">Kein öffentlicher Download</span></div>
@@ -1310,9 +1311,10 @@ section[data-serial] > .wrap{position:relative;z-index:1}
         <li>Apple Watch: Das signierte iOS-Archiv 200 enthält die Watch-App samt Complication. Installation und Freigaben auf einer echten Watch sind noch nicht abgenommen</li>
         <li>Freigeben/Ablehnen aus einer Push-Mitteilung: Code und APNs-Annahme sind belegt; der korrigierte Button auf Build ≥118 wartet auf E2E-Bestätigung</li>
         <li>Vorhersage-Push im Alltag: Erzeugung und Presence-Routing laufen, die tatsächliche Push-Zustellung ist noch nicht bestätigt</li>
-        <li>Voice: du sprichst mit Hunch in einer sichtbar gestarteten Sitzung, der Orb zeigt Zuhören und Antworten (iPhone, Mac, Windows). Kein Dauer-Mikrofon im Hintergrund; Abnahme auf echten Geräten offen</li>
+        <li>Begleiter: Hauptansicht in TestFlight 220, klassischer Chat optional unter Einstellungen → Ansicht. Dieselbe Unterhaltung und derselbe Entwurf; neun Originaltiere im Katalog, drei experimentelle Vogelmodelle wählbar</li>
+        <li>Voice: sichtbar gestartetes Gespräch mit Zuhören und Antworten. Hintergrundgespräch und Computeraufträge bis zum tatsächlichen Ergebnis bleiben in der Geräteabnahme; kein heimliches Dauer-Mikrofon</li>
         <li>Freigabe-Stufen: du legst fest, wie viel Hunch ohne Rückfrage darf, von Sandbox bis zu einem bewusst gewählten Unsafe-Modus. In Runtime und Apps vorhanden, die Wirkung je Oberfläche ist noch nicht vollständig abgenommen</li>
-        <li>Tagesbericht: du wählst Quellen und Zwecke, Hunch fasst den Tag mit Herkunft und Datenlücken zusammen; ein Abendbericht zu fester Zeit läuft nur nach deiner Aktivierung. Keine Dauer-Aufnahme, keine Diagnose, kein Health Score</li>
+        <li>Tagesbericht und Health: Quellen und Zwecke wählbar, Abendbericht erst nach Aktivierung. Die native Health-Ansicht zeigt importierte Messwerte, Herkunft, persönliche Baseline und Datenlücken. Die Quellen-/Geräteabnahme bleibt offen; keine Dauer-Aufnahme oder Diagnose</li>
         <li>Hunch-Tastatur (iPhone): eigene Tastatur mit lokalen Wortvorschlägen. Schnelles Tippen ist noch nicht fehlerfrei abgenommen</li>
       </ul></div>
       <div class="col reveal"><h3><span class="tag next">Als Nächstes</span></h3><ul>

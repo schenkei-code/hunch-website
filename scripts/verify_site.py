@@ -361,7 +361,7 @@ def main() -> int:
         (docs_session, "letzten 30 Zeilen", "Doku-Fortsetzungsgrenze"),
         (docs_session, "App, Runtime, CLI, Web und Telegram", "Doku-belegter Surface-Scope"),
         (docs_session, "Stand 2026-09-03, gegen PRODUCT_TRUTH geprüft", "Doku-Session-Prüfstand"),
-        (docs_status, "Lieferstand 28.09.2026", "Doku-Status-Prüfstand"),
+        (docs_status, "Lieferstand 01.10.2026", "Doku-Status-Prüfstand"),
         (
             docs_status,
             "Fenstertitel nur mit Bedienungshilfen-Recht",
@@ -396,19 +396,31 @@ def main() -> int:
                 errors.append(f"{label}: überholter öffentlicher Claim: {stale}")
         delivery = re.search(r'<p\b[^>]*\bid="delivery-status"[^>]*>(.*?)</p>', source, re.S)
         for fact in (
-            'data-checked="2026-09-28T01:58:00+02:00"',
-            'data-public-ios="1.5"', 'data-testflight-build="200"',
-            'data-local-ios-build="201"',
+            'data-checked="2026-10-01T15:15:00+02:00"',
+            'data-public-checked="2026-10-01T12:42:00+02:00"',
+            'data-public-ios="1.5"', 'data-testflight-build="220"',
+            'data-device-installation="not-verified"',
         ):
             if delivery is None or fact not in delivery.group(0):
                 errors.append(f"{label}: datierter Liefernachweis fehlt: {fact}")
-        for visible_fact in ("iOS 1.5", "TestFlight 1.6 (200)", "Build 201"):
+        for visible_fact in ("iOS 1.5", "TestFlight 1.6 (220)", "15:15 CEST"):
             if delivery is None or visible_fact not in delivery.group(1):
                 errors.append(f"{label}: sichtbarer Liefernachweis fehlt: {visible_fact}")
         if "Hunch ID" not in source:
             errors.append(f"{label}: aktuelle Besitzerbestätigung Hunch ID fehlt")
         if not re.search(r'Providerkosten|provider costs', source, re.I):
             errors.append(f"{label}: eigene Providerkosten müssen getrennt benannt sein")
+        if 'data-local-ios-build="201"' in source:
+            errors.append(f"{label}: überholte lokale Installation 201 ist kein aktueller Gerätenachweis")
+
+    for source, label, companion, setting, boundary in (
+        (landing, "de", "Begleiter", "Einstellungen → Ansicht", "drei experimentelle Vogelmodelle"),
+        (landing_en, "en", "Companion", "Settings → “Ansicht” (view)", "three experimental bird models"),
+        (docs_status, "Status-Doku", "Begleiter", "Einstellungen → Ansicht", "drei experimentelle Vogelmodelle"),
+    ):
+        for claim in (companion, setting, boundary):
+            if claim not in source:
+                errors.append(f"{label}: Begleiter-Beta-Vertrag fehlt: {claim}")
 
     for source, label in ((landing, "de"), (landing_en, "en")):
         for selector in (".session-strip", ".thread", ".session-map li"):

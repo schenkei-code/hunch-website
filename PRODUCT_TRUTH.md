@@ -1,6 +1,6 @@
 # PRODUCT_TRUTH.md
 
-## Maßgeblicher Produktstand · 01.10.2026, 15:24 Europe/Vienna
+## Maßgeblicher Produktstand · 01.10.2026, 15:43 Europe/Vienna
 
 **TESTFLIGHT / EXPERIMENTELL:** iOS 1.6 / Build 220 ist tatsächlich extern
 verfügbar; Apple bestätigt VALID / IN_BETA_TESTING / BetaReview APPROVED, beide
@@ -20,7 +20,11 @@ und enger Review PASS. Quell- und Teststand ist kein installierter Windowsreleas
 **NICHT AUSGELIEFERT / EXTERN OFFEN:** vollständiger Mac-220-Development-Kandidat
 mit 3072 unabhängig geprüften Dateihashes/Signatur, nicht installiert/notarisiert;
 Mac 216 unverändert. Physische iPhones unavailable, Cua-Capture schwarz. Neue
-Begleiter-UI-Prüfung auf eigenem anonymem Simulator vorbereitet, kein neuer UI-/Geräte-/Voice-/Health-/Player-PASS.
+Begleiter-UI-Prüfung auf eigenem anonymem Simulator: 2 PASS bei 375 pt/AX5,
+Chat-Schalter und Entwurf erhalten. Debug-Testbundle 148 mit identischen
+d298990/220-Produktquellen, kein 220-Archive-/physischer Geräte-/Voice-/Health-/
+Originaltreue-PASS; AX5-Status und QoS-Warnung offen. Neue Voice-Endstandfixes
+noch in Prüfung und nicht im ausgelieferten 220.
 Öffentlich zuletzt bestätigt 1.5; 1.6 abgelehnt, vollständige Reviewnachricht fehlt.
 220 ist nicht öffentlich im App Store. Dieser Dokumentnachtrag ist kein neues
 Website-Deployment und keine erledigte Gesamt-Voice-/Health-/Meta-/CarPlay-Zusage.
