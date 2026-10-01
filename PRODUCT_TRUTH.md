@@ -1,5 +1,24 @@
 # PRODUCT_TRUTH.md
 
+## Öffentlich geprüfter Website-Nachlauf · 01.10.2026, 17:07 Europe/Vienna
+
+**HEUTE / WEBSITE:** Begleiter-first und Chat optional sind jetzt tatsächlich
+öffentlich auf hunchagent.io. Commit e935ac0 / Pages36880554387 completed/success;
+DE/EN/Status jeweils HTTP200/gzip, dekomprimierte Bytes exakt Quelle,
+Vary:Accept-Encoding / öffentliche identische Inhalte max-age600. Vier echte
+Live-Browserfälle DE/EN375/1024 PASS; vorhandene GPU-Warnung und abgebrochene
+Video-Metadatenabrufe offen, kein Video-/Safari-/iPhone-Leistungsclaim.
+Beleg `~/.hunch/qa/website221-root.wEse51/EVIDENCE.md`.
+
+**EXPERIMENTELLE QUELLE, NICHT GELIEFERT:** Der Meta-Mikrofon-Awaitfix ist
+als Native2157684 übernommen: eigener Stop-/Widerruf-Lauf,27Meta/33Core-Tests
+unabhängig ausgeführt; echte iOSSDK-Kompilation ist nur Typproof. Pocket-/Voice-
+Bildtransport und Hardwareabnahme fehlen weiterhin; kein Teil von Beta221.
+TestFlight mit Meta-Releasekanal ist nach Metas aktueller Primärquelle möglich,
+öffentlicher AppStorezugang weiterhin MFi/PPID-begrenzt; kein Hunch-Kanal bewiesen.
+Übriger Gesamtgoal active. Der folgende16:42-Nachtrag ist der erhaltene Zustand
+vor dem anschließend separat nachgewiesenen Website-Deployment.
+
 ## Liefernachtrag · 01.10.2026, Beta-Prüfstand 16:42:48 Europe/Vienna
 
 **TESTFLIGHT / EXPERIMENTELL:** iOS 1.6 / Build 221 ist tatsächlich extern
