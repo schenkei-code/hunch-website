@@ -1,6 +1,6 @@
 # PRODUCT_TRUTH.md
 
-> **Was hier gilt (Stand 29.09.2026).** Maßgeblich ist der jeweils jüngste
+> **Was hier gilt (themenbezogene Nachträge bis 01.10.2026).** Maßgeblich ist der jeweils jüngste
 > Abschnitt zu einem Thema; Einträge mit „HISTORIE“ oder „ÜBERHOLT“ sind nur
 > Verlauf und beschreiben nicht den heutigen Stand. Identität und Freigabe:
 > **Hunch ID** (Secure Enclave + Face ID/Touch ID) ist der Hauptweg;
@@ -8,6 +8,52 @@
 > (R132, Ausweis-Abschnitt ab „Persönlicher Ausweis und Gerätezugriff“) sind
 > überholt. Claim-Status von Hunch ID: EXPERIMENTELL (nicht am Gerät
 > abgenommen).
+
+**Begleiter, 01.10.2026 — EXPERIMENTELL, neue App-Integration im Quellstand:**
+Neue echte bewegliche 3D-Modellstudien nach den generierten Nutzer-Vorlagen
+für braune Eule, weiße Eule und Ara; aktuelle Artefakte Study 16. Neun
+Rundum-Hilfsbilder sind vorhanden, aber nicht neun Modelle. Kurzer gerenderter
+Bewegungstest und lokale GLB-/USDZ-/Komprimierungsprüfungen, keine fertige
+Originaltreue, Gesichtsmimik, LOD oder reale Geräteabnahme. Nutzer hat die
+frühere Zurückstellung ausdrücklich aufgehoben: Begleiter jetzt als Standard-
+Hauptansicht, klassischer Chat optional über Einstellungen. Im nativen
+iOS/macOS- und Electron-Quellstand integriert, gleiche bestehende Gesprächs-,
+Voice- und Auftragsengine; drei tatsächlich vorhandene Modelle auswählbar.
+Lokale Begleiter-UI-/Buildprüfungen bestanden: Electron3465PASS/3SKIP und
+echte lokale Draco-WebGL-Matrix; native375/AX5/Schalter/Entwurf2/2 UI-Tests
+und universeller unsigned Mac-Debug-Build. Folgeprüfung:342 native Unit-Tests
+und102 quellengekoppelte Voice-Prüfungen bestanden. Lokaler Wortstart-/Mikrofon-
+Stop, verzögertes Öffnungs-Autostart und sichtbare1Hz-Sitzungsuhr korrigiert;
+375/AX5-Menümatrix mit allen18 realen Zielen und Rückwegen bestanden.
+Isolierte Runtime-Fullsuite1419PASS/2expliziteSKIP, keine Guard-Verstöße.
+Synthetische Audio-/Permission-Grenzen
+sind kein hörbarer Geräteversuch. Direkte Electron-CLI-Prozessstopps im Code,
+177 gezielte Tests/Root-Nachlauf80 einschließlich echter lokaler Node-Fixtures
+bestanden. Windows nach Eltern-exit meldet unbestätigte Termination; kein echter
+Anbieterprozess/Undo behauptet. P4-Fix am Loopback-Assetserver117/117 einschließlich
+29 tatsächlicher HTTP-Prüfungen grün; Brotli/gzip und exakte Dekompression,
+HEAD/Range und no-store-Fehler geprüft. Separater tatsächlicher HTTP-Nachlauf
+gegen gebauten Renderer grün. Tatsächliches eigenes Minimal-Electron-ASAR
+besteht realpath/HTTP/br/gzip/Range/Cache; kein installiertes vollständiges
+Produktions-/Windows-Paket. Native Quellintegration9090c0d und Electron8eef1a2
+committet/gepusht, beide Remote-Hashes zurückgelesen; Ressourcencheck6/6 bestanden,
+finaler Paint-Nachlauf342 Units/2 UI grün. Push ist keine Auslieferung.
+Keine physische Hör-/Ausführungsabnahme. Keine Installation oder Veröffentlichung,
+kein HEUTE-Claim und kein neuer App-Store-/TestFlight-/Website-Lieferstand
+aus dieser Quellintegration. Sechs weitere Tiere bleiben offen.
+
+**Lieferstand live gelesen, 01.10.2026:** iOS1.5 READY_FOR_SALE,1.6 REJECTED;
+TestFlight204 extern tatsächlich IN_BETA_TESTING.209/208 VALID/internal-only.
+Native Mac-App1.6/216 installiert, aber integrierte Runtime
+`source-69c1e5782442cbeb` weicht vom aktuellen Quellstand
+`source-de226b3463272feb` ab. Äußere Development-Signatur ist gültig, kein
+Developer-ID-/Mac-Store-fertiges Paket. Separater vollständiger Development-
+Kandidat1.6/217 mit aktueller Runtime source-de226b3463272feb gebaut/signiert,
+23 Mach-O und3070 Dateihashes/210134927 B unabhängig geprüft; gleiche private
+Keychain-/Bundle-Identität. Nicht installiert oder gestartet: Cua kann laufendes
+216-Fenster nicht lesen/aufnehmen. Besitzer-iPhone nicht erreichbar.
+Diese Aussagen sind Statusabgleich, keine neue Auslieferung; öffentliche
+Website in dieser Runde nicht verändert oder deployt.
 
 **R220 Liefernachtrag, 29.09.2026 (Claude) — nur Quellstand, nicht deployt:**
 iPhone 1.6 (209) liegt bei Apple in Prüfung; 211–213 sind Ad-hoc-Builds nur für
