@@ -1,5 +1,24 @@
 # PRODUCT_TRUTH.md
 
+## Öffentliche Website nachgewiesen · 01.10.2026, 20:14 Europe/Vienna
+
+**WEBSITE GELIEFERT:** Quelle 144e539 / Pages 36904150560 tatsächlich erfolgreich.
+DE, EN und Status lieferten um 20:06:30 HTTP 200, gzip und exakt die geprüften
+Quellbytes; öffentliche Cache-Grenze max-age=600 / Vary: Accept-Encoding.
+Größtes bestehendes GLB: 1.699.694 übertragene Bytes, keine neuen Medien oder
+Layoutänderungen. Sichtbar sind externes TestFlight 230, öffentliche iOS 1.5
+und keine bestätigte Geräteinstallation. Beleg: QA website230-root.I7YOlw.
+
+**QUELLE, NICHT APP-UPDATE:** Gemini-CAS 6b01619 / 176610a normal gepusht,
+Remote exakt; zusätzlich 348 Pocket-Unit-Tests ohne Fehler oder Skip bestanden.
+Nicht in 230 oder live; keine Hardware- oder Providerabnahme. Medical NONE
+bleibt für die eingebauten Lifestylefunktionen des 230-Umfangs nach dem
+begrenzten Quell- und Apple-Definitionsabgleich begründet. Allgemeine KI- und
+Webantworten sind nicht gefiltert; eine hypothetische Prüfung aller möglichen
+Antworten ist kein Release-Gate. Das ist kein Apple-Vorabentscheid, keine
+Reviewantwort, Neueinreichung oder öffentliche App-Freigabe. Die übrigen
+offenen Punkte des Gesamtplans bleiben bestehen.
+
 ## Tatsächlich externes Update 230 · 01.10.2026, 20:02 Europe/Vienna
 
 **EXTERN TESTFLIGHT VERFÜGBAR:** Apple19:54:10 bestätigt iOS1.6(230), VALID,
