@@ -1,5 +1,39 @@
 # PRODUCT_TRUTH.md
 
+## Tatsächlicher Nachlauf · 01.10.2026, 17:34 Europe/Vienna
+
+**TESTFLIGHT / WEBSITE:** Begleiter ist Standard, klassischer Chat optional
+Einstellungen→Ansicht / Settings→View, gleiche Unterhaltung, Entwurf, Voice und
+Identität. iOS1.6/221 externverifiziert; öffentlichesWebsite-Update separat
+bestätigt. AbschließendesDokumentdeployment a672c6f/Pages36882184650success,
+HTML/Assets/öffentlicheBytes unverändert. Dieser neueNachtrag ist vor seinem
+eigenen Dokumentdeployment zunächst Quelle, keine zusätzliche Lieferung.
+
+**APPLE-NACHRICHT GEKLÄRT, NICHT ÖFFENTLICH FREIGEGEBEN:** Die tatsächliche
+29.09.-Nachricht zu1.6(209) nennt2.3.6 wegen nichtgefundener ParentalControls/
+AgeAssurance. BeidesimexaktabgelehntenEntwurf bereitsfalse; keinneuerFix dafür.
+HealthWellness fürvorhandene221-Gesundheitsfunktionen gezieltfalse→true korrigiert,
+getrennterGET17:30:31 bestätigt und andereeditierbareAngaben erhalten. Keine
+Reviewantwort/-auflösung, Buildzuordnung oderNeueinreichung.1.6 bleibtREJECTED,
+1.5öffentlich; Medical-/UGC-/Web-Begründungen und weitereReleasegates offen.
+Beleg `~/.hunch/qa/apple-age-review.GDzzI9/APPLE-REVIEW.md`/`health-after.json`.
+
+**EXPERIMENTELLE QUELLE:** Meta-Kamerapaketfb88cce mitStop-/Widerruf-/Altrückruf-
+undRetentionfix,45 tatsächlichePakettests(18neue/27Bestand) undechtemDAT1.0/iOSSDK-
+Objektbeleg; unabhängigwiederholt. WeiternichtPocket/Voice-verknüpft undnichtin221;
+keineHardware-/16ms-Zusage. Codex0.154kannRAM-JPEG-dataURI; ephemeral vermeidet
+lokaleRollout/SQLite. ProzessweiterBildcache bleibtP5-Grenze; der tatsächliche
+Hunch-Executive-Bildtransport istnoch nichtimplementiert. Kein Recorderersatz.
+Beleg `~/.hunch/qa/meta-camera-root.lHhpXf/result.json`.
+
+**GERÄTEGET IST KEINE NEUE INSTALLATION:**17:29:39 persönliches iPhone17Pro überWLAN
+erreichbar, bereitsinstallierteHunch1.6/229, dessenQuellstand ungeklärt. Keine
+221-Überinstallation, keinLaunch/Uninstall/Reset oderprivateDateilesung.
+Mac216unverändert,221vollständigerDevelopment-Kandidat/nichtinstalliert;
+keinWindowsinstaller. Nur3experimentelleVögel,6Originalfiguren/Finish/Mimik/LOD
+undganzerRestplan weiteroffen. Beleg `meta-camera-root.lHhpXf/device-before.json`.
+Die früheren datierten Nachrichten-/Gerätegrenzen sind historischeNachweise.
+
 ## Öffentlich geprüfter Website-Nachlauf · 01.10.2026, 17:07 Europe/Vienna
 
 **HEUTE / WEBSITE:** Begleiter-first und Chat optional sind jetzt tatsächlich
