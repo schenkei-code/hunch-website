@@ -1,5 +1,22 @@
 # PRODUCT_TRUTH.md
 
+**Aktuell 01.10.2026, 13:57 — TESTFLIGHT / EXPERIMENTELL / Mac-KANDIDAT:**
+Begleiter-first und optionaler klassischer Chat bleiben dieselbe Engine.
+Neun Originaltiere im Auswahlkatalog, nur drei experimentelle Vogelmodelle
+verfügbar. Native Auswahl-Sheetcrash und Großschriftkopf tatsächlich behoben;
+347 Units/reale375pt/AX5/Screenshotabnahme, Desktop3480PASS/3SKIP/Build und
+fünf Browserfälle. Final iOS1.6/219 tatsächlich extern IN_BETA_TESTING/APPROVED,
+VALID, beide externe Gruppen und DE/EN-Neuigkeiten per GET.218 ist der ältere
+Build mit Auswahlfehler. Mac219 vollständig Development-signiert aus derselben
+Quelle/Runtime,3072Hashes/Signatur unabhängig PASS; noch nicht installiert/
+notarisiert,216 unverändert. Physische iPhones im neuenDevice-GET unavailable.
+Fuchs19/Panda18/Katze20 sind lokale technische Studien, keine zusätzlichen
+fertigen Appfiguren; Originaltreue/Finish/Mimik/LOD und sechs Appmodelle offen.
+Kein neuer Geräte-/Voice-/Health-Ingest-/Windows-/öffentlicher Release oder
+Website-Deployment aus diesem Code-/Testnachweis. Cua-Desktopbild tatsächlich
+schwarz; Apples vollständige öffentliche Ablehnungsnachricht weiter offen.
+Nachweis `~/.hunch/qa/companion-nine-catalogue.5iNgAw/EVIDENCE.md`.
+
 **Folgenachweis01.10.2026,13:15 — EXPERIMENTELL / Mac-Kandidat:**
 Mac218 ist vollständig mit identischer Runtime7c71734 verifiziert, aber nur
 Development-Kandidat: nicht installiert/notarisiert/öffentlich angeboten,
