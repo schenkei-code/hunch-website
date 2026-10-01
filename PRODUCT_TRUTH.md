@@ -1,6 +1,6 @@
 # PRODUCT_TRUTH.md
 
-**Aktuell 01.10.2026, 13:57 — TESTFLIGHT / EXPERIMENTELL / Mac-KANDIDAT:**
+**Aktuell 01.10.2026, 14:21 — TESTFLIGHT / EXPERIMENTELL / Mac-KANDIDAT:**
 Begleiter-first und optionaler klassischer Chat bleiben dieselbe Engine.
 Neun Originaltiere im Auswahlkatalog, nur drei experimentelle Vogelmodelle
 verfügbar. Native Auswahl-Sheetcrash und Großschriftkopf tatsächlich behoben;
@@ -10,8 +10,11 @@ VALID, beide externe Gruppen und DE/EN-Neuigkeiten per GET.218 ist der ältere
 Build mit Auswahlfehler. Mac219 vollständig Development-signiert aus derselben
 Quelle/Runtime,3072Hashes/Signatur unabhängig PASS; noch nicht installiert/
 notarisiert,216 unverändert. Physische iPhones im neuenDevice-GET unavailable.
-Fuchs19/Panda18/Katze20 sind lokale technische Studien, keine zusätzlichen
-fertigen Appfiguren; Originaltreue/Finish/Mimik/LOD und sechs Appmodelle offen.
+Fuchs19/Panda18/Katze20/Hund22/Hase23/Bär24 und Eulenfinish21 sind lokale
+technische Studien, keine zusätzlichen fertigen Appfiguren; Originaltreue/
+Finish/Mimik/LOD und sechs Appmodelle offen. Drei tatsächlich paketierte219-
+USDZ lokal unverändert reimportiert, Iris/Pupillen sichtbar; der native
+SceneKit-Spieler und das iPhone sind dadurch nicht abgenommen.
 Kein neuer Geräte-/Voice-/Health-Ingest-/Windows-/öffentlicher Release oder
 Website-Deployment aus diesem Code-/Testnachweis. Cua-Desktopbild tatsächlich
 schwarz; Apples vollständige öffentliche Ablehnungsnachricht weiter offen.
