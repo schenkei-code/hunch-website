@@ -1,5 +1,25 @@
 # PRODUCT_TRUTH.md
 
+## Runtime geliefert, Appstände getrennt · 01.10.2026, 20:27 Europe/Vienna
+
+**RUNTIME AKTIV:** a95e8ac / source-d9cc27391d21e5b7 wurde am bestehenden
+privaten Dienst tatsächlich geladen; Root-GET20:25:54, Doctor zehn grün,
+Gemini-Sessionoperationen und gzip/private-no-store/Vary bestätigt. 2.149 volle
+Tests, 254 unabhängige Zieltests sowie gebündeltes SQLite3.53.1 bestanden.
+Die nachgefundene P2-Schleife im Stop-Cleanup ist behoben. Das ist kein
+nativer Voice-/ASR-/Kamera-/Provider- oder Geräte-End-to-End-Nachweis.
+
+**APPSTÄNDE UNVERÄNDERT:** iOS230 extern in TestFlight, keine bestätigte
+Installation. Mac230 samt früherem d37-Runtimepaket im privaten Development-
+Kanal bereit, nicht installiert; zuletzt216. Neuer nativer CAS-Code sowie
+isolierte Human-ASR-/JPEG-Adapter noch nicht in230/Voice integriert. Öffentliche
+iOS-Version zuletzt1.5; Public1.6, Windows und übriger Gesamtplan offen.
+
+Voriger Dokumentstand9ab3f82 ist nachweisbar öffentlich: Pages36905808063
+success, HTTP200/gzip/exakte Quellbytes20:23:03. HTML/Assets unverändert;
+dieser neue Nachtrag ist bis zum eigenen Deploymentnachweis nur Quelle.
+QA gemini-batch-root.y5kapq und website230-root.I7YOlw/DOC-LIVE.json.
+
 ## Öffentliche Website nachgewiesen · 01.10.2026, 20:14 Europe/Vienna
 
 **WEBSITE GELIEFERT:** Quelle 144e539 / Pages 36904150560 tatsächlich erfolgreich.
