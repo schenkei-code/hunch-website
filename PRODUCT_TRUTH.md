@@ -1,5 +1,22 @@
 # PRODUCT_TRUTH.md
 
+**Liefernachtrag01.10.2026,15:06:** neuer Providerquellen-Backendstand1349c8d
+tatsächlich live source-f92ad7c756a4635a, Doctor10/10/echte gzip-private-no-store.
+Native FinalQA347PASS und20DE/ENBundleentries, Produktcommitd298990;220-Archiv
+erst im Build, keineBetaverfügbarkeit/Installation.219 bleibt die echteBeta,
+Mac216 installiert/220Kandidat in Paketierung, öffentliche1.5 unverändert.
+
+**Aktuell01.10.2026,15:02 — QUELLE / LOKALE QA, NOCH NICHT NEU AUSGELIEFERT:**
+Begleiter Standard/klassischer Chat optional bereits in externer219-Beta.
+Neuer begrenzter Providerquellen-Pull und persönliche Ownerbindung:52/1895
+Runtime-Tests/Read-only-Review PASS, noch nicht live. Native Importanzeige mit
+vorhandener Brain-Freigabe, unbestätigte Quellen nicht als automatische Fakten;
+enger Iris-Materialexport der drei Vögel, vollerBuild/347Units PASS. Katalog-
+Folgelauf nach fünf DE/EN-Strings läuft; Desktop-Logout-/Scope-/Provenienzfixes
+noch vor finalem Review. Keine neun fertigen Figuren, keine neue öffentliche
+Version/Websiteauslieferung oder220-/Hardwareabnahme. Mac216 bleibt installiert,
+219 Development-Kandidat, öffentliche1.5 und Apple1.6-Abweisung weiter separat.
+
 **Aktuell 01.10.2026, 14:21 — TESTFLIGHT / EXPERIMENTELL / Mac-KANDIDAT:**
 Begleiter-first und optionaler klassischer Chat bleiben dieselbe Engine.
 Neun Originaltiere im Auswahlkatalog, nur drei experimentelle Vogelmodelle
