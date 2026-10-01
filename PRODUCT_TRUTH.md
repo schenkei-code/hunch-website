@@ -1,5 +1,15 @@
 # PRODUCT_TRUTH.md
 
+**Folgenachweis01.10.2026,13:15 — EXPERIMENTELL / Mac-Kandidat:**
+Mac218 ist vollständig mit identischer Runtime7c71734 verifiziert, aber nur
+Development-Kandidat: nicht installiert/notarisiert/öffentlich angeboten,
+Mac216 unverändert.3072Hashes/210450253B/23MachO/32Imports; Root zusätzlich
+sieben paketierte Builtins an anonymem SQLite, keine Besitzer-/Voice-Abnahme.
+Beleg ~/.hunch/qa/mac218-capability.l31dSQ/EVIDENCE.md.
+Fuchs17/v4 echte lokale 3D-Studie, noch keine Originaltreue-Freigabe oder
+App-Integration. Maskenfinish19 und Panda18 in Arbeit; TestFlight218 enthält
+weiterhin drei experimentelle Vögel. Kein Website-Deployment/öffentlicher Release.
+
 **Maßgeblicher Nachtrag01.10.2026,13:07 — TESTFLIGHT / EXPERIMENTELL:**
 iOS1.6/218 ist tatsächlich extern verfügbar: VALID/IN_BETA_TESTING/
 BetaReviewAPPROVED, beide externe Gruppen und DE/EN-Neuigkeiten per GET.
