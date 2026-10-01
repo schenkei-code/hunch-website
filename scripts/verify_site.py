@@ -396,23 +396,27 @@ def main() -> int:
                 errors.append(f"{label}: überholter öffentlicher Claim: {stale}")
         delivery = re.search(r'<p\b[^>]*\bid="delivery-status"[^>]*>(.*?)</p>', source, re.S)
         for fact in (
-            'data-checked="2026-10-01T19:54:10+02:00"',
-            'data-public-checked="2026-10-01T16:49:46+02:00"',
-            'data-public-ios="1.5"', 'data-testflight-build="230"',
+            'data-checked="2026-10-01T22:24:19+02:00"',
+            'data-public-checked="2026-10-01T22:28:19+02:00"',
+            'data-public-ios="1.5"', 'data-testflight-build="234"',
             'data-device-installation="not-verified"',
         ):
             if delivery is None or fact not in delivery.group(0):
                 errors.append(f"{label}: datierter Liefernachweis fehlt: {fact}")
-        for visible_fact in ("iOS 1.5", "TestFlight 1.6 (230)", "19:54:10 CEST"):
+        for visible_fact in ("iOS 1.5", "TestFlight 1.6 (234)", "22:24:19 CEST", "22:28:19 CEST"):
             if delivery is None or visible_fact not in delivery.group(1):
                 errors.append(f"{label}: sichtbarer Liefernachweis fehlt: {visible_fact}")
         for boundary in (
             r"drei experimentelle Vogelmodelle|three experimental bird models",
             r"sechs (?:sind )?noch nicht fertig|six are not finished",
-            r"Meta-Mitsehen und weitere Voice-Fixes sind nicht Teil von Build 230|"
-            r"Meta live vision and further Voice fixes are not part of build 230",
-            r"Mac 230 liegt nur im privaten Development-Updatekanal|"
-            r"Mac 230 is only in the private development update channel",
+            r"Meta-Mitsehen und die neue Health-Runtime sind nicht Teil von Build 234|"
+            r"Meta live vision and the new Health runtime are not part of build 234",
+            r"Mac 231 liegt nur im privaten Development-Updatekanal|"
+            r"Mac 231 is only in the private development update channel",
+            r"Gemini-Sprachauftrag ab iOS 26 experimentell|"
+            r"Gemini spoken command is experimental on iOS 26",
+            r"echte Voice- und Hintergrundtests am Gerät stehen aus|"
+            r"actual Voice and background device tests remain open",
         ):
             if delivery is None or not re.search(boundary, delivery.group(1)):
                 errors.append(f"{label}: aktuelle Auslieferungsgrenze fehlt: {boundary}")

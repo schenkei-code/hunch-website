@@ -1,5 +1,103 @@
 # PRODUCT_TRUTH.md
 
+## Health-/Abendbericht-Runtime tatsächlich aktiviert · 01.10.2026, 22:37 Europe/Vienna
+
+Commit81fef70fb537744b2f272595128c185cbe2e12ef normal gepusht und per
+ls-remote exakt bestätigt; ausschließlich eigene20Dateien, fremde15Marketing-
+Journalzeilen bleiben unstaged. Kontrollierter SIGTERM nur für den vorhandenen
+Hunch-Runtime-LaunchAgent, Plist/Wrapper/KeepAlive unverändert.
+Frischer TLS-GET22:37:02: PID70545, source-a7384bbac705bd55 exakt geprüfte
+Quelle, Doctor10grün, null laufendeFäden/null offeneFreigaben. Status/Doctor/
+OpenAPI tatsächlichHTTP200/gzip/private-no-store/Vary; persönliche Voice-
+Konfiguration mit bloßem Betriebsauth weiterhin403. QA health-live-81fef70.FWBgHx.
+
+Keine Mikrofon-/Bildschirm-/Lernfreigabe hinzugefügt, keine privaten Health-
+Werte oder Providerantworten ausgelesen. Dieser Nachweis betrifft den geladenen
+Runtime-Stand, nicht den tatsächlichen Abendbericht-/APNs-/Voice-/Geräteablauf.
+Die separat benannte dauerhafte Importbeleg-Outbox und alle übrigen offenen
+Goalpunkte bleiben in Arbeit. TestFlight234 und öffentlicherAppStore1.5 sind
+eigene Lieferstände; Mac235 noch nicht gebaut/installiert.
+
+
+## Health- und Abendbericht-Quelle abschließend geprüft · 01.10.2026, 22:35 Europe/Vienna
+
+Finaler Freeze a18b380 der sechzehn Produkt-/Test-/Guarddateien:
+2.419 PASS, zwei bekannte Host-SKIP, null Fehler/Guard-Verstöße, Exit0;
+97 gezielte Tests und unabhängiger P1–P5-Review bestanden.
+QA ultrahuman-range-batch.qx1cod/FINAL-RESULT.txt und
+health-batch-peer.moFWLi/EVIDENCE.md. UTC-Puffer, Einheiten und expliziter
+Schlaf-Finalitätsnachweis korrigiert. Einmalige atomare Migration markiert
+nur bisherige Ultrahuman-Finalitäten als erneut prüfbar; gespeicherte
+Messwerte, Zeitstempel, Apple-Health-Finalitäten und Sync bleiben erhalten.
+
+Purpose-bound Health-Import und generischer Tagesabschluss-Inboxhinweis
+sind im geprüften Quellstand angeschlossen. Revisionen werden begrenzt
+vorgehalten; echte 1/16 Empfänger benötigen jeweils nur einen Revision-SELECT.
+Kein automatisches neues Mikrofon-/Bildschirm-/Lernrecht. Noch kein Live-
+Neustart dieser Quelle, kein privater Provider-Mehrtagesnachweis und keine
+dauerhafte Cross-Store-Receipt-Outbox. Ein fehlender Importbeleg ist nicht
+mit Verlust gespeicherter Health-Messwerte gleichzusetzen.
+
+Externes TestFlight bleibt nach tatsächlicher Apple-Freigabe 1.6/234;
+öffentliche iOS-Version beim frischen GET22:28 weiter1.5, 1.6 REJECTED.
+Mac231 privater Development-Kanal bereit, nicht als installiert belegt.
+Das neue vollständige Mac-Paket wird separat vorbereitet. iPhone4016 und
+fehlender lesbarer Mac-GUI-Zugriff verhindern weiterhin den echten
+Voice-/Hintergrund-/Geräteabschluss. Gesamtgoal und übrige Restmatrix aktiv.
+
+
+## TestFlight234 extern verfügbar · 01.10.2026, 22:24 Europe/Vienna
+
+Apple hat iOS1.6/234 verarbeitet und extern freigegeben. Frischer exakter
+Build-GET22:24:19: VALID, nicht abgelaufen, intern und extern IN_BETA_TESTING,
+Beta-Review APPROVED, beide eigenen externen Gruppen verifiziert, DE/EN-
+Testhinweise exakt. Build-ID8bfa48da-6ac5-4b5e-a952-a9818412f98e;
+QA ios234-voice-release.9QXMhm/beta-final-readback.json.
+Testzugang: https://testflight.apple.com/join/xEn2bN4v.
+Keine Änderung des öffentlichen App-Store-Standes und keine bestätigte
+Installation. Direkter iPhone-Zugriff liefert weiterhin CoreDevice4016.
+
+234 enthält die neue experimentelle Gemini-Sprachauftrag-Anbindung abOS26
+und die bisherigen Chat-Fixes. Es enthält weder die neue Health-Runtime
+noch weitere Figuren. Die Ursache des konkreten Screenshots aus229 ist
+weiterhin nicht am Originalgerät nachgewiesen. Kein pauschaler Voice-End-to-End-
+oder Hintergrund-PASS aus396 Simulator-Tests oder Apple-Freigabe.
+
+Der Health-Review fand zusätzlich zu den UTC-Grenzen eine echte Finalitäts-
+und Altbestandslücke. Gültige Teilwerte dürfen erhalten bleiben, aber fehlender
+Schlaf-Finalitätsnachweis darf ältere Tage nicht dauerhaft vom Nachladen
+ausschließen. Enger Fix und einmalige, atomare Ultrahuman-final-Invalidierung
+ohne Löschung der Werte sind in Arbeit; neuer vollständiger Freeze/Review folgt.
+Aktive Runtime zuletzt a95, privater Mac-Kanal231 nicht installiert.
+Gesamtgoal einschließlich übriger Aufgaben bleibt aktiv.
+
+## iOS234 tatsächlich hochgeladen · 01.10.2026, 22:17 Europe/Vienna
+
+iOS 1.6/234 wurde um 22:14 erfolgreich zu Apple hochgeladen: tatsächlicher
+Xcode-Export/Upload Exit0, „EXPORT SUCCEEDED“. Der signierte native Stand
+4de433b entspricht bei App-/Test-/PBX-Quellen dem mit396 Tests geprüften
+UI-Stand4be8f04. Alle sechs Targets behalten Identität, Keychain/AppGroups,
+Profile und vollständige Entitlements des Builds230; Versionsänderung234,
+Hintergrundaudio erhalten. Archiv und tatsächliche Signaturen unabhängig geprüft.
+Dies ist noch kein TestFlight-, Installations- oder öffentlicher Releasebeleg:
+Apple listet234 bei der letzten Abfrage22:17 noch nicht. ExterneBeta230 bleibt
+bis eigener neuer Bestätigung der verfügbare Teststand.
+
+Der saubere UI-Zweig4be8f04 wurde normal veröffentlicht und per Remote-SHA
+bestätigt. Kanonische XcodeGen-Erzeugung ebenfalls Exit0 mit allen acht Targets,
+ohne Originalquellen/Info/Entitlements zu verändern. Website-Status239925f
+tatsächlich Pages36919307004 success;22:11 HTTP200/gzip, dokumentierte Bytes
+exakt zur Quelle. HTML und Assets unverändert; kein öffentlicher Apprelease
+allein aus diesem Web-Nachweis.
+
+Ultrahuman-Range/Einheiten wurden separat korrigiert. Der erste neue Gesamt-
+lauf besteht2408 Tests mit2 bekannten Host-SKIP; er ist ausdrücklich nur
+Vorlauf vor dem nachträglichen UTC-Randfix. Der strikt innen liegende−15h/+13h-
+Puffer und seine Regression erhalten einen neuen Freeze und vollständigen Lauf.
+Noch keine Aktivierung dieser Health-Quelle; Runtime bleibt zuletzt a95.
+Dauerhafte Health→Abendbericht-Outbox, reale Geräteprüfungen, Windows und
+die gesamte übrige Restmatrix bleiben offen. Gesamtgoal aktiv.
+
 ## Abschließender Quelltest · 01.10.2026, 22:04 Europe/Vienna
 
 Native4de433b und sauberer UI-Stand4be8f04 sind für die18 App-/Test-/PBX-
