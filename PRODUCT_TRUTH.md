@@ -1,6 +1,6 @@
 # PRODUCT_TRUTH.md
 
-## Runtime geliefert, Appstände getrennt · 01.10.2026, 20:27 Europe/Vienna
+## Aktueller Code-/Test-/Lieferstand · 01.10.2026, 20:49 Europe/Vienna
 
 **RUNTIME AKTIV:** a95e8ac / source-d9cc27391d21e5b7 wurde am bestehenden
 privaten Dienst tatsächlich geladen; Root-GET20:25:54, Doctor zehn grün,
@@ -9,16 +9,27 @@ Tests, 254 unabhängige Zieltests sowie gebündeltes SQLite3.53.1 bestanden.
 Die nachgefundene P2-Schleife im Stop-Cleanup ist behoben. Das ist kein
 nativer Voice-/ASR-/Kamera-/Provider- oder Geräte-End-to-End-Nachweis.
 
-**APPSTÄNDE UNVERÄNDERT:** iOS230 extern in TestFlight, keine bestätigte
-Installation. Mac230 samt früherem d37-Runtimepaket im privaten Development-
-Kanal bereit, nicht installiert; zuletzt216. Neuer nativer CAS-Code sowie
-isolierte Human-ASR-/JPEG-Adapter noch nicht in230/Voice integriert. Öffentliche
-iOS-Version zuletzt1.5; Public1.6, Windows und übriger Gesamtplan offen.
+**GEPRÜFTE QUELLE, KEIN NEUES VOICE-FEATURE:** Native App-/Test-/Projektbytes
+edd0ee7 exakt veröffentlicht als8bd9637, normaler Push/Remote bestätigt.
+378 tatsächliche Full-App-Simulator-Tests/0FAIL/0SKIP. Core/Apple/JPEG sind
+im Pocket-Target, aber noch nicht im aktiven Engine-/ASR-/Kameraweg. Kein
+SpeechFactory-/Mikrofon-/Provideraufruf, Modelldownload oder Hardwarebeweis.
+Coordinator separat in Arbeit; iOS17/macOS14 erhalten, AppleFinalizer nur26.
 
-Voriger Dokumentstand9ab3f82 ist nachweisbar öffentlich: Pages36905808063
-success, HTTP200/gzip/exakte Quellbytes20:23:03. HTML/Assets unverändert;
-dieser neue Nachtrag ist bis zum eigenen Deploymentnachweis nur Quelle.
-QA gemini-batch-root.y5kapq und website230-root.I7YOlw/DOC-LIVE.json.
+**LIEFERUNG GETRENNT:** iOS230 extern in TestFlight, diese neuen Quellen nicht
+darin und keine bestätigte Installation. Mac230 mit früherer d37-Runtime im
+privaten Development-Kanal bereit/nicht installiert; zuletzt216. Mac231/8bd/a95
+nur zum isolierten Development-Aufbau freigegeben, noch kein abgeschlossener
+Paket-/Kanal-/Installationsnachweis. Mac-Keychain/Seed-Entitlements unverändert,
+kein dort nicht vorhandenes AppGroups-Feld erfinden. iPhone20:47 erneut4016,
+Cua20:39 null AXElements. Öffentliche iOS-Version zuletzt1.5; Public1.6,
+Windows und gesamter übriger Plan weiter offen. Kein blindes Bundle-Replacing.
+
+Voriger Dokumentstand6718474 ist nachweisbar öffentlich: Pages36907412948
+success, HTTP200/gzip/exakte Quellbytes20:36:06. HTML/Assets unverändert144e539;
+dieser Nachtrag ist bis zu seinem eigenen Deploymentnachweis nur Quelle.
+QA voice-adapters-app.jUPqXM/EVIDENCE.md, gemini-batch-root.y5kapq,
+iphone230-refresh.xpBaWu und website230-root.I7YOlw/DOC-RUNTIME-LIVE.json.
 
 ## Öffentliche Website nachgewiesen · 01.10.2026, 20:14 Europe/Vienna
 
