@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="description" content="Hunch privacy information: local storage, chosen AI and Voice providers, connected computers, optional permissions and your data rights.">
+  <title>Privacy — hunch</title>
+  <link rel="stylesheet" href="../../assets/support.css">
+  <style>h1 { font-size: 1.5rem; } p { overflow-wrap: anywhere; }</style>
+</head>
+<body>
+  <a class="skip-link" href="#content">Skip to content</a>
+  <header class="site-header">
+    <nav class="wrap header-inner" aria-label="Main navigation">
+      <a class="wordmark" href="../" aria-label="hunch — Home">hunch</a>
+      <a href="../../privacy/" lang="de" hreflang="de">Deutsch</a>
+    </nav>
+  </header>
+  <main class="wrap" id="content" tabindex="-1">
+    <h1>Privacy</h1>
+    <p class="lead">Hunch processes personal content on your device, on a connected computer and — depending on your choice — with AI and Voice providers. This page explains which data takes which route and which permissions you can control.</p>
+    <p>This information covers Hunch on iPhone, iPad and Mac and this website. The actual route depends on your installed version, configured connections and the function you choose. A description does not promise that every function is available in every version.</p>
+
+    <section aria-labelledby="controller" data-topic="controller">
+      <h2 id="controller">Responsibility & contact</h2>
+      <p>Responsible for Hunch and this website: Dominik Schenkel. For privacy questions and requests about your data, contact him here:</p>
+      <a class="contact" href="mailto:schenkei@hunchagent.io" aria-label="schenkei@hunchagent.io"><span class="contact-value">schenkei@hunchagent.io</span></a>
+      <p>A computer operated by you or someone else and services you choose are separate data routes. Their operators and providers determine their respective processing terms. Connecting them does not make these systems storage operated exclusively by Hunch.</p>
+    </section>
+
+    <section aria-labelledby="local" data-topic="local">
+      <h2 id="local">On your device</h2>
+      <p>Depending on how you use it, Hunch stores your identity profile, device and connection identifiers, settings, permissions, chat history and Brain content, such as memories, tasks and goals. These support your connections, continuing conversations and personal context.</p>
+      <p>API keys and connection tokens are managed in the Keychain. This does not mean that all chat or Brain content is stored in the Keychain or automatically shares the same protection and deletion conditions. Local content, system backups and copies on other devices are separate.</p>
+    </section>
+
+    <section aria-labelledby="ai" data-topic="ai">
+      <h2 id="ai">Chat & AI providers</h2>
+      <p>For an AI response, your message, attachments, conversation history and personal context may be sent to the selected recipient. Context may include identity, memories and tasks from the Brain. Recipients can be a connected computer and its model provider or a directly configured service, such as OpenAI, Anthropic, Google or your own model endpoint.</p>
+      <p>Chat consent shows the recipients before sending and covers the particular data route. It does not replace separate Brain, Health or Voice consent. Apple On-Device processes the model call on your device; another function used at the same time may still have its own network route.</p>
+      <p>Cloud providers receive the content included in the call and technical connection data. Their own privacy policies and terms govern storage and further processing, among other things. Depending on the provider, processing may also take place outside the EU and EEA. Check these terms when choosing a provider; a local Hunch setting does not replace them.</p>
+    </section>
+
+    <section aria-labelledby="computer" data-topic="computer">
+      <h2 id="computer">Computer & Brain</h2>
+      <p>You permit memory synchronisation for your active computer under “Agent-Runtime → Gedächtnis-Abgleich” (memory sync). It also transfers existing memories, tasks, goals, conversation titles and chat messages. Further changes may be synchronised while this permission remains active.</p>
+      <p>On your own computer, processing takes place in the environment you configured. On a shared computer or one operated by someone else, its operator and configured providers may process the data you share. An invitation does not create a separate private profile there. Only share with an operator you trust.</p>
+    </section>
+
+    <section aria-labelledby="voice" data-topic="voice">
+      <h2 id="voice">Voice & recordings</h2>
+      <p>A Voice conversation you deliberately start transmits microphone audio according to the source: to OpenAI, for example GPT-Live through your computer’s ChatGPT subscription, to Google Gemini, to a model on your computer or to a custom bridge. The start consent shows the configured route. A model on your computer is not necessarily local: it may itself call a cloud service.</p>
+      <p>Depending on your settings, identity, speaking style and chat context are included. Transcripts may be stored in the chat or Brain. Conversation recordings may use Apple speech recognition. Microphone permission, recording, storage and recipient consent are different decisions.</p>
+      <p>If you separately and deliberately permit images or screen context for Voice, that image content may be sent to the AI or Voice recipient chosen for this route. Visible documents, messages or other people may be part of the content. Microphone permission does not automatically permit this image route or mean permanent access to every app or screen. Which image source can be used depends on the version, operating system and connected source.</p>
+      <p>Microphone permission does not mean unrestricted access to phone calls or promise that Hunch can record in the background at all times. This depends on the operating system, source and active mode. Respect other participants’ privacy and obtain any required consent when recording conversations.</p>
+    </section>
+
+    <section aria-labelledby="keyboard" data-topic="keyboard">
+      <h2 id="keyboard">Keyboard</h2>
+      <p>Ordinary typing does not automatically trigger an AI call. The Hunch keyboard’s AI route requires “Allow Full Access” in iOS. You also deliberately trigger style correction or a writing instruction.</p>
+      <p>Style correction sends the entire text in the field you are editing to your computer, not just the last character typed. A writing instruction also includes your instruction. The computer forwards this content to the language model selected there. That recipient’s terms apply; “Full Access” does not promise that this route stays only on your iPhone.</p>
+    </section>
+
+    <section aria-labelledby="health" data-topic="health-calendar">
+      <h2 id="health">Calendar & health</h2>
+      <p>Calendar access is optional. A permitted calendar event’s title and start time may be stored as a task in the Brain. Those tasks may also reach the computer through a permitted Brain sync.</p>
+      <p>Hunch reads only the Apple Health data you permit. Permission to read Health data on the device and permission to share it with the computer are separate. A Health sync may transfer health measurements, sleep times and stages, and source and device names for the last seven days. Recipient consent alone does not enable automatic transfer.</p>
+      <p>If an Ultrahuman integration is already configured on your connected computer, the runtime may retrieve ring data for Health. The requested time range and configured account email are sent to the Ultrahuman partner API. The access token is retrieved from the computer’s Keychain and used to authenticate this request. This route is separate from Apple Health read permission on your iPhone; whether it can be used depends on configuration and access. Ultrahuman’s own terms apply to its processing.</p>
+      <p>This data may be used for your displayed health summaries and personal context. Measurements, missing data and model assumptions are not the same. An impression inferred from context is not an established medical diagnosis. Share health data only through the route you want.</p>
+    </section>
+
+    <section aria-labelledby="control" data-topic="retention-rights">
+      <h2 id="control">Control & deletion</h2>
+      <p>Under “Identität & Memory” (identity and memory), you manage saved content and the retention and deletion options offered for it. The actual period depends on the content, your settings, the storage location and, where relevant, the recipient’s terms. There is no single retention period for all devices and providers.</p>
+      <p>Chat consent, Brain sync, Health sharing, Voice settings and system permissions can be changed separately. Turning off or revoking permission ends the relevant future data route; it does not delete copies already sent to a recipient. Removing a device does not automatically delete provider data or backups either.</p>
+      <p>For a deletion request, identify the affected route where possible, such as local memories, the connected computer or an AI provider. Do not send passwords, tokens or full private histories. For copies controlled by another operator or provider, a separate request to that recipient may also be necessary.</p>
+      <p>Where the General Data Protection Regulation applies, its conditions provide rights including access, rectification, erasure, restriction, data portability and objection. You can withdraw consent for future processing. You can also complain to a competent data protection authority.</p>
+      <p><a href="https://commission.europa.eu/law/law-topic/data-protection/information-individuals_en">Data rights at the European Commission</a></p>
+      <p>Send requests to Hunch using the contact above. Your request is used to handle it and, if necessary, appropriately verify your entitlement. Hunch cannot promise the immediate deletion of every copy held by others.</p>
+    </section>
+
+    <section aria-labelledby="website" data-topic="website">
+      <h2 id="website">This website</h2>
+      <p>This privacy information is served as a public HTML page identical for every visitor. The page embeds no analytics, trackers, external fonts or scripts and does not read your Hunch memory.</p>
+      <p>When you request the page, the hosting service technically receives your IP address and request data, such as the time, requested address and browser information. This is separate from your app content and serves website delivery and operation. Storage and processing by the hosting service are governed by its terms.</p>
+      <p>The email link opens your email app; your message is transferred only when you send it. Other links open their respective websites, whose own privacy information applies.</p>
+    </section>
+  </main>
+  <footer class="wrap site-footer">
+    <p class="provenance">hunchagent.io / privacy · Updated 02 October 2026</p>
+    <nav aria-label="More pages">
+      <a href="../support/">Support</a>
+      <a href="../">Home</a>
+    </nav>
+  </footer>
+</body>
+</html>
